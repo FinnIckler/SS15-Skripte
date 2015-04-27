@@ -1,0 +1,62 @@
+\underline{Substitutionsmodell}\\
+\underline{Reduktionsregeln} f\"ur Scheme (Fallunterscheidung je nach Ausdr\"ucken) wiederhole, bis keine Reduktion mehr m\"oglich\\
+\begin{tabular}{llc}
+$-$literal (1, ``abc``, $\#$t, $\ldots$)& l \eval l &$[\text{eval}_{lit}]$\\
+$-$Identifier id(pi, clock-face,$\ldots$)& id \eval gebundene Wert& $[\text{eval}_{id}]$\\
+$-$lambda Abstraktion &(lambda ($\ldots ) \ldots$) \eval lamba($\ldots) \ldots)$ & $[\text{eval}_{\lambda}]$\\
+$-$Applikationen (f $e_1$ $e_2 \ldots$)\\
+\end{tabular}
+\begin{equation}
+f,e_1,e_2 \text{ reduzieren erhalte:} f`,e_1`,e_2`\\
+\end{equation}\\
+(2)
+$\begin{cases}
+\text{Operation }f`\text{ auf }e_1` \text{ und } e_2` \ [\text{apply}_{prim}] &\mbox{falls } f`\text{ primitiv ist}\\
+\text{Argumentenwerte in den Rumpf von} f`\text{ einsetzen, dann reduzieren }&\mbox{falls } f`\text{ lambda Abstraktion}
+\end{cases}$\\
+\linie\\
+Beispiel:\\
+(+ 40 2) $\text{\eval}_{eval id}$ (\# \auf procedure +\zu 40 2) \eval 42\\
+\linie\\
+\begin{tabular}{rcl}
+(position-minute-hand 30) &$\text{\eval}_{\text{eval id}}$& ((lambda (m) (* degrees-per-minute m)) 30)\\
+&$\text{\eval}_{\text{eval lambda}}$&(* degrees-per-minute 30)\\
+&$\text{\eval}_{\text{eval id}}$&(\# \auf procedure *\zu $\frac{360}{60}$ 30)\\
+&$\text{\eval}_{\text{apply prim}}$&180\\
+\end{tabular}\\
+Bezeichnen (lambda (x) (* x x)) und lambda (r) (* r r) die gleiche Prozedur? $\Rightarrow$ JA!\\
+Achtung: Das hat Einflu\ss \ auf das Korrekte Einsetzen von Argumenten f\"ur Prozeduren (siehe apply)\\
+\linie\\
+Das \underline{bindene Vorkommen} eines Identifiers id kann im Programmtext systematisch bestimmt werden: Suche strikt von innen nach au\ss en, bis zum ersten
+\begin{enumerate}[(1)]
+\i (lambda (r) \auf Rumpf\zu
+\i (define \auf e\zu)
+\end{enumerate}
+Prinzip der \underline{lexikalische Bindung}\\
+\linie\\
+\"Ubliche Notation in der Mathematik:\underline{Fallunterscheidung}\\
+$max(x_1,x_2) =
+\begin{cases}
+x_1 &\text{ falls } x_1 \geq x_2\\
+x_2 &\text{ sonst } 
+\end{cases}$\\
+\underline{Tests} (auch Pr\"adikate) sind Funktionen, die einen Wert der Signatur boolean liefern. Typische primitive Tests.\\
+(: = (number number -> boolean))\\
+(: \auf (real real -> boolean))\\
+auch $>,<=,>=$\\
+(: String=? (string string -> boolean))\\
+auch string$>$?, string$<=?$\\
+(: zero? (number -> boolean))\\
+odd?,even?,positive?,negative?\\
+Bin\"are Fallunterscheidung \underline{if}\\
+$\begin{array}{lcl}
+if\\
+& <e_1>& \t{Mathematik:}\\
+& <e_2>& \begin{cases}e_1& \t{falls } t_1\\
+					  e_2& \t{sonst}
+\end{cases}\\
+& <e_2>)
+\end{array}$
+
+
+
