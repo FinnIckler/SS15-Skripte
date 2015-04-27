@@ -551,7 +551,40 @@ Sei im Folgenden $(a_n)_{n \geq k}$ eine strikt positive Folge.\\
 \mathbb{O}(a_n) &=& \{ (b_n)_{n \geq k} : \text{ist beschränkt} \}\\
 &=& \{ (b_n)_{n \geq k} \exists C > 0 \text{ mit } \abs{b_n} \leq C \cd a_n \}
 \end{array}$
-\i $ \mathbb{o}(a_n) = \{b_n)-{n \geq k}: (\frac{b_n}{a_n} \text{ist Nullfolge} \}\\
-(b_n) \in \mathbb{w}$
+\i $O(a_n) = \{b_n)-{n \geq k}: (\frac{b_n}{a_n} \text{ist Nullfolge} \}\\
+(b_n) \in o(a_n)$ hei\ss t Folge $(a_n)$ wächst wesentlich schneller als die Folge $(b_n)$.
+Klar: $o(a_n) \subset O(a_n)\\
+O,o ($ \glqq gro\ss \ Oh\grqq, \glqq klein Oh\grqq)\\
+\underline{Landau-Symbole}\\
+$\begin{array}{lcrll}
+\text{z.B}& (n^2) &\in& o(n^3)\\
+& (n^2+n+1) &\in& O(n^2) & n^2 + n + 1 \leq 3n^2\\
+& (n^2) &\in& n^2 \leq n^2 + n + 1
+\end{array}\\
+O(1) =$ Menge der beschränkten Folgen\\
+$o(1)=$ Menge aller Nullfolgen\\
+Häufig gewählte schreibweise:\\
+$n^2 \underbrace{=}_{\text{eig. falsch!}} o(n^2)$ statt $(n^2) \in o(n^3)\\
+n^2+n+1 =O(n^2)$ statt $(n^2+n+1)$
 \end{enumerate}
+\subsection{Satz}
+Sei $P(x) = a_m \cd x^m + \ldots + a_1 \cd x + a_o, m \geq 0, a_m \not = 0$.
+\begin{enumerate}[a)]
+\i $(P(n)) \in o(n!)$ für alle $l>m$ und\\
+$(P(n)) \in O(n')$ für alle $l \geq m$.
+\i ist $r > 1$, so ist $(P(n)) \in o(r^n).\\
+\lbrack(r^n)$ wächst deutlich schneller als $(P(n))\rbrack$\\
+\begin{proof}
+a) folgt aus 2.9e).\\
+$m = l$ (2.6)\\
+b) folgt aus 2.9d) und 2.8 b)c)
+\end{proof}
+\end{enumerate}
+\subsection{Bemerkung}
+Algorihmus:\\
+Sei $t_n =$ maximale Anzahl von Reihenschritten des Algorithmus' bei Input der Länge n (binär codiert)\\
+Worst-Case-Komplexität:\\
+Algorithmus hat polynomielle Zeitkomplexität, falls ein $l \in \N$ existiert mit $(t_n) \in O(n^l)$. (\underline{gutartig})\\
+Algorithmus hat polynomielle Zeitkomplexität, falls ein $l \in \N$ existert mind. exponentielle Zeitkomplexität, falls 
+$ r > 1$ exestiert mit $(r^n) \in O(b_n)$ (\underline{bösartig)}
 \end{document}
