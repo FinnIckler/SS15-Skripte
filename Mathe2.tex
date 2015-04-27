@@ -1,0 +1,557 @@
+\input{header}
+\usepackage[normalem]{ulem}
+\usepackage{blkarray}
+\usepackage[margin=15mm]{geometry}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\cucubr}[7]{%
+%origin point, circle radius, start angle, end angle, distance c-b, brace radius, brace options
+\pgfmathsetmacro{\helpangleedge}{acos(1-pow(#6,2)/2/pow(#2+#5,2))}%
+\pgfmathsetmacro{\turnangleedge}{90+(\helpangleedge/2)}%
+\pgfmathsetmacro{\helpanglemid}{acos(1-pow(#6,2)/2/pow(#2+#5+2*#6,2))}%
+\pgfmathsetmacro{\turnanglemid}{90-(\helpanglemid/2)}%
+\pgfmathsetmacro{\halfangle}{(#4-#3)/2+#3}%
+\pgfmathsetmacro{\midradius}{#2+#5+#6}%
+\pgfmathsetmacro{\outerradius}{#2+#5+1.88*#6}%
+\pgfmathsetmacro{\firstmidanglestart}{mod(\halfangle-\helpanglemid+180,360)}%
+\pgfmathsetmacro{\secondmidanglestart}{mod(\halfangle+\helpanglemid+180,360)}%
+\pgfmathsetmacro{\firstmidanglestop}{mod(\halfangle-\helpanglemid/2+180,360)-\turnanglemid}%
+\pgfmathsetmacro{\secondmidanglestop}{mod(\halfangle+\helpanglemid/2+180,360)++\turnanglemid}%
+%
+\draw[#7] (#1) ++ (\halfangle:\outerradius) arc (\firstmidanglestop:\firstmidanglestart:#6) arc (\halfangle-\helpanglemid:#3+\helpangleedge:\midradius) arc (#3+270+\turnangleedge+\helpangleedge/2:#3+270+\helpangleedge/2:#6) ;%
+%
+\draw[#7] (#1) ++ (\halfangle:\outerradius) arc (\secondmidanglestop:\secondmidanglestart:#6) arc (\halfangle+\helpanglemid:#4-\helpangleedge:\midradius) arc (#4+90-\turnangleedge-\helpangleedge/2:#4+90-\helpangleedge/2:#6);%
+}
+\begin{document}
+\tableofcontents
+
+\section{Komplexe Zahlen}
+\subsection{Definition}
+Menge der komplexen Zahlen $\C =\{a+bi : a,b \in \R\}$\\
+\underline{Addition:}$(a+bi) + (c+di) = (a+c)+(b+d)i$\\
+\underline{Multiplikation:}$(a+bi) \cd (c+di) = (ac -bd) + (ad+bc)i$\\
+\hspace*{2.75cm}(Ausmultiplizieren und $i^2 =-1$ beachten)\\
+$\R \subset \C$\\
+$a \in \R : a + 0 \cd i = a$\\
+Rein imagin\"are Zahlen : $bi , b \in \R, (0 + bi)$\\
+i \underline{imagin\"are Einheit}\\
+$z = a+bi \in \C\\
+a = \mathfrak{R}(z)$ Realteil von $z (Re(z))\\
+b = \mathfrak{I}(z)$ Imagin\"arteil von $z (Im(z))\\
+\bar{z} = a - bi (= a + (-b)i)$\\
+Die zu $z$ \uline{konjugiert komplexe Zahl}\\
+\subsection{Veranschaulichung}
+\begin{tikzpicture}
+    \begin{axis}[
+    legend style={draw none},
+    axis equal,
+    xlabel={$Re(z)$},
+    ylabel={$Im(z)$},
+    ymin = -1,
+    xmin = 0,
+    ymax = 5.5,
+    xmax = 5.5,
+    xtick ={1,4},
+    xticklabels={1,a},
+    ytick ={1,3},
+    yticklabels={i,b},
+    extra x ticks={0},
+    extra x tick label={0},
+    extra y ticks={0},
+    extra y tick labels={0},
+    extra tick style = {grid = major}]
+    \addplot[dashed,mark=none, black] coordinates {(4,0) (4,3)};
+    \addplot[dashed,mark=none, black] coordinates {(0,3) (4,3)};
+      \addplot [black, mark = *, nodes near coords=$a+bi$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
+    \end{axis}
+  \end{tikzpicture}\\
+Addition entspricht Vektoraddition\\
+\begin{tikzpicture}
+    \begin{axis}[
+    legend style={draw none},
+    axis equal,
+    xlabel={$Re(z)$},
+    ylabel={$Im(z)$},
+    ymin = -1,
+    xmin = -3,
+    ymax = 7,
+    xmax = 5.5,
+    xtick ={1,4},
+    xticklabels={1,a},
+    ytick ={1,3},
+    yticklabels={i,b},
+    extra x ticks={0},
+    extra x tick label={0},
+    extra y ticks={0},
+    extra y tick labels={0},
+    extra tick style = {grid = major}]
+    \addplot [black, mark = *, nodes near coords=$a+bi$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
+       \draw[->](axis cs:0,0)--(axis cs:3.88,2.88);
+           \addplot [black, mark = *, nodes near coords=$c+di$,every node near coord/.style={anchor=0}] coordinates {( -1, 1)};
+                  \draw[->](axis cs:0,0)--(axis cs:-0.88,0.88);
+\addplot [black, mark = *, nodes near coords=$(a+c)+(b+d)i$,every node near coord/.style={anchor=0}] coordinates {( 3, 4)};
+    \addplot[mark=none, black] coordinates {(-1,1) (3,4)};
+    \addplot[mark=none, black] coordinates {(3,4) (4,3)};
+    \draw[-> ,red](axis cs:0,0)--(axis cs:2.95,3.88);
+    \end{axis}
+  \end{tikzpicture}\\
+\subsection{Rechenregeln in $\C$}
+\begin{enumerate}
+\item[a)]Es gelten alle Rechenregeln wie in $\R$. (z.B Kommutativit\"at bzgl. $+,\cd:z_1 + z_2 = z_2 + z_1$ und $z_1 \cd z_2 = z_2 \cd z_1$\\
+\underline{Inversenbildung bzgl. $\cd$}:\\
+$z = a+bi \not = 0,$ d.h $a \not = 0$ oder $b \not = 0\\
+z^{-1} = \frac{1}{z} = \frac{a}{a^2 + b^2} - \frac{b}{a^2+b^2}i\\
+z \cd z^{-1} = 1\\
+\text{\underline{Beispiel:}}
+\begin{array}{lcr}
+\frac{5-7i}{3+2i} &=& (5-7i) \cd (3+2i)^{-1}\\
+&=& (5-7i) \cd (\frac{3}{13} -\frac{2}{13}i)\\
+&=& (\frac{15}{13}-\frac{14}{13}) +(-\frac{10}{13} -\frac{21}{13})i\\
+&=&\frac{1}{13} - \frac{31}{13}i
+\end{array}$\\
+Speziell: $(bi)^{-1} = \frac{1}{bi} = -\frac{1}{b}i$ ; insbesondere: $\frac{1}{i} = -i$
+\item[b)]$z,z_1,z_2 \in \C$:\\
+\begin{center}
+$\bar{\bar{z}}=z$\\
+$\overline{z_1+z_2} = \bar{z_1} + \bar{z_2}$\\
+$\overline{z_1\cd z_2} = \bar{z_1} \cd \bar{z_2}$\\
+\end{center}
+\end{enumerate}
+\subsection{Definition Absolutbetrag}
+\begin{enumerate}
+\item[a)] \underline{Absolutbetrag} von $z =a+bi \C:\\
+\mid z \mid = +\underbrace{\sqrt{a^2 +b^2}}_{\in \R, \geq 0}\\
+$\fbox{$a^2 + b^2 = z \cd \bar{z}$} $\mid z \mid = +\sqrt{z \cd \bar{z}}\\
+(a+bi) \cd (a-bi) = (a^2 +b^2) + 0i = a^2 + b^2$\\
+    $
+  \begin{array}{lcr}
+  \lvert z \rvert &=& \text{Abstand von $z$ zu 0}\\
+  &=& \text{L\"ange des Vektors, der $z$ entspricht}
+  \end{array}$\\
+\begin{tikzpicture}
+    \begin{axis}[
+    legend style={draw none},
+    axis equal,
+    xlabel={$Re(z)$},
+    ylabel={$Im(z)$},
+    ymin = -1,
+    xmin = 0,
+    ymax = 5.5,
+    xmax = 5.5,
+    xtick ={1,4},
+    xticklabels={1,a},
+    ytick ={1,3},
+    yticklabels={i,b},
+    extra x ticks={0},
+    extra x tick label={0},
+    extra y ticks={0},
+    extra y tick labels={0},
+    disabledatascaling,
+    extra tick style = {grid = major}]
+    \addplot[mark=none, black] coordinates {(4,0) (4,3)};
+    \addplot[mark=none, black] coordinates {(0,0) (4,0)};
+      \addplot [black, mark = *, nodes near coords=$a+bi$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
+   \draw[->] (axis cs:0,0)--(axis cs:3.95,2.88);
+   \draw(axis cs:3.5,0) arc [radius=0.5,start angle=180,end angle=90];
+   \addplot[mark=*, black] coordinates {(3.8,0.2)};
+    \end{axis}   
+  \end{tikzpicture}
+  \item[b)]Abstand von $z_1,z_2 \in \C:\\
+  d(z_1,z_2):= \mid z_1 - z_2 \mid$\\
+\end{enumerate}
+\subsection{Rechenreglen f\"ur den Absolutbetrag}
+$z,z_1,z_2 \in \C$\\
+\begin{enumerate}
+\item[a)]$ \mid z \mid = 0 \Leftrightarrow z =0$
+\item[b)]$ \mid z_1 \cd z_2 \mid = \abs{z_1} \cd \abs{z_2}$\\
+\item[c)]$ \abs{z_1 + z_2} \leq \abs{z_1} + \abs{z_2}\\
+\abs{\abs{z_1} -\abs{z_2}} \leq \abs{z_1 - z_2} \leq \abs{z_1} + \abs{z_2}\\
+\abs{-z} = \abs{z}$
+\end{enumerate}
+\subsection{Darstellung durch Polarkoordinaten}
+\begin{enumerate}
+\item[a)]
+Jeder Punkt $\not = (0,0)$ l\"asst sich durch seine Polarkoordinaten $(r,\varphi)$ beschreiben:\\
+\begin{tikzpicture}
+    \begin{axis}[
+    legend style={draw none},
+    axis equal,
+    xlabel={$Re(z)$},
+    ylabel={$Im(z)$},
+    ymin = -1,
+    xmin = 0,
+    ymax = 5.5,
+    xmax = 5.5,
+    xtick ={1,4},
+    xticklabels={1,a},
+    ytick ={1,3},
+    yticklabels={i,b},
+    extra x ticks={0},
+    extra x tick label={0},
+    extra y ticks={0},
+    extra y tick labels={0},
+    disabledatascaling,
+    extra tick style = {grid = major}]
+      \addplot [black, mark = *, nodes near coords=$a+bi$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
+   \draw[decorate,decoration ={brace,amplitude =10pt},thick] (axis cs:0,0)--(axis cs:4,3);
+      \draw[->] (axis cs:0,0)--(axis cs:3.95,2.88);
+       \addplot [black, mark = none, nodes near coords=$\varphi$,every node near coord/.style={anchor=180}] coordinates {( 1.90, 0.8)};
+       \addplot [black, mark = none, nodes near coords=$r$,every node near coord/.style={anchor=180}] coordinates {( 1.5, 2)};
+   \draw[->](axis cs:2,0) arc [radius=1.95,start angle=0,end angle=37];
+    \end{axis}   
+  \end{tikzpicture}\\
+  $-r \geq 0, r \in \R\\
+  0 \leq \varphi \leq 2\pi$, wird gemessen von der positiven x-Achse entgegen des Uhrzeigersinnes\\
+\begin{tikzpicture}
+    \begin{axis}[
+    legend style={draw none},
+    axis equal,ymin = -2,xmin = -2,ymax = 2,
+    xmax = 2,xtick ={},
+    xticklabels={},
+    ytick ={},
+    yticklabels={},
+    extra x ticks={0},
+    extra x tick label={},
+    extra y ticks={0},
+    extra y tick labels={},
+    disabledatascaling,
+    extra tick style = {grid = major}]
+    \addplot [black, mark = none, nodes near coords=$\pi$,every node near coord/.style={anchor=180}] coordinates {( -1.5, 0)};
+    \addplot [black, mark = none, nodes near coords=2$\pi$,every node near coord/.style={anchor=180}] coordinates {( 1.25, 0)};
+    \addplot [black, mark = none, nodes near coords=$\frac{\pi}{2}$,every node near coord/.style={anchor=90}] coordinates {(0, 1.5)};
+    \addplot [black, mark = none, nodes near coords=$\frac{3\pi}{2}$,every node near coord/.style={anchor=-90}] coordinates {(0, -1.5)};
+    \draw (axis cs:0,0) circle[radius=1];
+    \draw(axis cs:0,0)--(axis cs:0.77,0.65);
+    \draw(axis cs:0,0)--(axis cs:1,0);
+    \draw[->](axis cs:0.3,0) arc [radius=0.3,start angle=0,end angle=37];
+    %origin point, circle radius, start angle, end angle, distance c-b, brace radius, brace options
+    \cucubr{0,2}{1}{0}{37}{0.1}{0.1}{red}
+    \end{axis}   
+  \end{tikzpicture}\\
+  Umfang:$2\pi$\\
+  $\varphi$ in Grad $\widehat{=} \frac{2\pi \cd \varphi}{360}$ im Bogenma\ss\\
+   F\"ur Punkte mit kartesischen Koordinaten (0,0) werden als Polarkoordinate $(r,\varphi)$ verwendet.
+\item[b)]komplexe Zahl $z = a +ib\\
+\begin{array}{rcl}
+r &=& \abs{z} = + \sqrt{a^2+b^2}\\
+a &=& \abs{z} \cd \cos(\varphi)\\
+b &=& \abs{z} \cd \sin(\varphi)\\
+z &=& \abs{z} \cd \cos(\varphi) + i \cd \abs{z} \cd \sin(\varphi)\\
+z &=& \abs{z}( \cd \cos(\varphi) + i \cd \sin(\varphi))\\
+\end{array}\\
+\text{Darstellung von $z$ durch Polarkoordinate}$
+\item[\underline{Beispiel:}]\begin{enumerate}
+\item[a)]$z_1 = 2 \cd (\cos(\frac{\pi}{4})+i \cd \sin(\frac{\pi}{4}))\\
+\hspace*{2pt}= 2 \cd (0,5\sqrt{2}+i \cd 0.5\sqrt{2})$
+\item[b)]$z_2 = 2+i\\
+\abs{z_2} = \sqrt{5}\\
+z_2 = \sqrt{5} \cd (\frac{2}{\sqrt{5} + \frac{1}{\sqrt{5}}}i)$
+Suche $\varphi$ mit $0 \leq 2\pi$ mit $\cos(\varphi) =\frac{2}{\sqrt{5}}, \sin(\frac{1}{\sqrt{5}} z_2 \approx \sqrt{5} \cd (\cos(0,46) + i \cd \sin(0,46))$
+\item[c)] Die komplexen Zahlen von Betrag 1 entsprechen den Punkten auf Einheitskreis:<
+$\cos(\varphi) + i \sin(\varphi), 0  \leq \varphi \leq 2\pi$
+\end{enumerate}
+\end{enumerate}
+\subsection{Additionstheoreme der Trigonometrie}
+\begin{enumerate}
+\item[a)]$\sin(\varphi + \psi) = \sin(\varphi) \cd \cos(\psi) + \cos(\varphi) \cd \sin(\psi)$\\
+\item[b)]$\cos(\varphi + \psi) = \cos(\varphi) \cd \cos(\psi) - \sin(\varphi) \cd sin(\varphi) \cd \sin(\psi)$
+\end{enumerate}
+\subsection{geometrische Interpretation der Multiplikation}
+\begin{enumerate}
+\item[a)]$w = \abs{w} \cd (\cos(\varphi) + i \cd \sin(\varphi))\\
+z= \abs{z} \cd (\cos(\psi) + i \cd \sin(\psi))\\
+w \cd z = \abs{w} \cd \abs{z} \cd (\cos(\varphi) \cd \cos(\psi) - \sin(\varphi) \cd \sin(\psi)) + i (\sin(\varphi) \cd \cos(\psi) + \cos(\varphi) \cd \sin(\psi))\\
+w \cd z =\abs{w \cd z}( \cos(\varphi + \psi) + i \cd \sin(\varphi + \psi))$\\
+\begin{tikzpicture}
+\begin{axis}[legend style={draw none},axis equal,xlabel={$Re(z)$},ylabel={$Im(z)$},ymin = -10,xmin = -10,ymax = 10,xmax = 10,xtick ={1,4},xticklabels={},ytick ={1,3},yticklabels={},extra x ticks={0},extra x tick label={},extra y ticks={0},extra y tick labels={},disabledatascaling,extra tick style = {grid = major}]
+      \addplot [black, mark = *, nodes near coords=$w$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
+            \addplot [black, mark = *, nodes near coords=$z$,every node near coord/.style={anchor=0}] coordinates {( -1, 2)};
+   \draw (axis cs:0,0)--(axis cs:-1,2);
+   \draw (axis cs:0,0)--(axis cs:4,3);
+   \draw[decorate,decoration ={brace,amplitude =10pt}] (axis cs:0,0)--(axis cs:-6.7,0);\\
+   \draw(axis cs:0,0)--(axis cs:-6.7,0);
+   \addplot [black, mark = *, nodes near coords=$w\cd z$,every node near coord/.style={anchor=0}] coordinates {( -6.70, 0)};
+     \addplot [black, mark = none, nodes near coords=$\abs{w} \cd \abs{z}$,every node near coord/.style={anchor=0}] coordinates {( -0.8, -2)};
+       \addplot [black, mark = none, nodes near coords=$\varphi$,every node near coord/.style={anchor=180}] coordinates {( 1.90, 0.8)};
+   \draw[->](axis cs:2,0) arc [radius=1.95,start angle=0,end angle=37];
+      \draw[->](axis cs:3,0) arc [radius=2,start angle=0,end angle=142];
+    \addplot [black, mark = none, nodes near coords=$\psi$,every node near coord/.style={anchor=180}] coordinates {( 2.90, 0.8)};  
+    \end{axis} 
+  \end{tikzpicture}
+  \item[b)]$z =i, w = a+ ib\\
+  i\cd w = -b \cd ia$\\
+  Multiplikation mit i $\widehat{=}$ Drehung um $90^{\circ}$\\
+\begin{tikzpicture}
+\begin{axis}[legend style={draw none},axis equal,xlabel={$Re(z)$},ylabel={$Im(z)$},ymin = 0,xmin = -5,ymax = 5,xmax = 7,xtick ={-3,3},xticklabels={-a,a},ytick ={1,4},yticklabels={i,-b},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={},disabledatascaling,extra tick style = {grid = major}]
+\draw [dashed] (axis cs:0,0)--(axis cs:3,4);
+\draw [dashed] (axis cs:0,0)--(axis cs:-3,4);
+   \addplot [black, mark = *, nodes near coords=$w$,every node near coord/.style={anchor=0}] coordinates {( 3, 4)};
+      \addplot [black, mark = *, nodes near coords=$i \cd w$,every node near coord/.style={anchor=0}] coordinates {( -3, 4)};
+      \draw[->](axis cs:3,4) arc [radius=3,start angle=0,end angle=180];      
+    \end{axis} 
+  \end{tikzpicture} 
+\end{enumerate}
+\subsection{Bemerkung und Definition}
+Wir werden sp\"ater die komplexen Exponentialfunktion einf\"uhren.\\
+$e^{z}$ f\"ur alle $z \in \C$ e = Euler`sche Zahl $\approx 2,718718\ldots\\
+e^{z_1} =cd e^{z_2} = e^{z_1+z_2}, e^{-z} = \frac{1}{e^z}$\\
+Es gilt: $t \in \R : e^{it} = \cos(t) + i \cd \sin(t)$\\
+Jede komplexe Zahl l\"asst sich schreiben $z = r \cd e^{i \cd \varphi}, r =\abs{z}, \varphi$ Winkel\\
+$r \cd (\cos(\varphi) + i \sin(\varphi))$ ist Polarform von $z.\\
+z = a+bi$ ist kartesische Form von z.
+$\bullet (r,\varphi)$ Polarkoordinaten\\
+$\abs{e^{i\varphi}} = + \sqrt{cos^2(\varphi) + \sin^2(\varphi)}=1\\
+e^{i\varphi},0 \leq \varphi \leq 2\pi,$ Punkte auf dem Einheitskreis.\\
+$e^{i\pi} = -1$\\
+\fbox{$e^{i\pi} +1 =0$} Eulersche Gleichung
+\subsection{Satz}
+Sei $w = \mid w \mid \cd ( \cos(\varphi) + i \cd \sin(\varphi)) \in \C$\\
+\begin{enumerate}
+\item[a)] Ist $m \in \Z$, so ist $w^m = \mid w \mid^m \cd ( \cos(m \cd \varphi) + i \cd \sin(m \cd \varphi))\\
+( m < 0 : w^m = \frac{1}{w^{\mid m \mid}}), w \not = 0$\\
+\item[b)] Quadratwurzeln
+\item[c)] Ist $n \in \N, w \not = 0$, so gibt es genau n n-te Wurzeln von $w:\\
+\sqrt[n]{w} = + \sqrt[n]{\mid w \mid} \cd (\cos(\frac{\varphi}{n} + \frac{2\pi \cd k}{n}) + i \sin(\frac{\varphi}{n}+ \frac{2\pi \cd k}{n})), n \in \N  ,k \in \{0, \ldots,n-1\}$
+\end{enumerate}
+\begin{proof}
+a) richtig, wenn $m=0,1$\\
+$m \geq 2.$ Folgt aus ($\star$)\\
+$m=-a:\\
+w^{-1} = \frac{1}{w} = \frac{1}{\mid w \mid^2 \cd ( \cos^2(\varphi) + i \cd \sin^2( \varphi))} \cd \mid w \mid \cd \cos(\varphi) - \sin(\varphi)\\
+= \frac{1}{w} = \frac{1}{mid w \mid \cd \underbrace{( \cos^2(\varphi) + i \cd \sin^2( \varphi))}}_{=1} \cd \mid w \mid \cd \cos(\varphi) - \sin(\varphi)\\
+= \frac{1}{\mid w \mid } \cd (\cos(-\varphi + i \cd \sin(-\varphi)) = \mid w \mid^{-1} \cd (\cos(-\varphi) + \sin(-\varphi))$\\
+\end{proof}
+\subsection{Beispiel}
+Quadratwurzel aus $i:\\
+\abs{i} =1\\
+\begin{array}{llcl}
+\text{Nach 1.10 b):} &\sqrt{i}&=& \pm (\cos(\frac{\pi}{4} + i \cd \sin(\frac{\pi}{4}))\\
+& &=& \pm (\frac{1}{2}\sqrt{2} + \frac{1}{2}\sqrt{2}i)
+\end{array}
+$
+\subsection{Bemerkung}
+Nach 1.10 hat jedes Polynom\\
+$ x^{n} -w$ ($w \in \C)$\\
+eine Nullstelle in $\C$ (sogar n verschiedene wenn $w \not = 0$)\\
+Es gilt sogar : \underline{Fundamentalsatz der Algebra}\\
+\hspace*{7.5cm} (C. F. Gau\ss 1777-1855)\\
+Jedes Polynom $a_n x^n + \ldots + a_0$\\
+mit irgendwelchen Koeffizienten: $a_n \ldots a_0 \in \C$ hat Nullstelle in $\C$
+\section{Folgen und Reihen}
+\subsection{Definition}
+Sei k $\in \Z$,
+$A_k := \{ m \in \Z : m > k\}\\
+(k = 0 A_0 \in \N_0, k = 1 , A_n \in \N)\\
+Abbildung a : A \Rightarrow \R (oder \C)\\
+\hspace*{2.5cm} m \Rightarrow a_n\\
+$hei\ss t \underline{Folge} reeller Zahlen\\
+\hspace*{2.5cm} ($a_k,a_{k-1} \ldots)$\\
+Schreibweise:\\
+$(a_m)_{m>k}$ oder einfach $(a_m)$\\
+$a_m$ hei\ss t \underline{m-tes Glied} der Folge, m \underline{Index}\\
+\subsection{Beispiel}
+\begin{enumerate}
+\item[a)] $a_n = 5$ f\"ur alle $n > 1$\\
+$(5,5,5,5,5,5,5,5,5,5,5,5,5,\ldots$)\\
+\item[b)] $a_n = n$ f\"ur alle $n>1$\\
+ (1,2,3,4,5,6,7,8,9,10,$\ldots$)\\
+\item[c)] $a_n = \frac{1}{n}\\
+(\frac{1}{1}, \frac{1}{2} ,\frac{1}{3}, \frac{1}{4}, \ldots)$\\
+\item[d)]$a_n \frac{(n+1)^2}{2^n}\\
+(2, \frac{9}{4},2,\frac{25}{16}, \ldots)$\\
+\item[e)]$a_n = (-1)^n\\
+(-1,1,-1,1,-1,1,\ldots)\\ $
+\item[f)]$a_n = \frac{1}{2}a_{n_1} = \frac{1}{a_{n-1}} $f\"ur $n\geq 2,
+a_1 =1\\
+(1,\frac{3}{2},\frac{17}{12}, \ldots)$
+\item[g)]$a_n = \sum_{i=1}^{n} \frac{1}{i}\\
+(1,\frac{3}{2}, \frac{11}{6},\ldots)$
+\item[h)]$a_n = \sum_{i=1}^{n} (-1)^i\cd \frac{1}{i}\\
+(-1,\frac{-1}{2},-\frac{-5}{6},\ldots)$
+\end{enumerate}
+\subsection{Definition}
+Eine Folge $(a_n)_{n>k}$ hei\ss t \underline{beschr\"ankt}, wenn die Menge der Folgenglieder beschr\"ankt ist. \\
+D.h. $\exists D > 0 : - D \leq a_n \leq D$ f\"ur alle $n > k$.\\
+\begin{tikzpicture}
+\begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = 0,ymax = 4,xmax = 7,xtick ={1,2,3,4,5},ytick ={3,-3},yticklabels={D,-D},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={},extra tick style = {grid = major}]
+\draw [dashed] (axis cs:-10,3)--(axis cs:10,3);
+\draw [dashed] (axis cs:-10,-3)--(axis cs:10,-3);
+\addplot [black, mark = +] coordinates {( 1, 0.3)};
+\addplot [black, mark = +] coordinates {( 2, 0.1)};
+\addplot [black, mark = +] coordinates {( 3, -2)};
+\addplot [black, mark = +] coordinates {( 4, 1)};
+\addplot [black, mark = +] coordinates {( 5, 0.5)};
+               
+\end{axis}
+  \end{tikzpicture} 
+\subsection{Definiton}
+Eine Folge $(a_n)_{n \geq k}$ hei\ss t \underline{konvergent} gegen $\varepsilon \in \R$ (konvergent gegen $\varepsilon$), falls gilt:\\
+$\forall \varepsilon > 0 \exists n(\varepsilon) \in \N \forall n \geq n(\varepsilon) : \mid a_n -c \mid < \varepsilon\\
+c = \lim_{n \Rightarrow \infty} a_n $ (oder einfach $c = \lim a_n$)\\
+c hei\ss t \underline{Grenzwert} (oder Limes) der Folge ($a_n$)\\
+(Grenzwert h\"angt nicht von endlich vielen Anfangsgliedern ab (der Folge))\\
+Eine Folge die gegen 0 konvertiert, hei\ss t \underline{Nullfolge}\\
+\subsection{Beispiele}
+\begin{enumerate}
+\item[a)]$r \in \R : a_n = r$ f\"ur alle $n \geq 1$\\
+$(r,r,\ldots)\\
+\lim_{n \Rightarrow \infty} = r\\
+\mid a_n - r \mid = 0$ f\"ur alle $n$\\
+F\"ur jedes $\varepsilon >0$ kann man $n(\varepsilon) = 1$ w\"ahlen
+\item[b)]$a_n = n$ f\"ur alle $ n\ \geq 1$\\
+Folgte ist nicht beschr\"ankt, konvergiert nicht.
+\item[c)] $a_n = \frac{1}{n}$ f\"ur alle $n \geq 1\\
+(a_n)$ ist Nullfolge.\\
+Sei $ \varepsilon > 0$ beliebig. Suche Index $n(\varepsilon)$ mit $\abs{a_n - o} < \varepsilon$ f\"ur alle $n \geq n(\varepsilon)$\\
+D.s. es muss gelten.\\
+$\frac{1}{n} < \varepsilon$ f\"ur alle $n \geq n(\varepsilon)$\\
+Ich brauche : $\frac{1}{n(\varepsilon)} < 3$\\
+Ich brauche $n(\varepsilon) > \frac{1}{\varepsilon}$\\
+Aus Mathe I folgt, dass solch ein $n(\varepsilon)$ existiert.\\
+z.B $n(\varepsilon) - \ceil{\frac{1}{2}} + 1 > \frac{1}{\varepsilon}$\\
+Dann:\\
+$\abs{a_n -0} < \frac{1}{n} < \varepsilon$ f\"ur alle $n \geq n(\varepsilon)$
+\item[d)]$a_n = \frac{3n^2+1}{n^2+n+1}$ f\"ur lle $n \geq 1$\\
+Behauptung: $\lim_{n\Rightarrow\infty}a_n = 3\\
+\begin{array}{rlll}
+\abs{a-3} &=& \abs{\frac{3n^2+1}{n^2+n+1}-3}&= \abs{\frac{3n^2+1-3(n^2+n+1)}{n^2+n+1}}\\
+&=& \abs{\frac{-3n-2}{n^2+n+1}} &= \frac{3n+2}{n^2+n+1}
+\end{array}$\\
+Sei $\varepsilon > 0$. Ben\"otigt wird $n(\varepsilon) \in \N$ mit $\frac{3n+2}{n^2+n+1} < \varepsilon$ f\"ur alle $n > n(\varepsilon).\\
+\frac{3n+2}{n^2+n+1} \leq \frac{5n}{n^2 } = \frac{5}{n}$\\
+W\"ahle $n(\varepsilon)$ so, dass $n(\varepsilon) > \frac{5}{\varepsilon}$\\
+Dann gilt f\"ur alle $n\geq n(\varepsilon).\\
+\abs{a_n -3}=\frac{3n+2}{n^2+n+1} \leq \frac{5}{n} \leq  \frac{5}{n(\varepsilon)} < \frac{5\varepsilon}{5} = \varepsilon$\\
+F\"ur alle $ n \geq n(\varepsilon)$
+\item[e)]$a_n = (-1)^n$ beschr\"ankte Folge $-1 \leq a_ \leq 1$ konvergiert nicht.\\
+Sei $c \in \mathbb{R}$ beliebig, W\"ahle $\varepsilon = \frac{1}{2}$\\
+\begin{tikzpicture}
+\begin{axis}[legend style={draw none},axis equal,ymin = -2,xmin = 0,ymax = 2,xmax = 6,xtick ={1,2,3,4,5},ytick ={3,-3},yticklabels={D,-D},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={},extra tick style = {grid = major}]
+\addplot [black, mark = +] coordinates {( 1, -1)};
+\addplot [black, mark = +] coordinates {( 2, 1)};
+\addplot [black, mark = +] coordinates {( 3, -1)};
+\addplot [black, mark = +] coordinates {( 4, 1)};
+\addplot [black, mark = +] coordinates {( 5, -1)};
+               
+\end{axis}
+  \end{tikzpicture}\\
+$2 = \abs{a_n-a_{n+1}} \leq \abs{a_n - c} + \abs{c - a_{n+1}} < \frac{1}{2}+ \frac{1}{2} =$\underline{$1$} WIDERSPRUCHSYMBOL EINSETZEN
+\end{enumerate}
+\subsection{Satz}
+Jede konvergente Folge ist beschr\"ankt. (Umkehrung nicht: $2.5_{e)}$)\\
+\begin{proof}
+Sei $c= \lim a_n$, w\"ahle $\varepsilon =1$,\\
+Es existiert $n(1) \in \N$ mit $\abs{a_n -c} < 1$ f\"ur alle $n \geq n(1)$\\
+Dann ist\\
+$\abs{a_n} = \abs{a_n-c+c} \leq \abs{a_n -c} + \abs{c} < 1 + \abs{c}$ f\"ur alle $n \geq n(1)\\
+M = max \{ \abs{a_k},\abs{a_{k+1}},\ldots,\abs{a_{n(1)-1)}, 1 + \abs{c} \}\\
+$ Dann: $\abs{a_n} \leq M$ f\"ur alle $n \geq k\\
+-M \leq a_n \leq M$
+\end{proof}
+\subsection{Bemerkung}
+\begin{enumerate}
+\item[a)]$(a_n)_{n \geq 1}$ Nullfolge $\Leftrightarrow (\abs{a_n})_{n \geq 1}$ Nullfolge ($\abs{a_n - 0} = \abs{a_n} - \abs{\abs{a_n}-0}}$
+\item[b)]$\lim_{n\Rightarrow\infty} a_n = c \Leftrightarrow (a_n -c)_{n \geq k}$ ist Nullfolge $\Leftrightarrow (\abs{a_n -c})_{n \geq k}$ ist Nullfolge
+\end{enumerate}
+\subsection{Satz (Rechenregeln f\"ur konvergente Folgen)}
+Seien $(a_n)_{n \geq k}$ und $(b_n)_{n \geq k}$ konvergente Folgen, $\lim a_n = c, \lim b_n = d.$\\
+\begin{enumerate}
+\item[a)]$\lim \abs{a_n} = \abs{c}$
+\item[b)]$\lim (a_n \pm b_n) = c \pm d$
+\item[c)]$\lim (a_n \cd b_n) = c \cd d$\\
+insbesondere $\lim(r \cd b_N) = r \cd \lim b_n = r \cd d$ f\"ur jedes $r \in \R.$
+\item[d)]Ist $b_n \not = 0$ f\"ur alle $n \geq k$ und ist $ d \not = 0$, so $\lim (\frac{a_n}{k_n}) = \frac{c}{d}$
+\item[e)]Ist $(b_n)$ Nullfolge, $b_n \not = 0$ f\"ur alle $n \geq k$, so konvergiert $(\frac{1}{b_n}$ \underline{nicht}!.
+\item[f)]Existiert $m \geq k$ mit $a_n \leq b_n$ f\"ur alle $n \geq m$, so ist $c \leq d$.
+\item[g)] Ist $(c_n)_{n \geq k}$ Folge und existiert $ m \geq k$ mit $0 \leq c_n \leq a_n$ f\"ur alle $n \geq m$ und ist ($a_n$) eine Nullfolge, so ist auch $(c_n)$ eine Nullfolge.
+\item[h)]Ist $(c_n)_{n \geq l}$ beschr\"ankte Folge und ist $(a_n)_{n \geq k}$ Nullfolge, so ist auch $(c_n \cd a_n)_{n \geq k}$ Nullfolge.\\
+\fbox{$c_n$ muss nicht konvergieren!}
+\end{enumerate}
+\begin{proof}
+Exemplarisch:\\
+\begin{enumerate}
+\item[b)] Sei $\varepsilon > 0$. Dann existiert $n_1(\frac{\varepsilon}{2})$ und $n_2(\frac{\varepsilon}{2})$ und $\abs{a_n -c} < \frac{\varepsilon}{2}$ f\"ur alle $n \geq n_1(\frac{\varepsilon}{2})\\
+\abs{b_n-d} < \frac{\varepsilon}{2}$ f\"ur alle $n \geq n_2(\frac{\varepsilon}{2})$\\
+Suche $n(\varepsilon) = max (n_1(\frac{\varepsilon}{2},n_2(\frac{\varepsilon}{2}))\\
+$Dann gilt f\"ur alle $n > n(\varepsilon):\\
+\abs{a_n+b_n - (c+d)} = \abs{(a_n -c) + (b_n -d)} \leq \abs{a_n -c} + \abs{b_n -d} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$
+\item[f)]Angenommen $c > d$. Setze $\delta = c -d >0$\\
+Es existiert \~m $ \geq m$ mit $\abs{c -a_n} < \frac{\delta}{2}$\\
+und $\abs{b_n -d} < \frac{\delta}{2}$ f\"ur alle $n \geq$\~m.\\
+F\"ur diese n gilt:\\
+$0 < \delta \leq \delta + b_n - a_n = c -d+b_n -a_n \geq 0$ nach Voraussetzung\\
+$= \abs{c -a_n - d +b_n} \leq \abs{c-a_n} + \abs{d -b_n}\\
+\leq \frac{\delta}{2} + \frac{\delta}{2} = \delta$ WIDERSPRUCHSZEICHEN EINFUGEN
+\end{enumerate}
+\end{proof}
+\subsection{Satz}
+\begin{enumerate}
+\item[a)] $0 \leq q \leq 1$ Dann ist $(q^n)_{n \geq 1}$ Nullfolge
+\item[b)]Ist $m \in \N$, so ist $((\frac{1}{n^m})_{n \geq 1}$ Nullfolge.
+\item[c)]Sei $0 \leq q < 1, m \in \N$\\
+Dann ist ($n^m \cd q^n)_{n \geq 1}$ Nullfolge
+\item[d)] Ist $r > 1, m \in \N$, so ist $(\frac{n^m}{r^n}_{r \geq 1}$ eine Nullfolge
+\item[e)] $P(x) = a_m \cd x^m + \ldots a_0, a_i \in \R, a_m \not = 0\\
+Q(x) = b_e \cd x^e + \ldots b_0 , b_i \in \R , b_e \not = 0$\\
+Sei $Q(n) \not = 0 $ f\"ur alle $n \geq k.$\\
+\begin{enumerate}
+\item[-]Ist $m>e$, so ist $\frac{P(n)}{Q(n)}$ nicht konvergent
+\item[-]Ist $m = e$, so ist $\lim_{n\Rightarrow \infty} \frac{P(n)}{Q(n)}= \frac{a_m}{b_e} = \frac{a_m}{b_m}$\\
+\item[-]Ist $m < l$, so ist$ (\frac{P(n)}{Q(n)})$ ein Nullfolge
+\end{enumerate}
+\end{enumerate}
+\begin{enumerate}[a)]
+\i Sei $0 \leq q \leq 1$ Dann ist $(q^n)_{n \geq}$ eine Nullfolge\\
+\begin{proof}
+a) Richtig für $q > 0$. Sei jetzt $q > 0$.\\
+Sei $\varepsilon > 0$. Mathe I: Es gibt ein $n(\varepsilon) \in \N$ mit $q^{n(\varepsilon} < \varepsilon.$\\
+Für alle $n \geq n(\varepsilon)$ gilt: $\abs{q^{n} -o} = q^n < q^{n(\varepsilon)} < \varepsilon.$\\
+\end{proof}
+\i 2.5.c): $\frac{1}{n}_{n \geq 1}$ Nullfolge Beh. folgt mit 2.8.c)\\
+\i Richtig für $q=0$. Sei jetzt $q > 0$.\\
+\underline{1.Fall}: m= 1\\
+$\frac{1}{q} = 1+t, t > 0.\\
+(t+1)^n \underbrace{=}_{Binomialsatz} 1 + nt + \frac{n(n+1)}{2}t^2 > \frac{n(n-1)}{2}t^2$ für alle $n \geq 2\\
+q^n = \frac{1}{(1+t)^n} < \frac{2}{n(n-1)t^2}\\
+0 \leq n \cd q^{n} < \frac{2}{(n-1)t^2} \Leftarrow$ Nullfolge 2.5e),2.8e)\\
+Nach 2.9g) ist $(n \cd q^n)_{n \geq q}$ Nullfolge, also auch $(n \cd q^n)_{n \geq 1}.$\\
+\underline{2.Fall}: $m > 1$.\\
+Setze $0 < q' = \sqrt[m]{q} \in \R\\
+\begin{array}{rcl}
+n^m \cd q^n &=& n^m \cd (q')^n)^m)^n\\
+&=& (n \cd (q')^n)^m)^n) m = 1 \text{anwenden}
+\end{array}\\
+0 < q' < 1\\
+(n^m + q^n)_{n \geq 1}$ Nullfolge noch Fall $m=1$ und 2.8e)
+\i Folgt aus c) und $q = \frac{1}{r}$
+\i Ist $ m \leq l$ , so ist  $\frac{P(n(}{Q(n)} =\frac{n^m(a_m + a_{m-1}\cd\frac{1}{n} + \ldots + a_1 \cd \frac{1}{n^{m-1}} + a_0 \cd \frac{1}{n^m})}{n^l(b_l + b_{l-1}\cd\frac{1}{n} + \ldots + b_1 \cd \frac{1}{n^{l-1}} + b_0 \cd \frac{1}{n^l})}
+= \frac{1}{n^{l-m}} \cd \frac{I}{II}\\
+(I) \longrightarrow a_m , (II) \longrightarrow b_l$
+$\frac{(I)}{(II)} \Rightarrow \frac{a_m}{b_l}\\
+n < l, \frac{1}{n^{l-m}}$ Nullfolge\\
+$\frac{P(n)}{Q(n)} \Rightarrow 0 \cd \frac{a_m}{b_l}\\
+m > l:$\\
+Beh. folgt aus Fall $m < l$ und 2.8e).
+\end{enumerate}
+\subsection{Bemerkung}
+Betrachte Bijektionsverfahren, der Zahl $x \in \R$ bestimmt.\\
+$a_0 \leq a_1 \leq a_2 \leq \ldots\\
+b_0 \geq b_1 \geq b_2 \geq \ldots\\
+a_n \leq x \leq b_n\\
+0 < b_n - a_n = \frac{b_0 - a_0}{2^n}\\
+0 \leq \abs{x-a_n} \leq b_n - a_n = \frac{b_0-a_n}{2} \Leftarrow$ Nullfolge (2.9b)\\
+$2.8e) (\abs{x-a_n})$ Nullfolge.\\
+2.7e): $\lim_{n \rightarrow \infty} a_n = x$\\
+Analog: $\lim_{n \rightarrow \infty} b_n = x\\
+$2.9 d) e) sind Beispiele für asymptotischen Vergleich von Folgen
+\subsection{Definition}
+\begin{enumerate}[a)]
+\i Eine Folge $(a_n)_{ n \geq k}$ hei\ss t \underline{strikt positiv}, falls $a_n > 0$ für alle $n \geq k$.\\
+Sei im Folgenden $(a_n)_{n \geq k}$ eine strikt positive Folge.\\
+\i $\begin{array}{rcl}
+\mathbb{O}(a_n) &=& \{ (b_n)_{n \geq k} : \text{ist beschränkt} \}\\
+&=& \{ (b_n)_{n \geq k} \exists C > 0 \text{ mit } \abs{b_n} \leq C \cd a_n \}
+\end{array}$
+\i $ \mathbb{o}(a_n) = \{b_n)-{n \geq k}: (\frac{b_n}{a_n} \text{ist Nullfolge} \}\\
+(b_n) \in \mathbb{w}$
+\end{enumerate}
+\end{document}

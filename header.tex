@@ -1,0 +1,54 @@
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc} %Umlaute & Co
+\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{pgfplots}
+\usetikzlibrary{trees,automata,arrows,shapes}
+\pagestyle{empty}
+%counts the exercisenumber
+\newcommand{\cd}{\cdot}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\i}{\item}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\newcounter{n}
+\def\header#1#2#3#4#5#6#7{\pagestyle{empty}
+\begin{minipage}[t]{0.47\textwidth}
+\begin{flushleft}
+{\bf #4}\\
+#5\\
+Tutor: #2
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\begin{flushright}
+#6 \vspace{0.5cm}\\
+\end{flushright}
+\end{minipage}
+\vspace{0.5cm}
+\begin{center}
+{\Large\bf Blatt #1}
+
+{(Abgabe #3)}
+\end{center}
+}
+%Kommando für Aufgaben
+%\Aufgabe{AufgTitel}{Punktezahl}
+\newcommand{\Aufgabe}[2]{\stepcounter{n}
+\ifnum\value{n}>100
+\\
+\else
+\fi
+\indent\textbf{Aufgabe \arabic{n}: #1} (#2 Punkte)\\}
+\newcommand{\heading}[2]{\header{#1}{Tutor}{#2}{Mathe II}{\textit{Flavia N\"ahrlich}\\ \textit{Finn Ickler}
+    }{SS 15}{3}
+    \vspace{1cm}}
