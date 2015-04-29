@@ -1,0 +1,22 @@
+Die Signatur \underline{one of} lässt genau einen der ausgewählten Werte zu.\\
+(one of \auf $e_1$\zu \auf$e_2$\zu \ldots \auf $e_1$\zu)\\
+\linie\\
+Reduktion von if:\\
+(if $t_1$ \auf $e_1$\zu \auf $e_2$\zu)\\
+\textcircled{1} Reduziere $t_1$, erhalte $t_1'$ $\t{\eval}_\text{\textcircled{2}} 
+\begin{cases}
+<e_1\t{\zu} &\t{falls } t_1' = \#t, <e_2\t{\zu niemals ausgewertet}\\
+<e_2\t{\zu} &\t{falls } t_1' = \#\t{f}, <e_1\t{\zu niemals ausgewertet}  
+\end{cases}$\\
+\linie\\
+Spezifikation Fallunterscheidung (conditional expression):\\
+\begin{tabular}{rlcl}
+(cond& & & Mathematik:\\
+&(\auf $t_1$\zu \auf $e_1$\zu)&\rdelim\{{5}{0mm}
+[] &$e_1$ falls $t_1$ \\
+&(\auf $t_2$\zu \auf $e_2$\zu)& &$e_2$ falls $t_2$]\\
+&\ldots& & $\ldots$\\
+&(\auf $t_n$\zu \auf $e_n$\zu) & &$e_n$ falls $t_n$\\
+&(else \auf $e_{n+1}$\zu)) & & $e_{n+1}$ sonst
+\end{tabular}\\
+Werte die Tests in den Reihenfolge $t_1,t_2.t_3,\ldots,t_n$ aus

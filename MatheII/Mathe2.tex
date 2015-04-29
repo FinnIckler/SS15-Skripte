@@ -1,4 +1,7 @@
 \input{header}
+\newcommand{\seriesn}[1]{\sum\limits_{i=k}^{n} #1}
+\newcommand{\seriesnplus}[1]{\sum\limits_{i=k}^{n+1} #1}
+\newcommand{\series}[1]{\sum\limits_{i=k}^{\infty} #1}
 \usepackage[normalem]{ulem}
 \usepackage{blkarray}
 \usepackage[margin=15mm]{geometry}
@@ -587,4 +590,118 @@ Worst-Case-Komplexität:\\
 Algorithmus hat polynomielle Zeitkomplexität, falls ein $l \in \N$ existiert mit $(t_n) \in O(n^l)$. (\underline{gutartig})\\
 Algorithmus hat polynomielle Zeitkomplexität, falls ein $l \in \N$ existert mind. exponentielle Zeitkomplexität, falls 
 $ r > 1$ exestiert mit $(r^n) \in O(b_n)$ (\underline{bösartig)}
+\subsection{Definition}
+\begin{enumerate}[a)]
+\i Eine Folge $(a_n)_{n \geq k}$ hei\ss t \underline{monoton wachsend (steigend)}, wenn $a_n \leq a_{n+1}$ f\"ur alle $n \geq k$. Sei hei\ss t \underline{steng monoton wachsend (steigend)}, wenn $a_n < a_{n+1}$ f\"ur alle $n \geq k$
+\i $(a_n)_{n \geq k}$ hei\ss t \underline{monoton fallend}, falls $a \geq a_{n+1}$ f\"ur alle $n \geq k$
+\end{enumerate}
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\i $a_n = 1$ f\"ur alle $n > 1
+(a_n)$ ist monoton steigend und monoton fallend.
+\i $a_n = \frac{1}{n}$ f\"ur alle $n \geq 1$.\\
+$(a_n)$ streng monoton fallend.
+\i $a_n = \sqrt{n}$ (positive Wuzel)\\
+$(a_n){n \geq 1}$ streng monoton steigend.
+\i $a_n = 1 - \frac{1}{n}, n \geq 1\\
+(a_n)_{n \geq 1}$ streng monoton steigend.
+\i $a_n = (-1)^n, n \geq 1\\
+(a_n)$ ist weder monoton steigend noch monoton fallend.
+\end{enumerate}
+\subsection{Satz}
+\begin{enumerate}[a)]
+\i Ist $(a_n)_{n \geq k}$ monoton steigend und nach oben beschränkt (d.h es exestiert $D \in \R$ mit $a_n \leq D$ für alle $n \geq k$), so konvergiert $(a_n)'$ und $\lim\limits_{n \rightarrow \infty}a_n = \sup\{a_n: n\geq k \}$
+\i $(a_n)_{n \geq k}$ monoton fallend und nach unten beschränkt, so konvergiert $(a_n)_{n \geq k}$ und $\lim\limits_{n \rightarrow \infty} a_n = \inf \{a_n: n\geq k \}.$
+\begin{proof}
+a)\\
+$ c \sup \{a_n : n \geq k\}.$ existiert (Mathe I).
+Zeige: $\lim\limits_{a_n} = c$.\\
+Sei $\varepsilon > 0$. Dann existiert $n(\varepsilon)$ mit $c-\varepsilon < a_{n(\varepsilon)} \leq c$\\
+Denn sonst $a_n \leq c - \varepsilon$ für alle $n \geq k$ und $c - \varepsilon$ wäre obere Schranke für $\{a_n : n \geq k \}$ Widerspruch dazu, dass c kleinste obere Schranke. Für alle $n \geq n(\varepsilon)\\
+c- \varepsilon \leq a_{n(\varepsilon)} \leq a_n \leq c\\
+\abs{a_n -c} < \varepsilon$ für alle $n \geq n(\varepsilon).$\\
+b) analog
+\end{proof}
+\end{enumerate}
+\subsection{Satz (Cauchy'sches Konvergenzkriterium)}
+\hspace*{6.8cm} (Cauchy, 1789 - 1859)\\
+Sei $(a_n)_{n \geq k}$ eine Folge. Dann sind äquivalent:\\
+\begin{enumerate}[(1)]
+\i $(a_n)_{n \geq k}$ konvergent
+\i $\forall \varepsilon > 0 \exists \ N -M(\varepsilon) \forall n,m \geq N: \abs{a_n - a_m} < \varepsilon$ (Cauchyfolge)\\
+Grenzwert muss nicht bekannt sein!
+\end{enumerate}
+\begin{tikzpicture}
+\begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = 0,ymax = 4,xmax = 7,xtick ={1, 6}, xticklabels={N(1),N($\varepsilon$)},ytick ={3,-3},yticklabels={D,-D},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={},extra tick style = {grid = major}]
+\draw [dashed] (axis cs:-10,3)--(axis cs:10,3);
+\draw [dashed] (axis cs:-10,-3)--(axis cs:10,-3);
+\draw [red] (axis cs:-10,0.1)--(axis cs:10,0.1);
+\draw [red] (axis cs:-10,1)--(axis cs:10,1);
+\addplot [black, mark = +] coordinates {( 1, 0.3)};
+\addplot [black, mark = +] coordinates {( 1, 0.3)};
+\addplot [black, mark = +] coordinates {( 2, 0.1)};
+\addplot [black, mark = +] coordinates {( 3, -2)};
+\addplot [black, mark = +] coordinates {( 4, 1)};
+\addplot [black, mark = +] coordinates {( 5, 0.5)};
+\addplot [black, mark = +] coordinates {( 8, 0.2)};
+\addplot [black, mark = +] coordinates {( 6, 0.5)};
+\addplot [black, mark = +] coordinates {( 7, 0.3)};
+\addplot [black, mark = none, nodes near coords=$\varepsilon$,every node near coord/.style={anchor=180}] coordinates {( 5, -2)};
+\draw [-> , red] (axis cs: 5,-2)--(axis cs: 5, 0.25);              
+\end{axis}
+  \end{tikzpicture}
+\subsection{Definition}
+\begin{enumerate}[a)]
+\i Sei $(a_i)_{i \geq k}$ eine Folge, $s_n \sum\limits_{i = k}^{n} a_i , n \geq k$ (Partiealsummen der Folge)\\
+Dann hei\ss t $(s_n)_{n \geq k}$ eine \underline{unendliche Reihe}\\
+$(k-1: a_1, a_1+a_2, a_1 + a_2 + a_2,\ldots)$\\
+Schreibweise : $\sum\limits_{i = k}^{\infty} a_i$\\
+\i Ist die Folge $(s_n)_{n \geq k}$ konvergent mit $\lim\limits_{n \rightarrow \infty} s_n = c$,\\
+so schreibt man $\sum\limits_{i = k}^{\infty} a_i =c.$ Reihe \underline{konvergiert}.\\
+Wenn $(s_n)$ nicht konvergiert, so hei\ss t die Reihe $\sum\limits_{i =k}^{\infty} a_i$ \underline{divergent.}\\
+(Zwei Bedeutungen von $\sum\limits_{i = k}^{\infty} a_i:$\\
+\begin{enumerate}[-]
+\i Folge der Partialsummen\\
+\i Grenzwert von $(s_n)$, falls dieser existiert
+\end{enumerate}
+$\sum\limits_{i=k}^{\infty} a_i = \sum\limits_{n=k}^{\infty} a_n = (s_m)_{m \geq k}$
+\end{enumerate}
+\subsection{Satz}
+\begin{enumerate}[a)]
+\i Ist die Reihe $\series{a_1}$ konvergent, so ist $(a_1)_{i \geq k}$ eine Nullfolge.
+\i Ist die Folge der Partialsummen $s_n = \series{a_i}$ beschränkt und ist $a_i \geq 0$ für alle i, so ist $\series{a_i}$ konvergent.
+\begin{proof}
+a)\\
+Sei $\series{a_i} = c$.\\
+Sei $\varepsilon > 0$ Dann existiert $n(\frac{\varepsilon}{2}) \geq k$ mit $\abs{\series2{a_i - c}} < \frac{\varepsilon	}{2}$ für alle $ n \geq n(\frac{\varepsilon}{2})$\\
+Dann gilt $\abs{a_{n+1} -o} = \abs{a{n+1}} = \abs{\seriesnplus{a_i} + \seriesn{a_i}} = \\
+\abs{\seriesnplus{a_i+c}-\seriesn{a_i +c}} \leq \abs{\seriesnplus{a_i+c}}+\abs{\seriesn{a_i -c }} <  \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.\\
+(a_n)$ ist Nullfolge\\
+b) folgt aus 2.16a), denn $(s_n)$ ist monoton steigend
+\end{proof}
+\end{enumerate}
+\subsection{Beispiele}
+\begin{enumerate}[a)]
+\i Sei $q \in \R$.\\
+Ist $q \not = 1$, so ist $\seriesn{q^i}=\frac{q^{n+1}-1}{q-1}\\
+\bigl \lbrack (\seriesn{q^i}) \cd (q-1)\bigr\rbrack$\\
+Sei $\abs{q} < 1$, d.h $ -1 < q <1$.\\
+Dann ist $\series{q^i} = \frac{1}{1-q}$ (konvergiert)\\
+$s_n = \seriesn{q^1} = \frac{q^{n+1}-1}{q-1}\\
+\lim\limits_{n \rightarrow \infty} s_n = \lim\limits_{n \rightarrow} \frac{q^{n+1} =1}{q-1}\\
+(q^n)$ Nullfolge ($2.9_{a)}$  für $q \geq 0 , 2.8_{e}) + 2.9_{a)}$ für $q < 0 , q = -\abs{q}$)\\
+\underline{Geomtetrische Reihe}\\
+Sei $\abs{q} \geq 1$. Dann ist $\series{q^i}$  divergent, da dann $(q^i)$ keine Nullfolge ($2.18_{a)} $)
+\i $\series{\frac{1}{i}}$ divergiert\\
+\underline{harmonische Reihe}\\
+$\seriesn{\frac{1}{n}}\\
+\begin{array}{rlll}
+n &= 2^0 &=1 &: s_1 = 1\\
+n &= 2^1 &=2 &: s_2 =  1 + \frac{1}{2}\\
+\ldots\\
+n &= 2^3 &=8 &: s_8 = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4}+ \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} > s_7 > s_6 \ldots 
+\end{array}$\\
+Per Induktion
+\i $\series{\frac{1}{n^2}}$ konvergiert.
+\end{enumerate}
 \end{document}
