@@ -20,7 +20,7 @@ force & 25 \\
 ; Ein Charakter (character) besteht aus
 ; - Name (name)
 ; - Jedi-Status (jedi?)
-; - Staerke der Macht (force)
+; - Stärke der Macht (force)
 (: make-character (string boolean real -> character))
 (: character? (any -> boolean))
 (: character-name (character -> string))
@@ -44,7 +44,6 @@ force & 25 \\
   (make-character "Yoda" #t 85))
 
 \end{lstlisting}
-\newpage
 Zusammengesetzte Daten = \underline{Records} in Scheme Record-Definition legt fest:\\
 \begin{tabular}{cll}
 - & Record-Signatur\\
@@ -66,7 +65,6 @@ Verträge des Konstruktors\/ der Selektoren für Record- Signatur\\
 (: <t>-<comp1> (<t> -> <t1>))
 (: <t>-<compn> (<t> -> <tn>))
 \end{lstlisting}
-\linie\\
 Es gilt für alle Strings n, Booleans j und Integer f:
 \begin{lstlisting}
 (character-name (make-character n j f) n)
@@ -103,10 +101,9 @@ Interaktion von Selektoren und Konstruktor:
            (f real))
    (expect-within (character-force (make-character n j f)) f 0.001)))
 \end{lstlisting}
-\linie\\
 \underline{Beispiel:} Die Summe von zwei natürlichen Zahlen ist mindestens so gro\ss \ wie jeder dieser Zahlen: $ \forall x_1 \in \mathbb{N}, x_2 \in \mathbb{N} : x_1 + x_2 \geq \max\{x_1,x_2\}$
 \begin{lstlisting}[frame=single]
-; Fuer alle natuerlichen Zahlen x1,x2 gilt: x1 + x2 @$\textcolor{kommentar}{\geq}$@ max(x1,x2)
+; Für alle natürlichen Zahlen x1,x2 gilt: x1 + x2 @$\textcolor{kommentar}{\geq}$@ max(x1,x2)
 (check-property
  (for-all ((x1 natural)
            (x2 natural))

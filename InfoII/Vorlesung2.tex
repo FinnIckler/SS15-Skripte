@@ -1,7 +1,7 @@
-Auswertung \underline{zusammengesetzter Ausdr\"ucke} in mehreren Schritten (Steps), von ``innen nach au\ss en``, bis keine Reduktion mehr m\"oglich\\
+Auswertung \underline{zusammengesetzter Ausdr\"ucke} in mehreren Schritten (Steps), von ``innen nach au\ss en``, bis keine Reduktion mehr m\"oglich ist.\\
 (+ ( \uwave{(+ 20 20)} (+ 1 1)) \eval (+ 40 \uwave{(+ 1 1)} \eval (+ 40 2) \eval  42\\
 \textbf{Achtung:} Scheme rudnet bei Arithmetik mit Flie\ss kommazahlen (interne Darstellung ist bin\"ar).\\
-Beispiel: Auswertung des zusammengesetzten Ausdruckes 
+Beispiel: Auswertung eines zusammengesetzten Ausdrucks 
 \begin{lstlisting}[frame=single]
 ; Achtung: Arithmetik mit Fliesskommazahlen (real)\\
  unterliegt Rundung!
@@ -18,20 +18,19 @@ Beispiel: Auswertung des zusammengesetzten Ausdruckes
       (/ 1/2 1/4))
    (/ 6/10 3/10))
 \end{lstlisting}
-\linie\\
-Ein Wer kann an einen \underline{Namen} (auch \underline{Identifier}) gebunden werden, durch \\
+Ein Wert kann an einen \underline{Namen} (auch \underline{Identifier}) gebunden werden, durch \\
 (define \auf id\zu \auf e\zu) \hspace*{1.5cm} \auf id\zu Identifier \auf e\zu Ausdruck\\
 Erlaubte konsistente Wiederverwendung, dient der Selbstdokumentation von Programmen\\
-\textbf{\underline{Achtung:}} Dies ist eine sogenannte Spezialform und kein Ausdruck. Insbesondere besitzt diese Spezialform \underline{keinen} Wert, sondern einen Effekt Name \auf id\zu wird an den \underline{Wert} von \auf e\zu gebunden. \\
-Namen k\"onnen in Scheme beliebig gew\"alt werden, solange
+\textbf{\underline{Achtung:}} Dies ist eine sogenannte Spezialform und kein Ausdruck. Insbesondere besitzt diese Spezialform \underline{keinen} Wert, sondern einen Effekt Name \auf id\zu \ wird an den \underline{Wert} von \auf e\zu \ gebunden. \\
+Namen k\"onnen in Scheme beliebig gewählt werden, solange
 \begin{enumerate}
-\item[(1)] Die Zeichen ( ) $[$ $]$ $\{ \}$ `` , ` ` ; \# $\mid$ \textbackslash nicht vorkommen
-\item[(2)] der nicht einem numerischen Literal gleicht.
-\item[(3)] kein Whitespace (leerzeichen, Tabulator, Return) enthalten ist.
+\item[(1)] die Zeichen ( ) $[$ $]$ $\{ \}$ `` , ` ` ; \# $\mid$ \textbackslash nicht vorkommen
+\item[(2)] dieser nicht einem numerischen Literal gleicht.
+\item[(3)] kein Whitespace (Leerzeichen, Tabulator, Return) enthalten ist.
 \end{enumerate}
 Beispiel: euro$\rightarrow$US\$\\
-\underline{\textbf{Achtung:}} Gro\ss \textbackslash Kleinschreibung ist irrelevant\\
-\linie\\
+\underline{\textbf{Achtung:}} Gro\ss-\textbackslash Kleinschreibung ist irrelevant.
+\bigskip\\
 \begin{lstlisting}[frame=single]
 ; Bindung von Werten an Namen
 (define absoluter-nullpunkt -273.15)
@@ -41,14 +40,14 @@ Beispiel: euro$\rightarrow$US\$\\
 (define minutes-in-a-day (* 24 60))
 (define vorwahl-tuebingen (sqrt 1/2))
 \end{lstlisting}
-Eine \underline{lambda-Abstraktion} (auch Funktion,Prozedur) erlaubt die Formatierung von Ausrdr\"ucken, in denen mittels \underline{Parametern} von konkreten Werten abstrahiert wird.\\
+Eine \underline{lambda-Abstraktion} (auch Funktion, Prozedur) erlaubt die Formatierung von Ausrdr\"ucken, in denen mittels \underline{Parametern} von konkreten Werten abstrahiert wird.\\
 (lambda (\auf p1\zu \auf p2 \zu $\ldots$) \auf e\zu\\
-\auf e\zu Rumpf $\Rightarrow$ enth\"alt Vorkommen der Parameter \auf $p_n$\zu\\
-(lambda($\ldots$) ist eine Spezialform. Wert der lambda-Abstraktion ist \#\auf procedure\zu\\
-\underline{Anwendung} (auch : Application) des lambda Aufrufs f\"uhrt zur Ersetzung aller Vorkommen der Parameter im Rumpf durch die angegebenen \underline{Argumente}.\\
+\auf e\zu Rumpf: enth\"alt Vorkommen der Parameter \auf $p_n$\zu\\
+(lambda($\ldots$)) ist eine Spezialform. Wert der lambda-Abstraktion ist \#\auf procedure\zu\\.
+\underline{Anwendung} (auch Application) des lambda-Aufrufs f\"uhrt zur Ersetzung aller Vorkommen der Parameter im Rumpf durch die angegebenen \underline{Argumente}.\\
 \begin{lstlisting}[frame = single]
-; Abstraktion: Ausdruck mit "Loch" \odot
-(lambda (\odot) (* \odot (* 155 minutes-in-a-day)))
+; Abstraktion: Ausdruck mit "Loch" @$\odot$@
+(lambda (@$\odot$@) (* @$\odot$@ (* 155 minutes-in-a-day)))
 
 
 ; Zuwachs der Weltbevoelkerung innerhalb von days Tagen
@@ -59,8 +58,8 @@ Eine \underline{lambda-Abstraktion} (auch Funktion,Prozedur) erlaubt die Formati
 \end{lstlisting}
 (lambda (days) (* days (* 155 minutes-in-a-day))) 365) \eval\\
  (* 365 (* 155 minutes-in-a-day)) \eval 81468000\\
-\linie\\
+\bigskip\\
 In Scheme leitet ein Semikolon einen Kommentar ein, der bis zum Zeilenende reicht und vom System bei der Auswertung ignoriert wird.\\
-Prozeduren sollten im Programm ein- bis zwei zeilige \underline{Kurzbeschreibungen} direkt vorangestellt werden
+Prozeduren sollten im Programm ein- bis zweizeilige \underline{Kurzbeschreibungen} direkt vorangestellt werden.
 
 

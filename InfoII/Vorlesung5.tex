@@ -17,7 +17,6 @@ Die Signatur \underline{one of} lässt genau einen der ausgewählten Werte zu.\\
 
 
 \end{lstlisting}
-\linie\\
 Reduktion von if:\\
 (if $t_1$ \auf $e_1$\zu \auf $e_2$\zu)\\
 \textcircled{1} Reduziere $t_1$, erhalte $t_1'$ $\t{\eval}_\text{\textcircled{2}} 
@@ -54,7 +53,6 @@ Reduktion von if:\\
 
 
 \end{lstlisting}
-\linie\\
 Spezifikation Fallunterscheidung (conditional expression):\\
 \begin{tabular}{rlcl}
 (cond& & & Mathematik:\\
@@ -70,7 +68,8 @@ Sobald $t_i \#t$ ergibt, werte Zweig $e_i$ aus. $e_i$ ist Ergebnis der Fallunter
 \begin{cases}
 \t{Fehlermeldung \glqq cond: alle Tests ergaben false\grqq}& \t{falls kein else Zweig}\\
 <e_{n+1}\t{\zu}& \t{sonst}
-\end{cases}$\\
+\end{cases}$
+\bigskip\\
 \begin{lstlisting}[frame=listing]
 ; Absolutwert von x
 (: my-abs (real -> real))
@@ -91,7 +90,7 @@ Reduktion von cond $\lbrack \t{eval}_{\t{cond}}\rbrack $\\
 \end{cases}$\\
 (cond) \eval \glqq Fehlermeldung : alle Test ergaben false \grqq\\
 (cond (else \auf $e_{n+1}$)) \eval $e_{n+1}$\\
-\linie\\
+\bigskip\\
 cond ist syntaktisches Zucker (auch abgeleitete Form) für eine verbundene Anwendung von if \\
 \begin{tabular}{rcrrrl}
 (cond & (\argt{1}\arge{1}) & if &\argt{1}\\
