@@ -1,0 +1,162 @@
+\underline{Zusammengesetze Daten}\\
+Ein Charakter \underline{besteht} aus drei \underline{Komponenten}\\
+\begin{tabular}{clcl}
+- & Name des Charakters &(name)\rdelim\}{3}{0mm}
+[Datendefinition für zusammengesetzte Daten]\\
+- & Handelt es sich um einen Jedi? &(jedi?)&\\
+- & Stärke der Macht \hspace*{2.3cm} &(force)&
+\end{tabular}\\
+Konkrete Charakter:\hspace*{5pt}
+\begin{tabular}{|c|c|}
+\hline
+name & \glqq Luke Skywalker \grqq\\
+\hline
+jedi? & \#f \\
+\hline
+force & 25 \\
+\hline
+\end{tabular}\\
+\begin{lstlisting}[frame=listing]
+; Ein Charakter (character) besteht aus
+; - Name (name)
+; - Jedi-Status (jedi?)
+; - Staerke der Macht (force)
+(: make-character (string boolean real -> character))
+(: character? (any -> boolean))
+(: character-name (character -> string))
+(: character-jedi? (character -> boolean))
+(: character-force (character -> real))
+(define-record-procedures character
+  make-character
+  character?
+  (character-name
+   character-jedi?
+   character-force))
+
+; Definiere verschiedene Charaktere des Star Wars Universums
+(define luke
+  (make-character "Luke Skywalker" #f 25))
+(define r2d2
+  (make-character "R2D2" #f 0))
+(define dooku
+  (make-character "Count Dooku" #f 80))
+(define yoda
+  (make-character "Yoda" #t 85))
+
+\end{lstlisting}
+\newpage
+Zusammengesetzte Daten = \underline{Records} in Scheme Record-Definition legt fest:\\
+\begin{tabular}{cll}
+- & Record-Signatur\\
+- & \underline{Konstruktor} & (baut aus Komponenten einen Record)\\
+- & Prädikat & (liegt ein Record vor?)\\
+- & Liste von \underline{Selektoren}& (lesen jeweils eine Komponente des Records)
+\end{tabular}\\
+\begin{lstlisting}
+(define-record-procedure <t>
+	make-<t>
+	<t>?
+	(<t>-<comp1> ... <t>-<comp2>))
+	;Liste der n Selektoren
+\end{lstlisting}
+Verträge des Konstruktors\/ der Selektoren für Record- Signatur\\
+\argt{} mit Komponenten namens \argcomp{1} $\ldots$ \argcomp{n}\\
+\begin{lstlisting}
+(: make-<t> (<t1>...<t2>) -> <t>)
+(: <t>-<comp1> (<t> -> <t1>))
+(: <t>-<compn> (<t> -> <tn>))
+\end{lstlisting}
+\linie\\
+Es gilt für alle Strings n, Booleans j und Integer f:
+\begin{lstlisting}
+(character-name (make-character n j f) n)
+(character-jedi? (make-character n j f) j)
+(character-force (make-character n j f) f )
+\end{lstlisting}
+Spezialform check-property:\\
+\begin{lstlisting}
+(check-property
+	(for-all ((<id1> <sig1>) ... 
+			  (<idn> <sign>))
+	<e>))
+	@\latexcode{$\downarrow$}@
+;Bezieht sich auf <id1> ... <idn>	
+\end{lstlisting}
+Test erfolgreich, falls \arge{} für beliebig gewählte Bedeutungen für \argid{1} $\ldots$ \argid{n} immer \#t ergibt\\
+Interaktion von Selektoren und Konstruktor:
+\begin{lstlisting}[frame=listing]
+(check-property 
+ (for-all ((n string)
+           (j boolean)
+           (f real))
+   (expect (character-name (make-character n j f)) n)))
+
+(check-property 
+ (for-all ((n string)
+           (j boolean)
+           (f real))
+   (expect (character-jedi? (make-character n j f)) j)))
+
+(check-property 
+ (for-all ((n string)
+           (j boolean)
+           (f real))
+   (expect-within (character-force (make-character n j f)) f 0.001)))
+\end{lstlisting}
+\linie\\
+\underline{Beispiel:} Die Summe von zwei natürlichen Zahlen ist mindestens so gro\ss \ wie jeder dieser Zahlen: $ \forall x_1 \in \mathbb{N}, x_2 \in \mathbb{N} : x_1 + x_2 \geq \max\{x_1,x_2\}$
+\begin{lstlisting}[frame=single]
+; Fuer alle natuerlichen Zahlen x1,x2 gilt: x1 + x2 @$\textcolor{kommentar}{\geq}$@ max(x1,x2)
+(check-property
+ (for-all ((x1 natural)
+           (x2 natural))
+   (>= (+ x1 x2) (max x1 x2))))
+\end{lstlisting}
+Konstruktion von Funktionen, die bestimmte gesetzte Daten \underline{konsumiert}.\\
+\begin{enumerate}[-]
+\i Welche Record-Componenten sind relevant für Funktionen?
+\begin{enumerate}[$\rightarrow$]
+\i Schablone:
+\begin{lstlisting}
+(: sith? (character -> boolean))
+(define sith?
+  (lambda (c)
+    ... (character-jedi? c))
+    ... (character-force c) )...))
+\end{lstlisting}
+\end{enumerate}
+Konstruktion von Funktionen, die zusammengesetzte Daten \underline{konstruieren}
+\i Der konstruktor \underline{muss} aufgerufen werden
+\begin{enumerate}[$\rightarrow$]
+\i Schablone:
+\begin{lstlisting}
+(define
+	lambda(...)
+		... (make-<t>)...)
+\end{lstlisting}
+\end{enumerate}
+\i Konkrete Beispiele:
+\begin{lstlisting}[frame=single]
+; Könnte Charakter c ein Sith sein?
+(: sith? (character -> boolean))
+(check-expect (sith? yoda) #f)
+(check-expect (sith? r2d2) #f)
+(define sith?
+  (lambda (c)
+    (and (not (character-jedi? c))
+         (> (character-force c) 0))))
+
+
+; Bilde den Charakter c zum Jedi aus (sofern c überhaupt Macht besitzt)
+(: train-jedi (character -> character))
+
+(check-expect (train-jedi luke) (make-character "Luke Skywalker" #t 50))
+(check-expect (train-jedi r2d2) r2d2)
+
+(define train-jedi
+  (lambda (c)
+    (make-character (character-name c) 
+                    (> (character-force c) 0)
+                    (* 2 (character-force c)))))
+\end{lstlisting}
+\end{enumerate}

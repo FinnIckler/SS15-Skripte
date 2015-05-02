@@ -1,5 +1,22 @@
 Die Signatur \underline{one of} lässt genau einen der ausgewählten Werte zu.\\
 (one of \auf $e_1$\zu \auf$e_2$\zu \ldots \auf $e_1$\zu)\\
+\begin{lstlisting}[frame=single]
+    
+
+
+; Punkte der Heimmannschaft bei Ergebnis h:a
+(: heim-punkte (natural natural -> (one-of 3 0 1)))
+(check-expect (heim-punkte 2 0) 3)
+(check-expect (heim-punkte 1 4) 0)
+(check-expect (heim-punkte 3 3) 1)
+(define heim-punkte
+  (lambda (h a)
+    (cond ((> h a) 3)
+          ((< h a) 0)
+          (else    1))))
+
+
+\end{lstlisting}
 \linie\\
 Reduktion von if:\\
 (if $t_1$ \auf $e_1$\zu \auf $e_2$\zu)\\
@@ -8,6 +25,35 @@ Reduktion von if:\\
 <e_1\t{\zu} &\t{falls } t_1' = \#t, <e_2\t{\zu niemals ausgewertet}\\
 <e_2\t{\zu} &\t{falls } t_1' = \#\t{f}, <e_1\t{\zu niemals ausgewertet}  
 \end{cases}$\\
+\begin{lstlisting}[frame=listing]
+
+; Koennen wir unser eigenes `if' aus `cond' konstruieren?  (Nein!)
+
+; Bedingte Auswertung von e1 oder e2 (abhaengig von t1)
+(check-expect (my-if (= 42 42) "Yes!" "No!") "Yes!")
+(check-expect (my-if (odd? 42) "Yes!" "No!") "No!")
+(define my-if
+  (lambda (t1 e1 e2)
+    (cond (t1 e1)
+          (else e2))))
+
+
+
+; Sichere Division x/y, auch fuer y = 0
+(: safe-/ (real real -> real))
+(define safe-/
+  (lambda (x y)
+    (my-if (= y 0)     ; <-- Funktion my-if wertet ihre Argumente
+           x           ;     vor der Applikation aus: (/ x y) wird
+           (/ x y))))  ;     in *jedem* Fall reduziert. :-(
+
+
+(safe-/ 42 0)          ; Fuehrt zu Fehlemeldung "division by zero"
+                       ; (Reduktion mit Stepper durchfuehren)
+
+
+
+\end{lstlisting}
 \linie\\
 Spezifikation Fallunterscheidung (conditional expression):\\
 \begin{tabular}{rlcl}
@@ -21,9 +67,62 @@ Spezifikation Fallunterscheidung (conditional expression):\\
 \end{tabular}\\
 Werte die Tests in den Reihenfolge $t_1,t_2.t_3,\ldots,t_n$ aus.\\
 Sobald $t_i \#t$ ergibt, werte Zweig $e_i$ aus. $e_i$ ist Ergebnis der Fallunterscheidung. Wenn $t_n \#t$ liefert, dann liefert $\\
-\begin{cases}\
+\begin{cases}
 \t{Fehlermeldung \glqq cond: alle Tests ergaben false\grqq}& \t{falls kein else Zweig}\\
 <e_{n+1}\t{\zu}& \t{sonst}
 \end{cases}$\\
+\begin{lstlisting}[frame=listing]
+; Absolutwert von x
+(: my-abs (real -> real))
+(check-within (my-abs -4.2) 4.2 0.001)   ; Wichtig:
+(check-within (my-abs 4.2) 4.2 0.001)    ; Tesfaelle decken alle Zweige
+(check-within (my-abs 0) 0 0.001)        ; der conditional expression an
+(define my-abs
+  (lambda (x)
+    (cond ((< x 0) (- x))
+          ((> x 0) x    )
+          (else    0    ))))
+\end{lstlisting}
 Reduktion von cond $\lbrack \t{eval}_{\t{cond}}\rbrack $\\
-(cond (\auf $t_1$\zu \auf $e_1$\zu)(\auf $t_2$\zu \auf $e_2$\zu)$\ldots$(\auf $t_n$\zu \auf $e_n$\zu))
+(cond (\auf $t_1$\zu \auf $e_1$\zu)(\auf $t_2$\zu \auf $e_2$\zu)$\ldots$(\auf $t_n$\zu \auf $e_n$\zu))\\
+\textcircled{1} Reduziere $t_1$ erhalte $t_1'$ $\t{\eval}_{\t{\textcircled{2}}} \begin{cases}
+<e_1\t{\zu} & \t{falls }t_1' = \#t\\
+(\t{cond }<t_2\t{\zu} <e_2\t{\zu}) & \t{sonst}
+\end{cases}$\\
+(cond) \eval \glqq Fehlermeldung : alle Test ergaben false \grqq\\
+(cond (else \auf $e_{n+1}$)) \eval $e_{n+1}$\\
+\linie\\
+cond ist syntaktisches Zucker (auch abgeleitete Form) für eine verbundene Anwendung von if \\
+\begin{tabular}{rcrrrl}
+(cond & (\argt{1}\arge{1}) & if &\argt{1}\\
+& (\argt{2}\arge{2})& & \arge{1}\\
+&$\dots$            & & if &\argt{2}\\
+&$\dots$            & & & \arge{2}\\
+&$\dots$            & & & $\dots$\\
+&(\argt{n}\arge{n}) & & & if &\argt{n}\\
+&                   & & &    &\arge{n}\\
+&(else \arge{n+1}   & & &    &\arge{n+1}))$\ldots$))
+\end{tabular}\\
+Spezialform 'and' und 'or' \\
+(or \argt{1} \argt{2} $\ldots$ \argt{n}) \eval (if \argt{1} (or \argt{2} $\ldots$ \argt{n}) \#t)\\
+(or) \eval \#f \\
+(and \argt{1} \argt{2} $\ldots$ \argt{n}) \eval (if \argt{1} (and \argt{2} $\ldots$ \argt{n})\#f)\\
+(and) \eval \#t
+\begin{lstlisting}[frame=single]          
+; Konstruktion komplexer Praedikate mittels `and' und `or':
+
+(and #t #f)  ; eval #f   (Mathematik: Konjunktion)
+(or #t #f)   ; eval #t   (Mathematik: Disjunktion)
+
+
+; Kennzeichen am/pm fuer Stunde h
+(: am/pm (natural -> (one-of "am" "pm" "???")))
+(check-expect (am/pm 10) "am")
+(check-expect (am/pm 13) "pm")
+(check-expect (am/pm 25) "???")
+(define am/pm
+  (lambda (h)
+    (cond ((and (>= h 0) (< h 12))  "am")
+          ((and (>= h 12) (< h 24)) "pm")
+          (else "???"))))
+\end{lstlisting}
