@@ -33,3 +33,8 @@
 \contentsline {subsection}{\numberline {2.18}Definition}{13}
 \contentsline {subsection}{\numberline {2.19}Satz}{14}
 \contentsline {subsection}{\numberline {2.20}Beispiele}{14}
+\contentsline {subsection}{\numberline {2.21}Satz (Leibniz-Kriterium)}{16}
+\contentsline {subsection}{\numberline {2.22}Satz (Majoranten-Kriterium)}{16}
+\contentsline {subsection}{\numberline {2.23}Beispiel}{16}
+\contentsline {subsection}{\numberline {2.24}Definition}{16}
+\contentsline {subsection}{\numberline {2.25}Korollar}{17}
