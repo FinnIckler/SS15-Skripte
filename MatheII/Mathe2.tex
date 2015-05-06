@@ -1,4 +1,5 @@
 \input{header}
+\newcommand{\seriesalg}[3]{\sum\limits_{#1}^{#2} #1}
 \newcommand{\seriesn}[1]{\sum\limits_{i=k}^{n} #1}
 \newcommand{\seriesnplus}[1]{\sum\limits_{i=k}^{n+1} #1}
 \newcommand{\series}[1]{\sum\limits_{i=k}^{\infty} #1}
@@ -727,7 +728,7 @@ Ist $k$ ungerade, so ist $s_k < s_l:$ Wähle n so, dass $2n-a \geq k, 2n \geq l$
 $s_k \underset{(2)}{\leq} s_{2n-1} \underset{\uparrow}{<} s_{2n} \underset{(1)}{\leq} s_l$\\
 \hspace*{0.75cm} $s_{2n} = s_{2n-1} + \frac{1}{2n}$\\
 \begin{tikzpicture}
-\begin{axis}[legend style={draw none},axis equal,ymin = 0,xmin = 0,ymax = 0,xmax = 7,xtick ={1,2,3,4,5,6}, xticklabels={$s_1$,$s_3$,$s_5$,$s_6$,$s_4$,$s_2$},ytick ={},yticklabels={},extra x ticks={0},extra x tick label={0},extra y ticks={},extra y tick labels={},extra tick style = {grid = major}]             
+\begin{axis}[legend style={draw none},axis equal,ymin = -0.1,xmin = 0,ymax = 0,xmax = 7,xtick ={1,2,3,4,5,6}, xticklabels={$s_1$,$s_3$,$s_5$,$s_6$,$s_4$,$s_2$},ytick ={},yticklabels={},extra x ticks={0},extra x tick label={0},extra y ticks={},extra y tick labels={},extra tick style = {grid = major}]             
 \end{axis}
 \end{tikzpicture}\\
 Abstand $s_{2n} - s_{2n-1} = \frac{1}{2n}$ geht gegen 0.\\
@@ -777,4 +778,117 @@ a_i \in \{0 \ldots 9\}$ (Dezimalsystem)\\
 $a_1 \cd \frac{1}{10} a_2 \cd \frac{1}{100} \ldots a_n \cd \frac{1}{10^n} \leq 9 \cd \frac{1}{10} 9 \cd \frac{1}{100} \ldots 9 \cd \cd \frac{1}{10^n}\\
 a_i \frac{1}{10} \leq 9 \frac{1}{10}\\
 \series{9 \frac{1}{10}} = 9 \cd (\frac{1}{1-\frac{1}{10}}-1) = 1 \Rightarrow \series{a_i \frac{1}{10}}$ konvergiert
+\subsection{Satz}
+Sei $\series{a_i}$ eine Reihe.\\
+\begin{enumerate}[a)]
+\i \underline{Wurzelkriterium}\\
+Existiert $q < 1$ und ein Index $i_0$, so dass $\sqrt[i]{\abs{a_i}} \leq q$ für alle $i \geq i_0$.\\
+so konvergiert die Reihe $\series{a_i}$ absolut.\\
+Ist $\sqrt[i]{\abs{a_i}} \geq 1$ für unendlich viele im so divergiert $\series{a_i}$.\\
+\i \underline{Quotientenkriterium}\\
+Existiert $q > 1$ und ein Index $i_0$, so dass $\abs{\frac{a_{i+1}}{a_i } } \leq$ für alle $i \geq i_0$,\\
+so konvergiert $\series{a_i}$ absolut. 
+\end{enumerate}
+\begin{proof} \ \\
+\begin{enumerate}[a)]
+\i $\abs{a_i} \leq q^i$ für alle $i \geq i_0$
+\i[] $\sum\limits_{i=i_0}^{\infty} q^i$ konvergiert (2.20 a)) 
+\i[$\underset{2.22}{\Rightarrow}$] $\sum\limits_{i=i_0}^{\infty} \abs{a_i}$ konvergiert
+\i[$\Rightarrow$] $\series{\abs{a_i}}$ konvergiert.
+\i[] $\sqrt[i]{\abs{a_i}} \geq 1$ für unendlich viele i
+\i[$\Rightarrow$] $\abs{a_i} \geq 1$ für unendlich viele i
+\i[$\Rightarrow$] $(a_i)$ sind keine Nullfolge
+\i[$\Rightarrow$] $\series{a_i}$ divergiert.\\
+\i Sei $i \geq i_0$.\\
+$\abs{\frac{a_i}{a_{i0}}} = \abs{\frac{a_i}{a_{i-1}}} \cd \abs{\frac{a_i}{a_{i-2}}} \cd \ldots \cd \abs{\frac{a_{io+1}}{a_{i0} } } \leq q \cd q \cd \ldots \leq = q^{i-i0} = \frac{q^i}{q^{i0}}$\\
+\hspace*{5.55cm} $\uparrow$ Voraussetzung: \\
+\hspace*{5cm} jeder dieser Quotienten ist $\leq q$\\
+$\abs{a_i} \leq \underbrace{\frac{\abs{a_i0}}{q^{i0}}}_{=:c} \cd q^i \hspace*{2cm} \sum\limits_{i=i_0}^{\infty} c \cd q^i$ konvergent\\
+\i[$\underset{2.22}{\Rightarrow}$] $\sum\limits_{i=i_0}^{\infty} \abs{a_i}$ konvergiert.\\
+\i[$\Rightarrow$] $\series{\abs{a_i}}$ konvergiert
+\end{enumerate}
+\end{proof}
+\subsection{Bemerkung}
+\begin{enumerate}[a)]
+\i Es reicht \underline{nicht} in 2.26 nur vorauszusetzen, dass $\sqrt[i]{\abs{a_i}} > 1$ für alle $i \geq i_o$\\
+bzw.  $\frac{a_{i+1}}{a_i} < 1$ für alle $i \geq i_0$.\\
+z.B. harmonische Reihen : $\sum\limits_{i=1 }^{\infty} \frac{1}{i}$ divergiert.\\
+\underline{Aber}: $\sqrt[i]{\frac{1}{i}} > 1$ für alle i.\\
+\hspace*{30pt} $\frac{i}{i+1} < 1$ für alle i
+\i Es gibt Beispiele von absolut konvergenten Reihen mit $\abs{\frac{a_{i+1}}{a_i}}$ für unendlich viele i.
+\end{enumerate}
+\subsection{Beispiel}
+Sei $x \in \R$. Dann konvergiert $\seriesnull{\frac{x^i}{i!}}$ absolut $(0^0=1, 0! = 1):$\\
+Quotientenkriterium:\\
+$\abs{\frac{x^{i+1} \cd i!}{(i+1)! \cd x^i}} = \abs{frac{x}{i+1}} = \frac{\abs{x}}{i+1}$ Wähle $i_o$, so dass $i_0 + 1 > 2 \cd \abs{x}$\\
+Für alle $i \geq i_0$:\\
+$\frac{\abs{x}}{(i+1)} \leq \frac{\abs{x}}{(i_0+1)} < \frac{\abs{x}}{2 \cd \abs{x}} = \frac{1}{2} = q$.
+\subsection{Bemerkung}
+Gegeben seien zwei endliche Summen\\
+$\seriesalg{n=0}{k}{a_n}, \seriesalg{n=0}{l}{b_n}$.\\
+$(\seriesalg{n=0}{k}{a_n})(\seriesalg{n=0}{l}{b_n})$
+\begin{huge}
+$(\star)$
+\end{huge}\\
+Distributivgesetz: Multipliziere $a_i$ mit jedem $b_i$ und addiere diese Produkte.\\
+\begin{huge}
+$(\star)$
+\end{huge}
+$= \underbrace{a_0 b_0}_{\text{Indexsumme 0}} + \underbrace{(a_0b_1+ a_1b_0)}_{\text{Indexsumme 2}} + \ldots + \underbrace{a_kb_l}_{\text{Indexsumme k+l}}$
+\subsection{Definition}
+Seien $ \seriesnull{a_n}, \seriesnull{b_n}$ unendliche Reihen.\\
+Das \underline{Cauchy-Produkt}(\underline{Faltungsprodukt}) der beiden Reihen ist die Reihe $\seriesnull{c_n}$, wobei $c_n = \seriesnull{a_i \cd b_{n-1}} = a_0b_n + ab_{n-1} + \ldots a_nb_0$
+\subsection{Satz}
+Sind $\seriesnull{a_n}, \seriesnull{b_n}$ absolut konvergent Reihen mit Grenzwert $c ,d$, so ist das Cauchy Produkt auch absolut konvergent mit Grenzwert $c \cd d$. \begin{flushright}
+Beweis: Kreu\ss ler, Phister Satz 33.16
+\end{flushright}
+\section{Potenzreihen}
+\subsection{Definition}
+Seit $(b_n)$ eine reelle Zahlenfolge, $a \in \Re$\\
+Dann hei\ss t $\sum\limits_{n=0}^{\infty} b_n \cd (x-a)^n$ eine \underline{Potenzreihe} (mit \underline{Entwicklungspunkt} a))
+Speziell: $a=0\\
+\sum\limits_{n = 0}^{\infty} b_n \cd x^n$\\
+(Potenzreihe im Engeren Sinne)\\
+\underline{Hauptfolge}: Für welche $x \in \R$ konv. die Potenzreihe (absolut)?\\
+Suche für $x=a$\\
+Dann Grenzwert $b_ 0$ (da $0^0 = 1$)\\
+Ob Potenzreihe für andere x konvergiert, hängt von $b_n$ ab!
+\subsection{Beispiel} 
+\begin{enumerate}[a)]
+\i $\seriesnull{x^n} (b_n =1$ für alle $n$)\\
+geometrische Reihe, konvergiert für alle $x \in \  ]-1,1[$
+\i $\seriesnull{2^n \cd x^n} (b_n = 2^n) = \seriesnull{(2 \cd x)^n}$
+konvergiert genau dann nach a), wenn $\abs{2x} < 1$, d.h $\abs{x} < \frac{1}{2}$ d.h. $x \in ]-0.5, 0.5[$\\
+\i $\seriesnull{\frac{x^n}{n!}} (b_n = \frac{1}{n})$\\
+konvergiert für alle $x, \ x \in ]-\infty,\infty[ = \R $\\
+\end{enumerate}
+\subsection{Satz}
+Sei $ \seriesnull{b_n \cd x^n}$ eine Potenzreihe (um 0). Dawnn gibt es $R \in \R \cup \{\infty\}, R \geq 0$, so dass gilt.
+\begin{enumerate}
+\i Für alle $x \in \R$ und $\abs{x} < R$ konvergiert Potenzreihe absolut (d.h. $\seriesnull{b_n \cd x^n}$
+konvergiert, dann auch $\seriesnull{b_n \cd x^n}$)\\
+Falls $R = \infty$, so hei\ss t das, dass Potenzreihe für alle $x \in \R$ absolut konvergiert.\\
+\i Für alle $x \in \R$ mit $\abs{x} > R$ divergiert $\seriesnull{b_n \cd x^n}$\\
+\begin{tikzpicture}
+\begin{axis}[legend style={draw none},axis equal,ymin = 0,xmin = -2,ymax = 0,xmax = 2,xtick ={-1, 0 , 1}, xticklabels={-R, 0 ,R},ytick ={},yticklabels={},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={},extra tick style = {dashed, grid = major}]   
+\addplot [black, mark = *, nodes near coords=div.?,every node near coord/.style={anchor=-90}] coordinates {( -1, 0)};
+\addplot [black, mark = *, nodes near coords=konvgt.,every node near coord/.style={anchor=-90}] coordinates {( 0, 0)};  
+\addplot [black, mark = *, nodes near coords=div.,every node near coord/.style={anchor=-90}] coordinates {( 1, 0)};     
+\end{axis}
+\end{tikzpicture}\\
+$(\lim\limits_{n \rightarrow \infty} \sqrt[n]{\abs{b_n}} = 0 \Rightarrow R = \infty)$
+(Für $\abs{x} = R$ lassen sich keine allgeine Aussagen treffen).\\
+R hei\ss t der \underline{Konvergenzradius} der Potenzreihe $\seriesnull{b_n \cd x^n}$\\
+Konvergenzintervall $<-R,R>$\\
+besteht aus allen $x$ für die $\seriesnull{b_n \cd x^n}$ konvergiert.\\
+$<$ kann [ oder ] bedeuten.\\
+$>$ kann ] oder [ bedeuten.
+\end{enumerate}
+\subsection{Bemerkung}
+Konvergenz von Potenzreihen der Form $\seriesnull{b_n \cd (x-a)^n}$:\\
+gleichen Konvergenzradius $R$ wie $\seriesnull{b_n \cd x^n}$\\
+konvergiert absolut für $\abs{x-a} < R$, d.h $x \in \ ]a-R,  a+R[$
+Divergiert für $\abs{x-a} > R$.\\
+Keine Aussage für $\abs{x-a} = R$, d.h $ x = a-R$ oder $x = a+R$\\
+Konvergenzintervall $<a-R,a+R>$
 \end{document}
