@@ -92,16 +92,16 @@ Reduktion von cond $\lbrack \t{eval}_{\t{cond}}\rbrack $\\
 (cond (else \auf $e_{n+1}$)) \eval $e_{n+1}$\\
 \bigskip\\
 cond ist syntaktisches Zucker (auch abgeleitete Form) für eine verbundene Anwendung von if \\
-\begin{tabular}{rcrrrl}
-(cond & (\argt{1}\arge{1}) & if &\argt{1}\\
-& (\argt{2}\arge{2})& & \arge{1}\\
-&$\dots$            & & if &\argt{2}\\
-&$\dots$            & & & \arge{2}\\
-&$\dots$            & & & $\dots$\\
-&(\argt{n}\arge{n}) & & & if &\argt{n}\\
-&                   & & &    &\arge{n}\\
-&(else \arge{n+1}   & & &    &\arge{n+1}))$\ldots$))
-\end{tabular}\\
+\begin{lstlisting}
+(cond 	(<t1><e1>) 		if (<t1>
+	(<t2><e2>)	    	    <e1>
+	...				if <t2>
+	...				if <e2>
+	...				...
+	(<tn><en>)       	    	  if <tn>
+					     <en>
+	(else <en+1>)  	 			<en+1>))..))
+\end{lstlisting}
 Spezialform 'and' und 'or' \\
 (or \argt{1} \argt{2} $\ldots$ \argt{n}) \eval (if \argt{1} (or \argt{2} $\ldots$ \argt{n}) \#t)\\
 (or) \eval \#f \\
