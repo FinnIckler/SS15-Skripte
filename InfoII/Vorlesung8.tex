@@ -1,0 +1,154 @@
+Man kann jedes \code{one-of} durch ein \code{predicate} ersetzen.
+\begin{lstlisting}[frame=single]
+(: f ((one-of 0 1 2 ) -> natural))
+(define f
+  (lambda (x)
+    x))
+
+; And then the "The Great one-of Extinction" of 2015 occurred @\includegraphics[scale=0.5]{kaboon}@
+;.
+
+(: g ((predicate 
+       (lambda (x) (or (= x 0) (= x 1) (= x 2)))) -> natural))
+(define g
+  (lambda (x)
+    x))
+
+\end{lstlisting}
+ \ \bigskip\\
+Geocoding: Übersetze eine Ortsangabe mittels des Google Maps Geocoding API (Application Programm Interface) in eine Position auf der Erdkugel.
+\begin{lstlisting}
+(: geocoder (string -> (mixed geocode geocode-error)))
+\end{lstlisting}
+Ein geocode besteht aus \\
+\begin{tabular}{crrl}
+& \underline{Signatur}\\
+- & Adresse & (address) & string\\
+- & Ortsangabe & (loc) & location\\
+- & Nordostecke & (northeast) & location\\
+- & Südwestecke & (southwest) & location\\
+- & Typ & (type) & string\\
+- & Genauigkeit & (accuracy) & string
+\end{tabular}\\
+\begin{lstlisting}
+(: geocode-adress (geocode -> string))
+(: geocode-loc (geocode -> location))
+(: geocode-... (geocode -> ...))
+\end{lstlisting}
+Ein geocode-error besteht aus:\\
+\begin{tabular}{crrl}
+& \underline{Signatur}\\
+- & Fehlerart & (level) & (one-of "TCP'' "HTTP'' "JSON'' ''API'')\\
+- & Fehlermeldung & (message) & string\\
+\end{tabular}\\
+\underline{Gemischte Daten}\\
+Die Signatur
+\begin{lstlisting}
+(mixed @\argt{1}@ ... @\argt{n}@)
+\end{lstlisting}
+ist gültig für jeden Wert, der mindestens eine der Signaturen \argt{1} $\ldots$ \argt{n} erfüllt.\\
+\underline{Beispiel:} Data-Definition\\
+Eine Antwort des Geocoders ist \underline{entweder}\\
+\begin{enumerate}[-]
+\i ein Geocode (geocode) \underline{oder}
+\i eine Fehlermeldung (geocode-error)
+\end{enumerate}
+Beispiel (eingebaute Funktion string-\zu number)
+\begin{lstlisting}
+(: string->number (string -> (mixed number (one-of #f))))
+(string->number "42") @\eval@ 42
+(string-> number "foo") @\eval@ #f
+\end{lstlisting}
+\begin{lstlisting}[frame=single]
+(define geocoder-response
+  (signature (mixed geocode geocode-error)))
+
+(: sand13 geocoder-response)
+(define sand13
+  (geocoder "Sand 13, Tübingen"))
+
+(geocode-address sand13)
+(geocode-type sand13)
+(location-lat (geocode-loc sand13))
+(location-lng (geocode-loc sand13))
+(geocode-accuracy sand13)
+  
+
+(: lady-liberty geocoder-response)
+(define lady-liberty
+  (geocoder "Statue of Liberty"))
+
+(: alb geocoder-response)
+(define alb
+  (geocoder "Schwäbische Alb"))
+
+(: A81 geocoder-response)
+(define A81
+  (geocoder "A81, Germany"))
+\end{lstlisting}
+Erinnerung:\\
+Das Prädikat \argt{}? einer Signatur \argt{} unterscheidet Werte der Signatur \argt{} von allen anderen Werten:
+\begin{lstlisting}
+(: @\argt{}@? (any -> boolean))
+\end{lstlisting}
+Auch: Prädikat für eingebaute Signaturen\\
+\begin{lstlisting}
+number?
+complex?
+real?
+rational?
+integer?
+natural?
+string?
+boolean?
+\end{lstlisting}
+Prozeduren, die gemischte Daten der Signaturen \argt{1} $\ldots$ \argt{n} konsumieren: \\
+\underline{Konstruktionsanleitung}:\\
+\begin{lstlisting}
+(: @\argt{}@ ((mixed @\argt{1}@ ... @\argt{n}@) -> ...))
+(define @\argt{}@
+	(lambda (x)
+		(cond 
+		   ((@\argt{1}@? x)...)
+		   ...
+		   ((@\argt{n}@? x) ...))))
+\end{lstlisting}
+Mittels \underline{let} lassen sich Werte an \underline{lokale Namen} binden,
+\begin{lstlisting}
+(let ( 
+	(@\argid{1}@ @\arge{1}@)
+	(...)
+	(@\argid{n}@ @\arge{n}@))
+ @\arge{}@
+) 
+\end{lstlisting}
+Die Ausdrücke \arge{1} $\ldots$ \arge{n} werden \underline{parallel} ausgewertet. $\Rightarrow$ \argid{1} $\ldots$ \argid{n}  können in \arge{} (und nur hier) verwendet werden. Der Wert des let Ausdruckes ist der Wert von \arge{}.
+\begin{lstlisting}[frame=single]
+; Liegt der Geocode r auf der südlichen Erdhalbkugel?
+; (Breitengrad < 0@\latexcode{$^{\circ}$}@?)
+(: southern-hemisphere? (string -> boolean))
+
+(check-expect (southern-hemisphere? "Cape Town") #t)
+(check-expect (southern-hemisphere? "Tübingen") #f)
+(check-error  (southern-hemisphere? "Mos Eisley") "Unknown location")
+
+(define southern-hemisphere?
+  (lambda (r)
+    (let ((gc (geocoder r)))
+      (cond ((geocode? gc)  
+             (< (location-lat (geocode-loc gc)) 0))
+            ((geocode-error? gc) 
+             (violation "Unknown location"))))))
+\end{lstlisting}
+\underline{ACHTUNG:}\\
+'let' ist verfügbar auf ab der Sprachebene "Macht der Abstraktion".
+\bigskip\\
+'let' ist syntaktisches Zucker.
+\begin{lstlisting}
+(let (			((lambda (@\argid{1}@ ... @\argid{n}@) 
+	(@\argid{1}@ @\arge{1}@)		@\arge{}@)
+	(...)		@$\equiv$@        @\arge{1}@
+	(@\argid{n}@ @\arge{n}@))	       @\arge{2}@ ...
+ @\arge{}@			     @\arge{n}@
+) 
+\end{lstlisting}
