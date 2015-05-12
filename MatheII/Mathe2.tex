@@ -1,5 +1,5 @@
 \input{header}
-\newcommand{\seriesalg}[3]{\sum\limits_{#1}^{#2} #1}
+\newcommand{\seriesalg}[3]{\sum\limits_{#3}^{#2} #1}
 \newcommand{\seriesn}[1]{\sum\limits_{i=k}^{n} #1}
 \newcommand{\seriesnplus}[1]{\sum\limits_{i=k}^{n+1} #1}
 \newcommand{\series}[1]{\sum\limits_{i=k}^{\infty} #1}
@@ -871,9 +871,11 @@ Falls $R = \infty$, so hei\ss t das, dass Potenzreihe für alle $x \in \R$ absol
 \i Für alle $x \in \R$ mit $\abs{x} > R$ divergiert $\seriesnull{b_n \cd x^n}$\\
 \begin{tikzpicture}
 \begin{axis}[legend style={draw none},axis equal,ymin = 0,xmin = -2,ymax = 0,xmax = 2,xtick ={-1, 0 , 1}, xticklabels={-R, 0 ,R},ytick ={},yticklabels={},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={},extra tick style = {dashed, grid = major}]   
-\addplot [black, mark = *, nodes near coords=div.?,every node near coord/.style={anchor=-90}] coordinates {( -1, 0)};
-\addplot [black, mark = *, nodes near coords=konvgt.,every node near coord/.style={anchor=-90}] coordinates {( 0, 0)};  
-\addplot [black, mark = *, nodes near coords=div.,every node near coord/.style={anchor=-90}] coordinates {( 1, 0)};     
+\addplot [black, mark = *, nodes near coords=div.,every node near coord/.style={anchor=-90}] coordinates {( -1.5, 0)};
+\addplot [black, mark = *, nodes near coords=konvgt.,every node near coord/.style={anchor=-90}] coordinates {( 0, 0)};
+\addplot [black, mark = *, nodes near coords=keine Aus.,every node near coord/.style={anchor=90}] coordinates {( 1, 0)};
+\addplot [black, mark = *, nodes near coords=keine Aus.,every node near coord/.style={anchor=90}] coordinates {( -1, 0)};
+\addplot [black, mark = *, nodes near coords=div.,every node near coord/.style={anchor=-90}] coordinates {( 1.5, 0)};     
 \end{axis}
 \end{tikzpicture}\\
 $(\lim\limits_{n \rightarrow \infty} \sqrt[n]{\abs{b_n}} = 0 \Rightarrow R = \infty)$
@@ -884,6 +886,27 @@ besteht aus allen $x$ für die $\seriesnull{b_n \cd x^n}$ konvergiert.\\
 $<$ kann [ oder ] bedeuten.\\
 $>$ kann ] oder [ bedeuten.
 \end{enumerate}
+\begin{proof}
+$\abs{x_1,x_2} \R, \abs{x_1} \leq \abs{x_2}$\\
+Dann: Falls $\seriesnull{\abs{b_n} \cd \abs{x_n}^n}$ konvergiert, so auch$ \seriesnull{\abs{b_n} \cd \abs{x_n}^n}$ (2.22) \begin{huge}
+$(\star)$
+\end{huge}\\
+Falls $\sum b_n \cd x_n$ für alle x absolut konvergiert, so setze $R= \infty$\\
+Wenn nicht, so setze $R = \sup \{\abs{x}:x\in \R, \seriesnull{\abs{b_n}\cd \abs{x_n}} $ konvergiert$ \} < \infty$
+Nach $(\star)$ gilt: $\abs{x} < R \Rightarrow \sum b_nx^n$ konvergiert absolut.\\
+Für $\abs{x} > R$ konvergiert $\sum b_nx^n$ nicht absolut.\\
+Sie konvergiert sogar selbst nicht. (WHK 5.37)\\
+\begin{enumerate}[$\Leftrightarrow$]
+\i[]$\sqrt[n]{\abs{b_n} \cd \abs{x}^n} \leq q < 1 $ für alle $n \geq n_0$\\
+\i $\abs{x} \cd \sqrt[n]{\abs{b_n}} \leq 1 < 1$ für alle $n \geq n_0$\\
+\i $\lim\limits_{n \rightarrow \infty} \abs{x_n} \cd \sqrt[n]{\abs{b_n}} < 1$\\
+\i[$\uparrow$](setze $\varepsilon = 1 - \lim\limits_{n \rightarrow \infty} \abs{x} \cd \sqrt[n]{\abs{b_n}} > 0)$
+\i $\abs{x} < \frac{1}{\lim\limits_{x \rightarrow \infty} \sqrt[n]{\abs{b_n}}}$
+\i[] $\exists n_0 \forall n \geq n_0 : s - \frac{\varepsilon}{2} < \abs{x} \cd \sqrt[n]{b_n} \leq s + \frac{\varepsilon}{2} =: q < 1$
+\end{enumerate}
+
+ 
+\end{proof}
 \subsection{Bemerkung}
 Konvergenz von Potenzreihen der Form $\seriesnull{b_n \cd (x-a)^n}$:\\
 gleichen Konvergenzradius $R$ wie $\seriesnull{b_n \cd x^n}$\\
@@ -891,4 +914,109 @@ konvergiert absolut für $\abs{x-a} < R$, d.h $x \in \ ]a-R,  a+R[$
 Divergiert für $\abs{x-a} > R$.\\
 Keine Aussage für $\abs{x-a} = R$, d.h $ x = a-R$ oder $x = a+R$\\
 Konvergenzintervall $<a-R,a+R>$
+\subsection{Die Exponentialreihe}
+\begin{enumerate}[a)]
+\i Exponentialreihe
+\i[] $\seriesnull{\frac{x^n}{n!}} (b_n = \frac{1}{n!})$
+\i[]\hspace*{1pt} 2.28 Reihe konvergiert für alle $x \in \R.$
+\end{enumerate}
+Setze für $x \in \R : \exp(x):= \seriesnull{\frac{x^n}{n!}}$\\
+\underline{Exponentialfunktion}
+$\exp(0) = \frac{0^n}{0!} = 1$\\
+\begin{enumerate}
+\i[b)] Serien $x,y \in \R\\
+\exp(x) \cd \exp(y) \underset{2.31}{=}$ Limes des Cauchy Produkts der beiden Reihen. \\
+\i[=] $\seriesalg{(\seriesnull{\frac{x^i}{i!}\cd \frac{y^{n-i}}{(n-i)!}})}{\infty}{n=0}$\\
+\i[=]$\seriesalg{(\seriesnull{\frac{1}{n!}\cd \frac{n!}{i! \cd (n-i)!} \cd x^i \cd y^{n-i})}}{\infty}{n=0}$
+\i[=]$\seriesalg{(\seriesnull{{n\choose i} \cd x \cd y^{n-i})}}{\infty}{n=0}$
+\i[=] $\seriesnull{\frac{1}{n}! \cd (x+y)^n}$ = exp(x+y)\\
+\fbox{$\exp(x+y) = \exp(x) \cd \exp(y)$ für alle x,y $\in \R$}\\
+Daraus folgt: 1 = $\exp(0) = \exp(x + (-x)) = \exp(x) \cd \exp(-x)$\\
+\fbox{$\exp(-x) = \frac{1}{\exp(x)}$ für alle x $\in \R$}$(\star)$\\
+Für alle x $\geq 0: \exp(x) > 0.$ Dann auch wegen $(\star)$\\
+\fbox{$\exp(x) > 0$ für alle $x \in \R$}\\
+\begin{tikzpicture}
+\begin{axis}[legend style={draw none},axis equal,ymin = 0,xmin = -2,ymax = 5,xmax = 2,xtick ={-1, 0 , 1}, xticklabels={},ytick ={},yticklabels={},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={},extra tick style = {dashed, grid = major}]   
+\addplot {e^x};
+  
+\end{axis}
+\end{tikzpicture}\\
+
+\i[c)] $\exp(1) = \seriesnull{\frac{1}{n!}} = e$\\
+\underline{Eulersche Zahl}
+Approximation $e$ durch
+$\seriesnull{\frac{1}{n!}}
+\begin{array}{lll}
+m = 2 & 1 + 1 + \frac{1}{2} &= 2,5\\
+m = 3 & 2,5 + \frac{1}{6} &= 2,\bar{6}\\
+...
+m = 6 & \frac{326}{126} + \frac{1}{720} &= 2,7180\bar{5}
+\end{array}$
+Es ist: $e \approx 2,71828\ldots$ (irrationale Zahl)\\
+$\seriesnull{\frac{1}{n!}}$ konvergiert schnell
+\bigskip\\
+$m \in \N\\
+\exp(m) = \underset{\leftarrow m \rightarrow}{\exp(1 + \ldots + 1)}\\
+\exp(1)^m = e^m\\
+e^0 = 1$
+$\exp(-m) = \frac{1}{\exp(m)} = e^{-m}\\
+n \not = 0, n \in \N:\\
+e = \exp(1) = \exp(\frac{n}{n}) = \exp(\frac{1}{n}^n)\\
+\exp(\frac{1}{n}) = + \sqrt[n]{e} = e^{\frac{1}{n}}\\
+\exp(\frac{m}{n}) = e^{\frac{m}{n}}.$\\
+Für alle $x \in \mathbb{Q}$ stimmt $\exp(x)$ mit der 'normalen' Potenz $e^x$ überein.\\
+Dann definiert man für beliebige $x \in R$:\\
+\fbox{$e^x := \exp(x) = \seriesnull{\frac{x^n}{n!}}$}\\
+In kürze: Definition $a^x$ für $a>0, x \in \R$\\
+\i[d)] Bei komplexen Zahlen kam $e^{it}$ ($i^2 = -1, t \in \R)$ vor als Abkürzung für $\cos(t) +i \sin(t)$\\
+Tatsächlich kann auch für jedes $z \in \C$ definieren $e^z = \seriesnull{\frac{z^n}{n!}}$\\
+Dabei: Konvergenz von Folgen/Reihen in $\C$ wie in $\R$ mit komplexen Absolutbetrag.\\
+Man kann dann zeigen:\\
+$\seriesnull{\frac{z^n}{n!}}$ konvergiert für alle $z \in \C$.\\
+Dass tatsächlich dann gilt:\\
+$e^{it} = \seriesnull{\frac{(it)^n}{n!}} = \cos(t) + \sin(t).$ zeigen wir später\\
+\i[2.718$\begin{tiny}
+...
+\end{tiny})$] Man kann zeigen.\\
+\underline{$e = \lim\limits_{n \rightarrow \infty }(1 + (\frac{1}{n} )^n)$}\\
+Bedeutung:
+\i[-] Angelegtes Guthaben $G$ wird in einem Jahr mit 100\% verzinst. Guthaben am Ende eines Jahres $2G (= G(1+1)$
+\i[-] Angelegtes Geld wird jedes halbe Jahr mit 50\% verzinst. Am Ende eines Jahres (mit Zinsenzinsen)\\
+$G (1 + \frac{1}{2}) (1 + \frac{1}{2}) = 2,25 G$\\
+n- mal pro Jahr mit $\frac{100}{n}\%$ verzinsen. Am Ende desx Jahres $G (1 + \frac{1}{n})^n.\\
+\lim\limits_{n \rightarrow \infty} G (1 + \frac{1}{n})^n = e \cd G \approx 2.718\ldots \cd G$
+(stetige Verzinsung)\\
+$a\%$ statt $100\% \cd G e^\frac{a}{100}$ 
+\end{enumerate}
+\section{Reele Funktionen und Grenzwerte von Funktionen}
+\subsection{Definition}
+\underline{Reele Funktionen f ein einer Variablen} ist Abbildung\\
+$ f : D \rightarrow \R$, wobei $D \subset \R $ ($D$ = Definitionsbereich).\\
+Typisch: $ D = \R$, Intervall, Verschachtelung von Intervallen
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\i \underline{Polynomfunktionen} (ganzrationale Funktion, Polynome)\\$
+\begin{cases}
+\R \rightarrow \R &\\
+x \rightarrow a_n \cd x^n + \ldots a_1 x + a_0& 
+\end{cases}\\
+f(x) = a_n \cd x^n + \ldots a_1 \cd x + q\\
+a_n \not = 0 : n = $ Grad ($f$)
+f = 0 (Nullfunktion), Grad($f$) = $\infty$\\
+Grad 0: konstante Funktionen $\not = 0$\\
+Graph von $f$:\\
+z.B. $f(x) = x^3 - 2x^2 - x+2$\\
+\begin{tikzpicture}
+\begin{axis}[legend style={draw none},axis equal,ymin = -3,xmin = -2,ymax = 5,xmax = 5,xtick ={}, xticklabels={},ytick ={},yticklabels={},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {dashed, grid = major}]   
+\addplot[solid] {x^3 - 2*x^2 - x+2};
+\end{axis}
+\end{tikzpicture}\\
+\i $f,g: D \rightarrow R$
+$(f \pm g)(x) := f(x) \pm g(x)$ für alle $x \in D$\\
+\underline{Summe}: Differenz, Produkt von f und g.\\
+Ist $g(x) \not = 0$ für $x \in D$, so \underline{Quotient}.
+$\frac{f}{g}(x):= \frac{f(x)}{g(x)}$ für alle $x \in D$,\\
+Quotient von Polynomen = (gebrochen-)rationalen Funktionen\\
+$\abs{f}(x):= \abs{f(x)}$ Betrag von $f$. 
+\end{enumerate}
 \end{document}
