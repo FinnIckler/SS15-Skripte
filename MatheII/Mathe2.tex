@@ -1007,7 +1007,7 @@ Grad 0: konstante Funktionen $\not = 0$\\
 Graph von $f$:\\
 z.B. $f(x) = x^3 - 2x^2 - x+2$\\
 \begin{tikzpicture}
-\begin{axis}[legend style={draw none},axis equal,ymin = -3,xmin = -2,ymax = 5,xmax = 5,xtick ={}, xticklabels={},ytick ={},yticklabels={},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {dashed, grid = major}]   
+\begin{axis}[extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
 \addplot[solid] {x^3 - 2*x^2 - x+2};
 \end{axis}
 \end{tikzpicture}\\
@@ -1018,5 +1018,168 @@ Ist $g(x) \not = 0$ für $x \in D$, so \underline{Quotient}.
 $\frac{f}{g}(x):= \frac{f(x)}{g(x)}$ für alle $x \in D$,\\
 Quotient von Polynomen = (gebrochen-)rationalen Funktionen\\
 $\abs{f}(x):= \abs{f(x)}$ Betrag von $f$. 
+\i Potenzreihe definiert Funktion auf ihrem Konvergenzintervall.\\
+z.B : $e^x = \sum\limits_{n=0}^{\infty} \frac{x^n}{n!}$\\
+Fkt. $\R \rightarrow \R$\\
+\begin{tikzpicture}
+\begin{axis}[extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\addplot[solid] {e^x};
+\end{axis}
+\end{tikzpicture}\\
+\i Hintereinanderausführung von Funktionen:\\
+$f: D_1 \rightarrow \R, g: D_2 \rightarrow \R  f(D_1) \subset f(D_2)$, dann $ g \circ f : \\\begin{cases}
+D_1 \Rightarrow & \R \\
+x \rightarrow & g(f(x)) 
+\end{cases} $\\
+\i $f(x) = e^x , g(x) = x^2 +1\\
+f,g : \R \rightarrow \R \\
+(g \circ f)(x) = g(e^x) = (e^x)^2 + 1 = e^2x +1\\
+(f \circ g)(x) = f(x^2 +1) = e^{x^2 +1}$
+\i \underline{Trigonometrische Funktionen: Sinus- und Cosinusfunktion (vgl. $\C$)}\\
+\begin{tikzpicture}
+\begin{axis}[extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\draw (axis cs:0,0) circle[radius=1];
+\end{axis}
+\end{tikzpicture} $0 \geq x \geq 2\pi$ x = Bogenma\ss von $\varphi$ in Grad, so $x = \frac{\varphi}{360} \cd \pi\\
+\sin(x) = s , \cos(x) = c$
+Für beliebig $x \in \R$: \\
+Periodische Fortsetzung, d.h. $x \in \R . x = x' + k \cd 2\pi , k \in \Z , x' \in [0,2\pi[\\
+\sin(x) := \sin(x')\\
+\cos(x) := \cos(x')\\$
+\begin{tikzpicture}
+\begin{axis}[extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\addplot[blue] {sin((deg(x))};
+\addplot[red] {cos((deg(x))};
+\end{axis}
+\end{tikzpicture}
+$\abs{\cos(x)}, \abs{\sin(x)} \leq 1\\
+\cos^2(x) + \sin^2(x) = 1\\
+\cos(x) = \sin(x + \frac{\pi}{2})\\
+\sin(x) = 0 \Leftrightarrow x = k \pi, k \in \Z\\
+\cos(x) = 0 \Leftrightarrow x = \frac{\pi}{2} + k \pi, k \in \Z$\\
+\underline{Tangens und Cotangensfunktion}\\
+$\tan(x) = \frac{\sin(x)}{\cos(x)}$ für alle $x \in \R$ mit $\cos(x) \not = 0$\\
+$\cot(x) = \frac{\cos(x)}{\sin(x)}$ für alle $x \in \R$ mit $\sin(x) \not = 0$\\
+\begin{tikzpicture}
+\begin{axis}[extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\addplot[blue] {tan((deg(x))};
+\addplot[red] {cot((deg(x))};
+\end{axis}
+\end{tikzpicture}
 \end{enumerate}
+\subsection{Definition}
+Sei $D \subset \R , c \in \R$ hei\ss t \underline{Adharenzpunkt} von D, falls es eine Folge $(a_n)_n , a_n \in D$, mit $\lim\limits_{n \rightarrow \infty} a_n = c$ gibt.\\
+$\bar{D} =$ Menge der Adharenzpunkte von D\\
+\hspace*{0.4cm} = \underline{Abschluss} von D\\
+klar: $D \subset \bar{D}.\\
+d \in D.$ konstante Folge $(a_n)_{n \geq 1}$ mit $a_n = d \ . \lim\limits_{n \rightarrow \infty} a_n = \lim\limits_{n \rightarrow \infty} d = d.$\\
+Also: $d \in \bar{D}$.
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\i $a,b \in \R , a > b , D = ]a,b[\\
+$\begin{tikzpicture}
+\draw[black, solid](0,0)--(7,0);
+\node[mark=*](c) at (1,-0.3){c};
+\draw[black,solid](1,-0.14)--(1,0.14);
+\node[mark=*](c) at (2,-0.3){a};
+\draw[black,solid](2,-0.14)--(2,0.14);
+\node[mark=*](c) at (5,-0.3){b};
+\draw[black,solid](5,-0.14)--(5,0.14);
+\end{tikzpicture}\\$
+\bar{D} = [a,b] D \in \bar{D}\\
+a \in \bar{D}\\
+a_n = a + \frac{b-a}{n} \in D, n \geq 2\\
+\lim\limits_{n \rightarrow \infty} a_n = a$\\
+Also $[a,b] \subset \bar{D}$.\\
+Ist $c \not \in [a,b]$ ,etwa $ c< a$, dann ist $\abs{a_n -c} \geq a- c > 0$ für alle $a_n \in ]a,b[$ Also: $\lim\limits_{a_n} \not = c$\\
+\i $\mathcal{I}$ Intervall in $\R , x_1 , \ldots , x_r \in \mathcal{I},\\
+D = \mathcal{I} \ \{x_1,\ldots,x_r\}\\
+$\begin{tikzpicture}
+\draw[black, solid](0,0)--(7,0);
+\end{tikzpicture}\\$
+\bar{D} = \bar{\mathcal{I}} = [a,b],$\\
+falls $\mathcal{I} = <a,b>.$\\
+\i $\mathbb{Q} \subset \R \\
+\bar{\mathbb{Q}} = \R $\\
+\begin{tikzpicture}
+\draw[black, solid](0,0)--(7,0);
+\end{tikzpicture}\\
+\end{enumerate}
+\subsection{Definition}
+$f: D \rightarrow , c \in \bar{D}.\\
+d \in \R$ hei\ss t \underline{Grenzwert von f(x) für x gegen c},$ d = \lim\limits_{x \rightarrow c},$ wenn für \underline{jede} Folge $(a_n) \in D$, die gegen c konvergiert, die Bildfolge $(f(a_n))_n$ gegen d konvergiert.
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\i Sei $f(x) = b_k x^k + \ldots + b_1x + b_0$, eine Polynomsfunktion, $ c \in \R $.
+Sei $(a_n)$ Folge mit $\lim\limits_{n \rightarrow \infty} a_n = c\\
+\begin{array}{rcll}
+\lim\limits_{n \rightarrow \infty} f(a_n) &=& \lim\limits_{n \rightarrow \infty} b_k x^k + \ldots + b_1x + b_0 \\
+&=& b_k (\lim\limits_{n \rightarrow \infty} a_n)^k + b_{k-1} \cd (\lim\limits_{n \rightarrow \infty} a_n)^{k-1} + \ldots + b_0 & \text{Rechenregeln f\"ur Folgen, 2.8}\\
+&=& b_k \cd c^k + b_{k-1} \cd c^{k-1} + \ldots + b_1 \cd c + b_0 = f(c).
+\end{array}$\\
+\begin{tikzpicture}
+\begin{axis}[extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\addplot[black] {x^2};
+\end{axis}
+\end{tikzpicture}
+\i Sei $f(x) = \frac{x^2-1}{x-1},\\
+D = R \backslash {1}$\\
+Auf $D$ ist $f(x) = \frac{(x+1)(x-1)}{(x-1)} = (x+1) $\\
+\begin{tikzpicture}
+\begin{axis}[extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\addplot[black] {x+1};
+\end{axis}
+\end{tikzpicture}\\
+$\bar{D} = \R \\
+\lim\limits_{x \rightarrow 1} f(x) = $ ?\\
+Sei $(a_n)$ Folge mit $D = \R \backslash \{ 1\}$ mit $\lim\limits_{n \rightarrow \infty} a_n = 1\\
+f(a_n) = a_n + 1\\
+\lim\limits_{n \rightarrow \infty} f(a_n) = \lim\limits_{n \rightarrow \infty} (a_n +1) = 1+ 1 +2.
+\lim\limits_{x \rightarrow 1} = 2.$\\
+\i $f(x) = \begin{cases}
+1 & \text{für } x > 0\\
+0 & \text{für } x < 0
+\end{cases}
+D = \R \\$
+\begin{tikzpicture}
+\begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = 0,ymax = 4,xmax = 7, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\draw [red] (axis cs:0,1)--(axis cs:10,1);
+\draw [red] (axis cs:-10,0)--(axis cs:0,0);
+\end{axis}
+\end{tikzpicture}\\
+$\lim\limits_{x \rightarrow 0} f(x)$ ?\\
+$ a_n = \frac{1}{n}. \lim\limits_{} a_n =0.\\
+\lim\limits_{x \rightarrow \infty} f(a_n) = \lim\limits_{n \rightarrow \infty} 1 =\underline{1}\\
+a_n  =- \frac{1}{n}, \lim a_n = 0\\
+\lim\limits_{n \rightarrow \infty} f(a_n) = \lim\limits_{n \rightarrow \infty} 0 = \underline{0}.\\
+\lim\limits_{x \rightarrow 0}$ existiert nicht.
+\i $f(x) = \sin(\frac{1}{x}), D = \R \backslash \{0\}$\\
+\begin{tikzpicture}
+\begin{axis}[extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\addplot[black] {sin(deg(1/x))};
+\end{axis}
+\end{tikzpicture}
+$a_n = \frac{1}{n \pi} , f(a_n) = \sin(n \pi) = 0 \\
+a'_n = \frac{1}{(2n + \frac{1}{2}\pi)} \rightarrow 0 , f(a'n) = \sin(2\pi n + \frac{\pi}{2}) = 1 \\
+\lim (a_n) = 0 \\
+\lim(f(a_n)) = \lim 0 = 0
+\lim(f(a'_n)) = \lim 1 = 1\\
+\lim(f(x))_{x \rightarrow 0}$ existiert nicht
+\i $f(x) = x \cd \sin(\frac{1}{2}), D = \R \backslash \{0\}$
+\begin{tikzpicture}
+\begin{axis}[ymin = -1, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\addplot[black] {x* sin(deg(1/x))};
+\end{axis}
+\end{tikzpicture}
+$\lim\limits_{x \rightarrow 0} f(x) = 0$ dann:\\
+$(a_n) \rightarrow 0 , a_n \in \R \backslash \{0\}\\
+\lim\limits_{n \rightarrow \infty} f(a_n) = \lim\limits_{n \rightarrow \infty} a_n \cd \sin(\frac{1}{a_n}) \underset{2.8g)}{=} 0$
+\end{enumerate}
+\subsection{Satz ($\varepsilon-\delta$)-Kriterium}
+$f: D \rightarrow \R, c \in \bar{D}.$ Dann gilt: $\lim\limits_{x \rightarrow c} f(x) = d \Leftrightarrow \forall \varepsilon > 0 \exists \delta \forall x \in D : \abs{x-c} \leq \delta \rightarrow \abs{f(x)-d} \leq \varepsilon$
+\begin{tikzpicture}
+\begin{axis}[ymin = -1, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\addplot[black] {x^27};
+\end{axis}
+\end{tikzpicture}
 \end{document}

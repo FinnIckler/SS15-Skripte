@@ -53,3 +53,8 @@
 \contentsline {section}{\numberline {4}Reele Funktionen und Grenzwerte von Funktionen}{23}
 \contentsline {subsection}{\numberline {4.1}Definition}{23}
 \contentsline {subsection}{\numberline {4.2}Beispiel}{23}
+\contentsline {subsection}{\numberline {4.3}Definition}{26}
+\contentsline {subsection}{\numberline {4.4}Beispiel}{26}
+\contentsline {subsection}{\numberline {4.5}Definition}{26}
+\contentsline {subsection}{\numberline {4.6}Beispiel}{26}
+\contentsline {subsection}{\numberline {4.7}Satz ($\varepsilon -\delta $)-Kriterium}{29}
