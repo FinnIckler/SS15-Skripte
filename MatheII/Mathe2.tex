@@ -1037,21 +1037,45 @@ f,g : \R \rightarrow \R \\
 (f \circ g)(x) = f(x^2 +1) = e^{x^2 +1}$
 \i \underline{Trigonometrische Funktionen: Sinus- und Cosinusfunktion (vgl. $\C$)}\\
 \begin{tikzpicture}
-\begin{axis}[extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
-\draw (axis cs:0,0) circle[radius=1];
-\end{axis}
-\end{tikzpicture} $0 \geq x \geq 2\pi$ x = Bogenma\ss von $\varphi$ in Grad, so $x = \frac{\varphi}{360} \cd \pi\\
+    \begin{axis}[
+    legend style={draw none},
+    axis equal,ymin = -2,xmin = -2,ymax = 2,
+    xmax = 2,xtick ={},
+    xticklabels={},
+    ytick ={0.65},
+    yticklabels={s},
+    extra x ticks={0},
+    extra x tick label={},
+    extra y ticks={0},
+    extra y tick labels={},
+    disabledatascaling,
+    extra tick style = {grid = major}]
+    \addplot [black, mark = none, nodes near coords=$\pi$,every node near coord/.style={anchor=180}] coordinates {( -1.5, 0)};
+    \addplot [black, mark = none, nodes near coords=2$\pi$,every node near coord/.style={anchor=180}] coordinates {( 1.25, 0)};
+    \addplot [black, mark = none, nodes near coords=$\frac{\pi}{2}$,every node near coord/.style={anchor=90}] coordinates {(0, 1.5)};
+    \addplot [black, mark = none, nodes near coords=$\frac{3\pi}{2}$,every node near coord/.style={anchor=-90}] coordinates {(0, -1.5)};
+    \addplot [black, mark = none, nodes near coords=$x$,every node near coord/.style={anchor=0}] coordinates {(1.65, 0.4)};
+    \draw (axis cs:0.77,0.65)--(axis cs:0.77,0);
+    \draw (axis cs:0,0) circle[radius=1];
+    \draw(axis cs:0,0)--(axis cs:0.77,0.65);
+    \draw(axis cs:0,0)--(axis cs:1,0);
+    \draw[->](axis cs:0.3,0) arc [radius=0.3,start angle=0,end angle=37];
+    %origin point, circle radius, start angle, end angle, distance c-b, brace radius, brace options
+    \cucubr{0,2}{1}{0}{37}{0.1}{0.1}{red}
+    \end{axis}   
+  \end{tikzpicture}
+\\$0 \geq x \geq 2\pi$ x = Bogenma\ss \ von $\varphi$ in Grad, so $x = \frac{\varphi}{360} \cd \pi\\
 \sin(x) = s , \cos(x) = c$
 Für beliebig $x \in \R$: \\
 Periodische Fortsetzung, d.h. $x \in \R . x = x' + k \cd 2\pi , k \in \Z , x' \in [0,2\pi[\\
 \sin(x) := \sin(x')\\
 \cos(x) := \cos(x')\\$
 \begin{tikzpicture}
-\begin{axis}[extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
-\addplot[blue] {sin((deg(x))};
-\addplot[red] {cos((deg(x))};
+\begin{axis}[ymin=-1,ymax=1,xmin=-5,xmax=5, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\addplot[blue,samples=500] gnuplot[id=sin3]{sin(x)};
+\addplot[red,samples=500] gnuplot[id=cos]{cos(x)};
 \end{axis}
-\end{tikzpicture}
+\end{tikzpicture}\\
 $\abs{\cos(x)}, \abs{\sin(x)} \leq 1\\
 \cos^2(x) + \sin^2(x) = 1\\
 \cos(x) = \sin(x + \frac{\pi}{2})\\
@@ -1061,9 +1085,9 @@ $\abs{\cos(x)}, \abs{\sin(x)} \leq 1\\
 $\tan(x) = \frac{\sin(x)}{\cos(x)}$ für alle $x \in \R$ mit $\cos(x) \not = 0$\\
 $\cot(x) = \frac{\cos(x)}{\sin(x)}$ für alle $x \in \R$ mit $\sin(x) \not = 0$\\
 \begin{tikzpicture}
-\begin{axis}[extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
-\addplot[blue] {tan((deg(x))};
-\addplot[red] {cot((deg(x))};
+\begin{axis}[xmin=-3,xmax=3,ymin=-3,ymax=3, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}] 
+\addplot[blue,samples=100] gnuplot[id=tan]{tan(x)};
+\addplot[red,samples=100] gnuplot[id=cotan]{1/tan(x)};
 \end{axis}
 \end{tikzpicture}
 \end{enumerate}
@@ -1079,11 +1103,11 @@ Also: $d \in \bar{D}$.
 \i $a,b \in \R , a > b , D = ]a,b[\\
 $\begin{tikzpicture}
 \draw[black, solid](0,0)--(7,0);
-\node[mark=*](c) at (1,-0.3){c};
+\node at (1,-0.3){c};
 \draw[black,solid](1,-0.14)--(1,0.14);
-\node[mark=*](c) at (2,-0.3){a};
+\node at (2,-0.3){a};
 \draw[black,solid](2,-0.14)--(2,0.14);
-\node[mark=*](c) at (5,-0.3){b};
+\node at (5,-0.3){b};
 \draw[black,solid](5,-0.14)--(5,0.14);
 \end{tikzpicture}\\$
 \bar{D} = [a,b] D \in \bar{D}\\
@@ -1096,6 +1120,24 @@ Ist $c \not \in [a,b]$ ,etwa $ c< a$, dann ist $\abs{a_n -c} \geq a- c > 0$ für
 D = \mathcal{I} \ \{x_1,\ldots,x_r\}\\
 $\begin{tikzpicture}
 \draw[black, solid](0,0)--(7,0);
+\node at (1,-0.3){a};
+\draw[black,solid](1,-0.14)--(1,0.14);
+\node at (1.5,-0.3){$x_1$};
+\draw[black,solid](1.5,-0.14)--(1.5,0.14);
+\node at (2,-0.3){$x_2$};
+\draw[black,solid](2,-0.14)--(2,0.14);
+\node at (2.5,-0.3){$x_3$};
+\draw[black,solid](2.5,-0.14)--(2.5,0.14);
+\node at (3,-0.3){$x_4$};
+\draw[black,solid](3,-0.14)--(3,0.14);
+\node at (3.5,-0.3){$x_5$};
+\draw[black,solid](3.5,-0.14)--(3.5,0.14);
+\node at (4,-0.3){$\ldots$};
+\draw[black,solid](4,-0.14)--(4,0.14);
+\node at (4.5,-0.3){$x_r$};
+\draw[black,solid](4.5,-0.14)--(4.5,0.14);
+\node at (5,-0.3){b};
+\draw[black,solid](5,-0.14)--(5,0.14);
 \end{tikzpicture}\\$
 \bar{D} = \bar{\mathcal{I}} = [a,b],$\\
 falls $\mathcal{I} = <a,b>.$\\
@@ -1123,7 +1165,7 @@ Sei $(a_n)$ Folge mit $\lim\limits_{n \rightarrow \infty} a_n = c\\
 \end{axis}
 \end{tikzpicture}
 \i Sei $f(x) = \frac{x^2-1}{x-1},\\
-D = R \backslash {1}$\\
+D = R \backslash \{1\}$\\
 Auf $D$ ist $f(x) = \frac{(x+1)(x-1)}{(x-1)} = (x+1) $\\
 \begin{tikzpicture}
 \begin{axis}[extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
@@ -1142,7 +1184,7 @@ f(a_n) = a_n + 1\\
 \end{cases}
 D = \R \\$
 \begin{tikzpicture}
-\begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = 0,ymax = 4,xmax = 7, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = -3,ymax = 4,xmax = 3, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
 \draw [red] (axis cs:0,1)--(axis cs:10,1);
 \draw [red] (axis cs:-10,0)--(axis cs:0,0);
 \end{axis}
@@ -1156,7 +1198,7 @@ a_n  =- \frac{1}{n}, \lim a_n = 0\\
 \i $f(x) = \sin(\frac{1}{x}), D = \R \backslash \{0\}$\\
 \begin{tikzpicture}
 \begin{axis}[extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
-\addplot[black] {sin(deg(1/x))};
+\addplot[samples=5000] gnuplot[id=sin2]{sin(1/x)};
 \end{axis}
 \end{tikzpicture}
 $a_n = \frac{1}{n \pi} , f(a_n) = \sin(n \pi) = 0 \\
@@ -1165,12 +1207,12 @@ a'_n = \frac{1}{(2n + \frac{1}{2}\pi)} \rightarrow 0 , f(a'n) = \sin(2\pi n + \f
 \lim(f(a_n)) = \lim 0 = 0
 \lim(f(a'_n)) = \lim 1 = 1\\
 \lim(f(x))_{x \rightarrow 0}$ existiert nicht
-\i $f(x) = x \cd \sin(\frac{1}{2}), D = \R \backslash \{0\}$
+\i $f(x) = x \cd \sin(\frac{1}{2}), D = \R \backslash \{0\}$\\
 \begin{tikzpicture}
-\begin{axis}[ymin = -1, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
-\addplot[black] {x* sin(deg(1/x))};
+\begin{axis}[ymin = -1,ymax = 1 , xmax = 1,xmin=-1, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\addplot[samples=5000] gnuplot[id=sin1]{x* sin(1/x)};
 \end{axis}
-\end{tikzpicture}
+\end{tikzpicture}\\
 $\lim\limits_{x \rightarrow 0} f(x) = 0$ dann:\\
 $(a_n) \rightarrow 0 , a_n \in \R \backslash \{0\}\\
 \lim\limits_{n \rightarrow \infty} f(a_n) = \lim\limits_{n \rightarrow \infty} a_n \cd \sin(\frac{1}{a_n}) \underset{2.8g)}{=} 0$
@@ -1178,8 +1220,20 @@ $(a_n) \rightarrow 0 , a_n \in \R \backslash \{0\}\\
 \subsection{Satz ($\varepsilon-\delta$)-Kriterium}
 $f: D \rightarrow \R, c \in \bar{D}.$ Dann gilt: $\lim\limits_{x \rightarrow c} f(x) = d \Leftrightarrow \forall \varepsilon > 0 \exists \delta \forall x \in D : \abs{x-c} \leq \delta \rightarrow \abs{f(x)-d} \leq \varepsilon$
 \begin{tikzpicture}
-\begin{axis}[ymin = -1, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
-\addplot[black] {x^27};
-\end{axis}
+    \begin{axis} [
+    ytick={1,1.5,2},
+    yticklabels={$d-\varepsilon$,$d$,$d+\varepsilon$},
+    xtick={3,3.5,4},
+    xticklabels={$c-d$,$c$,$c+d$},
+    width=20cm, height=14cm,
+    axis x line=box,
+    axis y line=box,
+    xmin=-1,xmax=5,ymin=-1,ymax=4]
+    \draw[red] (axis cs:-1,1)--(axis cs: 5,1);
+    \draw[red] (axis cs:-1,2)--(axis cs: 5,2);
+    \draw[black,dashed] (axis cs:4,-5)--(axis cs: 4,8);
+    \draw[black,dashed] (axis cs:3,-5)--(axis cs: 3,8);    
+    \addplot[samples=500] gnuplot{(2/(x+3))*sin(2*x)+(x/3.141592653)};
+:    \end{axis}
 \end{tikzpicture}
 \end{document}
