@@ -1236,4 +1236,152 @@ $f: D \rightarrow \R, c \in \bar{D}.$ Dann gilt: $\lim\limits_{x \rightarrow c} 
     \addplot[samples=500] gnuplot{(2/(x+3))*sin(2*x)+(x/3.141592653)};
 :    \end{axis}
 \end{tikzpicture}
+\begin{proof}
+$\rightarrow:$ Angenommen falsch.\\
+Dass hei\ss t $\exists \varepsilon > 0$, so dass für alle $\delta >0$ (z.B $\delta = \frac{1}{n}$) ein $x_n \in D$ existiert mit $\abs{x_n -c} \leq \frac{1}{n}$ und $\abs{f(x_n) -d} > \varepsilon\\
+\lim\limits_{n \rightarrow \infty} x_n =c.$ Aber:\\
+$\lim\limits_{n \rightarrow \infty} f(x_n) \not = d \lightning\\
+\Leftarrow:$ Sei $(a_n)$ Folge, $a_n \in D\\
+\lim\limits_{n \rightarrow \infty} a_n =c.\\
+$Zu zeigen : $ \lim\limits_{n \rightarrow \infty} f(a_n) =d$, d.h $\forall \varepsilon > 0 \exists n(\varepsilon) \forall n \geq n(\varepsilon): \abs{f(a_n)-d} < \varepsilon.\\
+$ Sei $\varepsilon >0$ beliebig, ex. $ d > 0$:
+\begin{flushright}$(\star)$\end{flushright}
+Für alle $x \in D$ mit \underline{$\abs{x-c} \leq \delta$} gilt $\abs{f(x) -d} < \varepsilon$.\\
+Da $\lim\limits_{n \rightarrow \infty} a_n =c$, existiert $n_0$ mit $\abs{a_n -c} \geq \delta$ für alle $n \geq n_0$\\
+Nach $(\star)$ gilt: $\abs{f(a_n) -d} < \varepsilon \forall n \geq n_0. \checkmark$
+\end{proof}
+\subsection*{Bemerkung}
+$\lim\limits_{x \rightarrow c} f(x) = d \Leftrightarrow$ Für alle Folgen $(a_n), a_n \in D$, mit $\lim\limits_{n \rightarrow \infty} a_n =c $ gilt $\lim\limits_{n \rightarrow \infty} f(a_n) =e $
+Wenn man zeigen will, dass $\lim\limits_{x \rightarrow c} f(x)$ nicht existiert, gibt es 2 Möglichkeiten:
+\begin{enumerate}[-]
+\i Suche \underline{eine} \underline{bestimmte} Folge $(a_n), \lim\limits_{n \Rightarrow \infty} a_n = c,$ so dass $\lim\limits_{x \rightarrow \infty} f(a_n)$ nicht existiert.
+\i Suche zwei Folgen $(a_n), (b_n), \lim\limits_{x \rightarrow \infty} a_n = c, \lim\limits_{x \rightarrow \infty} b_n = c$ und $\lim\limits_{x \rightarrow \infty} f(a_n) \not = \lim\limits_{x \rightarrow \infty} f(b_n)$
+\end{enumerate}
+\begin{tikzpicture}
+\begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = -3,ymax = 4,xmax = 3, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\draw [red] (axis cs:0,1)--(axis cs:10,1);
+\draw [red] (axis cs:-10,0)--(axis cs:0,0);
+\end{axis}
+\end{tikzpicture}
+$a_n = (-1)^n \cd \frac{1}{n}\\
+\lim\limits_{n \rightarrow \infty} a_n = 0\\
+f(a_n) = (1 0 1 0 1 0 \ldots)\\
+\lim\limits_{n \rightarrow \infty} f(a_n)$ existiert nicht.\\
+Oder:\\
+\textcolor{red}{$a_n = \frac{1}{n}
+\lim\limits_{n \rightarrow \infty} a_n = 0$}\\
+\textcolor{red}{$b_n = -\frac{1}{n}
+\lim\limits_{n \rightarrow \infty} b_n = 0$}\\
+Aber: $\lim\limits_{x \rightarrow \infty} f(a_n) \not = \lim\limits_{x \rightarrow \infty} f(b_n)$
+\subsection{Satz (Rechenregeln für Grenzwerte)}
+$f,g, D \rightarrow \R, c \in \bar{D}$, Existieren die Grenzwerte auf der rechten Seite der folgenden Gleichungen, so auch die auf der linken (und es gilt Gleichheit)\\
+\begin{enumerate}[a)]
+\i$ \lim\limits_{x \rightarrow c}(f \pm/\cd g) = \lim\limits_{x \rightarrow c} f(x) \pm/\cd \lim\limits_{x \rightarrow c} g(x).$\\
+\i Ist $g(x) \not = 0$ für alle $x \in D$ und $\lim\limits_{x \rightarrow c} g(x) \not = 0$,so\\
+\begin{align*}
+\lim\limits_{x \rightarrow c}\biggl(\frac{f(x)}{g(x)}\biggr) = \frac{\lim\limits_{x \rightarrow c }f(x)}{\lim\limits_{x \rightarrow c} g(x)}
+\end{align*}
+\i $\lim\limits_{x \rightarrow c} \abs{f(x)} = \abs{\lim\limits_{x \rightarrow c} f(x)}$\\
+\begin{proof}
+Folgt aus den entsprechenden Regeln für Folgen.
+\end{proof}
+\end{enumerate}
+\subsection{Beispiel}
+$f(x) = \frac{x^3 + 3x +1}{2x^2 + 1}, D = \R\\
+\lim\limits_{x \rightarrow 2} \underset{4.2b)}{=} \frac{\lim\limits_{x \rightarrow 2}(x^3 + 3x +1) }{\lim\limits_{x \rightarrow 2}(2x^2 + 1)}$\\
+$\underset{4.6a)}{=} \frac{4+6+1}{8+1} =\frac{11}{9}$\\
+\subsection{Bemerkung}
+Rechts- und linksseitge Grenzwerte:\\
+Rechtsseiteiger Grenzwert:\\
+$\lim\limits_{x \rightarrow c^+} f(x) = d \Rightarrow \forall (a_n)_n , a_n \in D, a_n \geq c$ und $\lim\limits_{n \rightarrow \infty} a_n = c $ gilt: $\lim\limits_{n \rightarrow \infty} f(a_n) =d.$
+Analog: linksseitiger Grenzwert: $\lim\limits_{x \rightarrow c^-} f(x) = d\\
+(a_n \leq c).$\\
+\subsection{Beispiel:}
+$f(x) = \begin{cases}
+1 & x>0\\
+0 & x<0
+\end{cases}
+D = \R \setminus \{0\}, c = 0 \in \bar{D}\\
+\lim\limits_{x \rightarrow 0^+} f(x) = 1, \lim\limits_{x \rightarrow 0^-} f(x) = 0.\\
+\lim\limits_{x \rightarrow 0} f(x)$ existiert nicht.\\
+Falls $\lim\limits_{x \rightarrow c^+}$ und$ \lim\limits_{x \rightarrow c^-}$ existieren\\
+\underline{und} $\lim\limits_{x \rightarrow c^+} f(x) = \lim\limits_{x \rightarrow c^-} = d$\\
+so exisitiert $\lim\limits_{x \rightarrow c} f(x) = d$.\\
+TODO : abgefahrene funktion plotten (so wie sinus, nur abgefahrener)\\
+\begin{tikzpicture}
+\begin{axis}[ymin = -1,ymax = 1 , xmax = 1,xmin=-1, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\addplot[samples=5000] gnuplot[id=abgefahrenersinus]{sin(5*(x**2))};
+\end{axis}
+\end{tikzpicture}\\
+Grenzwert: $d \in \R$
+TODO: Noch eine funktion, so logarithmisch mit gerader asymptote
+\subsection{Definition}
+$D = <b, \infty[ , f : D \rightarrow \R$
+\hspace*{3cm} (z.B $D=\R$)\\
+\underline{$f$ konergiert gegen $d \in \R$ für x gegen unendlich},\\
+$\lim\limits_{f(x)} = d, $falls gilt:\\
+$\forall \varepsilon > 0 \exists M = M(\varepsilon) \forall x \geq M: \abs{f(x) - d} < \varepsilon.$\\
+(Analog : $\lim\limits_{x \rightarrow - \infty}f(x) = d$)
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\i $\lim\limits_{x \rightarrow \infty} \frac{1}{x} = 0$ \\
+\begin{tikzpicture}
+\begin{axis}[ymin = -5,ymax = 5 , xmax = 5,xmin=-5, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\addplot[samples=500] gnuplot[id=1durchx]{x**-1};
+\end{axis}
+\end{tikzpicture}
+Sei $\varepsilon > 0.$ Wähle $M = \frac{1}{\varepsilon}$. Dann gilt für alle $x \geq M:\\
+\abs{f(x) - 0} = \abs{\frac{1}{x}} \leq \frac{1}{m} = \varepsilon.$\\
+\i Allgemein gilt: \\
+$P,Q$ Polynome vom Grad k bzw. l $l \geq k\\
+P(x) = a_k \cd x^k + \ldots , Q(x) = b_i \cd x^i + \ldots, a_k \not = 0, b_i \not = 0
+\lim\limits_{\frac{P(x)}{Q(x)}} = \begin{cases}
+0 & \text{für }l \geq k\\
+\frac{a_k}{b_k} &\text{für } l = k
+\end{cases}\\$
+(Beweis wie für Folgen $\lim\limits_{\frac{P(n)}{Q(n)}})\\
+\lim\limits_{x \rightarrow \infty} \frac{7x^5 + 205x^3+x^2 + 17}{14x^5 + 0,5} = \frac{1}{2}$
+\end{enumerate}
+\subsection{Bemerkung}
+Die Rechenregeln aus 4.8 gelten auch für $x \rightarrow \infty / -\infty$
+\subsection{Definition}
+\begin{enumerate}[a)]
+\i $f: D \rightarrow \R , c \in \bar{D}$\\
+\underline{f geht gegen $\infty$ für x gegen c},\\
+$\lim\limits_{x \rightarrow c} f(x) = \infty$, falls gilt:\\
+$\forall L > 0 \exists \underset{= \delta (L)}{\delta > 0} \forall x \in D : \abs{x -c} \leq \delta \Rightarrow f(x) \geq L.$\\
+\i $<b, \infty[ \supset D, f : D \rightarrow \R, $ \underline{f geht gegen $\infty$, für x gegen $\infty$}: $\lim\limits_{x \rightarrow \infty} f(x) = \infty$,\\
+falls gilt: \\
+$\forall L > 0 \exists M > 0 \forall x \in D, x \geq M, f(x) \geq L$.\\
+\begin{tikzpicture}
+\begin{axis}[ymin = -5,ymax = 5 , xmax = 5,xmin=-5, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\addplot[samples=500] gnuplot[id=1durchxabs]{abs(x)**-1};
+\end{axis}
+\end{tikzpicture}
+TODO: PLOT GERADE MIT MARKIERUNGEN
+\i[](Entsprechend:
+$\lim\limits_{x \rightarrow c} f(x) = - \infty\\
+\lim\limits_{x \rightarrow \infty} f(x) = - \infty\\
+\lim\limits_{x \rightarrow -\infty} f(x) =  \infty\\
+\lim\limits_{x \rightarrow -\infty} f(x) = - \infty$\\
+TODO: ALLE 4 FUNKTIONEN PLOTTEN
+\end{enumerate}
+\subsection{Satz}
+\begin{enumerate}[a)]
+\i[]$f : D \rightarrow \R$.
+\i Sei $c \in \bar{D}$, oder c = $\infty, - \infty $\\
+falls $\lim\limits_{x \rightarrow c} f(x) = \infty$ oder $-\infty$, so ist $\lim\limits_{x \rightarrow c} \frac{1}{f(x)} = 0.$\\
+\i $c \in \bar{D} \supset \R$.\\
+Falls $\lim\limits_{x \rightarrow c} f(x) = 0$ und falls $s > 0$\\
+existiert mit $f(x) > 0$ für alle $x \in [c-s,c+s], (f(x) < 0)$ \\
+dann ist $\lim\limits_{x \rightarrow c} \frac{1}{f(x)} = \infty (-\infty)$\\
+\begin{tikzpicture}
+\begin{axis}[ymin = -1,ymax = 1 , xmax = 1,xmin=-1, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\addplot[samples=5000] gnuplot[id=sin1]{x* sin(1/x)};
+\end{axis}
+\end{tikzpicture}\\
+\i Falls $\lim\limits_{x \rightarrow \infty} =0$ und falls $T >0$ existiert mit $f(x) > 0 f.a x \geq T ,$ so $(f(x) < 0)$\\
+ist $\lim\limits_{x \rightarrow \infty} \frac{1}{f(x)} = \infty (- \infty)$\\
+(Entsprechend für $\lim\limits_{x \rightarrow - \infty})$
+\end{enumerate}
 \end{document}
