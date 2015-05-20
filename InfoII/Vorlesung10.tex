@@ -1,0 +1,209 @@
+\code{(make-pair 1 (make-pair 2 empty))}\\
+\uline{Visualisierung Listen}\\ \ \\
+\begin{tikzpicture}
+\draw[black,solid] (0,0)--(0,1);
+\draw[black,solid] (0,0)--(4.5,0);
+\draw[black,solid] (0,1)--(4.5,1);
+\draw[black,solid] (4.5,1)--(4.5,0);
+\draw[black,solid] (1.5,1)--(1.5,0);
+\node () at (0.75,0.5) {1};
+\draw[black,solid] (1.75,0.25)--(4.25,0.25);
+\draw[black,solid] (1.75,0.75)--(4.25,0.75);
+\draw[black,solid] (1.75,0.75)--(1.75,0.25);
+\draw[black,solid] (4.25,0.75)--(4.25,0.25);
+\node () at (2.25,0.5) {2};
+\draw[black,solid] (3.0,0.75)--(3.0,0.25);\\
+\node () at (3.62,0.5) {empty};
+\end{tikzpicture}\\ \ \\
+\includegraphics{katzenbabies}
+\uline{Spine (Rückgrat)}\\
+\code{(pair-of natural (list-of natural))}\\
+\begin{tikzpicture}
+\node () at (-1.5,0.5) {\code{(natural first)}};
+\node () at (3.25,0.5) {\code{ rest (list-of natural)}};
+\draw[black,solid] (0,0)--(0,1);
+\draw[black,solid] (0,0)--(1,0);
+\draw[black,solid] (0,1)--(1,1);
+\draw[black,solid] (1,1)--(1,0);
+\draw[black,solid] (0.5,1)--(0.5,0);
+\node () at (0.25,0.5) {1};
+\draw[black,solid] (0.75,0.5)--(1.5,-0.75);
+\draw[black,solid] (1.5,-0.75)--(1.5,-1.75);
+\draw[black,solid] (1.5,-0.75)--(2.5,-0.75);
+\draw[black,solid] (1.5,-1.75)--(2.5,-1.75);
+\draw[black,solid] (2.5,-1.75)--(2.5,-0.75);
+\draw[black,solid] (2.0,-1.75)--(2.0,-0.75);
+\node () at (1.75,-1.25) {2};
+\draw[black,solid] (2.25,-1.25)--(3,-2.5);
+\node () at (3,-2.75) {\code{empty}};
+\end{tikzpicture}\\
+\begin{lstlisting}[frame=single]
+(: one-to-four (list-of natural))
+(define one-to-four
+  (make-pair 1 
+             (make-pair 2 
+                        (make-pair 3 
+                                   (make-pair 4 
+                                              empty)))))  
+\end{lstlisting}
+\code{(: jedis-and-siths (list-of (list-of string)))}\bigskip\\ 
+\begin{tikzpicture}
+\node () at (0,5) {};
+\draw (6,6) rectangle (5,5);
+\draw[black,solid] (5.5,6)--(5.5,5);
+\draw[black,solid] (5.25,5.5)--(4.5,4.5);
+\draw[black,solid] (5.75,5.5)--(8.5,4.5);
+\draw (8.5,4.5) rectangle (9.5,3.5);
+\draw[black,solid] (9.25,4)--(9.8,3.3);
+\node () at (9.8,3.1) {\code{empty}};
+
+\draw[black,solid] (8.75,4)--(7.5,3);
+\draw (7.5,3) rectangle (8.5,2);
+\draw (8,3)--(8,2);
+\draw (7.75,2.5)--(7,2);
+\node () at (7,1.75) {\textcolor{string}{''Doku''}};
+
+\draw (8.25,2.5)--(9,2);
+\draw[black,solid] (9,2) rectangle (10,1);
+\draw (9.5,2)--(9.5,1);
+\draw (9.75,1.5)--(10.5,0.5);
+\node () at (10.5,.25) {\code{empty}};
+\draw (9.25,1.5)--(8.75,0.5);
+\node () at (8.75,0.25) {\textcolor{string}{''Darth''}};
+
+
+\draw[black,solid] (9,3.5)--(9,4.5);
+\draw (4.5,4.5) rectangle (3.5,3.5);
+\draw[black,solid] (4,4.5)--(4,3.5);
+\draw (3.75,4)--(3.3,3.3);
+\node () at (3.2,3.1) {\textcolor{string}{''Obi''}};
+\draw (4.25,4)--(5,2.5);
+\draw (5,2.5) rectangle (6,1.5);
+\draw (5.5,2.5)--(5.5,1.5);
+\draw (5.25,2)--(4.5,1);
+\draw (5.75,2)--(6.5,1);
+\node () at (4.5,0.8) {\textcolor{string}{''Yoda''}};
+\node () at (6.5,0.8) {\code{empty}};
+\end{tikzpicture}
+\begin{lstlisting}[frame=single]
+; Geschachtelte Listen
+(: jedis-and-siths (list-of (list-of string)))
+(define jedis-and-siths
+  (MAKE-PAIR (make-pair "Yoda"
+                        (make-pair "Obi-Wan" empty))
+             (MAKE-PAIR (make-pair "Dooku"
+                                   (make-pair "Vader" empty))
+                        empty)))
+
+; Navigation in geschachtelten Listen
+(check-expect (first (first jedis-and-siths)) "Yoda")
+(check-expect (first (rest (first (rest jedis-and-siths)))) "Vader")
+\end{lstlisting}
+\uline{Prozeduren, die Liste konsumieren}\\
+Konstruktionsanleitung:\\
+Beispiel:\\
+\begin{lstlisting}
+(: list-sum ((list-of number) -> number))
+
+(check-expect (list-sum empty) 0)
+(check-expect (list-sum (make-pair 40
+                                   (make-pair 2
+                                              empty))) 42)  
+(check-expect (list-sum one-to-four) 10)
+
+(define list-sum
+  (lambda (xs)
+    (cond ((empty? xs) 0)
+          ((pair? xs) (+ (first xs)
+                         (@{\uline{list-sum} (rest xs)))))))
+\end{lstlisting}
+\begin{figure}[htbp]
+\begin{minipage}[b]{\textwidth}
+\begin{tikzpicture}
+\node () at (0,0) {};
+\draw (2,2) rectangle (3,2.5);
+\node () at (1.55,2.25) {xs:};
+\draw (2.5,2.5)--(2.5,2);
+\draw (2.25,2.25)--(1.5,1.5);
+\node () at (1.5,1.25) {x};
+\draw (2.75,2.25)--(5.5,0.5);
+\draw (3.5,1.75)--(2,0.5);
+\draw (2,0.5)--(5.5,0.5);
+\node () at (3.75,0.8) {\code{(rest xs)}};
+\end{tikzpicture}
+\hspace*{2cm}
+\begin{minipage}[b]{0.3\textwidth}
+\code{(rest xs)} mit Signatur \code{(list-of number)} ist selbst wieder eine \uline{kürzere} \uline{Liste} von Zahlen.\\
+\code{(list sum (rest xs))} erzielt Fortschritt
+\end{minipage}
+\end{minipage}
+\end{figure}
+Konstruktionsanleitung für Prozeduren:
+\begin{lstlisting}
+(: <f> ((list-of @\argt{1}@) -> @\argt{2}@))
+(define <f>
+	(lambda(xs)
+		(cond 
+			((empty? xs) ...)
+			((pair? xs) ... @$\overbrace{\text{(first xs)}}^{\text{\argt{1}}}$@ ...)
+				(<f> @$\underbrace{\text{(rest xs )}}_{\text{\argt{1}}}$@))...))
+\end{lstlisting}
+Neue Sprachebene ''Macht der Abstraktion''
+\begin{enumerate}[-]
+\i Signatur \code{(list-of \% a)} eingebaut
+\begin{lstlisting}
+(list @\arge{1}@ @\arge{2}@ ... @\arge{n}@)
+	@$\equiv$@
+(make-pair (@\arge{1}@)
+	(make-pair @\arge{2}@)
+		... (make-pair @\arge{n}@) empty) ...)
+\end{lstlisting}
+\i Ausgabeformat für nicht leere Listen:\\
+\code{\#\auf list $x_1 \ x_2 \ \ldots \ x_n$\zu}
+\end{enumerate}
+\begin{lstlisting}[frame=single]
+; Länge der Liste xs
+(: list-length ((list-of %a) -> natural))
+
+(check-expect (list-length empty) 0)
+(check-expect (list-length (list 1 1 3 8)) 4)
+(check-expect (list-length jedis-and-siths) 2)    ; nicht 4!
+
+(define list-length
+  (lambda (xs)
+    (cond ((empty? xs) 0)
+          ((pair? xs) (+ 1 
+                         (list-length (rest xs)))))))
+  
+\end{lstlisting}
+Füge Listen xs , ys zusammen (con\uline{cat}ination)\\
+Zwei Fälle (xs leer oder nicht leer)
+\begin{enumerate}
+\i[\circled{1}] $\overbrace{ \text{\code{empty}}}^{\text{xs}} \ \ \overbrace{y_1 \ y_2 \ \ldots \ y_m}^{ys}
+ \ \ \overbrace{y_1 \ y_2 \ \ldots \ y_m}^{\text{\code{(cat \ xs \ ys)}}}$
+\i[\circled{2}] $x_1 \ \underbrace{x_2 \ \ldots \ x_n}_{\text{\code{(rest xs)}}} \ y_1 \ y_2 \ \ldots \ y_m \ \ x_1 \ \underbrace{ x_2 \ldots \ x_n \ y_1 \ y_2 \ \ldots \ y_m}_{\text{\code{(cat rest xs)}}}$
+\end{enumerate}
+
+Beobachtung:
+\begin{enumerate}[-]
+\i Die Längen von xs bestimmt die Anzahl der rekursiven Aufrufe von cat
+\i Auf xs werden \uline{Selektoren angewendet}
+\end{enumerate}
+\begin{lstlisting}[frame=single]
+; Füge Listen xs, ys (in dieser Reihenfolge) zusammen
+(: cat ((list-of %a) (list-of %a) -> (list-of %a)))
+
+(check-expect (cat (list 1 2) (list 3 4)) (list 1 2 3 4))
+(check-expect (cat one-to-four empty) one-to-four)
+(check-expect (cat empty one-to-four) one-to-four)
+
+(define cat
+  (lambda (xs ys)
+    (cond ((empty? xs) 
+           ys)
+            ((pair? xs)
+             (make-pair (first xs) ; <- cat dennoch param. polymorph
+                        (cat (rest xs) ys))))))
+
+; Hinweis: Verfügbar als eingebaute Funktion `append'
+\end{lstlisting}

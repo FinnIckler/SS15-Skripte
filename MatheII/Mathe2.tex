@@ -937,7 +937,7 @@ Für alle x $\geq 0: \exp(x) > 0.$ Dann auch wegen $(\star)$\\
 \fbox{$\exp(x) > 0$ für alle $x \in \R$}\\
 \begin{tikzpicture}
 \begin{axis}[legend style={draw none},axis equal,ymin = 0,xmin = -2,ymax = 5,xmax = 2,xtick ={-1, 0 , 1}, xticklabels={},ytick ={},yticklabels={},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={},extra tick style = {dashed, grid = major}]   
-\addplot {e^x};
+\addplot gnuplot[id=e]{exp(x)};
   
 \end{axis}
 \end{tikzpicture}\\
@@ -1383,5 +1383,36 @@ dann ist $\lim\limits_{x \rightarrow c} \frac{1}{f(x)} = \infty (-\infty)$\\
 \i Falls $\lim\limits_{x \rightarrow \infty} =0$ und falls $T >0$ existiert mit $f(x) > 0 f.a x \geq T ,$ so $(f(x) < 0)$\\
 ist $\lim\limits_{x \rightarrow \infty} \frac{1}{f(x)} = \infty (- \infty)$\\
 (Entsprechend für $\lim\limits_{x \rightarrow - \infty})$
+\end{enumerate}
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\i 
+\begin{itemize}
+\i $f(x) = \frac{1}{x} , D = ]0,\infty[\\
+\lim\limits_{x \rightarrow 0} f(x) = \infty\\$
+\i $f(x) = \frac{1}{x}, D = ]-\infty,0[\\
+\lim\limits_{x \rightarrow 0} f(x) = -\infty$
+\i $f(x) = \frac{1}{x} , D = ]0,\infty[\\
+\lim\limits_{x \rightarrow 0} f(x) = \infty\\$
+\end{itemize} 
+\i $\lim\limits_{x \rightarrow \infty} sin(x)$ existiert nicht
+TODO SINUS HINZUFÜGEN!
+\i $P(x) = ak_x^k + \ldots + a_0.\\
+\lim\limits_{x \rightarrow \infty} P(x) = \begin{cases}
+\infty , \text{falls }& a_k > 0\\
+-\infty , \text{falls }& a_k < 0
+\end{cases}\\
+\lim\limits_{x \rightarrow -\infty} P(x) = 
+\begin{cases}
+\infty , \text{falls }& a_k > 0 \text{k gerade oder} a_k < 0 \text{ k ungerade}\\
+-\infty , \text{falls }& a_k < 0 \text{k gerade oder} a_k > 0 \text{ k ungerade}
+\end{cases}$
+\i $P(x)$ wie in c)\\
+$Q(x) = b_l^l + \ldots + b_0$\\
+$\lim\limits_{x \rightarrow \infty} \frac{P(x)}{Q(x)} = 
+\begin{cases}
+\infty, &\text{falls $a_k$ und $b_k$ gleiche Vorzeichen}\\
+-\infty, &\text{falls $a_k$ und $b_k$ verschiedene Vorzeichen}\\
+\end{cases}$
 \end{enumerate}
 \end{document}

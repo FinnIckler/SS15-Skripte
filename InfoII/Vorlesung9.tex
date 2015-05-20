@@ -95,7 +95,7 @@ Beispiel: Wenn eine Prozedur \code{(: number \%a \%b -\zu \%a)} erfúllt, dann a
 \code{(pair-of \argt{1} \argt{2})} ist eine Signatur für Paare deren erster bzw. zweiter Komponente die Signaturen \argt{1} bzw. \argt{2} erfüllen.\\
 \begin{lstlisting}
 ;@\latexcode{$\rightarrow$}@ pair-of Signatur mit (zwei) Parametern
-(: make-pair (\%a \%b -> (pair-of \% a \%b)))
+(: make-pair (%a %b -> (pair-of % a %b)))
 (: pair? (any -> boolean))
 (: first ((pair-of %a %b ) -> %a))
 (: rest ((pair-of %a %b ) -> %b))
@@ -124,9 +124,9 @@ Beispiel: Wenn eine Prozedur \code{(: number \%a \%b -\zu \%a)} erfúllt, dann a
 ; Extrahiere das dritte Element der Liste (hier: 3)
 (first (rest (rest nested)))
 \end{lstlisting}
-Eine \underline{Liste} von Werten der Signatur \argt{t} ist entweder\\
+Eine \underline{Liste} von Werten der Signatur \argt{t} ist entweder
 \begin{enumerate}[-]
-\i leer (Signatur \code{empty-list}) oder:\\
+\i leer (Signatur \code{empty-list}) oder:
 \i ein Paar (Signatur \code{pair-of}) aus einem Wert der Signatur \argt{} und einer Liste von Werten der Signatur \argt{}. \\
 \end{enumerate}
 \begin{lstlisting}
