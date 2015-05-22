@@ -9,18 +9,18 @@ Die Anwendung von Funktionen wird in Scheme ausschlie\ss lich in Pr\"afixnotatio
 \begin{tabular}{c|c}
 Mathematik & Scheme \\
 \hline
-$44-2$ & $(- $44 2)\\
-$f(x,y)$ & (f x y)\\
-$\sqrt{81}$ & (sqrt 81)\\
-$9^2$ & (expt 92)\\
-$3!$ & (! 3)\\
+$44-2$ & \code{(- 44 2)}\\
+$f(x,y)$ & \code{(f x y)}\\
+$\sqrt{81}$ & \code{(sqrt 81)}\\
+$9^2$ & \code{(expt 9 2)}\\
+$3!$ & \code{(! 3)}\\
 \end{tabular}\\
 Allgemein: (\textless funktion\textgreater \textless argument1\textgreater \textless argument2\textgreater \ldots)
 \end{center}
-(+ 40 2) und (odd? 42) sind Beispiele f\"ur \underline{Ausdr\"ucke}, die bei \underline{Auswertung} einen Wert liefern.\\
+\code{(+ 40 2)} und \code{(odd? 42)} sind Beispiele f\"ur \underline{Ausdr\"ucke}, die bei \underline{Auswertung} einen Wert liefern.\\
 (Notation: \eval)\\
-(+ 40 2) $\underbrace{\longrightsquigarrow}_{Reduktion}$ 42\\
-(odd? 42) \eval \#f
+\code{(+ 40 2)} $\underbrace{\longrightsquigarrow}_{Reduktion}$ 42\\
+\code{(odd? 42)} \eval \#f
 \bigskip\\
 Interaktionsfenster:\hspace*{2.5cm} $\underbrace{Read \rightarrow Eval \rightarrow Print \rightarrow Loop}_{REPL}$\\
 \bigskip\\
@@ -30,7 +30,7 @@ Interaktionsfenster:\hspace*{2.5cm} $\underbrace{Read \rightarrow Eval \rightarr
 Literal &  & Sorte,Typ\\
 \hline
 \#f ,\#t & (true, false, Wahrheitswert) & boolean\\
-"x" & (Zeichenketten) & String\\
+\latexcode{''x''} & (Zeichenketten) & String\\
 0 1904 42 $-2$ & (ganze Zahl) & Integer\\
 0.42 3.14159 & (Flie\ss kommazahl) & real\\
 1\textbackslash 2, 3\textbackslash 4, -1\textbackslash 10 & (rationale Zahlen) & rational\\
