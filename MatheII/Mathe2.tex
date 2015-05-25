@@ -148,7 +148,7 @@ $z,z_1,z_2 \in \C$\\
 \subsection{Darstellung durch Polarkoordinaten}
 \begin{enumerate}
 \item[a)]
-Jeder Punkt $\not = (0,0)$ l\"asst sich durch seine Polarkoordinaten $(r,\varphi)$ beschreiben:\\
+Jeder Punkt $\neq (0,0)$ l\"asst sich durch seine Polarkoordinaten $(r,\varphi)$ beschreiben:\\
 \begin{tikzpicture}
     \begin{axis}[
     legend style={draw none},
@@ -207,7 +207,7 @@ Jeder Punkt $\not = (0,0)$ l\"asst sich durch seine Polarkoordinaten $(r,\varphi
   \end{tikzpicture}\\
   Umfang:$2\pi$\\
   $\varphi$ in Grad $\widehat{=} \frac{2\pi \cd \varphi}{360}$ im Bogenma\ss\\
-   F\"ur Punkte mit kartesischen Koordinaten (0,0) werden als Polarkoordinate $(r,\varphi)$ verwendet.
+   F\"ur Punkte mit kartesischen Koordinaten $\neq$ (0,0) werden als Polarkoordinate $(r,\varphi)$ verwendet.
 \item[b)]komplexe Zahl $z = a +ib\\
 \begin{array}{rcl}
 r &=& \abs{z} = + \sqrt{a^2+b^2}\\
@@ -269,7 +269,7 @@ w \cd z =\abs{w \cd z}( \cos(\varphi + \psi) + i \cd \sin(\varphi + \psi))$\\
   \end{tikzpicture} 
 \end{enumerate}
 \subsection{Bemerkung und Definition}
-Wir werden sp\"ater die komplexen Exponentialfunktion einf\"uhren.\\
+Wir werden sp\"ater die komplexe Exponentialfunktion einf\"uhren.\\
 $e^{z}$ f\"ur alle $z \in \C$ e = Euler`sche Zahl $\approx 2,718718\ldots\\
 e^{z_1} =cd e^{z_2} = e^{z_1+z_2}, e^{-z} = \frac{1}{e^z}$\\
 Es gilt: $t \in \R : e^{it} = \cos(t) + i \cd \sin(t)$\\
@@ -280,8 +280,8 @@ $\bullet (r,\varphi)$ Polarkoordinaten\\
 $\abs{e^{i\varphi}} = + \sqrt{cos^2(\varphi) + \sin^2(\varphi)}=1\\
 e^{i\varphi},0 \leq \varphi \leq 2\pi,$ Punkte auf dem Einheitskreis.\\
 $e^{i\pi} = -1$\\
-\fbox{$e^{i\pi} +1 =0$} Eulersche Gleichung
-\subsection{Satz}
+\fbox{$e^{i\pi} +1 =0$} Euler'sche Gleichung
+\subsection[Satz: Komplexe Wurzeln]{Satz}
 Sei $w = \mid w \mid \cd ( \cos(\varphi) + i \cd \sin(\varphi)) \in \C$\\
 \begin{enumerate}
 \item[a)] Ist $m \in \Z$, so ist $w^m = \mid w \mid^m \cd ( \cos(m \cd \varphi) + i \cd \sin(m \cd \varphi))\\
@@ -318,8 +318,8 @@ mit irgendwelchen Koeffizienten: $a_n \ldots a_0 \in \C$ hat Nullstelle in $\C$
 \subsection{Definition}
 Sei k $\in \Z$,
 $A_k := \{ m \in \Z : m > k\}\\
-(k = 0 A_0 \in \N_0, k = 1 , A_n \in \N)\\
-Abbildung a : A \Rightarrow \R (oder \C)\\
+(k = 0 A_0 \in \N_0, k = 1 , A_n \in \N)$\\
+Abbildung a $: A \Rightarrow \R $(oder $\C)\\
 \hspace*{2.5cm} m \Rightarrow a_n\\
 $hei\ss t \underline{Folge} reeller Zahlen\\
 \hspace*{2.5cm} ($a_k,a_{k-1} \ldots)$\\
@@ -361,7 +361,7 @@ D.h. $\exists D > 0 : - D \leq a_n \leq D$ f\"ur alle $n > k$.\\
                
 \end{axis}
   \end{tikzpicture} 
-\subsection{Definiton}
+\subsection{Definition}
 Eine Folge $(a_n)_{n \geq k}$ hei\ss t \underline{konvergent} gegen $\varepsilon \in \R$ (konvergent gegen $\varepsilon$), falls gilt:\\
 $\forall \varepsilon > 0 \exists n(\varepsilon) \in \N \forall n \geq n(\varepsilon) : \mid a_n -c \mid < \varepsilon\\
 c = \lim_{n \Rightarrow \infty} a_n $ (oder einfach $c = \lim a_n$)\\
@@ -376,7 +376,7 @@ $(r,r,\ldots)\\
 \mid a_n - r \mid = 0$ f\"ur alle $n$\\
 F\"ur jedes $\varepsilon >0$ kann man $n(\varepsilon) = 1$ w\"ahlen
 \item[b)]$a_n = n$ f\"ur alle $ n\ \geq 1$\\
-Folgte ist nicht beschr\"ankt, konvergiert nicht.
+Folge ist nicht beschr\"ankt, konvergiert nicht.
 \item[c)] $a_n = \frac{1}{n}$ f\"ur alle $n \geq 1\\
 (a_n)$ ist Nullfolge.\\
 Sei $ \varepsilon > 0$ beliebig. Suche Index $n(\varepsilon)$ mit $\abs{a_n - o} < \varepsilon$ f\"ur alle $n \geq n(\varepsilon)$\\
@@ -414,7 +414,7 @@ Sei $c \in \mathbb{R}$ beliebig, W\"ahle $\varepsilon = \frac{1}{2}$\\
   \end{tikzpicture}\\
 $2 = \abs{a_n-a_{n+1}} \leq \abs{a_n - c} + \abs{c - a_{n+1}} < \frac{1}{2}+ \frac{1}{2} =$\underline{$1$} $\lightning$
 \end{enumerate}
-\subsection{Satz}
+\subsection[Satz: Beschränktheit und Konvergenz]{Satz}
 Jede konvergente Folge ist beschr\"ankt. (Umkehrung nicht: $2.5_{e)}$)\\
 \begin{proof}
 Sei $c= \lim a_n$, w\"ahle $\varepsilon =1$,\\
@@ -461,7 +461,7 @@ $= \abs{c -a_n - d +b_n} \leq \abs{c-a_n} + \abs{d -b_n}\\
 \leq \frac{\delta}{2} + \frac{\delta}{2} = \delta \lightning$
 \end{enumerate}
 \end{proof}
-\subsection{Satz}
+\subsection[Satz: Kriterien für Nullfolgen]{Satz}
 \begin{enumerate}
 \item[a)] $0 \leq q \leq 1$ Dann ist $(q^n)_{n \geq 1}$ Nullfolge
 \item[b)]Ist $m \in \N$, so ist $((\frac{1}{n^m})_{n \geq 1}$ Nullfolge.
@@ -511,7 +511,7 @@ m > l:$\\
 Beh. folgt aus Fall $m < l$ und 2.8e).
 \end{enumerate}
 \subsection{Bemerkung}
-Betrachte Bijektionsverfahren, der Zahl $x \in \R$ bestimmt.\\
+Betrachte Bijektionsverfahren, die Zahl $x \in \R$ bestimmt.\\
 $a_0 \leq a_1 \leq a_2 \leq \ldots\\
 b_0 \geq b_1 \geq b_2 \geq \ldots\\
 a_n \leq x \leq b_n\\
@@ -541,11 +541,11 @@ $\begin{array}{lcrll}
 \end{array}\\
 O(1) =$ Menge der beschränkten Folgen\\
 $o(1)=$ Menge aller Nullfolgen\\
-Häufig gewählte schreibweise:\\
+Häufig gewählte Schreibweise:\\
 $n^2 \underbrace{=}_{\text{eig. falsch!}} o(n^2)$ statt $(n^2) \in o(n^3)\\
 n^2+n+1 =O(n^2)$ statt $(n^2+n+1)$
 \end{enumerate}
-\subsection{Satz}
+\subsection[Satz: Landausymbole bei Polynomen]{Satz}
 Sei $P(x) = a_m \cd x^m + \ldots + a_1 \cd x + a_o, m \geq 0, a_m \not = 0$.
 \begin{enumerate}[a)]
 \i $(P(n)) \in o(n!)$ für alle $l>m$ und\\
@@ -559,15 +559,15 @@ b) folgt aus 2.9d) und 2.8 b)c)
 \end{proof}
 \end{enumerate}
 \subsection{Bemerkung}
-Algorihmus:\\
-Sei $t_n =$ maximale Anzahl von Reihenschritten des Algorithmus' bei Input der Länge n (binär codiert)\\
+Algorithmus:\\
+Sei $t_n =$ maximale Anzahl von Reihenschritten des Algorithmus' bei Input der Länge n (binär codiert).\\
 Worst-Case-Komplexität:\\
 Algorithmus hat polynomielle Zeitkomplexität, falls ein $l \in \N$ existiert mit $(t_n) \in O(n^l)$. (\underline{gutartig})\\
-Algorithmus hat polynomielle Zeitkomplexität, falls ein $l \in \N$ existert mind. exponentielle Zeitkomplexität, falls 
+Algorithmus hat polynomielle Zeitkomplexität, falls ein $l \in \N$ existiert mindestens exponentielle Zeitkomplexität, falls 
 $ r > 1$ exestiert mit $(r^n) \in O(b_n)$ (\underline{bösartig)}
 \subsection{Definition}
 \begin{enumerate}[a)]
-\i Eine Folge $(a_n)_{n \geq k}$ hei\ss t \underline{monoton wachsend (steigend)}, wenn $a_n \leq a_{n+1}$ f\"ur alle $n \geq k$. Sei hei\ss t \underline{steng monoton wachsend (steigend)}, wenn $a_n < a_{n+1}$ f\"ur alle $n \geq k$
+\i Eine Folge $(a_n)_{n \geq k}$ hei\ss t \underline{monoton wachsend (steigend)}, wenn $a_n \leq a_{n+1}$ f\"ur alle $n \geq k$. Sie hei\ss t \underline{steng monoton wachsend (steigend)}, wenn $a_n < a_{n+1}$ f\"ur alle $n \geq k$
 \i $(a_n)_{n \geq k}$ hei\ss t \underline{monoton fallend}, falls $a \geq a_{n+1}$ f\"ur alle $n \geq k$
 \end{enumerate}
 \subsection{Beispiel}
@@ -583,9 +583,9 @@ $(a_n){n \geq 1}$ streng monoton steigend.
 \i $a_n = (-1)^n, n \geq 1\\
 (a_n)$ ist weder monoton steigend noch monoton fallend.
 \end{enumerate}
-\subsection{Satz}
+\subsection[Satz: Monotonie und Konvergenz]{Satz}
 \begin{enumerate}[a)]
-\i Ist $(a_n)_{n \geq k}$ monoton steigend und nach oben beschränkt (d.h es exestiert $D \in \R$ mit $a_n \leq D$ für alle $n \geq k$), so konvergiert $(a_n)'$ und $\lim\limits_{n \rightarrow \infty}a_n = \sup\{a_n: n\geq k \}$
+\i Ist $(a_n)_{n \geq k}$ monoton steigend und nach oben beschränkt (d.h es existiert $D \in \R$ mit $a_n \leq D$ für alle $n \geq k$), so konvergiert $(a_n)'$ und $\lim\limits_{n \rightarrow \infty}a_n = \sup\{a_n: n\geq k \}$
 \i $(a_n)_{n \geq k}$ monoton fallend und nach unten beschränkt, so konvergiert $(a_n)_{n \geq k}$ und $\lim\limits_{n \rightarrow \infty} a_n = \inf \{a_n: n\geq k \}.$
 \begin{proof}
 a)\\
@@ -627,7 +627,7 @@ Grenzwert muss nicht bekannt sein!
   \end{tikzpicture}
 \subsection{Definition}
 \begin{enumerate}[a)]
-\i Sei $(a_i)_{i \geq k}$ eine Folge, $s_n \sum\limits_{i = k}^{n} a_i , n \geq k$ (Partiealsummen der Folge)\\
+\i Sei $(a_i)_{i \geq k}$ eine Folge, $s_n \sum\limits_{i = k}^{n} a_i , n \geq k$ (Partialsummen der Folge)\\
 Dann hei\ss t $(s_n)_{n \geq k}$ eine \underline{unendliche Reihe}\\
 $(k-1: a_1, a_1+a_2, a_1 + a_2 + a_2,\ldots)$\\
 Schreibweise : $\sum\limits_{i = k}^{\infty} a_i$\\
@@ -641,7 +641,7 @@ Wenn $(s_n)$ nicht konvergiert, so hei\ss t die Reihe $\sum\limits_{i =k}^{\inft
 \end{enumerate}
 $\sum\limits_{i=k}^{\infty} a_i = \sum\limits_{n=k}^{\infty} a_n = (s_m)_{m \geq k}$
 \end{enumerate}
-\subsection{Satz}
+\subsection[Satz: Reihenkonvergenz]{Satz}
 \begin{enumerate}[a)]
 \i Ist die Reihe $\series{a_1}$ konvergent, so ist $(a_1)_{i \geq k}$ eine Nullfolge.
 \i Ist die Folge der Partialsummen $s_n = \series{a_i}$ beschränkt und ist $a_i \geq 0$ für alle i, so ist $\series{a_i}$ konvergent.
@@ -665,7 +665,7 @@ Dann ist $\series{q^i} = \frac{1}{1-q}$ (konvergiert)\\
 $s_n = \seriesn{q^1} = \frac{q^{n+1}-1}{q-1}\\
 \lim\limits_{n \rightarrow \infty} s_n = \lim\limits_{n \rightarrow} \frac{q^{n+1} =1}{q-1}\\
 (q^n)$ Nullfolge ($2.9_{a)}$  für $q \geq 0 , 2.8_{e}) + 2.9_{a)}$ für $q < 0 , q = -\abs{q}$)\\
-\underline{Geomtetrische Reihe}\\
+\underline{Geometrische Reihe}\\
 Sei $\abs{q} \geq 1$. Dann ist $\series{q^i}$  divergent, da dann $(q^i)$ keine Nullfolge ($2.18_{a)} $)
 \i $\series{\frac{1}{i}}$ divergiert\\
 \underline{harmonische Reihe}\\
@@ -713,7 +713,7 @@ Was bedeutet $0.\bar{8} = 0.88888888\ldots$? (Dezimalsystem)\\
 $0.\bar{8} = \frac{8}{10} + \frac{8}{100} + \frac{8}{1000}+ \ldots = 8 \cd \seriesnull{\frac{1}{10^i}} = 8 \cd (\frac{10}{9} - 1) = \frac{8}{9}\\
 \seriesnull{\frac{1}{10^i}} = \seriesnull{(\frac{1}{10})^i} = \frac{1}{1 - \frac{1}{10}} = \frac{10}{9}$
 \subsection{Satz (Leibniz-Kriterium)}
-Ist $(a_i)_{i \geq k}$ eine mononton fallende Nullfolge (ins besondere $a_i \geq 0$ falls $i \geq k$), so ist $\series{(-1)^i a_i}$ konvergent.
+Ist $(a_i)_{i \geq k}$ eine monoton fallende Nullfolge (insbesondere $a_i \geq 0$ falls $i \geq k$), so ist $\series{(-1)^i a_i}$ konvergent.
 \subsection{Satz (Majoranten-Kriterium)}
 Seien $(a_i)_{i \geq k}, \ (b_i)_{i \geq k}$ Folgen, wobei $b_i \geq 0$ für alle $i \geq k$ und $\abs{a_i} \leq b_i$ für alle $i \geq k$. Dann gilt\\
 Ist $\series{b_i}$ konvergent, so auch $\series{a_i}$ und $\series{\abs{a_i}}$. Für die Grenzwerte gilt:\\
@@ -750,13 +750,13 @@ a_i \in \{0 \ldots 9\}$ (Dezimalsystem)\\
 $a_1 \cd \frac{1}{10} a_2 \cd \frac{1}{100} \ldots a_n \cd \frac{1}{10^n} \leq 9 \cd \frac{1}{10} 9 \cd \frac{1}{100} \ldots 9 \cd \cd \frac{1}{10^n}\\
 a_i \frac{1}{10} \leq 9 \frac{1}{10}\\
 \series{9 \frac{1}{10}} = 9 \cd (\frac{1}{1-\frac{1}{10}}-1) = 1 \Rightarrow \series{a_i \frac{1}{10}}$ konvergiert
-\subsection{Satz}
+\subsection[Satz: Wurzel- und Quotientenkriterium]{Satz}
 Sei $\series{a_i}$ eine Reihe.\\
 \begin{enumerate}[a)]
 \i \underline{Wurzelkriterium}\\
 Existiert $q < 1$ und ein Index $i_0$, so dass $\sqrt[i]{\abs{a_i}} \leq q$ für alle $i \geq i_0$.\\
 so konvergiert die Reihe $\series{a_i}$ absolut.\\
-Ist $\sqrt[i]{\abs{a_i}} \geq 1$ für unendlich viele im so divergiert $\series{a_i}$.\\
+Ist $\sqrt[i]{\abs{a_i}} \geq 1$ für unendlich viele i so divergiert $\series{a_i}$.\\
 \i \underline{Quotientenkriterium}\\
 Existiert $q > 1$ und ein Index $i_0$, so dass $\abs{\frac{a_{i+1}}{a_i } } \leq$ für alle $i \geq i_0$,\\
 so konvergiert $\series{a_i}$ absolut. 
@@ -810,17 +810,17 @@ $= \underbrace{a_0 b_0}_{\text{Indexsumme 0}} + \underbrace{(a_0b_1+ a_1b_0)}_{\
 \subsection{Definition}
 Seien $ \seriesnull{a_n}, \seriesnull{b_n}$ unendliche Reihen.\\
 Das \underline{Cauchy-Produkt}(\underline{Faltungsprodukt}) der beiden Reihen ist die Reihe $\seriesnull{c_n}$, wobei $c_n = \seriesnull{a_i \cd b_{n-1}} = a_0b_n + ab_{n-1} + \ldots a_nb_0$
-\subsection{Satz}
+\subsection[Satz: Konvergenz im Cauchy Produkt]{Satz}
 Sind $\seriesnull{a_n}, \seriesnull{b_n}$ absolut konvergent Reihen mit Grenzwert $c ,d$, so ist das Cauchy Produkt auch absolut konvergent mit Grenzwert $c \cd d$. \begin{flushright}
 Beweis: \cite{k1}
 \end{flushright}
 \section{Potenzreihen}
 \subsection{Definition}
-Seit $(b_n)$ eine reelle Zahlenfolge, $a \in \Re$\\
+Sei $(b_n)$ eine reelle Zahlenfolge, $a \in \Re$\\
 Dann hei\ss t $\sum\limits_{n=0}^{\infty} b_n \cd (x-a)^n$ eine \underline{Potenzreihe} (mit \underline{Entwicklungspunkt} a))
 Speziell: $a=0\\
 \sum\limits_{n = 0}^{\infty} b_n \cd x^n$\\
-(Potenzreihe im Engeren Sinne)\\
+(Potenzreihe im engeren Sinne)\\
 \underline{Hauptfolge}: Für welche $x \in \R$ konv. die Potenzreihe (absolut)?\\
 Suche für $x=a$\\
 Dann Grenzwert $b_ 0$ (da $0^0 = 1$)\\
@@ -835,7 +835,7 @@ konvergiert genau dann nach a), wenn $\abs{2x} < 1$, d.h $\abs{x} < \frac{1}{2}$
 konvergiert für alle $x, \ x \in ]-\infty,\infty[ = \R $\\
 \end{enumerate}
 \subsection{Satz}
-Sei $ \seriesnull{b_n \cd x^n}$ eine Potenzreihe (um 0). Dawnn gibt es $R \in \R \cup \{\infty\}, R \geq 0$, so dass gilt.
+Sei $ \seriesnull{b_n \cd x^n}$ eine Potenzreihe (um 0). Dann gibt es $R \in \R \cup \{\infty\}, R \geq 0$, so dass gilt.
 \begin{enumerate}
 \i Für alle $x \in \R$ und $\abs{x} < R$ konvergiert Potenzreihe absolut (d.h. $\seriesnull{b_n \cd x^n}$
 konvergiert, dann auch $\seriesnull{b_n \cd x^n}$)\\
@@ -851,7 +851,7 @@ Falls $R = \infty$, so hei\ss t das, dass Potenzreihe für alle $x \in \R$ absol
 \end{axis}
 \end{tikzpicture}\\
 $(\lim\limits_{n \rightarrow \infty} \sqrt[n]{\abs{b_n}} = 0 \Rightarrow R = \infty)$
-(Für $\abs{x} = R$ lassen sich keine allgeine Aussagen treffen).\\
+(Für $\abs{x} = R$ lassen sich keine allgemeine Aussagen treffen).\\
 R hei\ss t der \underline{Konvergenzradius} der Potenzreihe $\seriesnull{b_n \cd x^n}$\\
 Konvergenzintervall $<-R,R>$\\
 besteht aus allen $x$ für die $\seriesnull{b_n \cd x^n}$ konvergiert.\\
@@ -915,7 +915,7 @@ Für alle x $\geq 0: \exp(x) > 0.$ Dann auch wegen $(\star)$\\
 \end{tikzpicture}\\
 
 \i[c)] $\exp(1) = \seriesnull{\frac{1}{n!}} = e$\\
-\underline{Eulersche Zahl}
+\underline{Euler'sche Zahl}
 Approximation $e$ durch
 $\seriesnull{\frac{1}{n!}}
 \begin{array}{lll}
@@ -942,14 +942,13 @@ Dann definiert man für beliebige $x \in R$:\\
 In kürze: Definition $a^x$ für $a>0, x \in \R$\\
 \i[d)] Bei komplexen Zahlen kam $e^{it}$ ($i^2 = -1, t \in \R)$ vor als Abkürzung für $\cos(t) +i \sin(t)$\\
 Tatsächlich kann auch für jedes $z \in \C$ definieren $e^z = \seriesnull{\frac{z^n}{n!}}$\\
-Dabei: Konvergenz von Folgen/Reihen in $\C$ wie in $\R$ mit komplexen Absolutbetrag.\\
+Dabei: Konvergenz von Folgen/Reihen in $\C$ wie in $\R$ mit komplexem Absolutbetrag.\\
 Man kann dann zeigen:\\
 $\seriesnull{\frac{z^n}{n!}}$ konvergiert für alle $z \in \C$.\\
 Dass tatsächlich dann gilt:\\
 $e^{it} = \seriesnull{\frac{(it)^n}{n!}} = \cos(t) + \sin(t).$ zeigen wir später\\
-\i[2.718$\begin{tiny}
-...
-\end{tiny})$] Man kann zeigen.\\
+\i[2.718${\tiny
+...})$] Man kann zeigen.\\
 \underline{$e = \lim\limits_{n \rightarrow \infty }(1 + (\frac{1}{n} )^n)$}\\
 Bedeutung:
 \i[-] Angelegtes Guthaben $G$ wird in einem Jahr mit 100\% verzinst. Guthaben am Ende eines Jahres $2G (= G(1+1)$
@@ -960,9 +959,9 @@ n- mal pro Jahr mit $\frac{100}{n}\%$ verzinsen. Am Ende desx Jahres $G (1 + \fr
 (stetige Verzinsung)\\
 $a\%$ statt $100\% \cd G e^\frac{a}{100}$ 
 \end{enumerate}
-\section{Reele Funktionen und Grenzwerte von Funktionen}
+\section{Reelle Funktionen und Grenzwerte von Funktionen}
 \subsection{Definition}
-\underline{Reele Funktionen f ein einer Variablen} ist Abbildung\\
+\underline{Reelle Funktionen f in einer Variable} ist Abbildung\\
 $ f : D \rightarrow \R$, wobei $D \subset \R $ ($D$ = Definitionsbereich).\\
 Typisch: $ D = \R$, Intervall, Verschachtelung von Intervallen
 \subsection{Beispiel}
@@ -1070,7 +1069,7 @@ $\bar{D} =$ Menge der Adharenzpunkte von D\\
 klar: $D \subset \bar{D}.\\
 d \in D.$ konstante Folge $(a_n)_{n \geq 1}$ mit $a_n = d \ . \lim\limits_{n \rightarrow \infty} a_n = \lim\limits_{n \rightarrow \infty} d = d.$\\
 Also: $d \in \bar{D}$.
-\subsection{Beispiel}
+\subsection[Beispiel]{Beispiel:}
 \begin{enumerate}[a)]
 \i $a,b \in \R , a > b , D = ]a,b[\\
 $\begin{tikzpicture}
@@ -1122,9 +1121,9 @@ falls $\mathcal{I} = <a,b>.$\\
 \subsection{Definition}
 $f: D \rightarrow , c \in \bar{D}.\\
 d \in \R$ hei\ss t \underline{Grenzwert von f(x) für x gegen c},$ d = \lim\limits_{x \rightarrow c},$ wenn für \underline{jede} Folge $(a_n) \in D$, die gegen c konvergiert, die Bildfolge $(f(a_n))_n$ gegen d konvergiert.
-\subsection{Beispiel}
+\subsection[Beispiel]{Beispiel:}
 \begin{enumerate}[a)]
-\i Sei $f(x) = b_k x^k + \ldots + b_1x + b_0$, eine Polynomsfunktion, $ c \in \R $.
+\i Sei $f(x) = b_k x^k + \ldots + b_1x + b_0$, eine Polynomfunktion, $ c \in \R $.
 Sei $(a_n)$ Folge mit $\lim\limits_{n \rightarrow \infty} a_n = c\\
 \begin{array}{rcll}
 \lim\limits_{n \rightarrow \infty} f(a_n) &=& \lim\limits_{n \rightarrow \infty} b_k x^k + \ldots + b_1x + b_0 \\
@@ -1249,7 +1248,7 @@ Aber: $\lim\limits_{x \rightarrow \infty} f(a_n) \not = \lim\limits_{x \rightarr
 $f,g, D \rightarrow \R, c \in \bar{D}$, Existieren die Grenzwerte auf der rechten Seite der folgenden Gleichungen, so auch die auf der linken (und es gilt Gleichheit)\\
 \begin{enumerate}[a)]
 \i$ \lim\limits_{x \rightarrow c}(f \pm/\cd g) = \lim\limits_{x \rightarrow c} f(x) \pm/\cd \lim\limits_{x \rightarrow c} g(x).$\\
-\i Ist $g(x) \not = 0$ für alle $x \in D$ und $\lim\limits_{x \rightarrow c} g(x) \not = 0$,so\\
+\i Ist $g(x) \not = 0$ für alle $x \in D$ und $\lim\limits_{x \rightarrow c} g(x) \not = 0$, so\\
 \begin{align*}
 \lim\limits_{x \rightarrow c}\biggl(\frac{f(x)}{g(x)}\biggr) = \frac{\lim\limits_{x \rightarrow c }f(x)}{\lim\limits_{x \rightarrow c} g(x)}
 \end{align*}
@@ -1258,17 +1257,17 @@ $f,g, D \rightarrow \R, c \in \bar{D}$, Existieren die Grenzwerte auf der rechte
 Folgt aus den entsprechenden Regeln für Folgen.
 \end{proof}
 \end{enumerate}
-\subsection{Beispiel}
+\subsection[Beispiel]{Beispiel:}
 $f(x) = \frac{x^3 + 3x +1}{2x^2 + 1}, D = \R\\
 \lim\limits_{x \rightarrow 2} \underset{4.2b)}{=} \frac{\lim\limits_{x \rightarrow 2}(x^3 + 3x +1) }{\lim\limits_{x \rightarrow 2}(2x^2 + 1)}$\\
 $\underset{4.6a)}{=} \frac{4+6+1}{8+1} =\frac{11}{9}$\\
 \subsection{Bemerkung}
-Rechts- und linksseitge Grenzwerte:\\
-Rechtsseiteiger Grenzwert:\\
+Rechts- und linksseitige Grenzwerte:\\
+Rechtsseitiger Grenzwert:\\
 $\lim\limits_{x \rightarrow c^+} f(x) = d \Rightarrow \forall (a_n)_n , a_n \in D, a_n \geq c$ und $\lim\limits_{n \rightarrow \infty} a_n = c $ gilt: $\lim\limits_{n \rightarrow \infty} f(a_n) =d.$
 Analog: linksseitiger Grenzwert: $\lim\limits_{x \rightarrow c^-} f(x) = d\\
 (a_n \leq c).$\\
-\subsection{Beispiel:}
+\subsection[Beispiel]{Beispiel:}
 $f(x) = \begin{cases}
 1 & x>0\\
 0 & x<0
@@ -1279,39 +1278,49 @@ D = \R \setminus \{0\}, c = 0 \in \bar{D}\\
 Falls $\lim\limits_{x \rightarrow c^+}$ und$ \lim\limits_{x \rightarrow c^-}$ existieren\\
 \underline{und} $\lim\limits_{x \rightarrow c^+} f(x) = \lim\limits_{x \rightarrow c^-} = d$\\
 so exisitiert $\lim\limits_{x \rightarrow c} f(x) = d$.\\
-TODO : abgefahrene funktion plotten (so wie sinus, nur abgefahrener)\\
+\begin{minipage}[t]{\textwidth}
+\begin{minipage}[t]{.5\textwidth}
 \begin{tikzpicture}
-\begin{axis}[ymin = -1,ymax = 1 , xmax = 1,xmin=-1, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
-\addplot[samples=5000] gnuplot[id=abgefahrenersinus]{sin(5*(x**2))};
+\begin{axis}[ymin = -1,ymax = 1 , xmax = 5,xmin=-5, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\addplot[samples=5000] gnuplot[id=abgefahrenersinus]{sin(2*x**2) * sin(x) * sin(0.25*x)};
 \end{axis}
-\end{tikzpicture}\\
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}[t]{.5\textwidth}
+\begin{tikzpicture}
+\begin{axis}[domain= -1:100,ymin = -0.5,ymax = 3, extra x ticks={0},xmin =0,xmax=100,extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\addplot[samples=1000] gnuplot[id=geradeasymptote]{(2*x**2+2)/(x**2 + x + 3)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\end{minipage}
 Grenzwert: $d \in \R$
-TODO: Noch eine funktion, so logarithmisch mit gerader asymptote
 \subsection{Definition}
 $D = <b, \infty[ , f : D \rightarrow \R$
 \hspace*{3cm} (z.B $D=\R$)\\
-\underline{$f$ konergiert gegen $d \in \R$ für x gegen unendlich},\\
+\underline{$f$ konvergiert gegen $d \in \R$ für x gegen unendlich},\\
 $\lim\limits_{f(x)} = d, $falls gilt:\\
 $\forall \varepsilon > 0 \exists M = M(\varepsilon) \forall x \geq M: \abs{f(x) - d} < \varepsilon.$\\
 (Analog : $\lim\limits_{x \rightarrow - \infty}f(x) = d$)
-\subsection{Beispiel}
+\subsection[Beispiel]{Beispiel}
 \begin{enumerate}[a)]
-\i $\lim\limits_{x \rightarrow \infty} \frac{1}{x} = 0$ \\
+\i $\lim\limits_{x \rightarrow \infty} \frac{1}{x} = 0$ \begin{minipage}[c]{\textwidth}
 \begin{tikzpicture}
-\begin{axis}[ymin = -5,ymax = 5 , xmax = 5,xmin=-5, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
-\addplot[samples=500] gnuplot[id=1durchx]{x**-1};
+\begin{axis}[width =5cm,height=3cm, ymin = -5,ymax = 5 , xmax = 5,xmin=-5,extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}, ytick ={0}]   
+\addplot[samples=100] gnuplot[id=1durchx]{x**-1};
 \end{axis}
 \end{tikzpicture}
+\end{minipage}
 Sei $\varepsilon > 0.$ Wähle $M = \frac{1}{\varepsilon}$. Dann gilt für alle $x \geq M:\\
 \abs{f(x) - 0} = \abs{\frac{1}{x}} \leq \frac{1}{m} = \varepsilon.$\\
 \i Allgemein gilt: \\
 $P,Q$ Polynome vom Grad k bzw. l $l \geq k\\
 P(x) = a_k \cd x^k + \ldots , Q(x) = b_i \cd x^i + \ldots, a_k \not = 0, b_i \not = 0
-\lim\limits_{\frac{P(x)}{Q(x)}} = \begin{cases}
+\lim\limits_{x \rightarrow \infty}\frac{P(x)}{Q(x)} = \begin{cases}
 0 & \text{für }l \geq k\\
 \frac{a_k}{b_k} &\text{für } l = k
 \end{cases}\\$
-(Beweis wie für Folgen $\lim\limits_{\frac{P(n)}{Q(n)}})\\
+(Beweis wie für Folgen $\lim\limits_{x \rightarrow \infty}\frac{P(n)}{Q(n)})\\
 \lim\limits_{x \rightarrow \infty} \frac{7x^5 + 205x^3+x^2 + 17}{14x^5 + 0,5} = \frac{1}{2}$
 \end{enumerate}
 \subsection{Bemerkung}
@@ -1325,20 +1334,61 @@ $\forall L > 0 \exists \underset{= \delta (L)}{\delta > 0} \forall x \in D : \ab
 \i $<b, \infty[ \supset D, f : D \rightarrow \R, $ \underline{f geht gegen $\infty$, für x gegen $\infty$}: $\lim\limits_{x \rightarrow \infty} f(x) = \infty$,\\
 falls gilt: \\
 $\forall L > 0 \exists M > 0 \forall x \in D, x \geq M, f(x) \geq L$.\\
+\begin{minipage}[t]{\textwidth}
+\begin{minipage}[t]{.5\textwidth}
+\begin{tikzpicture}
+\begin{axis}[ymin = -2,ymax = 2 , xmax = 2,xmin=-2,extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\addplot[samples=10] gnuplot[id=gerade413]{(1.33333333333)*x - 1};
+\draw[dashed] (axis cs: 0,1)--(axis cs: 1.5,1);
+\draw[dashed] (axis cs: 1.5,0)--(axis cs: 1.5,1);
+\draw[->] (axis cs: 1.6,0)--(axis cs: 1.6,1);
+\draw[->] (axis cs: 0.4,-0.5)--(axis cs: 1.2,-0.5);
+\addplot [black, mark = none, nodes near coords=$x$,every node near coord/.style={anchor=0}] coordinates {(1.85, 0.4)};
+\addplot [black, mark = none, nodes near coords=$\infty$,every node near coord/.style={anchor=0}] coordinates {(0.4, -0.5)};
+\addplot [black, mark = none, nodes near coords=$L$,every node near coord/.style={anchor=0}] coordinates {(-0.2, 1)};
+\addplot [black, mark = none, nodes near coords=$M$,every node near coord/.style={anchor=0}] coordinates {(1.85, -0.1)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}[t]{.5\textwidth}
 \begin{tikzpicture}
 \begin{axis}[ymin = -5,ymax = 5 , xmax = 5,xmin=-5, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
 \addplot[samples=500] gnuplot[id=1durchxabs]{abs(x)**-1};
 \end{axis}
 \end{tikzpicture}
-TODO: PLOT GERADE MIT MARKIERUNGEN
+\end{minipage}
+\end{minipage}
 \i[](Entsprechend:
-$\lim\limits_{x \rightarrow c} f(x) = - \infty\\
-\lim\limits_{x \rightarrow \infty} f(x) = - \infty\\
-\lim\limits_{x \rightarrow -\infty} f(x) =  \infty\\
-\lim\limits_{x \rightarrow -\infty} f(x) = - \infty$\\
-TODO: ALLE 4 FUNKTIONEN PLOTTEN
+$\lim\limits_{x \rightarrow c} f(x) = - \infty \begin{minipage}[c]{\textwidth}
+\begin{tikzpicture}
+\begin{axis}[width =5cm,height=3cm, ymin = -5,ymax = 5 , xmax = 5,xmin=-5,extra x ticks={0},xticklabels={}, extra x tick label={c},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}, ytick ={0}]   
+\addplot[samples=100] gnuplot[id=1durchx]{-1 * abs(x)**-1};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}\\
+\lim\limits_{x \rightarrow \infty} f(x) = - \infty \begin{minipage}[c]{\textwidth}
+\begin{tikzpicture}
+\begin{axis}[width =5cm,height=3cm, ymin = -5,ymax = 5 , xmax = 5,xmin=-5,extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}, ytick ={0}]   
+\addplot[samples=100] gnuplot[id=1durchx]{-1 *x**3};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}\\
+\lim\limits_{x \rightarrow -\infty} f(x) =  \infty \begin{minipage}[c]{\textwidth}
+\begin{tikzpicture}
+\begin{axis}[width =5cm,height=3cm, ymin = -1,ymax = 5 , xmax = 5,xmin=-5,extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}, ytick ={0}]   
+\addplot[samples=100] gnuplot[id=1durchx]{x**2};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}\\
+\lim\limits_{x \rightarrow -\infty} f(x) = - \infty$ \begin{minipage}[c]{\textwidth}
+\begin{tikzpicture}
+\begin{axis}[width =5cm,height=3cm, ymin = -5,ymax = 1 , xmax = 5,xmin=-5,extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}, ytick ={0}]   
+\addplot[samples=100] gnuplot[id=1durchx]{-1 *x**2};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}\\
 \end{enumerate}
-\subsection{Satz}
+\subsection[Satz: Grenzwerte gegen unendlich]{Satz}
 \begin{enumerate}[a)]
 \i[]$f : D \rightarrow \R$.
 \i Sei $c \in \bar{D}$, oder c = $\infty, - \infty $\\
@@ -1368,7 +1418,14 @@ ist $\lim\limits_{x \rightarrow \infty} \frac{1}{f(x)} = \infty (- \infty)$\\
 \lim\limits_{x \rightarrow 0} f(x) = \infty\\$
 \end{itemize} 
 \i $\lim\limits_{x \rightarrow \infty} sin(x)$ existiert nicht
-TODO SINUS HINZUFÜGEN!
+\begin{minipage}[c]{\textwidth}
+\begin{tikzpicture}
+\begin{axis}[ymin = -1,ymax = 1 , xmax = 5,xmin=-5,ytick ={-1,0,1}, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}, width = 5cm, height = 3cm]   
+\addplot[samples=100] gnuplot[id=sin417]{sin(x)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\\
 \i $P(x) = ak_x^k + \ldots + a_0.\\
 \lim\limits_{x \rightarrow \infty} P(x) = \begin{cases}
 \infty , \text{falls }& a_k > 0\\
