@@ -28,7 +28,7 @@
 \contentsline {subsection}{\numberline {2.13}Bemerkung}{13}
 \contentsline {subsection}{\numberline {2.14}Definition}{13}
 \contentsline {subsection}{\numberline {2.15}Beispiel}{13}
-\contentsline {subsection}{\numberline {2.16}Satz}{14}
+\contentsline {subsection}{\numberline {2.16}Satz}{13}
 \contentsline {subsection}{\numberline {2.17}Satz (Cauchy'sches Konvergenzkriterium)}{14}
 \contentsline {subsection}{\numberline {2.18}Definition}{14}
 \contentsline {subsection}{\numberline {2.19}Satz}{15}
@@ -37,34 +37,35 @@
 \contentsline {subsection}{\numberline {2.22}Satz (Majoranten-Kriterium)}{17}
 \contentsline {subsection}{\numberline {2.23}Beispiel}{17}
 \contentsline {subsection}{\numberline {2.24}Definition}{17}
-\contentsline {subsection}{\numberline {2.25}Korollar}{18}
+\contentsline {subsection}{\numberline {2.25}Korollar}{17}
 \contentsline {subsection}{\numberline {2.26}Satz}{18}
 \contentsline {subsection}{\numberline {2.27}Bemerkung}{19}
 \contentsline {subsection}{\numberline {2.28}Beispiel}{19}
 \contentsline {subsection}{\numberline {2.29}Bemerkung}{19}
 \contentsline {subsection}{\numberline {2.30}Definition}{19}
-\contentsline {subsection}{\numberline {2.31}Satz}{20}
+\contentsline {subsection}{\numberline {2.31}Satz}{19}
 \contentsline {section}{\numberline {3}Potenzreihen}{20}
 \contentsline {subsection}{\numberline {3.1}Definition}{20}
 \contentsline {subsection}{\numberline {3.2}Beispiel}{20}
 \contentsline {subsection}{\numberline {3.3}Satz}{20}
 \contentsline {subsection}{\numberline {3.4}Bemerkung}{21}
 \contentsline {subsection}{\numberline {3.5}Die Exponentialreihe}{22}
-\contentsline {section}{\numberline {4}Reele Funktionen und Grenzwerte von Funktionen}{24}
+\contentsline {section}{\numberline {4}Reele Funktionen und Grenzwerte von Funktionen}{23}
 \contentsline {subsection}{\numberline {4.1}Definition}{24}
 \contentsline {subsection}{\numberline {4.2}Beispiel}{24}
 \contentsline {subsection}{\numberline {4.3}Definition}{26}
 \contentsline {subsection}{\numberline {4.4}Beispiel}{26}
-\contentsline {subsection}{\numberline {4.5}Definition}{27}
+\contentsline {subsection}{\numberline {4.5}Definition}{26}
 \contentsline {subsection}{\numberline {4.6}Beispiel}{27}
-\contentsline {subsection}{\numberline {4.7}Satz ($\varepsilon -\delta $)-Kriterium}{30}
-\contentsline {subsection}{\numberline {4.8}Satz (Rechenregeln f\IeC {\"u}r Grenzwerte)}{31}
+\contentsline {subsection}{\numberline {4.7}Satz ($\varepsilon -\delta $)-Kriterium}{29}
+\contentsline {subsection}{\numberline {4.8}Satz (Rechenregeln f\IeC {\"u}r Grenzwerte)}{30}
 \contentsline {subsection}{\numberline {4.9}Beispiel}{31}
-\contentsline {subsection}{\numberline {4.10}Bemerkung}{32}
-\contentsline {subsection}{\numberline {4.11}Beispiel:}{32}
+\contentsline {subsection}{\numberline {4.10}Bemerkung}{31}
+\contentsline {subsection}{\numberline {4.11}Beispiel:}{31}
 \contentsline {subsection}{\numberline {4.12}Definition}{32}
-\contentsline {subsection}{\numberline {4.13}Beispiel}{33}
-\contentsline {subsection}{\numberline {4.14}Bemerkung}{33}
-\contentsline {subsection}{\numberline {4.15}Definition}{33}
-\contentsline {subsection}{\numberline {4.16}Satz}{34}
-\contentsline {subsection}{\numberline {4.17}Beispiel}{35}
+\contentsline {subsection}{\numberline {4.13}Beispiel}{32}
+\contentsline {subsection}{\numberline {4.14}Bemerkung}{32}
+\contentsline {subsection}{\numberline {4.15}Definition}{32}
+\contentsline {subsection}{\numberline {4.16}Satz}{33}
+\contentsline {subsection}{\numberline {4.17}Beispiel}{34}
+\contentsfinish 

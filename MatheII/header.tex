@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{scrartcl}
+\documentclass[a4paper,12pt]{article}
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc} %Umlaute & Co
 \usepackage{amsmath,amssymb,amsthm,amsfonts}
@@ -6,13 +6,15 @@
 \usepackage{ifthen}
 \usepackage{tikz}
 \usepackage{mathtools}
-\usepackage{fancyhdr}
+\usepackage{fancyhdr,lastpage}
 \usepackage{enumerate}
 \usepackage{pgfplots}
 \usepackage{color}
 \usetikzlibrary{trees,automata,arrows,shapes}
-\pagestyle{empty}
-%counts the exercisenumber
+\pagestyle{fancy}
+\fancyhf{} %--Clear all fields
+\fancyhead[R]{\leftmark}
+\fancyfoot[R]{Seite \thepage\ von  \pageref{LastPage}}
 \newcommand{\cd}{\cdot}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -21,35 +23,37 @@
 \newcommand{\R}{\mathbb{R}}
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
-\newcounter{n}
-\def\header#1#2#3#4#5#6#7{\pagestyle{empty}
-\begin{minipage}[t]{0.47\textwidth}
-\begin{flushleft}
-{\bf #4}\\
-#5\\
-Tutor: #2
-\end{flushleft}
-\end{minipage}
-\begin{minipage}[t]{0.5\textwidth}
-\begin{flushright}
-#6 \vspace{0.5cm}\\
-\end{flushright}
-\end{minipage}
-\vspace{0.5cm}
-\begin{center}
-{\Large\bf Blatt #1}
-
-{(Abgabe #3)}
-\end{center}
+\newcommand{\seriesalg}[3]{\sum\limits_{#3}^{#2} #1}
+\newcommand{\seriesn}[1]{\sum\limits_{i=k}^{n} #1}
+\newcommand{\seriesnplus}[1]{\sum\limits_{i=k}^{n+1} #1}
+\newcommand{\series}[1]{\sum\limits_{i=k}^{\infty} #1}
+\newcommand{\seriesnull}[1]{\sum\limits_{i=0}^{\infty} #1}
+\usepackage[normalem]{ulem}
+\usepackage{blkarray}
+\usepackage{stmaryrd}
+\usepackage{titletoc}
+\usepackage[margin=15mm]{geometry}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\makeatletter
+\newcommand{\resetHeadWidth}{\fancy@setoffs}
+\renewcommand\subsection{\@startsection
+{subsection}{2}{0mm}{-\baselineskip}{0.5\baselineskip}{\normalcolor\large\bfseries\uline}}
+\makeatother
+\newcommand{\cucubr}[7]{%
+%origin point, circle radius, start angle, end angle, distance c-b, brace radius, brace options
+\pgfmathsetmacro{\helpangleedge}{acos(1-pow(#6,2)/2/pow(#2+#5,2))}%
+\pgfmathsetmacro{\turnangleedge}{90+(\helpangleedge/2)}%
+\pgfmathsetmacro{\helpanglemid}{acos(1-pow(#6,2)/2/pow(#2+#5+2*#6,2))}%
+\pgfmathsetmacro{\turnanglemid}{90-(\helpanglemid/2)}%
+\pgfmathsetmacro{\halfangle}{(#4-#3)/2+#3}%
+\pgfmathsetmacro{\midradius}{#2+#5+#6}%
+\pgfmathsetmacro{\outerradius}{#2+#5+1.88*#6}%
+\pgfmathsetmacro{\firstmidanglestart}{mod(\halfangle-\helpanglemid+180,360)}%
+\pgfmathsetmacro{\secondmidanglestart}{mod(\halfangle+\helpanglemid+180,360)}%
+\pgfmathsetmacro{\firstmidanglestop}{mod(\halfangle-\helpanglemid/2+180,360)-\turnanglemid}%
+\pgfmathsetmacro{\secondmidanglestop}{mod(\halfangle+\helpanglemid/2+180,360)++\turnanglemid}%
+%
+\draw[#7] (#1) ++ (\halfangle:\outerradius) arc (\firstmidanglestop:\firstmidanglestart:#6) arc (\halfangle-\helpanglemid:#3+\helpangleedge:\midradius) arc (#3+270+\turnangleedge+\helpangleedge/2:#3+270+\helpangleedge/2:#6) ;%
+%
+\draw[#7] (#1) ++ (\halfangle:\outerradius) arc (\secondmidanglestop:\secondmidanglestart:#6) arc (\halfangle+\helpanglemid:#4-\helpangleedge:\midradius) arc (#4+90-\turnangleedge-\helpangleedge/2:#4+90-\helpangleedge/2:#6);%
 }
-%Kommando für Aufgaben
-%\Aufgabe{AufgTitel}{Punktezahl}
-\newcommand{\Aufgabe}[2]{\stepcounter{n}
-\ifnum\value{n}>100
-\\
-\else
-\fi
-\indent\textbf{Aufgabe \arabic{n}: #1} (#2 Punkte)\\}
-\newcommand{\heading}[2]{\header{#1}{Tutor}{#2}{Mathe II}{\textit{Flavia N\"ahrlich}\\ \textit{Finn Ickler}
-    }{SS 15}{3}
-    \vspace{1cm}}

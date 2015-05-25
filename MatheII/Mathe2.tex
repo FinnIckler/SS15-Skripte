@@ -1,35 +1,7 @@
 \input{header}
-\newcommand{\seriesalg}[3]{\sum\limits_{#3}^{#2} #1}
-\newcommand{\seriesn}[1]{\sum\limits_{i=k}^{n} #1}
-\newcommand{\seriesnplus}[1]{\sum\limits_{i=k}^{n+1} #1}
-\newcommand{\series}[1]{\sum\limits_{i=k}^{\infty} #1}
-\newcommand{\seriesnull}[1]{\sum\limits_{i=0}^{\infty} #1}
-\usepackage[normalem]{ulem}
-\usepackage{blkarray}
-\usepackage{stmaryrd}
-\usepackage[margin=15mm]{geometry}
-\newcommand{\abs}[1]{\lvert #1 \rvert}
-\newcommand{\cucubr}[7]{%
-%origin point, circle radius, start angle, end angle, distance c-b, brace radius, brace options
-\pgfmathsetmacro{\helpangleedge}{acos(1-pow(#6,2)/2/pow(#2+#5,2))}%
-\pgfmathsetmacro{\turnangleedge}{90+(\helpangleedge/2)}%
-\pgfmathsetmacro{\helpanglemid}{acos(1-pow(#6,2)/2/pow(#2+#5+2*#6,2))}%
-\pgfmathsetmacro{\turnanglemid}{90-(\helpanglemid/2)}%
-\pgfmathsetmacro{\halfangle}{(#4-#3)/2+#3}%
-\pgfmathsetmacro{\midradius}{#2+#5+#6}%
-\pgfmathsetmacro{\outerradius}{#2+#5+1.88*#6}%
-\pgfmathsetmacro{\firstmidanglestart}{mod(\halfangle-\helpanglemid+180,360)}%
-\pgfmathsetmacro{\secondmidanglestart}{mod(\halfangle+\helpanglemid+180,360)}%
-\pgfmathsetmacro{\firstmidanglestop}{mod(\halfangle-\helpanglemid/2+180,360)-\turnanglemid}%
-\pgfmathsetmacro{\secondmidanglestop}{mod(\halfangle+\helpanglemid/2+180,360)++\turnanglemid}%
-%
-\draw[#7] (#1) ++ (\halfangle:\outerradius) arc (\firstmidanglestop:\firstmidanglestart:#6) arc (\halfangle-\helpanglemid:#3+\helpangleedge:\midradius) arc (#3+270+\turnangleedge+\helpangleedge/2:#3+270+\helpangleedge/2:#6) ;%
-%
-\draw[#7] (#1) ++ (\halfangle:\outerradius) arc (\secondmidanglestop:\secondmidanglestart:#6) arc (\halfangle+\helpanglemid:#4-\helpangleedge:\midradius) arc (#4+90-\turnangleedge-\helpangleedge/2:#4+90-\helpangleedge/2:#6);%
-}
 \begin{document}
+\resetHeadWidth
 \tableofcontents
-
 \section{Komplexe Zahlen}
 \subsection{Definition}
 Menge der komplexen Zahlen $\C =\{a+bi : a,b \in \R\}$\\
@@ -840,7 +812,7 @@ Seien $ \seriesnull{a_n}, \seriesnull{b_n}$ unendliche Reihen.\\
 Das \underline{Cauchy-Produkt}(\underline{Faltungsprodukt}) der beiden Reihen ist die Reihe $\seriesnull{c_n}$, wobei $c_n = \seriesnull{a_i \cd b_{n-1}} = a_0b_n + ab_{n-1} + \ldots a_nb_0$
 \subsection{Satz}
 Sind $\seriesnull{a_n}, \seriesnull{b_n}$ absolut konvergent Reihen mit Grenzwert $c ,d$, so ist das Cauchy Produkt auch absolut konvergent mit Grenzwert $c \cd d$. \begin{flushright}
-Beweis: Kreu\ss ler, Phister Satz 33.16
+Beweis: \cite{k1}
 \end{flushright}
 \section{Potenzreihen}
 \subsection{Definition}
@@ -895,7 +867,7 @@ Falls $\sum b_n \cd x_n$ für alle x absolut konvergiert, so setze $R= \infty$\\
 Wenn nicht, so setze $R = \sup \{\abs{x}:x\in \R, \seriesnull{\abs{b_n}\cd \abs{x_n}} $ konvergiert$ \} < \infty$
 Nach $(\star)$ gilt: $\abs{x} < R \Rightarrow \sum b_nx^n$ konvergiert absolut.\\
 Für $\abs{x} > R$ konvergiert $\sum b_nx^n$ nicht absolut.\\
-Sie konvergiert sogar selbst nicht. (WHK 5.37)\\
+Sie konvergiert sogar selbst nicht. (\cite{2})\\
 \begin{enumerate}[$\Leftrightarrow$]
 \i[]$\sqrt[n]{\abs{b_n} \cd \abs{x}^n} \leq q < 1 $ für alle $n \geq n_0$\\
 \i $\abs{x} \cd \sqrt[n]{\abs{b_n}} \leq 1 < 1$ für alle $n \geq n_0$\\
@@ -1415,4 +1387,8 @@ $\lim\limits_{x \rightarrow \infty} \frac{P(x)}{Q(x)} =
 -\infty, &\text{falls $a_k$ und $b_k$ verschiedene Vorzeichen}\\
 \end{cases}$
 \end{enumerate}
+\begin{thebibliography}{9}
+\bibitem{k1} Kreu\ss ler, Phister Satz 33.16
+\bibitem{k2} WHK 5.37
+\end{thebibliography}
 \end{document}
