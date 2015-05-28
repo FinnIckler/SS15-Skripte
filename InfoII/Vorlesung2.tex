@@ -1,25 +1,11 @@
 Auswertung \underline{zusammengesetzter Ausdr\"ucke} in mehreren Schritten (Steps), von ``innen nach au\ss en``, bis keine Reduktion mehr m\"oglich ist.\\
-(+ ( \uwave{(+ 20 20)} (+ 1 1)) \eval (+ 40 \uwave{(+ 1 1)} \eval (+ 40 2) \eval  42\\
-\textbf{Achtung:} Scheme rudnet bei Arithmetik mit Flie\ss kommazahlen (interne Darstellung ist bin\"ar).\\
-Beispiel: Auswertung eines zusammengesetzten Ausdrucks 
-\begin{lstlisting}[frame=single]
-; Achtung: Arithmetik mit Fliesskommazahlen (real)\\
- unterliegt Rundung!
-(+ 0.7
-   (- (/ 1/2 0.25)
-      (/ 0.6 0.3)))
-
-(- (+ 0.7
-      (/ 1/2 0.25))
-   (/ 0.6 0.3))
-
-; Arithmetik mit rationalen Zahlen (rational) ist exakt
-(- (+ 7/10
-      (/ 1/2 1/4))
-   (/ 6/10 3/10))
+\begin{lstlisting}
+(+ ( @\uwave{(+ 20 20)}@ (+ 1 1)) @\eval@ (+ 40 @\uwave{(+ 1 1)}@ @\eval@ (+ 40 2) @\eval@  42 
 \end{lstlisting}
+\lstinputlisting[frame=single,caption={[Arithmetik mit Flie\ss kommazahlen]\textbf{Achtung:} Scheme rundet bei Arithmetik mit Flie\ss kommazahlen (interne Darstellung ist binär)\\
+}]{FloatArithmetik.rkt}
 Ein Wert kann an einen \underline{Namen} (auch \underline{Identifier}) gebunden werden, durch \\
-(define \auf id\zu \auf e\zu) \hspace*{1.5cm} \auf id\zu Identifier \auf e\zu Ausdruck\\
+\lstinline!(define <id> <e>)! \hspace*{1.5cm} \auf id\zu Identifier \xspace \auf e\zu Ausdruck\\
 Erlaubte konsistente Wiederverwendung, dient der Selbstdokumentation von Programmen\\
 \textbf{\underline{Achtung:}} Dies ist eine sogenannte Spezialform und kein Ausdruck. Insbesondere besitzt diese Spezialform \underline{keinen} Wert, sondern einen Effekt Name \auf id\zu \ wird an den \underline{Wert} von \auf e\zu \ gebunden. \\
 Namen k\"onnen in Scheme beliebig gewählt werden, solange
@@ -31,33 +17,15 @@ Namen k\"onnen in Scheme beliebig gewählt werden, solange
 Beispiel: euro$\rightarrow$US\$\\
 \underline{\textbf{Achtung:}} Gro\ss-\textbackslash Kleinschreibung ist irrelevant.
 \bigskip\\
-\begin{lstlisting}[frame=single]
-; Bindung von Werten an Namen
-(define absoluter-nullpunkt -273.15)
-(define pi 3.141592653)
-(define Gruendungsjahr-SC-Freiburg 1904)
-(define top-level-domain-germany "de")
-(define minutes-in-a-day (* 24 60))
-(define vorwahl-tuebingen (sqrt 1/2))
-\end{lstlisting}
+\lstinputlisting[frame=single,caption={[Schlüsselwort define]Bindung von Werten an Namen}]{define.rkt}
 Eine \underline{lambda-Abstraktion} (auch Funktion, Prozedur) erlaubt die Formatierung von Ausrdr\"ucken, in denen mittels \underline{Parametern} von konkreten Werten abstrahiert wird.\\
-(lambda (\auf p1\zu \auf p2 \zu $\ldots$) \auf e\zu\\
+\lstinline[literate=]!(lambda (<p1><p2>...) <e>!\\
 \auf e\zu Rumpf: enth\"alt Vorkommen der Parameter \auf $p_n$\zu\\
 (lambda($\ldots$)) ist eine Spezialform. Wert der lambda-Abstraktion ist \#\auf procedure\zu\\.
-\underline{Anwendung} (auch Application) des lambda-Aufrufs f\"uhrt zur Ersetzung aller Vorkommen der Parameter im Rumpf durch die angegebenen \underline{Argumente}.\\
-\begin{lstlisting}[frame = single]
-; Abstraktion: Ausdruck mit "Loch" @$\odot$@
-(lambda (@$\odot$@) (* @$\odot$@ (* 155 minutes-in-a-day)))
-
-
-; Zuwachs der Weltbevoelkerung innerhalb von days Tagen
-(define population-growth-in-days
-    (lambda (days) (* days (* 155 minutes-in-a-day))))
-
-(population-growth-in-days 7)
-\end{lstlisting}
-(lambda (days) (* days (* 155 minutes-in-a-day))) 365) \eval\\
- (* 365 (* 155 minutes-in-a-day)) \eval 81468000\\
+\underline{Anwendung} (auch Application) des lambda-Aufrufs f\"uhrt zur Ersetzung aller Vorkommen der Parameter im Rumpf durch die angegebenen \uline{Argumente}.\\
+\lstinputlisting[frame=single,caption={[Lambda Abstraktion] Lambda-Abstraktion}]{lambda.rkt}
+\lstinline!(lambda (days) (* days (* 155!\lstinline! minutes-in-a-day))) 365)! \eval\\
+\lstinline!(* 365 (* 155!\lstinline! minutes-in-a-day))! \eval  \lstinline!81468000!\\
 \bigskip\\
 In Scheme leitet ein Semikolon einen Kommentar ein, der bis zum Zeilenende reicht und vom System bei der Auswertung ignoriert wird.\\
 Prozeduren sollten im Programm ein- bis zweizeilige \underline{Kurzbeschreibungen} direkt vorangestellt werden.

@@ -16,34 +16,7 @@ jedi? & \#f \\
 force & 25 \\
 \hline
 \end{tabular}\\
-\begin{lstlisting}[frame=listing]
-; Ein Charakter (character) besteht aus
-; - Name (name)
-; - Jedi-Status (jedi?)
-; - Stärke der Macht (force)
-(: make-character (string boolean real -> character))
-(: character? (any -> boolean))
-(: character-name (character -> string))
-(: character-jedi? (character -> boolean))
-(: character-force (character -> real))
-(define-record-procedures character
-  make-character
-  character?
-  (character-name
-   character-jedi?
-   character-force))
-
-; Definiere verschiedene Charaktere des Star Wars Universums
-(define luke
-  (make-character "Luke Skywalker" #f 25))
-(define r2d2
-  (make-character "R2D2" #f 0))
-(define dooku
-  (make-character "Count Dooku" #f 80))
-(define yoda
-  (make-character "Yoda" #t 85))
-
-\end{lstlisting}
+\racket{Record Definitionen}{Starwars Charakter als Racket Records}{records}
 Zusammengesetzte Daten = \underline{Records} in Scheme Record-Definition legt fest:\\
 \begin{tabular}{cll}
 - & Record-Signatur\\
@@ -81,34 +54,9 @@ Spezialform check-property:\\
 ;Bezieht sich auf <id1> ... <idn>	
 \end{lstlisting}
 Test erfolgreich, falls \arge{} für beliebig gewählte Bedeutungen für \argid{1} $\ldots$ \argid{n} immer \#t ergibt\\
-Interaktion von Selektoren und Konstruktor:
-\begin{lstlisting}[frame=listing]
-(check-property 
- (for-all ((n string)
-           (j boolean)
-           (f real))
-   (expect (character-name (make-character n j f)) n)))
-
-(check-property 
- (for-all ((n string)
-           (j boolean)
-           (f real))
-   (expect (character-jedi? (make-character n j f)) j)))
-
-(check-property 
- (for-all ((n string)
-           (j boolean)
-           (f real))
-   (expect-within (character-force (make-character n j f)) f 0.001)))
-\end{lstlisting}
+\racket{Check-property}{Interaktion von Selektoren und Konstruktor:}{checkproperty}
 \underline{Beispiel:} Die Summe von zwei natürlichen Zahlen ist mindestens so gro\ss \ wie jeder dieser Zahlen: $ \forall x_1 \in \mathbb{N}, x_2 \in \mathbb{N} : x_1 + x_2 \geq \max\{x_1,x_2\}$
-\begin{lstlisting}[frame=single]
-; Für alle natürlichen Zahlen x1,x2 gilt: x1 + x2 @$\textcolor{kommentar}{\geq}$@ max(x1,x2)
-(check-property
- (for-all ((x1 natural)
-           (x2 natural))
-   (>= (+ x1 x2) (max x1 x2))))
-\end{lstlisting}
+\lstinputlisting[frame=single,literate={ü}{{\"u}}1,caption={[Übersetzung mathematischer Aussagen in check-property]Mathematische $\forall$-Aussage in Racket}]{forall.rkt}
 Konstruktion von Funktionen, die bestimmte gesetzte Daten \underline{konsumiert}.\\
 \begin{enumerate}[-]
 \i Welche Record-Componenten sind relevant für Funktionen?
@@ -133,27 +81,5 @@ Konstruktion von Funktionen, die zusammengesetzte Daten \underline{konstruieren}
 \end{lstlisting}
 \end{enumerate}
 \i Konkrete Beispiele:
-\begin{lstlisting}[frame=single]
-; Könnte Charakter c ein Sith sein?
-(: sith? (character -> boolean))
-(check-expect (sith? yoda) #f)
-(check-expect (sith? r2d2) #f)
-(define sith?
-  (lambda (c)
-    (and (not (character-jedi? c))
-         (> (character-force c) 0))))
-
-
-; Bilde den Charakter c zum Jedi aus (sofern c überhaupt Macht besitzt)
-(: train-jedi (character -> character))
-
-(check-expect (train-jedi luke) (make-character "Luke Skywalker" #t 50))
-(check-expect (train-jedi r2d2) r2d2)
-
-(define train-jedi
-  (lambda (c)
-    (make-character (character-name c) 
-                    (> (character-force c) 0)
-                    (* 2 (character-force c)))))
-\end{lstlisting}
+\racket{Konstruktoren und Selektoren}{Abfragen der Eigenschaften von character Records}{konstruktor}
 \end{enumerate}

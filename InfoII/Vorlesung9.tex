@@ -1,52 +1,5 @@
 Abstand zweier geographischer Positionen $b_1,b_2$ auf der Erdkugel in km (lat, lng jeweils in Radian).\\
-\begin{mdframed}
-\code{Abstand zweier geographischer Positionen l1, l2 auf der\\ 
- Erdkugel in km (lat, lng jeweils in Radian):\\
- \ \\
- dist(l1,l2) =\\
-   Erdradius in km *
-   acos(cos(l1.lat) * cos(l1.lng) * cos(l2.lat) * cos(l2.lng) + 
-        cos(l1.lat) * sin(l1.lng) * cos(l2.lat) * sin(l2.lng) +
-        sin(l1.lat) * sin(l2.lat)) }\end{mdframed}
-\begin{lstlisting}[frame = single]
-; @\latexcode{$\pi$}@
-(define pi 3.141592653589793)
-
-; Konvertiere Grad d in Radian (@\latexcode{$\pi$}@ = @\latexcode{$180^{\circ}$}@)
-(: radians (real -> real))
-(check-within (radians 180) pi 0.001)
-(check-within (radians -90) (* -1/2 pi) 0.001)
-(define radians
-  (lambda (d)
-    (* d (/ pi 180))))
-
-
-; Abstand zweier Orte o1, o2 auf Erdkugel (in km)
-; [Wrapper]
-(: distance (string string -> real))
-(check-within (distance "Tübingen" "Freiburg") (distance "Freiburg" "Tübingen") 0.001)
-(define distance
-  (lambda (o1 o2)
-    (let ((dist (lambda (l1 l2)             ; Abstand zweier Positionen l1, l2 (in km)  [Worker]
-                  (let ((earth-radius 6378) ; Erdradius (in km)                  
-                        (lat1 (radians (location-lat l1)))
-                        (lng1 (radians (location-lng l1)))
-                        (lat2 (radians (location-lat l2)))
-                        (lng2 (radians (location-lng l2))))
-                    (* earth-radius
-                       (acos (+ (* (cos lat1) (cos lng1) (cos lat2) (cos lng2))
-                                (* (cos lat1) (sin lng1) (cos lat2) (sin lng2))
-                                (* (sin lat1) (sin lat2))))))))
-          (gc1 (geocoder o1))
-          (gc2 (geocoder o2)))
-      (if (and (geocode? gc1)
-               (geocode? gc2))
-          (dist (geocode-loc gc1) (geocode-loc gc2))
-          (violation "Unknown location(s)")))))
-
-; ... einmal quer durch die schöne Republik
-(distance "Konstanz" "Rostock")
-\end{lstlisting}
+\racket{Wrapper und Worker}{Abstand zweier geographischer Positionen}{distance}
 \underline{\textsc{Parametrisch Polymorphe Prozeduren}}\\
 Beobachtung: Manche Prozeduren arbeiten unabhängig von den Signaturen ihrer Argumente : \underline{parametrisch polymorphe Funktion} (griechisch : vielgestaltig).\\
 Nutze \underline{Signaturvariablen} \%a , \%b,...\\
@@ -70,11 +23,11 @@ Beispiel:\\
           ((= i 2) y))))
 \end{lstlisting}
 Eine polymorphe Signatur steht für alle Signaturen, in denen die Signaturvariablen durch konkrete Signaturen ersetzt werden.\\
-Beispiel: Wenn eine Prozedur \code{(: number \%a \%b -\zu \%a)} erfúllt, dann auch:\\
+Beispiel: Wenn eine Prozedur \lstinline!(: number %a %b -> %a)! erfúllt, dann auch:\\
 \begin{tabular}{lcl}
-\code{(: number string boolean}&\code{ -\zu}& \code{string)} \\
-\code{(: number boolean natural}&\code{ -\zu}& \code{boolean)} \\
-\code{(: number number number}&\code{ -\zu}& \code{number)} \\
+\lstinline!(: number string boolean!&\lstinline! ->!& \lstinline!string)! \\
+\lstinline!(: number boolean natural!&\lstinline! ->!& \lstinline!boolean)! \\
+\lstinline!(: number number number!&\lstinline! ->!& \lstinline!number)! \\
 \end{tabular}
 \vspace*{1cm}\\
 \fbox{''x''}\fbox{23}\hspace*{1cm} \fbox{2}\fbox{\#f}\\
@@ -92,7 +45,7 @@ Beispiel: Wenn eine Prozedur \code{(: number \%a \%b -\zu \%a)} erfúllt, dann a
   (first
    rest))
 \end{lstlisting}
-\code{(pair-of \argt{1} \argt{2})} ist eine Signatur für Paare deren erster bzw. zweiter Komponente die Signaturen \argt{1} bzw. \argt{2} erfüllen.\\
+\lstinline!(pair-of <t1> <t2>)! ist eine Signatur für Paare deren erster bzw. zweiter Komponente die Signaturen \argt{1} bzw. \argt{2} erfüllen.\\
 \begin{lstlisting}
 ;@\latexcode{$\rightarrow$}@ pair-of Signatur mit (zwei) Parametern
 (: make-pair (%a %b -> (pair-of % a %b)))
@@ -100,34 +53,11 @@ Beispiel: Wenn eine Prozedur \code{(: number \%a \%b -\zu \%a)} erfúllt, dann a
 (: first ((pair-of %a %b ) -> %a))
 (: rest ((pair-of %a %b ) -> %b))
 \end{lstlisting}
-\begin{lstlisting}[frame=single]
-; Ein paar aus natürlichen Zahlen
-; FIFA WM 2014
-(: deutschland-vs-brasilien (pair-of natural natural))
-(define deutschland-vs-brasilien
-  (make-pair 7 1)) 
-
-; Ein Paar aus einer reellen Zahl (Messwert) 
-; und einer Zeichenkette (Einheit)
-(: measurement (pair-of real string))
-(define measurement
-  (make-pair 36.9 "@$^{\textcolor{string}{\circ}}$@C"))
-
-
-; "Liste" der Zahlen 1,2,3,4
-(define nested
-  (make-pair 1
-             (make-pair 2
-                        (make-pair 3
-                                   4))))
-
-; Extrahiere das dritte Element der Liste (hier: 3)
-(first (rest (rest nested)))
-\end{lstlisting}
+\racket{make-pair, ein polymorpher Datentyp}{Paare aus verschiedenen Datentypen}{makepair}
 Eine \underline{Liste} von Werten der Signatur \argt{t} ist entweder
 \begin{enumerate}[-]
-\i leer (Signatur \code{empty-list}) oder:
-\i ein Paar (Signatur \code{pair-of}) aus einem Wert der Signatur \argt{} und einer Liste von Werten der Signatur \argt{}. \\
+\i leer (Signatur \lstinline!empty-list!) oder:
+\i ein Paar (Signatur \lstinline!pair-of!) aus einem Wert der Signatur \argt{} und einer Liste von Werten der Signatur \argt{}. \\
 \end{enumerate}
 \begin{lstlisting}
 (define list-of
@@ -136,45 +66,26 @@ Eine \underline{Liste} von Werten der Signatur \argt{t} ist entweder
                       (pair-of t (list-of t))))))
 
 \end{lstlisting}
-Signatur \code{empty-list} bereits in Racket vordefiniert.\\
+Signatur \lstinline!empty-list! bereits in Racket vordefiniert.\\
 Ebenfalls vordefiniert:\\
-\code{(:empty empty-list)}\\
-\code{(: empty? (any -\zu boolean))}\\
+\lstinline!(:empty empty-list)!\\
+\lstinline!(: empty? (any -\zu boolean))!\\
 \underline{Operatoren auf Listen}\\
 \begin{enumerate}
 \i[Konstruktoren]
 \begin{tabular}{ll}
-\code{(: empty-list)}& leere liste\\
-\code{(: make-pair (\% a (list-of \% a))} & Konstruire Liste aus Kopf und Rest
+\lstinline!(: empty-list)!& leere liste\\
+\lstinline!(: make-pair (% a (list-of % a))! & Konstruiert Liste aus Kopf und Rest
 \end{tabular}
 \i[Predikate:]
 \begin{tabular}{ll}
-\code{(: empty (any -\zu boolean)}& liegt leere Liste vor?\\
-\code{(: pair? (any -\zu boolean))} & Nicht leere Liste?
+\lstinline!(: empty (any -> boolean)!& liegt leere Liste vor?\\
+\lstinline!(: pair? (any -> boolean))! & Nicht leere Liste?
 \end{tabular}
 \i[Selektoren:]
 \begin{tabular}{ll}
-\code{(: first (list-of \%a) -\zu \%a)}& Kopf-Element\\
-\code{(: rest (list-of \%a) -\zu (list-of \%a))} & Rest Liste
+\lstinline!(: first (list-of %a) -> %a)!& Kopf-Element\\
+\lstinline!(: rest (list-of %a) -> (list-of %a))! & Rest Liste
 \end{tabular}
 \end{enumerate}
-\begin{lstlisting}[frame=single]
-; Noch einmal (jetzt mit Signatur): Liste der natürlichen Zahlen 1,2,3,4
-(: one-to-four (list-of natural))
-(define one-to-four
-  (make-pair 1
-             (make-pair 2
-                        (make-pair 3
-                                   (make-pair 4
-                                              empty)))))
-
-
-; Eine Liste, deren Elemente natürliche Zahlen oder Strings sind
-(: abstiegskampf (list-of (mixed number string)))
-(define abstiegskampf
-  (make-pair "SCF"
-             (make-pair 96
-                        (make-pair "SCP"
-                                   (make-pair "VfB" empty)))))
-
-\end{lstlisting}
+\racket{Listen mit Signatur list-of}{Listen aus einem oder verschiedenen Datentypen}{lists}

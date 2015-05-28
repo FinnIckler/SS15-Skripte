@@ -1,4 +1,4 @@
-\code{(make-pair 1 (make-pair 2 empty))}\\
+\lstinline!(make-pair 1 (make-pair!\lstinline! 2 empty))!\\
 \uline{Visualisierung Listen}\\ \ \\
 \begin{tikzpicture}
 \draw[black,solid] (0,0)--(0,1);
@@ -17,10 +17,10 @@
 \end{tikzpicture}\\ \ \\
 \includegraphics{katzenbabies}
 \uline{Spine (Rückgrat)}\\
-\code{(pair-of natural (list-of natural))}\\
+\lstinline!(pair-of natural (list-of natural))!\\
 \begin{tikzpicture}
-\node () at (-1.5,0.5) {\code{(natural first)}};
-\node () at (3.25,0.5) {\code{ rest (list-of natural)}};
+\node () at (-1.75,0.5) {\lstinline!(natural first)!};
+\node () at (3.5,0.5) {\lstinline! rest (list-of natural)!};
 \draw[black,solid] (0,0)--(0,1);
 \draw[black,solid] (0,0)--(1,0);
 \draw[black,solid] (0,1)--(1,1);
@@ -35,18 +35,16 @@
 \draw[black,solid] (2.0,-1.75)--(2.0,-0.75);
 \node () at (1.75,-1.25) {2};
 \draw[black,solid] (2.25,-1.25)--(3,-2.5);
-\node () at (3,-2.75) {\code{empty}};
+\node () at (3,-2.75) {\lstinline!empty!};
 \end{tikzpicture}\\
 \begin{lstlisting}[frame=single]
 (: one-to-four (list-of natural))
-(define one-to-four
+(define one-two
   (make-pair 1 
-             (make-pair 2 
-                        (make-pair 3 
-                                   (make-pair 4 
-                                              empty)))))  
+             (make-pair 2  
+                          empty)))  
 \end{lstlisting}
-\code{(: jedis-and-siths (list-of (list-of string)))}\bigskip\\ 
+\lstinline!(: jedis-and-siths (list-of (list-of string)))!\bigskip\\ 
 \begin{tikzpicture}
 \node () at (0,5) {};
 \draw (6,6) rectangle (5,5);
@@ -55,7 +53,7 @@
 \draw[black,solid] (5.75,5.5)--(8.5,4.5);
 \draw (8.5,4.5) rectangle (9.5,3.5);
 \draw[black,solid] (9.25,4)--(9.8,3.3);
-\node () at (9.8,3.1) {\code{empty}};
+\node () at (9.8,3.1) {\lstinline!empty!};
 
 \draw[black,solid] (8.75,4)--(7.5,3);
 \draw (7.5,3) rectangle (8.5,2);
@@ -67,7 +65,7 @@
 \draw[black,solid] (9,2) rectangle (10,1);
 \draw (9.5,2)--(9.5,1);
 \draw (9.75,1.5)--(10.5,0.5);
-\node () at (10.5,.25) {\code{empty}};
+\node () at (10.5,.25) {\lstinline!empty!};
 \draw (9.25,1.5)--(8.75,0.5);
 \node () at (8.75,0.25) {\textcolor{string}{''Darth''}};
 
@@ -83,22 +81,9 @@
 \draw (5.25,2)--(4.5,1);
 \draw (5.75,2)--(6.5,1);
 \node () at (4.5,0.8) {\textcolor{string}{''Yoda''}};
-\node () at (6.5,0.8) {\code{empty}};
+\node () at (6.5,0.8) {\lstinline!empty!};
 \end{tikzpicture}
-\begin{lstlisting}[frame=single]
-; Geschachtelte Listen
-(: jedis-and-siths (list-of (list-of string)))
-(define jedis-and-siths
-  (MAKE-PAIR (make-pair "Yoda"
-                        (make-pair "Obi-Wan" empty))
-             (MAKE-PAIR (make-pair "Dooku"
-                                   (make-pair "Vader" empty))
-                        empty)))
-
-; Navigation in geschachtelten Listen
-(check-expect (first (first jedis-and-siths)) "Yoda")
-(check-expect (first (rest (first (rest jedis-and-siths)))) "Vader")
-\end{lstlisting}
+\racket{Geschachtelte Listen}{Jedis und Siths in einer geschachtelten Liste}{nestedlist}
 \uline{Prozeduren, die Liste konsumieren}\\
 Konstruktionsanleitung:\\
 Beispiel:\\
@@ -129,12 +114,12 @@ Beispiel:\\
 \draw (2.75,2.25)--(5.5,0.5);
 \draw (3.5,1.75)--(2,0.5);
 \draw (2,0.5)--(5.5,0.5);
-\node () at (3.75,0.8) {\code{(rest xs)}};
+\node () at (3.75,0.8) {\lstinline!(rest xs)!};
 \end{tikzpicture}
 \hspace*{2cm}
 \begin{minipage}[b]{0.3\textwidth}
-\code{(rest xs)} mit Signatur \code{(list-of number)} ist selbst wieder eine \uline{kürzere} \uline{Liste} von Zahlen.\\
-\code{(list sum (rest xs))} erzielt Fortschritt
+\lstinline!(rest xs)! mit Signatur \lstinline!(list-of number)! ist selbst wieder eine \uline{kürzere} \uline{Liste} von Zahlen.\\
+\lstinline!(list sum (rest xs))! erzielt Fortschritt
 \end{minipage}
 \end{minipage}
 \end{figure}
@@ -150,7 +135,7 @@ Konstruktionsanleitung für Prozeduren:
 \end{lstlisting}
 Neue Sprachebene ''Macht der Abstraktion''
 \begin{enumerate}[-]
-\i Signatur \code{(list-of \% a)} eingebaut
+\i Signatur \lstinline!(list-of \% a)! eingebaut
 \begin{lstlisting}
 (list @\arge{1}@ @\arge{2}@ ... @\arge{n}@)
 	@$\equiv$@
@@ -159,29 +144,15 @@ Neue Sprachebene ''Macht der Abstraktion''
 		... (make-pair @\arge{n}@) empty) ...)
 \end{lstlisting}
 \i Ausgabeformat für nicht leere Listen:\\
-\code{\#\auf list $x_1 \ x_2 \ \ldots \ x_n$\zu}
+\lstinline!{#<list x1 x2 ... xn>!
 \end{enumerate}
-\begin{lstlisting}[frame=single]
-; Länge der Liste xs
-(: list-length ((list-of %a) -> natural))
-
-(check-expect (list-length empty) 0)
-(check-expect (list-length (list 1 1 3 8)) 4)
-(check-expect (list-length jedis-and-siths) 2)    ; nicht 4!
-
-(define list-length
-  (lambda (xs)
-    (cond ((empty? xs) 0)
-          ((pair? xs) (+ 1 
-                         (list-length (rest xs)))))))
-  
-\end{lstlisting}
+\racket{Rekursion auf Listen: Länge einer Liste}{Länge einer Liste}{recursivelistlength}
 Füge Listen xs , ys zusammen (con\uline{cat}ination)\\
 Zwei Fälle (xs leer oder nicht leer)
 \begin{enumerate}
-\i[\circled{1}] $\overbrace{ \text{\code{empty}}}^{\text{xs}} \ \ \overbrace{y_1 \ y_2 \ \ldots \ y_m}^{ys}
- \ \ \overbrace{y_1 \ y_2 \ \ldots \ y_m}^{\text{\code{(cat \ xs \ ys)}}}$
-\i[\circled{2}] $x_1 \ \underbrace{x_2 \ \ldots \ x_n}_{\text{\code{(rest xs)}}} \ y_1 \ y_2 \ \ldots \ y_m \ \ x_1 \ \underbrace{ x_2 \ldots \ x_n \ y_1 \ y_2 \ \ldots \ y_m}_{\text{\code{(cat rest xs)}}}$
+\i[\circled{1}] $\overbrace{ \text{\lstinline!empty!}}^{\text{xs}} \ \ \overbrace{y_1 \ y_2 \ \ldots \ y_m}^{ys}
+ \ \ \overbrace{y_1 \ y_2 \ \ldots \ y_m}^{\text{\lstinline!(cat \ xs \ ys)!}}$
+\i[\circled{2}] $x_1 \ \underbrace{x_2 \ \ldots \ x_n}_{\text{\lstinline!(rest xs)!}} \ y_1 \ y_2 \ \ldots \ y_m \ \ x_1 \ \underbrace{ x_2 \ldots \ x_n \ y_1 \ y_2 \ \ldots \ y_m}_{\text{\lstinline!(cat rest xs)!}}$
 \end{enumerate}
 
 Beobachtung:
@@ -189,21 +160,5 @@ Beobachtung:
 \i Die Längen von xs bestimmt die Anzahl der rekursiven Aufrufe von cat
 \i Auf xs werden \uline{Selektoren angewendet}
 \end{enumerate}
-\begin{lstlisting}[frame=single]
-; Füge Listen xs, ys (in dieser Reihenfolge) zusammen
-(: cat ((list-of %a) (list-of %a) -> (list-of %a)))
-
-(check-expect (cat (list 1 2) (list 3 4)) (list 1 2 3 4))
-(check-expect (cat one-to-four empty) one-to-four)
-(check-expect (cat empty one-to-four) one-to-four)
-
-(define cat
-  (lambda (xs ys)
-    (cond ((empty? xs) 
-           ys)
-            ((pair? xs)
-             (make-pair (first xs) ; <- cat dennoch param. polymorph
-                        (cat (rest xs) ys))))))
-
-; Hinweis: Verfügbar als eingebaute Funktion `append'
-\end{lstlisting}
+\racket{Rekursion: Zusammenfügen zweier Listen}{Zusammenfügen zweier Listen}{cat}
+\pagebreak

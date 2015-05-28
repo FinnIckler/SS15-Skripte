@@ -1,5 +1,4 @@
 \lst@definelanguage{Macht der Abstraktion}{
-  emph={\#t,\#f},
   emphstyle={\color[rgb]{0.133,0.545,0.133}},
   morekeywords=[1]{define, define-syntax, define-macro, lambda, define-stream, stream-lambda,define-record-procedure},
   morekeywords=[2]{begin, call-with-current-continuation, call/cc,
@@ -22,6 +21,10 @@
   upquote=true,
   breaklines=true,
   breakatwhitespace=true,
+  numberstyle =\tiny\color{red},
+  stepnumber=5,
+  firstnumber=1,
+  numbers=left,
   escapeinside={@}{@},
   literate=
   {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
@@ -35,13 +38,12 @@
   {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
   {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
   {€}{{\EUR}}1 {£}{{\pounds}}1 
-  %{0}{{{\color[rgb]{0.159,0.501,0.133}0}}}1
-  %{1}{{{\color[rgb]{0.159,0.501,0.133}1}}}1 {2}{{{\color[rgb]{0.159,0.501,0.133}2}}}1
-  %{3}{{{\color[rgb]{0.159,0.501,0.133}3}}}1 {4}{{{\color[rgb]{0.159,0.501,0.133}4}}}1
-  %{5}{{{\color[rgb]{0.159,0.501,0.133}5}}}1 {6}{{{\color[rgb]{0.159,0.501,0.133}6}}}1
-  %{7}{{{\color[rgb]{0.159,0.501,0.133}7}}}1 {8}{{{\color[rgb]{0.159,0.501,0.133}8}}}1
-  %{9}{{{\color[rgb]{0.159,0.501,0.133}9}}}1 
+  {0}{{{\color[rgb]{0.159,0.501,0.133}0}}}1
+  {1}{{{\color[rgb]{0.159,0.501,0.133}1}}}1 {2}{{{\color[rgb]{0.159,0.501,0.133}2}}}1
+  {3}{{{\color[rgb]{0.159,0.501,0.133}3}}}1 {4}{{{\color[rgb]{0.159,0.501,0.133}4}}}1
+  {5}{{{\color[rgb]{0.159,0.501,0.133}5}}}1 {6}{{{\color[rgb]{0.159,0.501,0.133}6}}}1
+  {7}{{{\color[rgb]{0.159,0.501,0.133}7}}}1 {8}{{{\color[rgb]{0.159,0.501,0.133}8}}}1
+  {9}{{{\color[rgb]{0.159,0.501,0.133}9}}}1 
   {\#t}{{{\color[rgb]{0.159,0.501,0.133}\#t}}}2 {\#f}{{{\color[rgb]{0.159,0.501,0.133}\#f}}}2
  
 }
-

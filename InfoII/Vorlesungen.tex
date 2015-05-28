@@ -1,33 +1,30 @@
 \documentclass[a4paper,12pt]{scrartcl}
+\input{Codesources}
 \usepackage[ngerman]{babel}
 \usepackage{graphicx} %Bilder einbinden
-\usepackage{amsfonts,amsmath,amssymb,amsthm} %erweiterte Mathe-Zeichen
+\usepackage{amsfonts,amsmath,amssymb,amsthm,mathtools} %erweiterte Mathe-Zeichen
 %\usepackage{minted}
-\usepackage{mathtools}
 \setcounter{secnumdepth}{-2}
 \usepackage[utf8]{inputenc} %Umlaute & Co
 \usepackage{fancyhdr}
 \newcommand{\code}[1]{\textcolor{pseudo}{#1}}
-\usepackage{forloop}
 \usepackage{ifthen}
 \usepackage{courier}
 \usepackage{blkarray}
 \usepackage{listings}
 \usepackage{tikz}
 \usepackage{color}
-\usepackage{cancel}
 \usepackage{enumerate}
 \usepackage{multirow,booktabs,bigdelim}
 \pagestyle{fancy}
-\usepackage{mathtools}
 \usepackage{marvosym}
 \usepackage[]{algorithm2e}
-\usepackage{pgfplots}
 \usepackage{mdframed}
+\usepackage{pgfplots}
 \usetikzlibrary{shapes}
 \definecolor{string}{rgb}{0.133,0.545,0.133}
 \definecolor{kommentar}{rgb}{0.75,0.49,0.07}
-\definecolor{pseudo}{rgb}{0,.3,.7}
+\newcommand{\racket}[3]{\lstinputlisting[frame=single,caption={[#1]#2}]{#3.rkt}}
 \newcommand{\latexcode}[1]{\textcolor{kommentar}{#1}}
 \usepackage[normalem]{ulem} % [normalem] to set \emph{} to default behaviour (italic instead of underlining)
 \usepackage{mdsymbol}
@@ -36,7 +33,8 @@
 \fancyhf{}
 \rhead{Informatik II Thorsten Grust}
 \lhead{Skript SS15 Finn Ickler}
-\newcommand{\linie}{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}}
+\renewcommand{\lstlistingname}{Codebeispiel}
+\renewcommand{\lstlistlistingname}{Codebeispiele}
 \newcommand{\auf}{\textless}
 \newcommand{\zu}{\textgreater}
 \newcommand{\eval}{$\longrightsquigarrow$}
@@ -50,13 +48,13 @@
 \lstset{
   language=Macht der Abstraktion
 }
-
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt](char){#1};}}
 \author{Finn Ickler}
 \title{Informatik II Skript Sommersemester 2015}
 \begin{document}
 \maketitle
 \tableofcontents
+\lstlistoflistings
 \newpage
 \section{14.4.2015}
 \input{Vorlesung1.tex}
@@ -71,9 +69,10 @@
 \section{30.4.2015}
 \input{Vorlesung6.tex}
 \section{5.5.2015}
-\input{Vorlesung7.tex}\newpage
+\input{Vorlesung7.tex}
 \section{7.5.2015}
 \input{Vorlesung8.tex}
+\pagebreak
 \section{12.5.2015}
 \input{Vorlesung9.tex}
 \section{19.5.2015}

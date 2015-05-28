@@ -39,41 +39,14 @@
 \includegraphics[scale=0.5]{Latitude}
 \includegraphics[scale=0.5]{Longitude}\\
 Position Nord/Südwest vom Äquator Position west/östlich vom Nullmeridian\\
-Sei \auf$p$\zu ein Prädikat mit Signatur \textcolor{pseudo}{(\argt{} -\zu boolean)}.\\
-Eine Signatur der Form \textcolor{pseudo}{(predicate \auf p\zu)} gilt für jeden Wert der Signatur \argt{} sofern (\auf p\zu) \eval \#t\\
-Signaturen des Typs \textcolor{pseudo}{(predicate \auf p\zu)} sind damit \underline{spezifischer} (restriktiver) als die Signatur \argt{} selbst.\\
-\textcolor{pseudo}{(define \auf newt\zu (signature \auf t\zu))}\\
-\underline{Beispiele:}
+Sei \lstinline!<p>!ein Prädikat mit Signatur \lstinline!(<t> -> boolean)!.\\
+Eine Signatur der Form \lstinline!(predicate <p>! gilt für jeden Wert der Signatur \argt{} sofern (\auf p\zu) \eval \lstinline!#t!\\
+Signaturen des Typs \lstinline!predicate <p>)! sind damit \uline{spezifischer} (restriktiver) als die Signatur \argt{} selbst.\\
+\lstinline!(define <newt> (signature <t>!\\
+\uline{Beispiele:}
 \begin{lstlisting}
 (define farbe
 	(signature (one-of "Blatt" "Herz" "Blatt" "Eichel" "Schell")))
 \end{lstlisting}
-\begin{lstlisting}[frame = single]
-; Ist x ein gültiger Breitengrad 
-; zwischen Südpol (-90@\latexcode{$^{\circ}$}@) und Nordpol (90@\latexcode{$^{\circ}$}@)?
-(: latitude? (real -> boolean))
-(check-expect (latitude? 78) #t)
-(check-expect (latitude? -92) #f)
-(define latitude?
-  (lambda (x)
-    (within? -90 x 90)))
-
-
-; Ist x ein gültiger Längengrad westlich (bis -180@\latexcode{$^{\circ}$}@) 
-; bzw. östlich (bis 180@\latexcode{$^{\circ}$}@) des Meridians?
-(: longitude? (real -> boolean))
-(check-expect (longitude? 0) #t)
-(check-expect (longitude? 200) #f)
-(define longitude?
-  (lambda (x)
-    (within? -180 x 180)))
-
-
-; Signaturen für Breiten-/Längengrade basierend auf
-; den obigen Prädikaten
-(define latitude
-  (signature (predicate latitude?)))
-(define longitude
-  (signature (predicate longitude?)))
-
-\end{lstlisting}
+\pagebreak
+\racket{predicate Signaturen am Beispiel von Längen- und Breitengrade}{Restriktive Signaturen mit predicate}{latandlong}

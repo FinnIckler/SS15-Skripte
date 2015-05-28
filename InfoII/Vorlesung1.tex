@@ -1,5 +1,5 @@
 \section*{Scheme}
-\underline{A}usdr\"ucke , \underline{A}uswertung und \underline{A}bstraktion\\
+\uline{A}usdr\"ucke , \uline{A}uswertung und \uline{A}bstraktion\\
 \subsection*{Dr Racket}
 \fbox{
 \includegraphics[scale=0.15]{drracket}}\\
@@ -9,18 +9,17 @@ Die Anwendung von Funktionen wird in Scheme ausschlie\ss lich in Pr\"afixnotatio
 \begin{tabular}{c|c}
 Mathematik & Scheme \\
 \hline
-$44-2$ & \code{(- 44 2)}\\
-$f(x,y)$ & \code{(f x y)}\\
-$\sqrt{81}$ & \code{(sqrt 81)}\\
-$9^2$ & \code{(expt 9 2)}\\
-$3!$ & \code{(! 3)}\\
+$44-2$ & \lstinline!(- 44 2)!\\
+$f(x,y)$ & \lstinline!(f x y)!\\
+$\sqrt{81}$ & \lstinline!(sqrt 81)!\\
+$9^2$ & \lstinline!code{(! 3)!\\
 \end{tabular}\\
-Allgemein: (\textless funktion\textgreater \textless argument1\textgreater \textless argument2\textgreater \ldots)
+Allgemein: \lstinline[literate=]!(<funktion><argument1><argument2> ...)!
 \end{center}
-\code{(+ 40 2)} und \code{(odd? 42)} sind Beispiele f\"ur \underline{Ausdr\"ucke}, die bei \underline{Auswertung} einen Wert liefern.\\
+\lstinline!(+ 40 2)! und \lstinline!(odd? 42)! sind Beispiele f\"ur \underline{Ausdr\"ucke}, die bei \underline{Auswertung} einen Wert liefern.\\
 (Notation: \eval)\\
-\code{(+ 40 2)} $\underbrace{\longrightsquigarrow}_{Reduktion}$ 42\\
-\code{(odd? 42)} \eval \#f
+\lstinline!(+ 40 2)! $\underbrace{\longrightsquigarrow}_{Reduktion}$ 42\\
+\lstinline!(odd? 42)! \eval \ \lstinline!#f!
 \bigskip\\
 Interaktionsfenster:\hspace*{2.5cm} $\underbrace{Read \rightarrow Eval \rightarrow Print \rightarrow Loop}_{REPL}$\\
 \bigskip\\
@@ -29,11 +28,11 @@ Interaktionsfenster:\hspace*{2.5cm} $\underbrace{Read \rightarrow Eval \rightarr
 \begin{tabular}{ccc}
 Literal &  & Sorte,Typ\\
 \hline
-\#f ,\#t & (true, false, Wahrheitswert) & boolean\\
-\latexcode{''x''} & (Zeichenketten) & String\\
-0 1904 42 $-2$ & (ganze Zahl) & Integer\\
-0.42 3.14159 & (Flie\ss kommazahl) & real\\
-1\textbackslash 2, 3\textbackslash 4, -1\textbackslash 10 & (rationale Zahlen) & rational\\
+\lstinline!#f ,#t! & (true, false, Wahrheitswert) & boolean\\
+\lstinline!"x"! & (Zeichenketten) & String\\
+\lstinline!0  1904  42  -2 !& (ganze Zahl) & Integer\\
+\lstinline!0.42  3.14159 !& (Flie\ss kommazahl) & real\\
+\lstinline!1/2, 3/4, -1/10! & (rationale Zahlen) & rational\\
 \includegraphics[scale=0.2]{Darth_Vader} & (Bilder) & image
 
 \end{tabular}

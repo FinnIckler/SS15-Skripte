@@ -1,10 +1,10 @@
 \underline{Substitutionsmodell}\\
 \underline{Reduktionsregeln} f\"ur Scheme (Fallunterscheidung je nach Ausdr\"ucken) wiederhole, bis keine Reduktion mehr m\"oglich\\
-\begin{tabular}{llc}
-$-$literal (1, ``abc``, $\#$t, $\ldots$)& l \eval l &$[\text{eval}_{lit}]$\\
-$-$Identifier id(pi, clock-face,$\ldots$)& id \eval gebundene Wert& $[\text{eval}_{id}]$\\
-$-$lambda Abstraktion &(lambda ($\ldots ) \ldots$) \eval lamba($\ldots) \ldots)$ & $[\text{eval}_{\lambda}]$\\
-$-$Applikationen (f $e_1$ $e_2 \ldots$)\\
+\begin{tabular}{lllc}
+$-$& literal \lstinline!(1, "abc",#t, ...)!& l \eval&$[\text{eval}_{lit}]$\\
+$-$& Identifier id(pi, clock-face,$\ldots$)& id \eval gebundene Wert& $[\text{eval}_{id}]$\\
+$-$& lambda Abstraktion &\lstinline!(lambda (...) ...)! \eval \lstinline!(lambda(...) ...)! & $[\text{eval}_{\lambda}]$\\
+$-$& Applikationen (f $e_1$ $e_2 \ldots$)\\
 \end{tabular}
 \begin{equation}
 f,e_1,e_2 \text{ reduzieren erhalte:} f`,e_1`,e_2`\\
@@ -16,37 +16,37 @@ $\begin{cases}
 \end{cases}$
 \bigskip\\
 Beispiel:\\
-(+ 40 2) $\text{\eval}_{eval id}$ (\# \auf procedure +\zu 40 2) \eval 42
+\lstinline!(+ 40!\lstinline! 2)! $\underset{eval id}{\text{\eval}}$ \lstinline!(#<procedure+> 40!\lstinline! 2)! \eval 42
 \bigskip\\
 \begin{tabular}{lll}
-(position-minute-hand 30) &$\underset{\t{eval id}}{\t{\eval}}$& ((lambda (m) (* degrees-per-minute m)) 30)\\
-&$\underset{\t{eval lambda}}{\t{\eval}}$&(* degrees-per-minute 30)\\
-&$\underset{\t{eval id}}{\t{\eval}}$&(\# \auf procedure *\zu $\frac{360}{60}$ 30)\\
+\lstinline!(position-minute-hand 30)! &$\underset{\t{eval id}}{\t{\eval}}$& \lstinline!((lambda (m) (* degrees-per-minute m)) 30)!\\
+&$\underset{\t{eval lambda}}{\t{\eval}}$&\lstinline!(* degrees-per-minute 30)!\\
+&$\underset{\t{eval id}}{\t{\eval}}$&\lstinline!(#<procedure *> 360/60!\lstinline! 30)!\\
 &$\underset{\t{apply prim}}{\t{\eval}}$&180\\
 \end{tabular}\\
-Bezeichnen (lambda (x) (* x x)) und lambda (r) (* r r) die gleiche Prozedur? $\Rightarrow$ JA!\\
+Bezeichnen \lstinline!(lambda (x) (* x x))! und \lstinline!lambda (r) (* r r)! die gleiche Prozedur? $\Rightarrow$ JA!\\
 Achtung: Das hat Einflu\ss \ auf das Korrekte Einsetzen von Argumenten f\"ur Prozeduren (siehe apply)
 \bigskip\\
 \section*{Prinzip der Lexikalischen Bindung}
 Das \underline{bindene Vorkommen} eines Identifiers id kann im Programmtext systematisch bestimmt werden: Suche strikt von innen nach au\ss en, bis zum ersten
 \begin{enumerate}[(1)]
-\i (lambda (r) \auf Rumpf\zu
-\i (define \auf e\zu)
+\i \lstinline!(lambda (r) <Rumpf>!
+\i \lstinline!(define <e>)!
 \end{enumerate}
-\"Ubliche Notation in der Mathematik: \underline{Fallunterscheidung}\\
+\"Ubliche Notation in der Mathematik: \uline{Fallunterscheidung}\\
 $max(x_1,x_2) =
 \begin{cases}
 x_1 &\text{ falls } x_1 \geq x_2\\
 x_2 &\text{ sonst } 
 \end{cases}$\\
 \underline{Tests} (auch Pr\"adikate) sind Funktionen, die einen Wert der Signatur boolean liefern. Typische primitive Tests.\\
-(: = (number number -> boolean))\\
-(: \auf (real real -> boolean))\\
-auch $>,<=,>=$\\
-(: String=? (string string -> boolean))\\
-auch string$>$?, string$<=?$\\
-(: zero? (number -> boolean))\\
-odd?,even?,positive?,negative?\\
+\lstinline!(: = (number number -> boolean))!\\
+\lstinline!(: < (real real -> boolean))!\\
+auch \lstinline!>!, \lstinline!<=!, \lstinline!>=!\\
+\lstinline!(: String=? (string string -> boolean))!\\
+auch \lstinline!string>?!, \lstinline!string<=?!\\
+\lstinline!(: zero? (number -> boolean))!\\
+auch \lstinline!odd?!, \lstinline!even?!, \lstinline!positive?!, \lstinline!negative?!\\
 Bin\"are Fallunterscheidung \underline{if}\\
 $\begin{array}{lcl}
 if\\
@@ -56,6 +56,5 @@ if\\
 \end{cases}\\
 & <e_2>)
 \end{array}$
-
 
 
