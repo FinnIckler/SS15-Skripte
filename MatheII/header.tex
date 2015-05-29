@@ -13,8 +13,9 @@
 \usetikzlibrary{trees,automata,arrows,shapes}
 \pagestyle{fancy}
 \fancyhf{} %--Clear all fields
-\fancyhead[R]{\leftmark}
-\fancyfoot[R]{Seite \thepage\ von  \pageref{LastPage}}
+\fancyhead[LO,RE]{\normalsize \leftmark}
+\fancyhead[LE,RO]{\slshape \rightmark}
+\fancyfoot[C]{\thepage}
 \newcommand{\cd}{\cdot}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -34,6 +35,11 @@
 \usepackage{titletoc}
 \usepackage[margin=15mm]{geometry}
 \newcommand{\abs}[1]{\lvert #1 \rvert}
+\renewcommand\headrule{{\color{blue}%
+\hrule height 2pt width\headwidth
+\vspace{1pt}%
+\hrule height 1pt width\headwidth
+\vspace{-4pt}}}
 \makeatletter
 \newcommand{\resetHeadWidth}{\fancy@setoffs}
 \renewcommand\subsection{\@startsection
