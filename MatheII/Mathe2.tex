@@ -1556,9 +1556,197 @@ $\lim\limits_{x \rightarrow \infty} \frac{P(x)}{Q(x)} =
 \infty, &\text{falls $a_k$ und $b_k$ gleiche Vorzeichen}\\
 -\infty, &\text{falls $a_k$ und $b_k$ verschiedene Vorzeichen}\\
 \end{cases}$
+\i $\lim\limits_{x \rightarrow \infty} \frac{e^x}{x^n} = \infty$
+\begin{figure}[h!tbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[axis x line=center,
+    axis y line=center]   
+\addplot[samples=100] gnuplot[id=4punkt17e]{exp(x)*(x**5)};
+\end{axis}
+\end{tikzpicture}
+\caption{$\frac{e^x}{x^n}$}
+\end{figure}
+$\forall L > 0 \exists\ M \forall\ x \gg M : f(x) \gg L$\\
+Sei L $ \geq 0, x > 0$. \\
+$e^x = \sum\limits_{k =0}^{\infty} \frac{x^k}{k!} > \frac{x^{n+1}}{(n+1)!}\\
+\frac{e^x}{x^n} > \frac{x}{(n+1)!}$\\
+Ist $x \geq (n+1)! L =: M,$ so ist $\frac{e^x}{x^n} > L$.
+\i $\lim\limits_{x \rightarrow \infty} \frac{x^n}{e^x} = 0$.
+Folgt aus e) und \ref{4.16}a)
 \end{enumerate}
+\section{Stetigkeit}
+\subsection{Definition}
+$f : D \rightarrow \R.$
+\begin{enumerate}[a)]
+\i $f$ ist \uline{stetig} an $c \in D$, fallse $\lim\limits_{x \rightarrow c} f(x) = f(c)$.\\
+\i $f$ hei\ss t (absolut) stetig, falls $f$ an allen $c \in D$ stetig ist.
+\end{enumerate}
+\subsection{Satz}
+$f: D \rightarrow \R , c \in D.$\\
+Existiert KOnstante $\mathbf{K} > 0$ mit $\abs{f(x) - f(c)} \leq \mathbf{K} \cd \abs{x-c}$ für alle $x \in D$, dann ist $f$ stetig in c.
+\begin{proof}\ 
+\\ Sei $\varepsilon > 0$.\\
+Wähle $\delta = \frac{\varepsilon}{\mathbf{K}}$. Ist $\abs{x-c} \leq \delta,$ so ist $\abs{f(x) - f(c)} \leq \mathbf{K} \cd \abs{x-c} \leq \mathbf{K} \cd \delta -\varepsilon.\\
+$\reversemarginpar{4.7} $\lim\limits_{x \rightarrow c} f(x) = f(c).$
+\end{proof}
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\i Polynome sind auf ganz $\R$ stetig
+\i $f(x) = \begin{cases}
+0 , \text{falls }&, x \not = 0\\
+1, \text{falls }&, x = 0\\
+\end{cases} $
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[axis x line=center,
+    axis y line=center, xmin = -5, xmax=5]   
+\draw[blue] (axis cs: -10,0)--(axis cs: 0,0);
+\draw[blue] (axis cs: 0,0)--(axis cs: 10,0);
+\end{axis}
+\end{tikzpicture}
+\caption{Abschnittsweise definierte Funktion}
+\end{figure}
+$f$ ist nicht steig in 0.\\
+$a_n = \frac{1}{n}, a_n \rightarrow 0\\
+f(a_n) = 0\\
+(f(f(a_n)) \rightarrow 0 \neq f(0)$\\
+\i $f(x) = \begin{cases}
+0 , \text{falls }&, x > 0\\
+1, \text{falls }&, x < 0\\
+\end{cases}$\\
+f ist nicht stetig in 0.
+\begin{minipage}[c]{0.3\textwidth}
+\begin{tikzpicture}
+\begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = -3,ymax = 4,xmax = 3,axis x line=center,
+    axis y line=center,width=5cm,height=3cm]   
+\draw [red] (axis cs:0,1)--(axis cs:10,1);
+\draw [red] (axis cs:-10,0)--(axis cs:0,0);
+\end{axis}
+\end{tikzpicture}
+\end{minipage} 
+\i $f(x) = \begin{cases}
+\sin(\frac{1}{x}) , \text{falls }&, x \not = 0\\
+0, \text{falls }&, x = 0\\
+\end{cases}
+\lim\limits_x \rightarrow 0 \sin(\frac{1}{x})$ ex. nicht.\\
+$f$ ist nicht stetig in 0.
+\begin{minipage}[c]{0.3\textwidth}
+\begin{tikzpicture}
+\begin{axis}[ymin = -1,ymax = 1 , xmax = 1,xmin=-1,axis x line=center,
+    axis y line=center,width = 5cm,height =3cm]   
+\addplot[samples=5000] gnuplot[id=sin1]{sin(1/x)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\i $f(x) = \begin{cases}
+x \cd \sin(\frac{1}{x}) , \text{falls }&, x \not = 0\\
+0, \text{falls }&, x = 0\\
+\end{cases}
+\lim\limits_{x \rightarrow 0} x \cd \sin(\frac{1}{x}) = 0 = f(0)\\
+f$ ist stetig in 0.
+\begin{minipage}[c]{0.3\textwidth}
+\begin{tikzpicture}
+\begin{axis}[ymin = -1,ymax = 1 , xmax = 1,xmin=-1,axis x line=center,
+    axis y line=center,width = 5cm,height =3cm]   
+\addplot[samples=5000] gnuplot[id=sin1]{x * sin(1/x)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\i $f(x) = \sin(x)\\
+g(x) = \sin(x)
+$
+Sind stetig auf $\R$:
+TODO: Halbkreis plotten.\\
+Fúr alle $x,c \in \R$ gilt:\\
+$\abs{\sin(x) - \sin(c)} \leq \abs{x-c}.\\
+\sin(x)$ ist stetig auf $\R$ (5.2, $\mathbf{K}$ =1)
+\end{enumerate}
+
+\subsection{Satz (Rechenregeln für Stetigkeit)}
+$f,g : D \rightarrow \R, c \in D$,\\
+sind $f$ und $g$ stetig in c, dann auch $f \pm/\cdot$ und $\abs{f}$. Ist $g(x) \neq 0$ für alle $x \in D,$ so ist auch $\frac{f}{g}$ stetig in c.\\
+\begin{proof}
+Folgt aus 4.8
+\end{proof}
+\subsection[Satz: Hintereinanderausführung von stetigen Funktionen]{Satz}
+$D,D' \subseteq \R , F : D \rightarrow \R,\\
+g: D' \rightarrow \R , f(D) \subseteq D'.$.
+Ist $f$ stetig in $c \in D$ und ist g stetig in $f(c) \in D'$, so ist $g \circ f$ stetig in c,
+\begin{proof}
+$(a_n) \rightarrow c, a_n \in D$.\\
+f stetig: $f(a_n) \rightarrow f(c)$\\
+g stetig in f(c): $(g \circ f)(a_n)(a_n)\ (g \circ f)(c)$
+\end{proof}
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\i $f(x) = \sin(\frac{1}{\abs{x^2-1}}), D = \R \setminus \{1,-1 \}.
+f$ ist stetig auf D.
+Folgt aus $5.3_{\text{a),f und 5.4,5.5}}$.
+\i $f(x) = \begin{cases}
+x \cd \sin(\frac{1}{x}) &\text{falls } x \neq 0\\
+0 &\text{falls } x = 0 
+\end{cases}$
+stetig auf $\R$,
+5.3e) für $c = 0$ für $c \neq 0$. 5.3,5.4,5.5
+\i $f(x) = \tan(x) (= \frac{sin(x)}{cos(x)})\\
+D = \R \setminus \{\frac{\pi}{2}+ k\pi: k \in \Z \}
+f$ stetig auf D
+\end{enumerate}
+\subsection[Satz: Stetigkeit von Potenzreihen]{Satz}
+Sei $f(x) = \sum\limits_{i=0}^{\infty} a_i (x-a)^i$\\
+eine Potenzreihe mit Konvergenzradius R. Dann ist $f$ stetig $m]a-R[ =: D\\
+c \in D
+\lim\limits_{x \rightarrow c} f(x)$
+\begin{enumerate}[=]
+\i$ \lim\limits_{x \rightarrow c} f(x) \lim\limits_{n \rightarrow \infty} \sum\limits_{i=0}^{\infty} a_i (x-a)^i$
+\i[$\underset{=}{?}$] $ \lim\limits_{n \rightarrow \infty} \lim\limits_{x \rightarrow c} \sum\limits_{i=0}^{\infty} a_i (x-a)^i$ \marginpar{\cite{k3}}
+\i $ \lim\limits_{n \rightarrow \infty} \sum\limits_{i=0}^{\infty} a_i (x-a)^i = f(c)$
+\end{enumerate}
+\subsection{Korollar}
+$f(x = \exp(x) = e^x$ ist stetig auf $\R$
+\subsection{Satz (Nullstellensatz für stetige Funktionen)}\label{sec:5.9}
+$f: D \rightarrow$ stetig, $[u,v] \subset D, u < v$\\
+Es gelte $f(v) \cd f(v) < 0$ \\
+(d.h $f(u) > 0, f(v) > 0$, oder $f(u) > 0, f(v) < 0$)
+Dann existiert $w \in ]u,v[$ mit $f(v)=0$\\
+\begin{proof}
+O.B.d.A., $f(n) < 0 < f(v).$\\
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[xmin=-5,xmax=2,axis x line=center,
+    axis y line=none,disabledatascaling, xtick={-2,0,2},xticklabels={$a=u$,$c$,$v=b$}]
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+Bijektionsverfahren:\\
+Falls $f(c) < 0$, so $a = c$, sonst $b= c$. Liefert Folgen $(a_n),(b_n)$ und eindeutig bestimmte $w \in [u,v]$ mit $a_n \leq a_{n+1} w \leq b_{n+1} \leq b_{n}$ für alle $n$\\
+$f(a_n) < 0\\
+f(b_n) \geq 0\\
+$für alle $n$.
+$\lim\limits_{n \rightarrow \infty} a_n = \lim\limits_{n \rightarrow \infty} b_n = w
+f$ ist stetig in w $\Rightarrow \lim\limits_{n \rightarrow \infty} f(a_n) = \lim\limits_{n \rightarrow \infty}f(b_n) = f(b_n) = f(w).\\
+f(a_n) < 0 \forall n \rightarrow \lim\limits_{n \rightarrow \infty} f(a_n) \leq 0.\\
+f(b_n) \geq 0 \forall n \rightarrow \lim\limits_{n \rightarrow \infty} f(b_n) \geq 0.\\
+\Rightarrow 0 = \lim(a_n) = \lim(b_n) = f(w).$
+ \end{proof}
+\subsection{Korollar (Zwischenwertsatz)}
+$f: D \rightarrow \R $ stetig, $[u,v] \subseteq D$\\
+Dann nimmt $f$ in $[u,v]$ jeden Wert zwischen $f(u)$ und $f(v)$ an (und evtl. weitere)
+TODO: Funktion Plotten mit Zwischenwerten. + Funktion nicht stetig
+\begin{proof}
+O.B.d.A $f(u) < f(v)$\\
+Sei $f(u) < b < f(w)\, b$ beliebig, aber dann fest.\\
+Definiere $g(x) = f(x) -b $ stetig\\
+$g(u) = f(u) -b
+g(v) = f(v) -b$\\
+\ref{sec:5.9} (angewandt auf g): Ex. $w \in ]u,v[$ mit $g(w) = 0$,d.h $f(w) =b$.
+\end{proof}
 \begin{thebibliography}{9}
 \bibitem{k1} Kreu\ss ler, Phister Satz 33.16
 \bibitem{k2} WHK 5.37
+\bibitem{k3} WHK 6.21
 \end{thebibliography}
 \end{document}
