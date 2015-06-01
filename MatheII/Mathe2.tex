@@ -2,12 +2,16 @@
 \begin{document}
 \resetHeadWidth
 \tableofcontents
+\listoffigures
+\clearpage
 \section{Komplexe Zahlen}
 \subsection{Definition}
-Menge der komplexen Zahlen $\C =\{a+bi : a,b \in \R\}$\\
-\underline{Addition:}$(a+bi) + (c+di) = (a+c)+(b+d)i$\\
-\underline{Multiplikation:}$(a+bi) \cd (c+di) = (ac -bd) + (ad+bc)i$\\
-\hspace*{2.75cm}(Ausmultiplizieren und $i^2 =-1$ beachten)\\
+Menge der komplexen Zahlen $\C =\{a+bi : a,b \in \R\}$
+
+\uline{Addition:}\qquad\ $(a+bi) + (c+di) = (a+c)+(b+d)i$
+
+\uline{Multiplikation:}$(a+bi)\hspace*{3pt} \cd\hspace*{3pt}  (c+di) = (ac -bd) + (ad+bc)i$\\
+\hspace*{3.35cm}(Ausmultiplizieren und $i^2 =-1$ beachten)\\
 $\R \subset \C$\\
 $a \in \R : a + 0 \cd i = a$\\
 Rein imagin\"are Zahlen : $bi , b \in \R, (0 + bi)$\\
@@ -16,11 +20,14 @@ $z = a+bi \in \C\\
 a = \mathfrak{R}(z)$ Realteil von $z (Re(z))\\
 b = \mathfrak{I}(z)$ Imagin\"arteil von $z (Im(z))\\
 \bar{z} = a - bi (= a + (-b)i)$\\
-Die zu $z$ \uline{konjugiert komplexe Zahl}\\
+Die zu $z$ \uline{konjugiert komplexe Zahl}
 \subsection{Veranschaulichung}
+\begin{figure}[h!]
+\begin{minipage}[h]{0.5\textwidth}
 \begin{tikzpicture}
     \begin{axis}[
-    legend style={draw none},
+    axis x line=center,
+    axis y line=center,
     axis equal,
     xlabel={$Re(z)$},
     ylabel={$Im(z)$},
@@ -31,21 +38,18 @@ Die zu $z$ \uline{konjugiert komplexe Zahl}\\
     xtick ={1,4},
     xticklabels={1,a},
     ytick ={1,3},
-    yticklabels={i,b},
-    extra x ticks={0},
-    extra x tick label={0},
-    extra y ticks={0},
-    extra y tick labels={0},
-    extra tick style = {grid = major}]
+    yticklabels={i,b}]
     \addplot[dashed,mark=none, black] coordinates {(4,0) (4,3)};
     \addplot[dashed,mark=none, black] coordinates {(0,3) (4,3)};
       \addplot [black, mark = *, nodes near coords=$a+bi$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
     \end{axis}
-  \end{tikzpicture}\\
-Addition entspricht Vektoraddition\\
+  \end{tikzpicture}
+\end{minipage}
+\begin{minipage}[h]{0.5\textwidth}
 \begin{tikzpicture}
     \begin{axis}[
-    legend style={draw none},
+    axis x line=center,
+    axis y line=center,
     axis equal,
     xlabel={$Re(z)$},
     ylabel={$Im(z)$},
@@ -56,12 +60,7 @@ Addition entspricht Vektoraddition\\
     xtick ={1,4},
     xticklabels={1,a},
     ytick ={1,3},
-    yticklabels={i,b},
-    extra x ticks={0},
-    extra x tick label={0},
-    extra y ticks={0},
-    extra y tick labels={0},
-    extra tick style = {grid = major}]
+    yticklabels={i,b}]
     \addplot [black, mark = *, nodes near coords=$a+bi$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
        \draw[->](axis cs:0,0)--(axis cs:3.88,2.88);
            \addplot [black, mark = *, nodes near coords=$c+di$,every node near coord/.style={anchor=0}] coordinates {( -1, 1)};
@@ -71,10 +70,13 @@ Addition entspricht Vektoraddition\\
     \addplot[mark=none, black] coordinates {(3,4) (4,3)};
     \draw[-> ,red](axis cs:0,0)--(axis cs:2.95,3.88);
     \end{axis}
-  \end{tikzpicture}\\
+\end{tikzpicture}
+\end{minipage}
+\caption[Veranschaulichung Komplexe Zahlen]{Addition entspricht Vektoraddition}
+\end{figure}
 \subsection{Rechenregeln in $\C$}
 \begin{enumerate}
-\item[a)]Es gelten alle Rechenregeln wie in $\R$. (z.B Kommutativit\"at bzgl. $+,\cd:z_1 + z_2 = z_2 + z_1$ und $z_1 \cd z_2 = z_2 \cd z_1$\\
+\item[a)]Es gelten alle Rechenregeln wie in $\R$.\\ (z.B Kommutativit\"at bzgl. $+,\cd:z_1 + z_2 = z_2 + z_1$ und $z_1 \cd z_2 = z_2 \cd z_1$)\\
 \underline{Inversenbildung bzgl. $\cd$}:\\
 $z = a+bi \not = 0,$ d.h $a \not = 0$ oder $b \not = 0\\
 z^{-1} = \frac{1}{z} = \frac{a}{a^2 + b^2} - \frac{b}{a^2+b^2}i\\
@@ -87,7 +89,7 @@ z \cd z^{-1} = 1\\
 &=&\frac{1}{13} - \frac{31}{13}i
 \end{array}$\\
 Speziell: $(bi)^{-1} = \frac{1}{bi} = -\frac{1}{b}i$ ; insbesondere: $\frac{1}{i} = -i$
-\item[b)]$z,z_1,z_2 \in \C$:\\
+\item[b)]$z,z_1,z_2 \in \C$:
 \begin{center}
 $\bar{\bar{z}}=z$\\
 $\overline{z_1+z_2} = \bar{z_1} + \bar{z_2}$\\
@@ -97,17 +99,22 @@ $\overline{z_1\cd z_2} = \bar{z_1} \cd \bar{z_2}$\\
 \subsection{Definition Absolutbetrag}
 \begin{enumerate}
 \item[a)] \underline{Absolutbetrag} von $z =a+bi \C:\\
-\mid z \mid = +\underbrace{\sqrt{a^2 +b^2}}_{\in \R, \geq 0}\\
-$\fbox{$a^2 + b^2 = z \cd \bar{z}$} $\mid z \mid = +\sqrt{z \cd \bar{z}}\\
+\abs{z} = +\underbrace{\sqrt{a^2 +b^2}}_{\in \R, \geq 0}\\
+$\fbox{$a^2 + b^2 = z \cd \bar{z}$}
+
+$\abs{z}= +\sqrt{z \cd \bar{z}}\\
 (a+bi) \cd (a-bi) = (a^2 +b^2) + 0i = a^2 + b^2$\\
     $
-  \begin{array}{lcr}
+  \begin{array}{lcl}
   \lvert z \rvert &=& \text{Abstand von $z$ zu 0}\\
   &=& \text{L\"ange des Vektors, der $z$ entspricht}
   \end{array}$\\
+\begin{figure}[h!]
+\centering
 \begin{tikzpicture}
     \begin{axis}[
-    legend style={draw none},
+    axis x line=center,
+    axis y line=center,
     axis equal,
     xlabel={$Re(z)$},
     ylabel={$Im(z)$},
@@ -118,27 +125,22 @@ $\fbox{$a^2 + b^2 = z \cd \bar{z}$} $\mid z \mid = +\sqrt{z \cd \bar{z}}\\
     xtick ={1,4},
     xticklabels={1,a},
     ytick ={1,3},
-    yticklabels={i,b},
-    extra x ticks={0},
-    extra x tick label={0},
-    extra y ticks={0},
-    extra y tick labels={0},
-    disabledatascaling,
-    extra tick style = {grid = major}]
+    yticklabels={i,b}]
     \addplot[mark=none, black] coordinates {(4,0) (4,3)};
     \addplot[mark=none, black] coordinates {(0,0) (4,0)};
       \addplot [black, mark = *, nodes near coords=$a+bi$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
    \draw[->] (axis cs:0,0)--(axis cs:3.95,2.88);
    \draw(axis cs:3.5,0) arc [radius=0.5,start angle=180,end angle=90];
-   \addplot[mark=*, black] coordinates {(3.8,0.2)};
     \end{axis}   
   \end{tikzpicture}
+  \caption[Absolutbetrag]{Graphische Definition des Absolutbetrages}
+  \end{figure}
   \item[b)]Abstand von $z_1,z_2 \in \C:\\
   d(z_1,z_2):= \mid z_1 - z_2 \mid$\\
 \end{enumerate}
 \subsection{Rechenreglen f\"ur den Absolutbetrag}
-$z,z_1,z_2 \in \C$\\
 \begin{enumerate}
+\item[] $z,z_1,z_2 \in \C$
 \item[a)]$ \mid z \mid = 0 \Leftrightarrow z =0$
 \item[b)]$ \mid z_1 \cd z_2 \mid = \abs{z_1} \cd \abs{z_2}$\\
 \item[c)]$ \abs{z_1 + z_2} \leq \abs{z_1} + \abs{z_2}\\
@@ -149,9 +151,11 @@ $z,z_1,z_2 \in \C$\\
 \begin{enumerate}
 \item[a)]
 Jeder Punkt $\neq (0,0)$ l\"asst sich durch seine Polarkoordinaten $(r,\varphi)$ beschreiben:\\
+\begin{figure}[h!]
 \begin{tikzpicture}
     \begin{axis}[
-    legend style={draw none},
+    axis x line=center,
+    axis y line=center,
     axis equal,
     xlabel={$Re(z)$},
     ylabel={$Im(z)$},
@@ -162,13 +166,7 @@ Jeder Punkt $\neq (0,0)$ l\"asst sich durch seine Polarkoordinaten $(r,\varphi)$
     xtick ={1,4},
     xticklabels={1,a},
     ytick ={1,3},
-    yticklabels={i,b},
-    extra x ticks={0},
-    extra x tick label={0},
-    extra y ticks={0},
-    extra y tick labels={0},
-    disabledatascaling,
-    extra tick style = {grid = major}]
+    yticklabels={i,b}]
       \addplot [black, mark = *, nodes near coords=$a+bi$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
    \draw[decorate,decoration ={brace,amplitude =10pt},thick] (axis cs:0,0)--(axis cs:4,3);
       \draw[->] (axis cs:0,0)--(axis cs:3.95,2.88);
@@ -176,23 +174,24 @@ Jeder Punkt $\neq (0,0)$ l\"asst sich durch seine Polarkoordinaten $(r,\varphi)$
        \addplot [black, mark = none, nodes near coords=$r$,every node near coord/.style={anchor=180}] coordinates {( 1.5, 2)};
    \draw[->](axis cs:2,0) arc [radius=1.95,start angle=0,end angle=37];
     \end{axis}   
-  \end{tikzpicture}\\
+  \end{tikzpicture}
+\centering
+\caption[Imaginäre Zahlen im Koordinatensystem durch Polarkoordinaten]{Polarkoordinaten}
+\end{figure}
   $-r \geq 0, r \in \R\\
-  0 \leq \varphi \leq 2\pi$, wird gemessen von der positiven x-Achse entgegen des Uhrzeigersinnes\\
+  0 \leq \varphi \leq 2\pi$, wird gemessen von der positiven x-Achse entgegen des Uhrzeigersinnes
+\begin{figure}[h!]
+\centering \caption[Winkel im Bogenma\ss]{Umrechnung Grad zu Bogenma\ss}
 \begin{tikzpicture}
     \begin{axis}[
-    legend style={draw none},
+    axis x line=center,
+    axis y line=center,
     axis equal,ymin = -2,xmin = -2,ymax = 2,
     xmax = 2,xtick ={},
     xticklabels={},
     ytick ={},
     yticklabels={},
-    extra x ticks={0},
-    extra x tick label={},
-    extra y ticks={0},
-    extra y tick labels={},
-    disabledatascaling,
-    extra tick style = {grid = major}]
+    disabledatascaling]
     \addplot [black, mark = none, nodes near coords=$\pi$,every node near coord/.style={anchor=180}] coordinates {( -1.5, 0)};
     \addplot [black, mark = none, nodes near coords=2$\pi$,every node near coord/.style={anchor=180}] coordinates {( 1.25, 0)};
     \addplot [black, mark = none, nodes near coords=$\frac{\pi}{2}$,every node near coord/.style={anchor=90}] coordinates {(0, 1.5)};
@@ -204,7 +203,9 @@ Jeder Punkt $\neq (0,0)$ l\"asst sich durch seine Polarkoordinaten $(r,\varphi)$
     %origin point, circle radius, start angle, end angle, distance c-b, brace radius, brace options
     \cucubr{0,2}{1}{0}{37}{0.1}{0.1}{red}
     \end{axis}   
-  \end{tikzpicture}\\
+  \end{tikzpicture}
+\end{figure}
+\\
   Umfang:$2\pi$\\
   $\varphi$ in Grad $\widehat{=} \frac{2\pi \cd \varphi}{360}$ im Bogenma\ss\\
    F\"ur Punkte mit kartesischen Koordinaten $\neq$ (0,0) werden als Polarkoordinate $(r,\varphi)$ verwendet.
@@ -224,13 +225,12 @@ z &=& \abs{z}( \cd \cos(\varphi) + i \cd \sin(\varphi))\\
 \abs{z_2} = \sqrt{5}\\
 z_2 = \sqrt{5} \cd (\frac{2}{\sqrt{5} + \frac{1}{\sqrt{5}}}i)$
 Suche $\varphi$ mit $0 \leq 2\pi$ mit $\cos(\varphi) =\frac{2}{\sqrt{5}}, \sin(\frac{1}{\sqrt{5}} z_2 \approx \sqrt{5} \cd (\cos(0,46) + i \cd \sin(0,46))$
-\item[c)] Die komplexen Zahlen von Betrag 1 entsprechen den Punkten auf Einheitskreis:<
-$\cos(\varphi) + i \sin(\varphi), 0  \leq \varphi \leq 2\pi$
+\item[c)] Die komplexen Zahlen von Betrag 1 entsprechen den Punkten auf Einheitskreis:$\cos(\varphi) + i \sin(\varphi), 0  \leq \varphi \leq 2\pi$
 \end{enumerate}
 \end{enumerate}
 \subsection{Additionstheoreme der Trigonometrie}
 \begin{enumerate}
-\item[a)]$\sin(\varphi + \psi) = \sin(\varphi) \cd \cos(\psi) + \cos(\varphi) \cd \sin(\psi)$\\
+\item[a)]$\sin(\varphi + \psi) = \sin(\varphi) \cd \cos(\psi) + \cos(\varphi) \cd \sin(\psi)$
 \item[b)]$\cos(\varphi + \psi) = \cos(\varphi) \cd \cos(\psi) - \sin(\varphi) \cd sin(\varphi) \cd \sin(\psi)$
 \end{enumerate}
 \subsection{geometrische Interpretation der Multiplikation}
@@ -238,9 +238,11 @@ $\cos(\varphi) + i \sin(\varphi), 0  \leq \varphi \leq 2\pi$
 \item[a)]$w = \abs{w} \cd (\cos(\varphi) + i \cd \sin(\varphi))\\
 z= \abs{z} \cd (\cos(\psi) + i \cd \sin(\psi))\\
 w \cd z = \abs{w} \cd \abs{z} \cd (\cos(\varphi) \cd \cos(\psi) - \sin(\varphi) \cd \sin(\psi)) + i (\sin(\varphi) \cd \cos(\psi) + \cos(\varphi) \cd \sin(\psi))\\
-w \cd z =\abs{w \cd z}( \cos(\varphi + \psi) + i \cd \sin(\varphi + \psi))$\\
+w \cd z =\abs{w \cd z}( \cos(\varphi + \psi) + i \cd \sin(\varphi + \psi))$
+\begin{figure}[h!]
 \begin{tikzpicture}
-\begin{axis}[legend style={draw none},axis equal,xlabel={$Re(z)$},ylabel={$Im(z)$},ymin = -10,xmin = -10,ymax = 10,xmax = 10,xtick ={1,4},xticklabels={},ytick ={1,3},yticklabels={},extra x ticks={0},extra x tick label={},extra y ticks={0},extra y tick labels={},disabledatascaling,extra tick style = {grid = major}]
+\begin{axis}[axis x line=center,
+    axis y line=center,,axis equal,xlabel={$Re(z)$},ylabel={$Im(z)$},ymin = -10,xmin = -10,ymax = 10,xmax = 10,xtick ={1,4},xticklabels={},ytick ={1,3},yticklabels={},disabledatascaling]
       \addplot [black, mark = *, nodes near coords=$w$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
             \addplot [black, mark = *, nodes near coords=$z$,every node near coord/.style={anchor=0}] coordinates {( -1, 2)};
    \draw (axis cs:0,0)--(axis cs:-1,2);
@@ -255,18 +257,27 @@ w \cd z =\abs{w \cd z}( \cos(\varphi + \psi) + i \cd \sin(\varphi + \psi))$\\
     \addplot [black, mark = none, nodes near coords=$\psi$,every node near coord/.style={anchor=180}] coordinates {( 2.90, 0.8)};  
     \end{axis} 
   \end{tikzpicture}
+\centering
+\caption{Multiplizieren komplexer Zahlen}
+\end{figure}
   \item[b)]$z =i, w = a+ ib\\
   i\cd w = -b \cd ia$\\
   Multiplikation mit i $\widehat{=}$ Drehung um $90^{\circ}$\\
+\begin{figure}[h!]
 \begin{tikzpicture}
-\begin{axis}[legend style={draw none},axis equal,xlabel={$Re(z)$},ylabel={$Im(z)$},ymin = 0,xmin = -5,ymax = 5,xmax = 7,xtick ={-3,3},xticklabels={-a,a},ytick ={1,4},yticklabels={i,-b},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={},disabledatascaling,extra tick style = {grid = major}]
+\begin{axis}[axis x line=center,
+    axis y line=center,,axis equal,xlabel={$Re(z)$},ylabel={$Im(z)$},ymin = 0,xmin = -5,ymax = 5,xmax = 7,xtick ={-3,3},xticklabels={-a,a},ytick ={1,4},yticklabels={i,-b},disabledatascaling]
 \draw [dashed] (axis cs:0,0)--(axis cs:3,4);
 \draw [dashed] (axis cs:0,0)--(axis cs:-3,4);
    \addplot [black, mark = *, nodes near coords=$w$,every node near coord/.style={anchor=0}] coordinates {( 3, 4)};
       \addplot [black, mark = *, nodes near coords=$i \cd w$,every node near coord/.style={anchor=0}] coordinates {( -3, 4)};
       \draw[->](axis cs:3,4) arc [radius=3,start angle=0,end angle=180];      
     \end{axis} 
-  \end{tikzpicture} 
+  \end{tikzpicture}
+\centering
+\caption{Multiplikation mit i}
+\end{figure}
+ 
 \end{enumerate}
 \subsection{Bemerkung und Definition}
 Wir werden sp\"ater die komplexe Exponentialfunktion einf\"uhren.\\
@@ -311,7 +322,7 @@ Nach 1.10 hat jedes Polynom\\
 $ x^{n} -w$ ($w \in \C)$\\
 eine Nullstelle in $\C$ (sogar n verschiedene wenn $w \not = 0$)\\
 Es gilt sogar : \underline{Fundamentalsatz der Algebra}\\
-\hspace*{7.5cm} (C. F. Gau\ss 1777-1855)\\
+\hspace*{7.5cm} (C. F. Gau\ss\ 1777-1855)\\
 Jedes Polynom $a_n x^n + \ldots + a_0$\\
 mit irgendwelchen Koeffizienten: $a_n \ldots a_0 \in \C$ hat Nullstelle in $\C$
 \section{Folgen und Reihen}
@@ -349,25 +360,29 @@ a_1 =1\\
 \subsection{Definition}
 Eine Folge $(a_n)_{n>k}$ hei\ss t \underline{beschr\"ankt}, wenn die Menge der Folgenglieder beschr\"ankt ist. \\
 D.h. $\exists D > 0 : - D \leq a_n \leq D$ f\"ur alle $n > k$.\\
+
+\begin{figure}[h!]
+\centering \caption{Beschränktheit von Folgen}
 \begin{tikzpicture}
-\begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = 0,ymax = 4,xmax = 7,xtick ={1,2,3,4,5},ytick ={3,-3},yticklabels={D,-D},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={},extra tick style = {grid = major}]
+\begin{axis}[axis x line=center,
+    axis y line=center,axis equal,ymin = -4,xmin = 0,ymax = 4,xmax = 7,xtick ={1,2,3,4,5},ytick ={3,-3},yticklabels={D,-D}]
 \draw [dashed] (axis cs:-10,3)--(axis cs:10,3);
 \draw [dashed] (axis cs:-10,-3)--(axis cs:10,-3);
 \addplot [black, mark = +] coordinates {( 1, 0.3)};
 \addplot [black, mark = +] coordinates {( 2, 0.1)};
 \addplot [black, mark = +] coordinates {( 3, -2)};
 \addplot [black, mark = +] coordinates {( 4, 1)};
-\addplot [black, mark = +] coordinates {( 5, 0.5)};
-               
+\addplot [black, mark = +] coordinates {( 5, 0.5)};   
 \end{axis}
   \end{tikzpicture} 
+\end{figure}
 \subsection{Definition}
-Eine Folge $(a_n)_{n \geq k}$ hei\ss t \underline{konvergent} gegen $\varepsilon \in \R$ (konvergent gegen $\varepsilon$), falls gilt:\\
+Eine Folge $(a_n)_{n \geq k}$ hei\ss t \uline{konvergent} gegen $\varepsilon \in \R$ (konvergent gegen $\varepsilon$), falls gilt:\\
 $\forall \varepsilon > 0 \exists n(\varepsilon) \in \N \forall n \geq n(\varepsilon) : \mid a_n -c \mid < \varepsilon\\
 c = \lim_{n \Rightarrow \infty} a_n $ (oder einfach $c = \lim a_n$)\\
-c hei\ss t \underline{Grenzwert} (oder Limes) der Folge ($a_n$)\\
+c hei\ss t \uline{Grenzwert} (oder Limes) der Folge ($a_n$)\\
 (Grenzwert h\"angt nicht von endlich vielen Anfangsgliedern ab (der Folge))\\
-Eine Folge die gegen 0 konvertiert, hei\ss t \underline{Nullfolge}\\
+Eine Folge die gegen 0 konvertiert, hei\ss t \uline{Nullfolge}\\
 \subsection{Beispiele}
 \begin{enumerate}
 \item[a)]$r \in \R : a_n = r$ f\"ur alle $n \geq 1$\\
@@ -402,8 +417,11 @@ Dann gilt f\"ur alle $n\geq n(\varepsilon).\\
 F\"ur alle $ n \geq n(\varepsilon)$
 \item[e)]$a_n = (-1)^n$ beschr\"ankte Folge $-1 \leq a_ \leq 1$ konvergiert nicht.\\
 Sei $c \in \mathbb{R}$ beliebig, W\"ahle $\varepsilon = \frac{1}{2}$\\
+\begin{figure}[h!]
+\centering
 \begin{tikzpicture}
-\begin{axis}[legend style={draw none},axis equal,ymin = -2,xmin = 0,ymax = 2,xmax = 6,xtick ={1,2,3,4,5},ytick ={3,-3},yticklabels={D,-D},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={},extra tick style = {grid = major}]
+\begin{axis}[axis x line=center,
+    axis y line=center,axis equal,ymin = -2,xmin = 0,ymax = 2,xmax = 6,xtick ={1,2,3,4,5},ytick ={3,-3},yticklabels={D,-D},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={},extra tick style = {grid = major}]
 \addplot [black, mark = +] coordinates {( 1, -1)};
 \addplot [black, mark = +] coordinates {( 2, 1)};
 \addplot [black, mark = +] coordinates {( 3, -1)};
@@ -411,7 +429,10 @@ Sei $c \in \mathbb{R}$ beliebig, W\"ahle $\varepsilon = \frac{1}{2}$\\
 \addplot [black, mark = +] coordinates {( 5, -1)};
                
 \end{axis}
-  \end{tikzpicture}\\
+  \end{tikzpicture}
+\caption[Beschränkte aber nicht konvergente Folge]{$(-1)^n$ ist beschränkt aber konvergiert nicht}
+\end{figure}
+
 $2 = \abs{a_n-a_{n+1}} \leq \abs{a_n - c} + \abs{c - a_{n+1}} < \frac{1}{2}+ \frac{1}{2} =$\underline{$1$} $\lightning$
 \end{enumerate}
 \subsection[Satz: Beschränktheit und Konvergenz]{Satz}
@@ -606,8 +627,11 @@ Sei $(a_n)_{n \geq k}$ eine Folge. Dann sind äquivalent:\\
 \i $\forall \varepsilon > 0 \exists \ N -M(\varepsilon) \forall n,m \geq N: \abs{a_n - a_m} < \varepsilon$ (Cauchyfolge)\\
 Grenzwert muss nicht bekannt sein!
 \end{enumerate}
+\begin{figure}[h!]
+\centering
 \begin{tikzpicture}
-\begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = 0,ymax = 4,xmax = 7,xtick ={1, 6}, xticklabels={N(1),N($\varepsilon$)},ytick ={3,-3},yticklabels={D,-D},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={},extra tick style = {grid = major}]
+\begin{axis}[axis x line=center,
+    axis y line=center,axis equal,ymin = -4,xmin = 0,ymax = 4,xmax = 7,xtick ={1, 6}, xticklabels={N(1),N($\varepsilon$)},ytick ={3,-3},yticklabels={D,-D},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={},extra tick style = {grid = major}]
 \draw [dashed] (axis cs:-10,3)--(axis cs:10,3);
 \draw [dashed] (axis cs:-10,-3)--(axis cs:10,-3);
 \draw [red] (axis cs:-10,0.1)--(axis cs:10,0.1);
@@ -625,6 +649,8 @@ Grenzwert muss nicht bekannt sein!
 \draw [-> , red] (axis cs: 5,-2)--(axis cs: 5, 0.25);              
 \end{axis}
   \end{tikzpicture}
+\caption{Cauchy'sches Konvergenzkriterium}
+\end{figure}
 \subsection{Definition}
 \begin{enumerate}[a)]
 \i Sei $(a_i)_{i \geq k}$ eine Folge, $s_n \sum\limits_{i = k}^{n} a_i , n \geq k$ (Partialsummen der Folge)\\
@@ -699,10 +725,14 @@ $s_{2n-1} = -1 + \underbrace{(\frac{1}{2} - \frac{1}{3})}_{>0}+ \ldots + \underb
 Ist $k$ ungerade, so ist $s_k < s_l:$ Wähle n so, dass $2n-a \geq k, 2n \geq l$\\
 $s_k \underset{(2)}{\leq} s_{2n-1} \underset{\uparrow}{<} s_{2n} \underset{(1)}{\leq} s_l$\\
 \hspace*{0.75cm} $s_{2n} = s_{2n-1} + \frac{1}{2n}$\\
+\begin{figure}[h!]
+\centering \caption{Monotonie}
 \begin{tikzpicture}
-\begin{axis}[legend style={draw none},axis equal,ymin = -0.1,xmin = 0,ymax = 0,xmax = 7,xtick ={1,2,3,4,5,6}, xticklabels={$s_1$,$s_3$,$s_5$,$s_6$,$s_4$,$s_2$},ytick ={},yticklabels={},extra x ticks={0},extra x tick label={0},extra y ticks={},extra y tick labels={},extra tick style = {grid = major}]             
+\begin{axis}[height=3cm,width=9cm,axis x line=center,
+    axis y line=none,axis equal,ymin = 0,xmin = 0,ymax = 0,xmax = 7,xtick ={1,2,3,4,5,6}, xticklabels={$s_1$,$s_3$,$s_5$,$s_6$,$s_4$,$s_2$},ytick ={},yticklabels={}]             
 \end{axis}
-\end{tikzpicture}\\
+\end{tikzpicture}
+\end{figure}
 Abstand $s_{2n} - s_{2n-1} = \frac{1}{2n}$ geht gegen 0.\\
 $\sup \{s_{2n-1} : n \geq 1\} \\
 \inf\{s_{2n} : n \geq 1\} \\
@@ -814,6 +844,7 @@ Das \underline{Cauchy-Produkt}(\underline{Faltungsprodukt}) der beiden Reihen is
 Sind $\seriesnull{a_n}, \seriesnull{b_n}$ absolut konvergent Reihen mit Grenzwert $c ,d$, so ist das Cauchy Produkt auch absolut konvergent mit Grenzwert $c \cd d$. \begin{flushright}
 Beweis: \cite{k1}
 \end{flushright}
+
 \section{Potenzreihen}
 \subsection{Definition}
 Sei $(b_n)$ eine reelle Zahlenfolge, $a \in \Re$\\
@@ -841,15 +872,19 @@ Sei $ \seriesnull{b_n \cd x^n}$ eine Potenzreihe (um 0). Dann gibt es $R \in \R 
 konvergiert, dann auch $\seriesnull{b_n \cd x^n}$)\\
 Falls $R = \infty$, so hei\ss t das, dass Potenzreihe für alle $x \in \R$ absolut konvergiert.\\
 \i Für alle $x \in \R$ mit $\abs{x} > R$ divergiert $\seriesnull{b_n \cd x^n}$\\
+\begin{figure}[h!]
+\centering \caption[Konvergenzradien]{Konvergenzradien und ihre Aussagen}
 \begin{tikzpicture}
-\begin{axis}[legend style={draw none},axis equal,ymin = 0,xmin = -2,ymax = 0,xmax = 2,xtick ={-1, 0 , 1}, xticklabels={-R, 0 ,R},ytick ={},yticklabels={},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={},extra tick style = {dashed, grid = major}]   
-\addplot [black, mark = *, nodes near coords=div.,every node near coord/.style={anchor=-90}] coordinates {( -1.5, 0)};
-\addplot [black, mark = *, nodes near coords=konvgt.,every node near coord/.style={anchor=-90}] coordinates {( 0, 0)};
-\addplot [black, mark = *, nodes near coords=keine Aus.,every node near coord/.style={anchor=90}] coordinates {( 1, 0)};
-\addplot [black, mark = *, nodes near coords=keine Aus.,every node near coord/.style={anchor=90}] coordinates {( -1, 0)};
-\addplot [black, mark = *, nodes near coords=div.,every node near coord/.style={anchor=-90}] coordinates {( 1.5, 0)};     
+\begin{axis}[width =8cm,height=5cm,axis x line=center,
+    axis y line=none,axis equal,ymin = 0,xmin = -2,ymax = 0,xmax = 2,xtick ={-1, 0 , 1}, xticklabels={-R,  ,R},ytick ={},yticklabels={}]   
+\addplot [black, mark = *, nodes near coords=div.,every node near coord/.style={anchor=90}] coordinates {( -1.5, 0)};
+\addplot [black, mark = *, nodes near coords=konvgt.,every node near coord/.style={anchor=90}] coordinates {( 0, 0)};
+\addplot [black, mark = *, nodes near coords=keine Aus.,every node near coord/.style={anchor=-90}] coordinates {( 1, 0)};
+\addplot [black, mark = *, nodes near coords=keine Aus.,every node near coord/.style={anchor=-90}] coordinates {( -1, 0)};
+\addplot [black, mark = *, nodes near coords=div.,every node near coord/.style={anchor=90}] coordinates {( 1.5, 0)};     
 \end{axis}
-\end{tikzpicture}\\
+\end{tikzpicture}
+\end{figure}
 $(\lim\limits_{n \rightarrow \infty} \sqrt[n]{\abs{b_n}} = 0 \Rightarrow R = \infty)$
 (Für $\abs{x} = R$ lassen sich keine allgemeine Aussagen treffen).\\
 R hei\ss t der \underline{Konvergenzradius} der Potenzreihe $\seriesnull{b_n \cd x^n}$\\
@@ -906,16 +941,19 @@ $\exp(0) = \frac{0^n}{0!} = 1$\\
 Daraus folgt: 1 = $\exp(0) = \exp(x + (-x)) = \exp(x) \cd \exp(-x)$\\
 \fbox{$\exp(-x) = \frac{1}{\exp(x)}$ für alle x $\in \R$}$(\star)$\\
 Für alle x $\geq 0: \exp(x) > 0.$ Dann auch wegen $(\star)$\\
-\fbox{$\exp(x) > 0$ für alle $x \in \R$}\\
+\fbox{$\exp(x) > 0$ für alle $x \in \R$}
+\begin{figure}[h!]
+\centering
 \begin{tikzpicture}
-\begin{axis}[legend style={draw none},axis equal,ymin = 0,xmin = -2,ymax = 5,xmax = 2,xtick ={-1, 0 , 1}, xticklabels={},ytick ={},yticklabels={},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={},extra tick style = {dashed, grid = major}]   
+\begin{axis}[axis x line=center,
+    axis y line=center,axis equal,ymin = -0.1,xmin = -2,ymax = 5,xmax = 2]   
 \addplot gnuplot[id=e]{exp(x)};
-  
 \end{axis}
-\end{tikzpicture}\\
-
+\end{tikzpicture}
+\caption{Die Exponentialreihe}
+\end{figure}
 \i[c)] $\exp(1) = \seriesnull{\frac{1}{n!}} = e$\\
-\underline{Euler'sche Zahl}
+\uline{Euler'sche Zahl}\\
 Approximation $e$ durch
 $\seriesnull{\frac{1}{n!}}
 \begin{array}{lll}
@@ -923,7 +961,7 @@ m = 2 & 1 + 1 + \frac{1}{2} &= 2,5\\
 m = 3 & 2,5 + \frac{1}{6} &= 2,\bar{6}\\
 ...
 m = 6 & \frac{326}{126} + \frac{1}{720} &= 2,7180\bar{5}
-\end{array}$
+\end{array}$\\
 Es ist: $e \approx 2,71828\ldots$ (irrationale Zahl)\\
 $\seriesnull{\frac{1}{n!}}$ konvergiert schnell
 \bigskip\\
@@ -959,7 +997,7 @@ n- mal pro Jahr mit $\frac{100}{n}\%$ verzinsen. Am Ende desx Jahres $G (1 + \fr
 (stetige Verzinsung)\\
 $a\%$ statt $100\% \cd G e^\frac{a}{100}$ 
 \end{enumerate}
-\section{Reelle Funktionen und Grenzwerte von Funktionen}
+\section[Funktionen und Grenzwerte]{Reelle Funktionen und Grenzwerte von Funktionen}
 \subsection{Definition}
 \underline{Reelle Funktionen f in einer Variable} ist Abbildung\\
 $ f : D \rightarrow \R$, wobei $D \subset \R $ ($D$ = Definitionsbereich).\\
@@ -976,12 +1014,17 @@ a_n \not = 0 : n = $ Grad ($f$)
 f = 0 (Nullfunktion), Grad($f$) = $\infty$\\
 Grad 0: konstante Funktionen $\not = 0$\\
 Graph von $f$:\\
-z.B. $f(x) = x^3 - 2x^2 - x+2$\\
+\\
+\begin{figure}[h!]
+\centering
 \begin{tikzpicture}
-\begin{axis}[extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
-\addplot[solid] {x^3 - 2*x^2 - x+2};
+\begin{axis}[axis x line=center,
+    axis y line=center]   
+\addplot[samples=50] gnuplot[id=4punkt2a]{x**3 - 2*x**2 - x+2};
 \end{axis}
-\end{tikzpicture}\\
+\end{tikzpicture}
+\caption{$f(x) = x^3 - 2x^2 - x+2$}
+\end{figure}
 \i $f,g: D \rightarrow R$
 $(f \pm g)(x) := f(x) \pm g(x)$ für alle $x \in D$\\
 \underline{Summe}: Differenz, Produkt von f und g.\\
@@ -991,12 +1034,17 @@ Quotient von Polynomen = (gebrochen-)rationalen Funktionen\\
 $\abs{f}(x):= \abs{f(x)}$ Betrag von $f$. 
 \i Potenzreihe definiert Funktion auf ihrem Konvergenzintervall.\\
 z.B : $e^x = \sum\limits_{n=0}^{\infty} \frac{x^n}{n!}$\\
-Fkt. $\R \rightarrow \R$\\
+Fkt. $\R \rightarrow \R$
+\begin{figure}[h!]
+\centering
+\caption{$e^x$}
 \begin{tikzpicture}
-\begin{axis}[extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
-\addplot[solid] {e^x};
+\begin{axis}[axis x line=center,
+    axis y line=center]   
+\addplot[samples=50] gnuplot[id=4punkt2c]{exp(x)};
 \end{axis}
-\end{tikzpicture}\\
+\end{tikzpicture}
+\end{figure}
 \i Hintereinanderausführung von Funktionen:\\
 $f: D_1 \rightarrow \R, g: D_2 \rightarrow \R  f(D_1) \subset f(D_2)$, dann $ g \circ f : \\\begin{cases}
 D_1 \Rightarrow & \R \\
@@ -1006,19 +1054,18 @@ x \rightarrow & g(f(x))
 f,g : \R \rightarrow \R \\
 (g \circ f)(x) = g(e^x) = (e^x)^2 + 1 = e^2x +1\\
 (f \circ g)(x) = f(x^2 +1) = e^{x^2 +1}$
-\i \underline{Trigonometrische Funktionen: Sinus- und Cosinusfunktion (vgl. $\C$)}\\
+\i \underline{Trigonometrische Funktionen: Sinus- und Cosinusfunktion (vgl. $\C$)}
+\begin{figure*}[h!]
+\centering
 \begin{tikzpicture}
     \begin{axis}[
-    legend style={draw none},
+    axis x line=center,
+    axis y line=center,
     axis equal,ymin = -2,xmin = -2,ymax = 2,
     xmax = 2,xtick ={},
     xticklabels={},
     ytick ={0.65},
     yticklabels={s},
-    extra x ticks={0},
-    extra x tick label={},
-    extra y ticks={0},
-    extra y tick labels={},
     disabledatascaling,
     extra tick style = {grid = major}]
     \addplot [black, mark = none, nodes near coords=$\pi$,every node near coord/.style={anchor=180}] coordinates {( -1.5, 0)};
@@ -1035,18 +1082,25 @@ f,g : \R \rightarrow \R \\
     \cucubr{0,2}{1}{0}{37}{0.1}{0.1}{red}
     \end{axis}   
   \end{tikzpicture}
+  \caption{Bogenma\ss}
+  \end{figure*}
 \\$0 \geq x \geq 2\pi$ x = Bogenma\ss \ von $\varphi$ in Grad, so $x = \frac{\varphi}{360} \cd \pi\\
 \sin(x) = s , \cos(x) = c$
 Für beliebig $x \in \R$: \\
 Periodische Fortsetzung, d.h. $x \in \R . x = x' + k \cd 2\pi , k \in \Z , x' \in [0,2\pi[\\
 \sin(x) := \sin(x')\\
 \cos(x) := \cos(x')\\$
+\begin{figure}[h!]
+\centering
 \begin{tikzpicture}
-\begin{axis}[ymin=-1,ymax=1,xmin=-5,xmax=5, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\begin{axis}[ymin=-1,ymax=1,xmin=-5,xmax=5,axis x line=center,
+    axis y line=center]   
 \addplot[blue,samples=500] gnuplot[id=sin3]{sin(x)};
 \addplot[red,samples=500] gnuplot[id=cos]{cos(x)};
 \end{axis}
-\end{tikzpicture}\\
+\end{tikzpicture}
+\caption[Sinus und Cosinus]{sin(x) und cos(x)}
+\end{figure}
 $\abs{\cos(x)}, \abs{\sin(x)} \leq 1\\
 \cos^2(x) + \sin^2(x) = 1\\
 \cos(x) = \sin(x + \frac{\pi}{2})\\
@@ -1055,12 +1109,17 @@ $\abs{\cos(x)}, \abs{\sin(x)} \leq 1\\
 \underline{Tangens und Cotangensfunktion}\\
 $\tan(x) = \frac{\sin(x)}{\cos(x)}$ für alle $x \in \R$ mit $\cos(x) \not = 0$\\
 $\cot(x) = \frac{\cos(x)}{\sin(x)}$ für alle $x \in \R$ mit $\sin(x) \not = 0$\\
+\begin{figure}[h!]
+\centering
 \begin{tikzpicture}
-\begin{axis}[xmin=-3,xmax=3,ymin=-3,ymax=3, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}] 
+\begin{axis}[axis x line=center,
+    axis y line=center,xmin=-3,xmax=3,ymin=-3,ymax=3] 
 \addplot[blue,samples=100] gnuplot[id=tan]{tan(x)};
 \addplot[red,samples=100] gnuplot[id=cotan]{1/tan(x)};
 \end{axis}
 \end{tikzpicture}
+\caption[Tangens und Kotangens]{tan(x) and cot(x)}
+\end{figure}
 \end{enumerate}
 \subsection{Definition}
 Sei $D \subset \R , c \in \R$ hei\ss t \underline{Adharenzpunkt} von D, falls es eine Folge $(a_n)_n , a_n \in D$, mit $\lim\limits_{n \rightarrow \infty} a_n = c$ gibt.\\
@@ -1129,20 +1188,30 @@ Sei $(a_n)$ Folge mit $\lim\limits_{n \rightarrow \infty} a_n = c\\
 \lim\limits_{n \rightarrow \infty} f(a_n) &=& \lim\limits_{n \rightarrow \infty} b_k x^k + \ldots + b_1x + b_0 \\
 &=& b_k (\lim\limits_{n \rightarrow \infty} a_n)^k + b_{k-1} \cd (\lim\limits_{n \rightarrow \infty} a_n)^{k-1} + \ldots + b_0 & \text{Rechenregeln f\"ur Folgen, 2.8}\\
 &=& b_k \cd c^k + b_{k-1} \cd c^{k-1} + \ldots + b_1 \cd c + b_0 = f(c).
-\end{array}$\\
+\end{array}$
+\begin{figure}[h!]
+\centering
 \begin{tikzpicture}
-\begin{axis}[extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
-\addplot[black] {x^2};
+\begin{axis}[axis x line=center,
+    axis y line=center]   
+\addplot[samples=25] gnuplot[id=4punkt6a]{x**2};
 \end{axis}
 \end{tikzpicture}
+\caption{$x^2$}
+\end{figure}
 \i Sei $f(x) = \frac{x^2-1}{x-1},\\
 D = R \backslash \{1\}$\\
-Auf $D$ ist $f(x) = \frac{(x+1)(x-1)}{(x-1)} = (x+1) $\\
+Auf $D$ ist $f(x) = \frac{(x+1)(x-1)}{(x-1)} = (x+1) $
+\begin{figure}[h!]
+\centering
 \begin{tikzpicture}
-\begin{axis}[extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
-\addplot[black] {x+1};
+\begin{axis}[axis x line=center,
+    axis y line=center]   
+\addplot[samples=10] gnuplot[id=4punkt6b]{x+1};
 \end{axis}
-\end{tikzpicture}\\
+\end{tikzpicture}
+\caption{x+1}
+\end{figure}
 $\bar{D} = \R \\
 \lim\limits_{x \rightarrow 1} f(x) = $ ?\\
 Sei $(a_n)$ Folge mit $D = \R \backslash \{ 1\}$ mit $\lim\limits_{n \rightarrow \infty} a_n = 1\\
@@ -1154,51 +1223,68 @@ f(a_n) = a_n + 1\\
 0 & \text{für } x < 0
 \end{cases}
 D = \R \\$
+\begin{figure}[h!]
+\centering
 \begin{tikzpicture}
-\begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = -3,ymax = 4,xmax = 3, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = -3,ymax = 4,xmax = 3,axis x line=center,
+    axis y line=center]   
 \draw [red] (axis cs:0,1)--(axis cs:10,1);
 \draw [red] (axis cs:-10,0)--(axis cs:0,0);
 \end{axis}
-\end{tikzpicture}\\
+\end{tikzpicture}
+\caption{Abschnittsweise definierte Funktion}
+\end{figure}
 $\lim\limits_{x \rightarrow 0} f(x)$ ?\\
 $ a_n = \frac{1}{n}. \lim\limits_{} a_n =0.\\
 \lim\limits_{x \rightarrow \infty} f(a_n) = \lim\limits_{n \rightarrow \infty} 1 =\underline{1}\\
 a_n  =- \frac{1}{n}, \lim a_n = 0\\
 \lim\limits_{n \rightarrow \infty} f(a_n) = \lim\limits_{n \rightarrow \infty} 0 = \underline{0}.\\
 \lim\limits_{x \rightarrow 0}$ existiert nicht.
-\i $f(x) = \sin(\frac{1}{x}), D = \R \backslash \{0\}$\\
+\i $f(x) = \sin(\frac{1}{x}), D = \R \backslash \{0\}$
+\begin{figure}[h!]
+\centering
 \begin{tikzpicture}
-\begin{axis}[extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\begin{axis}[axis x line=center,
+    axis y line=center]   
 \addplot[samples=5000] gnuplot[id=sin2]{sin(1/x)};
 \end{axis}
 \end{tikzpicture}
+\caption{$\sin(\frac{1}{x})$}
+\end{figure}
 $a_n = \frac{1}{n \pi} , f(a_n) = \sin(n \pi) = 0 \\
 a'_n = \frac{1}{(2n + \frac{1}{2}\pi)} \rightarrow 0 , f(a'n) = \sin(2\pi n + \frac{\pi}{2}) = 1 \\
 \lim (a_n) = 0 \\
 \lim(f(a_n)) = \lim 0 = 0
 \lim(f(a'_n)) = \lim 1 = 1\\
 \lim(f(x))_{x \rightarrow 0}$ existiert nicht
-\i $f(x) = x \cd \sin(\frac{1}{2}), D = \R \backslash \{0\}$\\
+\i $f(x) = x \cd \sin(\frac{1}{x}), D = \R \backslash \{0\}$
+\begin{figure}[h!]
+\centering
 \begin{tikzpicture}
-\begin{axis}[ymin = -1,ymax = 1 , xmax = 1,xmin=-1, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\begin{axis}[ymin = -1,ymax = 1 , xmax = 1,xmin=-1,axis x line=center,
+    axis y line=center]   
 \addplot[samples=5000] gnuplot[id=sin1]{x* sin(1/x)};
 \end{axis}
-\end{tikzpicture}\\
+\end{tikzpicture}
+\caption{$x \cd \sin(\frac{1}{x})$}
+\end{figure}
 $\lim\limits_{x \rightarrow 0} f(x) = 0$ dann:\\
 $(a_n) \rightarrow 0 , a_n \in \R \backslash \{0\}\\
 \lim\limits_{n \rightarrow \infty} f(a_n) = \lim\limits_{n \rightarrow \infty} a_n \cd \sin(\frac{1}{a_n}) \underset{2.8g)}{=} 0$
 \end{enumerate}
 \subsection{Satz ($\varepsilon-\delta$)-Kriterium}
 $f: D \rightarrow \R, c \in \bar{D}.$ Dann gilt: $\lim\limits_{x \rightarrow c} f(x) = d \Leftrightarrow \forall \varepsilon > 0 \exists \delta \forall x \in D : \abs{x-c} \leq \delta \rightarrow \abs{f(x)-d} \leq \varepsilon$
+\begin{figure}[h!]
+\centering
+\caption{geometrische Darstellung des $\varepsilon-\delta$ Kriteriums}
 \begin{tikzpicture}
     \begin{axis} [
     ytick={1,1.5,2},
     yticklabels={$d-\varepsilon$,$d$,$d+\varepsilon$},
     xtick={3,3.5,4},
     xticklabels={$c-d$,$c$,$c+d$},
-    width=20cm, height=14cm,
-    axis x line=box,
-    axis y line=box,
+    axis x line=center,
+    axis y line=center,
     xmin=-1,xmax=5,ymin=-1,ymax=4]
     \draw[red] (axis cs:-1,1)--(axis cs: 5,1);
     \draw[red] (axis cs:-1,2)--(axis cs: 5,2);
@@ -1207,6 +1293,7 @@ $f: D \rightarrow \R, c \in \bar{D}.$ Dann gilt: $\lim\limits_{x \rightarrow c} 
     \addplot[samples=500] gnuplot{(2/(x+3))*sin(2*x)+(x/3.141592653)};
 :    \end{axis}
 \end{tikzpicture}
+\end{figure}
 \begin{proof}
 $\rightarrow:$ Angenommen falsch.\\
 Dass hei\ss t $\exists \varepsilon > 0$, so dass für alle $\delta >0$ (z.B $\delta = \frac{1}{n}$) ein $x_n \in D$ existiert mit $\abs{x_n -c} \leq \frac{1}{n}$ und $\abs{f(x_n) -d} > \varepsilon\\
@@ -1228,12 +1315,17 @@ Wenn man zeigen will, dass $\lim\limits_{x \rightarrow c} f(x)$ nicht existiert,
 \i Suche \underline{eine} \underline{bestimmte} Folge $(a_n), \lim\limits_{n \Rightarrow \infty} a_n = c,$ so dass $\lim\limits_{x \rightarrow \infty} f(a_n)$ nicht existiert.
 \i Suche zwei Folgen $(a_n), (b_n), \lim\limits_{x \rightarrow \infty} a_n = c, \lim\limits_{x \rightarrow \infty} b_n = c$ und $\lim\limits_{x \rightarrow \infty} f(a_n) \not = \lim\limits_{x \rightarrow \infty} f(b_n)$
 \end{enumerate}
+\begin{figure*}[h!]
+\centering
 \begin{tikzpicture}
-\begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = -3,ymax = 4,xmax = 3, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = -3,ymax = 4,xmax = 3,axis x line=center,
+    axis y line=center]   
 \draw [red] (axis cs:0,1)--(axis cs:10,1);
 \draw [red] (axis cs:-10,0)--(axis cs:0,0);
 \end{axis}
 \end{tikzpicture}
+\caption{Abschnittsweise definierte Funktion}
+\end{figure*}
 $a_n = (-1)^n \cd \frac{1}{n}\\
 \lim\limits_{n \rightarrow \infty} a_n = 0\\
 f(a_n) = (1 0 1 0 1 0 \ldots)\\
@@ -1277,23 +1369,28 @@ D = \R \setminus \{0\}, c = 0 \in \bar{D}\\
 \lim\limits_{x \rightarrow 0} f(x)$ existiert nicht.\\
 Falls $\lim\limits_{x \rightarrow c^+}$ und$ \lim\limits_{x \rightarrow c^-}$ existieren\\
 \underline{und} $\lim\limits_{x \rightarrow c^+} f(x) = \lim\limits_{x \rightarrow c^-} = d$\\
-so exisitiert $\lim\limits_{x \rightarrow c} f(x) = d$.\\
+so exisitiert $\lim\limits_{x \rightarrow c} f(x) = d$.
+\begin{figure}[h!]
 \begin{minipage}[t]{\textwidth}
 \begin{minipage}[t]{.5\textwidth}
 \begin{tikzpicture}
-\begin{axis}[ymin = -1,ymax = 1 , xmax = 5,xmin=-5, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\begin{axis}[ymin = -1,ymax = 1 , xmax = 5,xmin=-5,axis x line=center,
+    axis y line=center]   
 \addplot[samples=5000] gnuplot[id=abgefahrenersinus]{sin(2*x**2) * sin(x) * sin(0.25*x)};
 \end{axis}
 \end{tikzpicture}
 \end{minipage}%
 \begin{minipage}[t]{.5\textwidth}
 \begin{tikzpicture}
-\begin{axis}[domain= -1:100,ymin = -0.5,ymax = 3, extra x ticks={0},xmin =0,xmax=100,extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\begin{axis}[domain= -1:100,ymin = -0.5,ymax = 3, extra x ticks={0},xmin =0,xmax=100,axis x line=center,
+    axis y line=center]   
 \addplot[samples=1000] gnuplot[id=geradeasymptote]{(2*x**2+2)/(x**2 + x + 3)};
 \end{axis}
 \end{tikzpicture}
 \end{minipage}
 \end{minipage}
+\caption{Grenzwerte gegen einen Festen Wert}
+\end{figure}
 Grenzwert: $d \in \R$
 \subsection{Definition}
 $D = <b, \infty[ , f : D \rightarrow \R$
@@ -1304,9 +1401,10 @@ $\forall \varepsilon > 0 \exists M = M(\varepsilon) \forall x \geq M: \abs{f(x) 
 (Analog : $\lim\limits_{x \rightarrow - \infty}f(x) = d$)
 \subsection[Beispiel]{Beispiel}
 \begin{enumerate}[a)]
-\i $\lim\limits_{x \rightarrow \infty} \frac{1}{x} = 0$ \begin{minipage}[c]{\textwidth}
+\i $\lim\limits_{x \rightarrow \infty} \frac{1}{x} = 0$\qquad \begin{minipage}[c]{\textwidth}
 \begin{tikzpicture}
-\begin{axis}[width =5cm,height=3cm, ymin = -5,ymax = 5 , xmax = 5,xmin=-5,extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}, ytick ={0}]   
+\begin{axis}[width =5cm,height=3cm, ymin = -5,ymax = 5 , xmax = 5,xmin=-5,axis x line=center,
+    axis y line=center]   
 \addplot[samples=100] gnuplot[id=1durchx]{x**-1};
 \end{axis}
 \end{tikzpicture}
@@ -1334,10 +1432,12 @@ $\forall L > 0 \exists \underset{= \delta (L)}{\delta > 0} \forall x \in D : \ab
 \i $<b, \infty[ \supset D, f : D \rightarrow \R, $ \underline{f geht gegen $\infty$, für x gegen $\infty$}: $\lim\limits_{x \rightarrow \infty} f(x) = \infty$,\\
 falls gilt: \\
 $\forall L > 0 \exists M > 0 \forall x \in D, x \geq M, f(x) \geq L$.\\
+\begin{figure}[h!]
 \begin{minipage}[t]{\textwidth}
 \begin{minipage}[t]{.5\textwidth}
 \begin{tikzpicture}
-\begin{axis}[ymin = -2,ymax = 2 , xmax = 2,xmin=-2,extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\begin{axis}[ymin = -2,ymax = 2 , xmax = 2,xmin=-2,axis x line=center,
+    axis y line=center]   
 \addplot[samples=10] gnuplot[id=gerade413]{(1.33333333333)*x - 1};
 \draw[dashed] (axis cs: 0,1)--(axis cs: 1.5,1);
 \draw[dashed] (axis cs: 1.5,0)--(axis cs: 1.5,1);
@@ -1352,37 +1452,44 @@ $\forall L > 0 \exists M > 0 \forall x \in D, x \geq M, f(x) \geq L$.\\
 \end{minipage}%
 \begin{minipage}[t]{.5\textwidth}
 \begin{tikzpicture}
-\begin{axis}[ymin = -5,ymax = 5 , xmax = 5,xmin=-5, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\begin{axis}[ymin = -5,ymax = 5 , xmax = 5,xmin=-5,axis x line=center,
+    axis y line=center]   
 \addplot[samples=500] gnuplot[id=1durchxabs]{abs(x)**-1};
 \end{axis}
 \end{tikzpicture}
 \end{minipage}
 \end{minipage}
+\caption{Funktionen $\lim\limits_{x \rightarrow \infty} = \infty$}
+\end{figure}
 \i[](Entsprechend:
 $\lim\limits_{x \rightarrow c} f(x) = - \infty \begin{minipage}[c]{\textwidth}
 \begin{tikzpicture}
-\begin{axis}[width =5cm,height=3cm, ymin = -5,ymax = 5 , xmax = 5,xmin=-5,extra x ticks={0},xticklabels={}, extra x tick label={c},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}, ytick ={0}]   
+\begin{axis}[width =5cm,height=3cm, ymin = -5,ymax = 5 , xmax = 5,xmin=-5,axis x line=center,
+    axis y line=center]   
 \addplot[samples=100] gnuplot[id=1durchx]{-1 * abs(x)**-1};
 \end{axis}
 \end{tikzpicture}
 \end{minipage}\\
 \lim\limits_{x \rightarrow \infty} f(x) = - \infty \begin{minipage}[c]{\textwidth}
 \begin{tikzpicture}
-\begin{axis}[width =5cm,height=3cm, ymin = -5,ymax = 5 , xmax = 5,xmin=-5,extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}, ytick ={0}]   
+\begin{axis}[width =5cm,height=3cm, ymin = -5,ymax = 5 , xmax = 5,xmin=-5,axis x line=center,
+    axis y line=center]   
 \addplot[samples=100] gnuplot[id=1durchx]{-1 *x**3};
 \end{axis}
 \end{tikzpicture}
 \end{minipage}\\
 \lim\limits_{x \rightarrow -\infty} f(x) =  \infty \begin{minipage}[c]{\textwidth}
 \begin{tikzpicture}
-\begin{axis}[width =5cm,height=3cm, ymin = -1,ymax = 5 , xmax = 5,xmin=-5,extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}, ytick ={0}]   
+\begin{axis}[width =5cm,height=3cm, ymin = -1,ymax = 5 , xmax = 5,xmin=-5,axis x line=center,
+    axis y line=center]   
 \addplot[samples=100] gnuplot[id=1durchx]{x**2};
 \end{axis}
 \end{tikzpicture}
 \end{minipage}\\
 \lim\limits_{x \rightarrow -\infty} f(x) = - \infty$ \begin{minipage}[c]{\textwidth}
 \begin{tikzpicture}
-\begin{axis}[width =5cm,height=3cm, ymin = -5,ymax = 1 , xmax = 5,xmin=-5,extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}, ytick ={0}]   
+\begin{axis}[width =5cm,height=3cm, ymin = -5,ymax = 1 , xmax = 5,xmin=-5,axis x line=center,
+    axis y line=center]   
 \addplot[samples=100] gnuplot[id=1durchx]{-1 *x**2};
 \end{axis}
 \end{tikzpicture}
@@ -1396,12 +1503,17 @@ falls $\lim\limits_{x \rightarrow c} f(x) = \infty$ oder $-\infty$, so ist $\lim
 \i $c \in \bar{D} \supset \R$.\\
 Falls $\lim\limits_{x \rightarrow c} f(x) = 0$ und falls $s > 0$\\
 existiert mit $f(x) > 0$ für alle $x \in [c-s,c+s], (f(x) < 0)$ \\
-dann ist $\lim\limits_{x \rightarrow c} \frac{1}{f(x)} = \infty (-\infty)$\\
+dann ist $\lim\limits_{x \rightarrow c} \frac{1}{f(x)} = \infty (-\infty)$
+\begin{figure*}[h!]
+\centering
 \begin{tikzpicture}
-\begin{axis}[ymin = -1,ymax = 1 , xmax = 1,xmin=-1, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}]   
+\begin{axis}[ymin = -1,ymax = 1 , xmax = 1,xmin=-1,axis x line=center,
+    axis y line=center]   
 \addplot[samples=5000] gnuplot[id=sin1]{x* sin(1/x)};
 \end{axis}
-\end{tikzpicture}\\
+\end{tikzpicture}
+\caption{$sin(\frac{1}{x}$)}
+\end{figure*}
 \i Falls $\lim\limits_{x \rightarrow \infty} =0$ und falls $T >0$ existiert mit $f(x) > 0 f.a x \geq T ,$ so $(f(x) < 0)$\\
 ist $\lim\limits_{x \rightarrow \infty} \frac{1}{f(x)} = \infty (- \infty)$\\
 (Entsprechend für $\lim\limits_{x \rightarrow - \infty})$
@@ -1420,7 +1532,8 @@ ist $\lim\limits_{x \rightarrow \infty} \frac{1}{f(x)} = \infty (- \infty)$\\
 \i $\lim\limits_{x \rightarrow \infty} sin(x)$ existiert nicht
 \begin{minipage}[c]{\textwidth}
 \begin{tikzpicture}
-\begin{axis}[ymin = -1,ymax = 1 , xmax = 5,xmin=-5,ytick ={-1,0,1}, extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={0},extra tick style = {grid = major}, width = 5cm, height = 3cm]   
+\begin{axis}[ymin = -1,ymax = 1 , xmax = 5,xmin=-5,ytick ={-1,0,1},axis x line=center,
+    axis y line=center, width = 5cm, height = 3cm]   
 \addplot[samples=100] gnuplot[id=sin417]{sin(x)};
 \end{axis}
 \end{tikzpicture}
