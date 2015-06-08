@@ -5,22 +5,25 @@
 \listoffigures
 \clearpage
 \section{Komplexe Zahlen}
+\renewcommand{\uline}[1]{\emph{#1}}
+\renewcommand{\underline}[1]{\emph{#1}}
+\renewcommand{\footnoterule}{}
 \subsection{Definition}
 Menge der komplexen Zahlen $\C =\{a+bi : a,b \in \R\}$
-
-\uline{Addition:}\qquad\ $(a+bi) + (c+di) = (a+c)+(b+d)i$
-
-\uline{Multiplikation:}$(a+bi)\hspace*{3pt} \cd\hspace*{3pt}  (c+di) = (ac -bd) + (ad+bc)i$\\
-\hspace*{3.35cm}(Ausmultiplizieren und $i^2 =-1$ beachten)\\
-$\R \subset \C$\\
-$a \in \R : a + 0 \cd i = a$\\
-Rein imagin\"are Zahlen : $bi , b \in \R, (0 + bi)$\\
-i \underline{imagin\"are Einheit}\\
-$z = a+bi \in \C\\
-a = \mathfrak{R}(z)$ Realteil von $z (Re(z))\\
-b = \mathfrak{I}(z)$ Imagin\"arteil von $z (Im(z))\\
-\bar{z} = a - bi (= a + (-b)i)$\\
-Die zu $z$ \uline{konjugiert komplexe Zahl}
+\begin{table*}[h!]
+\centering
+$\begin{array}{rl}
+\text{\quad\uline{Addition:}}& (a+bi) + (c+di) = (a+c)+(b+d)i\\
+\text{\uline{Multiplikation:}}& (a+bi) \cd  (c+di) = (ac -bd) + (ad+bc)i\footnotemark
+\end{array}$\end{table*}
+\footnotetext{Ausmultiplizieren und $i^2 =-1$ beachten}\\
+$\R \subset \C ,\ a \in \R : a + 0 \cd i = a$.
+Rein imagin\"are Zahlen: $b \cd i , b \in \R,\ (0 + bi)$\\
+$i$ \underline{imagin\"are Einheit}.
+$z = a+bi \in \C.\\
+a = \mathfrak{R}(z)$ Realteil von $z\ (Re(z)).\\
+b = \mathfrak{I}(z)$ Imagin\"arteil von $z\ (Im(z)).\\
+\bar{z} = a - bi\ (= a + (-b)i)$ Die zu $z$ \uline{konjugiert komplexe Zahl}.
 \subsection{Veranschaulichung}
 \begin{figure}[h!]
 \begin{minipage}[h]{0.5\textwidth}
@@ -44,7 +47,7 @@ Die zu $z$ \uline{konjugiert komplexe Zahl}
       \addplot [black, mark = *, nodes near coords=$a+bi$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
     \end{axis}
   \end{tikzpicture}
-\end{minipage}
+\end{minipage}%
 \begin{minipage}[h]{0.5\textwidth}
 \begin{tikzpicture}
     \begin{axis}[
@@ -76,34 +79,42 @@ Die zu $z$ \uline{konjugiert komplexe Zahl}
 \end{figure}
 \subsection{Rechenregeln in $\C$}
 \begin{enumerate}
-\item[a)]Es gelten alle Rechenregeln wie in $\R$.\\ (z.B Kommutativit\"at bzgl. $+,\cd:z_1 + z_2 = z_2 + z_1$ und $z_1 \cd z_2 = z_2 \cd z_1$)\\
+\item[a)]Es gelten alle Rechenregeln wie in $\R$.\\
+(z.B Kommutativit\"at bzgl. $+,\cd:z_1 + z_2 = z_2 + z_1$ und $z_1 \cd z_2 = z_2 \cd z_1$)\\
 \underline{Inversenbildung bzgl. $\cd$}:\\
-$z = a+bi \not = 0,$ d.h $a \not = 0$ oder $b \not = 0\\
-z^{-1} = \frac{1}{z} = \frac{a}{a^2 + b^2} - \frac{b}{a^2+b^2}i\\
-z \cd z^{-1} = 1\\
-\text{\underline{Beispiel:}}
-\begin{array}{lcr}
-\frac{5-7i}{3+2i} &=& (5-7i) \cd (3+2i)^{-1}\\
+$z = a+bi \not = 0,$ d.h $a \not = 0$ oder $b \not = 0:$\\
+\begin{align*}
+z^{-1} &= \frac{1}{z} = \frac{a}{a^2 + b^2} - \frac{b}{a^2+b^2}i\\
+z \cd z^{-1} &= 1\bigskip
+\end{align*}
+\begin{minipage}[t]{\textwidth}
+$\begin{array}{lcl}
+\text{\underline{Beispiel: }}\frac{5-7i}{3+2i} &=& (5-7i) \cd (3+2i)^{-1}\\
 &=& (5-7i) \cd (\frac{3}{13} -\frac{2}{13}i)\\
 &=& (\frac{15}{13}-\frac{14}{13}) +(-\frac{10}{13} -\frac{21}{13})i\\
 &=&\frac{1}{13} - \frac{31}{13}i
-\end{array}$\\
-Speziell: $(bi)^{-1} = \frac{1}{bi} = -\frac{1}{b}i$ ; insbesondere: $\frac{1}{i} = -i$
-\item[b)]$z,z_1,z_2 \in \C$:
-\begin{center}
-$\bar{\bar{z}}=z$\\
-$\overline{z_1+z_2} = \bar{z_1} + \bar{z_2}$\\
-$\overline{z_1\cd z_2} = \bar{z_1} \cd \bar{z_2}$\\
-\end{center}
+\end{array}$\bigskip\\
+\end{minipage}
+Speziell: $(bi)^{-1} = \frac{1}{bi} = -\frac{1}{b}i$ \\
+insbesondere:$\frac{1}{i} = -i$
+\item[b)]
+$\begin{array}{llcl}
+z,z_1,z_2 \in \C:&
+\bar{\bar{z}}&=&z\\
+&\overline{z_1+z_2} &=& \bar{z_1} + \bar{z_2}\\
+&\overline{z_1\cd z_2} &=& \bar{z_1} \cd \bar{z_2}\\
+\end{array}$
 \end{enumerate}
 \subsection{Definition Absolutbetrag}
 \begin{enumerate}
-\item[a)] \underline{Absolutbetrag} von $z =a+bi \C:\\
-\abs{z} = +\underbrace{\sqrt{a^2 +b^2}}_{\in \R, \geq 0}\\
-$\fbox{$a^2 + b^2 = z \cd \bar{z}$}
+\item[a)] \underline{Absolutbetrag} von $z =a+bi \in \C:
+\abs{z} = +\underbrace{\sqrt{a^2 +b^2}}_{\in \R, \geq 0}$\\
+\begin{equation*}
+\boxed{a^2 + b^2 = z \cd \bar{z}}
+\end{equation*}
 
-$\abs{z}= +\sqrt{z \cd \bar{z}}\\
-(a+bi) \cd (a-bi) = (a^2 +b^2) + 0i = a^2 + b^2$\\
+$\abs{z}= +\sqrt{z \cd \bar{z}}$\\
+$$(a+bi) \cd (a-bi) = (a^2 +b^2) + 0i = a^2 + b^2$$\\
     $
   \begin{array}{lcl}
   \lvert z \rvert &=& \text{Abstand von $z$ zu 0}\\
@@ -135,18 +146,20 @@ $\abs{z}= +\sqrt{z \cd \bar{z}}\\
   \end{tikzpicture}
   \caption[Absolutbetrag]{Graphische Definition des Absolutbetrages}
   \end{figure}
-  \item[b)]Abstand von $z_1,z_2 \in \C:\\
-  d(z_1,z_2):= \mid z_1 - z_2 \mid$\\
+  \item[b)]Abstand von $z_1,z_2 \in \C:$\\
+ $$ d(z_1,z_2):= \abs{z_1 - z_2}$$\\
 \end{enumerate}
 \subsection{Rechenreglen f\"ur den Absolutbetrag}
-\begin{enumerate}
-\item[] $z,z_1,z_2 \in \C$
-\item[a)]$ \mid z \mid = 0 \Leftrightarrow z =0$
-\item[b)]$ \mid z_1 \cd z_2 \mid = \abs{z_1} \cd \abs{z_2}$\\
-\item[c)]$ \abs{z_1 + z_2} \leq \abs{z_1} + \abs{z_2}\\
-\abs{\abs{z_1} -\abs{z_2}} \leq \abs{z_1 - z_2} \leq \abs{z_1} + \abs{z_2}\\
-\abs{-z} = \abs{z}$
-\end{enumerate}
+\begin{align}
+\abs{z} = 0 &\Leftrightarrow z =0 \tag{a}\\\notag \\
+\mid z_1 \cd z_2 \mid &= \abs{z_1} \cd \abs{z_2} \tag{b}\\\notag \\
+\begin{split}
+\abs{z_1 + z_2} &\leq \abs{z_1} + \abs{z_2}\\
+\abs{\abs{z_1} -\abs{z_2}} \leq \abs{z_1 - z_2} &\leq \abs{z_1} + \abs{z_2}\\
+\abs{-z} &= \abs{z}
+\end{split}\tag{c}
+\end{align}
+\newpage
 \subsection{Darstellung durch Polarkoordinaten}
 \begin{enumerate}
 \item[a)]
@@ -215,7 +228,7 @@ r &=& \abs{z} = + \sqrt{a^2+b^2}\\
 a &=& \abs{z} \cd \cos(\varphi)\\
 b &=& \abs{z} \cd \sin(\varphi)\\
 z &=& \abs{z} \cd \cos(\varphi) + i \cd \abs{z} \cd \sin(\varphi)\\
-z &=& \abs{z}( \cd \cos(\varphi) + i \cd \sin(\varphi))\\
+z &=& \abs{z} \cd ( \cos(\varphi) + i \cd \sin(\varphi))\\
 \end{array}\\
 \text{Darstellung von $z$ durch Polarkoordinate}$
 \item[\underline{Beispiel:}]\begin{enumerate}
@@ -225,14 +238,14 @@ z &=& \abs{z}( \cd \cos(\varphi) + i \cd \sin(\varphi))\\
 \abs{z_2} = \sqrt{5}\\
 z_2 = \sqrt{5} \cd (\frac{2}{\sqrt{5} + \frac{1}{\sqrt{5}}}i)$
 Suche $\varphi$ mit $0 \leq 2\pi$ mit $\cos(\varphi) =\frac{2}{\sqrt{5}}, \sin(\frac{1}{\sqrt{5}} z_2 \approx \sqrt{5} \cd (\cos(0,46) + i \cd \sin(0,46))$
-\item[c)] Die komplexen Zahlen von Betrag 1 entsprechen den Punkten auf Einheitskreis:$\cos(\varphi) + i \sin(\varphi), 0  \leq \varphi \leq 2\pi$
+\item[c)] Die komplexen Zahlen von Betrag 1 entsprechen den Punkten auf Einheitskreis: \\$\cos(\varphi) + i \sin(\varphi), 0  \leq \varphi \leq 2\pi$
 \end{enumerate}
 \end{enumerate}
 \subsection{Additionstheoreme der Trigonometrie}
-\begin{enumerate}
-\item[a)]$\sin(\varphi + \psi) = \sin(\varphi) \cd \cos(\psi) + \cos(\varphi) \cd \sin(\psi)$
-\item[b)]$\cos(\varphi + \psi) = \cos(\varphi) \cd \cos(\psi) - \sin(\varphi) \cd sin(\varphi) \cd \sin(\psi)$
-\end{enumerate}
+\begin{align}
+\sin(\varphi + \psi) &= \sin(\varphi) \cd \cos(\psi) + \cos(\varphi) \cd \sin(\psi) \tag{a}\\
+\cos(\varphi + \psi) &= \cos(\varphi) \cd \cos(\psi) - \sin(\varphi) \cd sin(\varphi) \cd \sin(\psi \tag{b}
+\end{align}
 \subsection{geometrische Interpretation der Multiplikation}
 \begin{enumerate}
 \item[a)]$w = \abs{w} \cd (\cos(\varphi) + i \cd \sin(\varphi))\\
@@ -292,7 +305,7 @@ $\abs{e^{i\varphi}} = + \sqrt{cos^2(\varphi) + \sin^2(\varphi)}=1\\
 e^{i\varphi},0 \leq \varphi \leq 2\pi,$ Punkte auf dem Einheitskreis.\\
 $e^{i\pi} = -1$\\
 \fbox{$e^{i\pi} +1 =0$} Euler'sche Gleichung
-\subsection[Satz: Komplexe Wurzeln]{Satz}
+\subsection[Satz: Komplexe Wurzeln]{Satz}\label{sec:1.10}
 Sei $w = \mid w \mid \cd ( \cos(\varphi) + i \cd \sin(\varphi)) \in \C$\\
 \begin{enumerate}
 \item[a)] Ist $m \in \Z$, so ist $w^m = \mid w \mid^m \cd ( \cos(m \cd \varphi) + i \cd \sin(m \cd \varphi))\\
@@ -313,16 +326,16 @@ w^{-1} = \frac{1}{w} = \frac{1}{\mid w \mid^2 \cd ( \cos^2(\varphi) + i \cd \sin
 Quadratwurzel aus $i:\\
 \abs{i} =1\\
 \begin{array}{llcl}
-\text{Nach 1.10 b):} &\sqrt{i}&=& \pm (\cos(\frac{\pi}{4} + i \cd \sin(\frac{\pi}{4}))\\
+\text{Nach \ref{sec:1.10} b):} &\sqrt{i}&=& \pm (\cos(\frac{\pi}{4} + i \cd \sin(\frac{\pi}{4}))\\
 & &=& \pm (\frac{1}{2}\sqrt{2} + \frac{1}{2}\sqrt{2}i)
 \end{array}
 $
 \subsection{Bemerkung}
-Nach 1.10 hat jedes Polynom\\
+Nach \ref{sec:1.10} hat jedes Polynom\\
 $ x^{n} -w$ ($w \in \C)$\\
 eine Nullstelle in $\C$ (sogar n verschiedene wenn $w \not = 0$)\\
 Es gilt sogar : \underline{Fundamentalsatz der Algebra}\\
-\hspace*{7.5cm} (C. F. Gau\ss\ 1777-1855)\\
+\hfill (C. F. Gau\ss\ 1777-1855)\\
 Jedes Polynom $a_n x^n + \ldots + a_0$\\
 mit irgendwelchen Koeffizienten: $a_n \ldots a_0 \in \C$ hat Nullstelle in $\C$
 \section{Folgen und Reihen}
@@ -383,7 +396,7 @@ c = \lim_{n \Rightarrow \infty} a_n $ (oder einfach $c = \lim a_n$)\\
 c hei\ss t \uline{Grenzwert} (oder Limes) der Folge ($a_n$)\\
 (Grenzwert h\"angt nicht von endlich vielen Anfangsgliedern ab (der Folge))\\
 Eine Folge die gegen 0 konvertiert, hei\ss t \uline{Nullfolge}\\
-\subsection{Beispiele}
+\subsection{Beispiele}\label{sec:2.5}
 \begin{enumerate}
 \item[a)]$r \in \R : a_n = r$ f\"ur alle $n \geq 1$\\
 $(r,r,\ldots)\\
@@ -435,8 +448,8 @@ Sei $c \in \mathbb{R}$ beliebig, W\"ahle $\varepsilon = \frac{1}{2}$\\
 
 $2 = \abs{a_n-a_{n+1}} \leq \abs{a_n - c} + \abs{c - a_{n+1}} < \frac{1}{2}+ \frac{1}{2} =$\underline{$1$} $\lightning$
 \end{enumerate}
-\subsection[Satz: Beschränktheit und Konvergenz]{Satz}
-Jede konvergente Folge ist beschr\"ankt. (Umkehrung nicht: $2.5_{e)}$)\\
+\subsection[Satz: Beschränktheit und Konvergenz]{Satz}\label{sec:2.6}
+Jede konvergente Folge ist beschr\"ankt. (Umkehrung nicht: \ref{sec:2.5}e))\\
 \begin{proof}
 Sei $c= \lim a_n$, w\"ahle $\varepsilon =1$,\\
 Es existiert $n(1) \in \N$ mit $\abs{a_n -c} < 1$ f\"ur alle $n \geq n(1)$\\
@@ -446,12 +459,12 @@ M = max \{ \abs{a_k},\abs{a_{k+1}},\ldots,\abs{a_{n(1)-1)}, 1 + \abs{c} \}\\
 $ Dann: $\abs{a_n} \leq M$ f\"ur alle $n \geq k\\
 -M \leq a_n \leq M$
 \end{proof}
-\subsection{Bemerkung}
+\subsection{Bemerkung}\label{sec:2.7}
 \begin{enumerate}
 \item[a)]$(a_n)_{n \geq 1}$ Nullfolge $\Leftrightarrow (\abs{a_n})_{n \geq 1}$ Nullfolge ($\abs{a_n - 0} = \abs{a_n} - \abs{\abs{a_n}-0}}$
 \item[b)]$\lim_{n\Rightarrow\infty} a_n = c \Leftrightarrow (a_n -c)_{n \geq k}$ ist Nullfolge $\Leftrightarrow (\abs{a_n -c})_{n \geq k}$ ist Nullfolge
 \end{enumerate}
-\subsection{Satz (Rechenregeln f\"ur konvergente Folgen)}
+\subsection{Satz (Rechenregeln f\"ur konvergente Folgen)}\label{sec:2.8}
 Seien $(a_n)_{n \geq k}$ und $(b_n)_{n \geq k}$ konvergente Folgen, $\lim a_n = c, \lim b_n = d.$\\
 \begin{enumerate}
 \item[a)]$\lim \abs{a_n} = \abs{c}$
@@ -459,7 +472,7 @@ Seien $(a_n)_{n \geq k}$ und $(b_n)_{n \geq k}$ konvergente Folgen, $\lim a_n = 
 \item[c)]$\lim (a_n \cd b_n) = c \cd d$\\
 insbesondere $\lim(r \cd b_N) = r \cd \lim b_n = r \cd d$ f\"ur jedes $r \in \R.$
 \item[d)]Ist $b_n \not = 0$ f\"ur alle $n \geq k$ und ist $ d \not = 0$, so $\lim (\frac{a_n}{k_n}) = \frac{c}{d}$
-\item[e)]Ist $(b_n)$ Nullfolge, $b_n \not = 0$ f\"ur alle $n \geq k$, so konvergiert $(\frac{1}{b_n}$ \underline{nicht}!.
+\item[e)]Ist $(b_n)$ Nullfolge, $b_n \not = 0$ f\"ur alle $n \geq k$, so konvergiert $(\frac{1}{b_n}$ \underline{nicht}!).
 \item[f)]Existiert $m \geq k$ mit $a_n \leq b_n$ f\"ur alle $n \geq m$, so ist $c \leq d$.
 \item[g)] Ist $(c_n)_{n \geq k}$ Folge und existiert $ m \geq k$ mit $0 \leq c_n \leq a_n$ f\"ur alle $n \geq m$ und ist ($a_n$) eine Nullfolge, so ist auch $(c_n)$ eine Nullfolge.
 \item[h)]Ist $(c_n)_{n \geq l}$ beschr\"ankte Folge und ist $(a_n)_{n \geq k}$ Nullfolge, so ist auch $(c_n \cd a_n)_{n \geq k}$ Nullfolge.\\
@@ -482,13 +495,13 @@ $= \abs{c -a_n - d +b_n} \leq \abs{c-a_n} + \abs{d -b_n}\\
 \leq \frac{\delta}{2} + \frac{\delta}{2} = \delta \lightning$
 \end{enumerate}
 \end{proof}
-\subsection[Satz: Kriterien für Nullfolgen]{Satz}
+\subsection[Satz: Kriterien für Nullfolgen]{Satz}\label{sec:2.9}
 \begin{enumerate}
 \item[a)] $0 \leq q \leq 1$ Dann ist $(q^n)_{n \geq 1}$ Nullfolge
 \item[b)]Ist $m \in \N$, so ist $((\frac{1}{n^m})_{n \geq 1}$ Nullfolge.
 \item[c)]Sei $0 \leq q < 1, m \in \N$\\
 Dann ist ($n^m \cd q^n)_{n \geq 1}$ Nullfolge
-\item[d)] Ist $r > 1, m \in \N$, so ist $(\frac{n^m}{r^n}_{r \geq 1}$ eine Nullfolge
+\item[d)] Ist $r > 1, m \in \N$, so ist $(\frac{n^m}{r^n}_{r \geq 1}$ eine Nullfolge)
 \item[e)] $P(x) = a_m \cd x^m + \ldots a_0, a_i \in \R, a_m \not = 0\\
 Q(x) = b_e \cd x^e + \ldots b_0 , b_i \in \R , b_e \not = 0$\\
 Sei $Q(n) \not = 0 $ f\"ur alle $n \geq k.$\\
@@ -505,14 +518,14 @@ a) Richtig für $q > 0$. Sei jetzt $q > 0$.\\
 Sei $\varepsilon > 0$. Mathe I: Es gibt ein $n(\varepsilon) \in \N$ mit $q^{n(\varepsilon} < \varepsilon.$\\
 Für alle $n \geq n(\varepsilon)$ gilt: $\abs{q^{n} -o} = q^n < q^{n(\varepsilon)} < \varepsilon.$\\
 \end{proof}
-\i 2.5.c): $\frac{1}{n}_{n \geq 1}$ Nullfolge Beh. folgt mit 2.8.c)\\
+\i \ref{sec:2.5}c): $\frac{1}{n}_{n \geq 1}$ Nullfolge Beh. folgt mit 2.8.c)\\
 \i Richtig für $q=0$. Sei jetzt $q > 0$.\\
 \underline{1.Fall}: m= 1\\
 $\frac{1}{q} = 1+t, t > 0.\\
 (t+1)^n \underbrace{=}_{Binomialsatz} 1 + nt + \frac{n(n+1)}{2}t^2 > \frac{n(n-1)}{2}t^2$ für alle $n \geq 2\\
 q^n = \frac{1}{(1+t)^n} < \frac{2}{n(n-1)t^2}\\
-0 \leq n \cd q^{n} < \frac{2}{(n-1)t^2} \Leftarrow$ Nullfolge 2.5e),2.8e)\\
-Nach 2.9g) ist $(n \cd q^n)_{n \geq q}$ Nullfolge, also auch $(n \cd q^n)_{n \geq 1}.$\\
+0 \leq n \cd q^{n} < \frac{2}{(n-1)t^2} \Leftarrow$ Nullfolge \ref{sec:2.5}e),\ref{sec:2.8}e)\\
+Nach \ref{sec:2.8}g) ist $(n \cd q^n)_{n \geq q}$ Nullfolge, also auch $(n \cd q^n)_{n \geq 1}.$\\
 \underline{2.Fall}: $m > 1$.\\
 Setze $0 < q' = \sqrt[m]{q} \in \R\\
 \begin{array}{rcl}
@@ -520,7 +533,7 @@ n^m \cd q^n &=& n^m \cd (q')^n)^m)^n\\
 &=& (n \cd (q')^n)^m)^n) m = 1 \text{anwenden}
 \end{array}\\
 0 < q' < 1\\
-(n^m + q^n)_{n \geq 1}$ Nullfolge noch Fall $m=1$ und 2.8e)
+(n^m + q^n)_{n \geq 1}$ Nullfolge noch Fall $m=1$ und \ref{sec:2.8}e)
 \i Folgt aus c) und $q = \frac{1}{r}$
 \i Ist $ m \leq l$ , so ist  $\frac{P(n(}{Q(n)} =\frac{n^m(a_m + a_{m-1}\cd\frac{1}{n} + \ldots + a_1 \cd \frac{1}{n^{m-1}} + a_0 \cd \frac{1}{n^m})}{n^l(b_l + b_{l-1}\cd\frac{1}{n} + \ldots + b_1 \cd \frac{1}{n^{l-1}} + b_0 \cd \frac{1}{n^l})}
 = \frac{1}{n^{l-m}} \cd \frac{I}{II}\\
@@ -529,7 +542,7 @@ $\frac{(I)}{(II)} \Rightarrow \frac{a_m}{b_l}\\
 n < l, \frac{1}{n^{l-m}}$ Nullfolge\\
 $\frac{P(n)}{Q(n)} \Rightarrow 0 \cd \frac{a_m}{b_l}\\
 m > l:$\\
-Beh. folgt aus Fall $m < l$ und 2.8e).
+Beh. folgt aus Fall $m < l$ und \ref{sec:2.8}e).
 \end{enumerate}
 \subsection{Bemerkung}
 Betrachte Bijektionsverfahren, die Zahl $x \in \R$ bestimmt.\\
@@ -537,11 +550,11 @@ $a_0 \leq a_1 \leq a_2 \leq \ldots\\
 b_0 \geq b_1 \geq b_2 \geq \ldots\\
 a_n \leq x \leq b_n\\
 0 < b_n - a_n = \frac{b_0 - a_0}{2^n}\\
-0 \leq \abs{x-a_n} \leq b_n - a_n = \frac{b_0-a_n}{2} \Leftarrow$ Nullfolge (2.9b)\\
-$2.8e) (\abs{x-a_n})$ Nullfolge.\\
-2.7e): $\lim_{n \rightarrow \infty} a_n = x$\\
+0 \leq \abs{x-a_n} \leq b_n - a_n = \frac{b_0-a_n}{2} \Leftarrow$ Nullfolge (\ref{sec:2.9}b)\\
+\ref{sec:2.8}e)$ (\abs{x-a_n})$ Nullfolge.\\
+\ref{sec:2.7}e): $\lim_{n \rightarrow \infty} a_n = x$\\
 Analog: $\lim_{n \rightarrow \infty} b_n = x\\
-$2.9 d) e) sind Beispiele für asymptotischen Vergleich von Folgen
+$\ref{sec:2.9} d) e) sind Beispiele für asymptotischen Vergleich von Folgen
 \subsection{Definition}
 \begin{enumerate}[a)]
 \i Eine Folge $(a_n)_{ n \geq k}$ hei\ss t \underline{strikt positiv}, falls $a_n > 0$ für alle $n \geq k$.\\
@@ -574,9 +587,9 @@ $(P(n)) \in O(n')$ für alle $l \geq m$.
 \i ist $r > 1$, so ist $(P(n)) \in o(r^n).\\
 \lbrack(r^n)$ wächst deutlich schneller als $(P(n))\rbrack$\\
 \begin{proof}
-a) folgt aus 2.9e).\\
-$m = l$ (2.6)\\
-b) folgt aus 2.9d) und 2.8 b)c)
+a) folgt aus \ref{sec:2.9}e).\\
+$m = l$ (\ref{sec:2.6})\\
+b) folgt aus \ref{sec:2.9}d) und \ref{sec:2.8} b)c)
 \end{proof}
 \end{enumerate}
 \subsection{Bemerkung}
@@ -586,7 +599,7 @@ Worst-Case-Komplexität:\\
 Algorithmus hat polynomielle Zeitkomplexität, falls ein $l \in \N$ existiert mit $(t_n) \in O(n^l)$. (\underline{gutartig})\\
 Algorithmus hat polynomielle Zeitkomplexität, falls ein $l \in \N$ existiert mindestens exponentielle Zeitkomplexität, falls 
 $ r > 1$ exestiert mit $(r^n) \in O(b_n)$ (\underline{bösartig)}
-\subsection{Definition}
+\subsection{Definition}\label{sec:2.18}
 \begin{enumerate}[a)]
 \i Eine Folge $(a_n)_{n \geq k}$ hei\ss t \underline{monoton wachsend (steigend)}, wenn $a_n \leq a_{n+1}$ f\"ur alle $n \geq k$. Sie hei\ss t \underline{steng monoton wachsend (steigend)}, wenn $a_n < a_{n+1}$ f\"ur alle $n \geq k$
 \i $(a_n)_{n \geq k}$ hei\ss t \underline{monoton fallend}, falls $a \geq a_{n+1}$ f\"ur alle $n \geq k$
@@ -604,7 +617,7 @@ $(a_n){n \geq 1}$ streng monoton steigend.
 \i $a_n = (-1)^n, n \geq 1\\
 (a_n)$ ist weder monoton steigend noch monoton fallend.
 \end{enumerate}
-\subsection[Satz: Monotonie und Konvergenz]{Satz}
+\subsection[Satz: Monotonie und Konvergenz]{Satz}\label{sec:2.16}
 \begin{enumerate}[a)]
 \i Ist $(a_n)_{n \geq k}$ monoton steigend und nach oben beschränkt (d.h es existiert $D \in \R$ mit $a_n \leq D$ für alle $n \geq k$), so konvergiert $(a_n)'$ und $\lim\limits_{n \rightarrow \infty}a_n = \sup\{a_n: n\geq k \}$
 \i $(a_n)_{n \geq k}$ monoton fallend und nach unten beschränkt, so konvergiert $(a_n)_{n \geq k}$ und $\lim\limits_{n \rightarrow \infty} a_n = \inf \{a_n: n\geq k \}.$
@@ -620,7 +633,7 @@ b) analog
 \end{proof}
 \end{enumerate}
 \subsection{Satz (Cauchy'sches Konvergenzkriterium)}
-\hspace*{6.8cm} (Cauchy, 1789 - 1859)\\
+\hfill (Cauchy, 1789 - 1859)\\
 Sei $(a_n)_{n \geq k}$ eine Folge. Dann sind äquivalent:\\
 \begin{enumerate}[(1)]
 \i $(a_n)_{n \geq k}$ konvergent
@@ -678,7 +691,7 @@ Sei $\varepsilon > 0$ Dann existiert $n(\frac{\varepsilon}{2}) \geq k$ mit $\abs
 Dann gilt $\abs{a_{n+1} -o} = \abs{a{n+1}} = \abs{\seriesnplus{a_i} + \seriesn{a_i}} = \\
 \abs{\seriesnplus{a_i+c}-\seriesn{a_i +c}} \leq \abs{\seriesnplus{a_i+c}}+\abs{\seriesn{a_i -c }} <  \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.\\
 (a_n)$ ist Nullfolge\\
-b) folgt aus 2.16a), denn $(s_n)$ ist monoton steigend
+b) folgt aus \ref{sec:2.16} a), denn $(s_n)$ ist monoton steigend
 \end{proof}
 \end{enumerate}
 \subsection{Beispiele}
@@ -921,7 +934,7 @@ konvergiert absolut für $\abs{x-a} < R$, d.h $x \in \ ]a-R,  a+R[$
 Divergiert für $\abs{x-a} > R$.\\
 Keine Aussage für $\abs{x-a} = R$, d.h $ x = a-R$ oder $x = a+R$\\
 Konvergenzintervall $<a-R,a+R>$
-\subsection{Die Exponentialreihe}
+\subsection{Die Exponentialreihe}\label{sec:3.5}
 \begin{enumerate}[a)]
 \i Exponentialreihe
 \i[] $\seriesnull{\frac{x^n}{n!}} (b_n = \frac{1}{n!})$
@@ -1495,7 +1508,7 @@ $\lim\limits_{x \rightarrow c} f(x) = - \infty \begin{minipage}[c]{\textwidth}
 \end{tikzpicture}
 \end{minipage}\\
 \end{enumerate}
-\subsection[Satz: Grenzwerte gegen unendlich]{Satz}
+\subsection[Satz: Grenzwerte gegen unendlich]{Satz}\label{sec:4.16}
 \begin{enumerate}[a)]
 \i[]$f : D \rightarrow \R$.
 \i Sei $c \in \bar{D}$, oder c = $\infty, - \infty $\\
@@ -1518,7 +1531,7 @@ dann ist $\lim\limits_{x \rightarrow c} \frac{1}{f(x)} = \infty (-\infty)$
 ist $\lim\limits_{x \rightarrow \infty} \frac{1}{f(x)} = \infty (- \infty)$\\
 (Entsprechend für $\lim\limits_{x \rightarrow - \infty})$
 \end{enumerate}
-\subsection{Beispiel}
+\subsection{Beispiel}\label{sec:4.17}
 \begin{enumerate}[a)]
 \i 
 \begin{itemize}
@@ -1573,7 +1586,7 @@ $e^x = \sum\limits_{k =0}^{\infty} \frac{x^k}{k!} > \frac{x^{n+1}}{(n+1)!}\\
 \frac{e^x}{x^n} > \frac{x}{(n+1)!}$\\
 Ist $x \geq (n+1)! L =: M,$ so ist $\frac{e^x}{x^n} > L$.
 \i $\lim\limits_{x \rightarrow \infty} \frac{x^n}{e^x} = 0$.
-Folgt aus e) und \ref{4.16}a)
+Folgt aus e) und \ref{sec:4.16}a)
 \end{enumerate}
 \section{Stetigkeit}
 \subsection{Definition}
@@ -1704,7 +1717,7 @@ c \in D
 \i[$\underset{=}{?}$] $ \lim\limits_{n \rightarrow \infty} \lim\limits_{x \rightarrow c} \sum\limits_{i=0}^{\infty} a_i (x-a)^i$ \marginpar{\cite{k3}}
 \i $ \lim\limits_{n \rightarrow \infty} \sum\limits_{i=0}^{\infty} a_i (x-a)^i = f(c)$
 \end{enumerate}
-\subsection{Korollar}
+\subsection{Korollar}\label{sec:5.8}
 $f(x = \exp(x) = e^x$ ist stetig auf $\R$
 \subsection{Satz (Nullstellensatz für stetige Funktionen)}\label{sec:5.9}
 $f: D \rightarrow$ stetig, $[u,v] \subset D, u < v$\\
@@ -1744,9 +1757,247 @@ $g(u) = f(u) -b
 g(v) = f(v) -b$\\
 \ref{sec:5.9} (angewandt auf g): Ex. $w \in ]u,v[$ mit $g(w) = 0$,d.h $f(w) =b$.
 \end{proof}
+\subsection{Satz (Min-Max-Theorem)}
+$a,b \in \R , a < b, f : [a,b] \to \R$\\
+(Wichtig: \emph{abgeschlossenes} Intervall)\\
+Dann hat $f$ ein Maximum und ein Minimum auf $[a,b]$, d.h es existieren\\ $x_{min},\ x_{max} \in [a,b]$ mit $f(x_{max}) \leq f(x) \leq f(x_max)$ für alle $x \in [a,b]$ (Beweis mit Bisektionsverfahren, \cite{k4})
+\subsection*{Zur Erinnerung}
+$f: D \to D'$ bijektiv, dann existiert Umkehrfunktion $f^{-1} D' \to D$ mit \\
+$f \circ f^{-1} = id_{D'}$ und \\
+$f^{-1} \circ f = id_D$\\
+zum Beispiel $f(x) = x^2\\
+f :[0,\infty[ \to [0,\infty[$\\
+bijektiv\\
+$f^{-1} :[0,\infty[ \to [0,\infty[\\
+f^{-1}(x) = +\sqrt{x}$
+\subsection{Definition}
+$f: D \to \R$ hei\ss t {\em(streng) monoton wachsend (oder steigend)}, falls gilt:\\
+ Sind $x,y \in D, x < y$, so ist $f(x) \leq f(y) (f(x) < f(y))$\\
+Entsprechend: {\em streng monoton fallend}. $f$ hei\ss t {\em (streng) monoton}, dalls sie entweder (streng) monoton wachsend oder (steng) monoton fallend ist.
+\subsection[Satz: Injektive Funktionen nur bei Monotonie]{Satz}
+$D$ Intervall (rechte\hrule linke Grenze) $\infty,-\infty$ möglich), $f D \to \R$ stetig. Dann gilt: $f$ ist injektiv auf D $\Leftrightarrow f $ ist streng monoton auf D.\\
+\begin{proof}
+$\Leftarrow$ \checkmark \\
+$\Rightarrow$: Angenommen $f$ ist nicht streng monoton auf D.\\
+Dann existieren $x_1,x_2,x_3,x_4 \in D.$ mit $x_1 < x_2$ und $f(x_1) < f(x_2)$ und $x_3 < x_4$ und $f(x_3) > f(x_4)\\
+(f(x_1) = f(x_2)$ bzw. $f(x_3) = f(x_4)$ nicht möglich, da $f$ injektiv)
+Jetzt muss man Fallunterscheidungen machen.\\
+z.B\\
+$x_1 < x_2 < x_3 < x_4,\ f(x_1) < f(x_3) < f(x_2)$
+\end{proof}
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[axis x line = center, axis y line = center, xmin = -1, xmax = 4,ymin = 0,ymax = 4, xticklabels={$x_1$,$x_2$,$x_3$,$x_4$}, yticklabels={$f(x_1)$,$f(x_1)$,$f(x_1)$}, xtick={1,2,3,4} ,ytick={1,2,3}]
+
+\end{axis}
+\end{tikzpicture}
+\caption{Eine Fallunterscheidugn für 5.13}
+\end{figure}
+\subsection{Satz (Stetigkeit der Umkehrfunktion)}\label{sec:5.14}
+$D$ Intervall, $f : D \to f(D) =: D'$\\
+eine stetige, streng monotone (also bijektive) Funktion. Dann ist die Umkehrfunktion $f^{-1} D' \to D$ stetig.\\
+{\em Beweis:} \cite{k5}
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[axis x line = center, axis y line = center,xmin =-3, xmax=15, ymax= 10, ymin = -10,axis equal]
+\addplot[samples=100] gnuplot[id=5punkt14]{x**3};
+\addplot[samples=100,color = red, domain = {-3:20}] gnuplot[id=5punkt14b]{x**(0.3333333333)};
+\end{axis}
+\end{tikzpicture}
+\caption{Eine Funktion und ihre Umkehrfunktion}
+\end{figure}
+$f$ streng monoton wachsend (fallend) $\Rightarrow$ $f{-1}$ streng monoton wachsend (fallend)
+\subsection{Korollar}
+Ist $n \in \N \begin{cases}
+\text{gerade}\\
+\text{ungerade}
+\end{cases}$, so \\
+ist $f(x) = x^n$ stetig und bijektiv $\begin{cases}
+[0,\infty[ \to [0, \infty[\\
+\R \to \R
+\end{cases}$\\
+Die Umkehrfunktion $f^{-1} = \sqrt[n]{x}$ ist stetig und bijektiv $\begin{cases}
+[0,\infty[ \to [0, \infty[\\
+\R \to \R
+\end{cases}$
+Nach \ref{sec:5.8} ist $\exp(x)$ stetig auf $\R$. Nach \ref{sec:3.5}b) ist $\exp(x) > 0$ für alle $x \in \R$. Für $x > 0$, so ist $\exp(x) = 1 + x + \frac{x^2}{2} + \frac{x^2}{3!} + \ldots \geq 1$, Ist $ x > y$ so ist $\exp(y) = \exp(x + (y-x)) \underset{\ref{sec:3.5}b)}{=} \exp(x) \cd \underbrace{\exp(\underset{<0}{y-x)}}_{> 1} > \exp(x)$\\
+\subsection[Satz: Exponentialfunktion und Logarithmus naturalis]{Satz}\label{sec:5.16}
+$\exp : \R \to ]0,\infty[$ ist streng monoton wachsend und bijektiv. Die Umkehrfunktion hei\ss t $\ln(x) : ]0,\infty[ \to \R$ ist stetig und streng monoton wachsend und bijektiv.\\
+Es gilt: $\ln(x \cd y) = \ln(x) + \ln(y)$ für alle $x,y > 0$, $\ln(1) = 0$
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[axis x line = center, axis y line = center,axis equal, xmax = 5,ymax=10, ymin= -4, xmin = -3]
+\addplot[samples=100] gnuplot[id=5punkt16]{exp(x)};
+\addplot[samples=100,color=red,domain ={0:10}] gnuplot[id=5punkt16]{log(x)};
+\end{axis}
+\end{tikzpicture}
+\caption{$\exp(x)$ und $\ln(x)$}
+\end{figure}
+\begin{proof}
+$\exp$ streng monoton steigen s.V,\\
+$\lim\limits_{x \to \infty} \exp(x) = \infty$ \hfill(\ref{sec:4.17}e))\\
+$\lim\limits_{x \to \infty} \exp(x) = \lim\limits_{x \to \infty} \exp(-x) = \lim\limits_{x \to \infty} \frac{1}{\exp(x)} \underset{\ref{sec:4.16}}{=} 0$
+Also: exp: $\R \to ]0,\infty[$ bijektiv\\
+$\ln:\ ]0,\infty[ \to \R$, streng monoton wachsend, stetig, bijektiv (\ref{sec:5.14}).\\
+$x,y > 0. \exists a,b \in \R $ mit $x \in \exp(a), y =\exp(b).\\
+\begin{array}{lcl}
+\ln(xy) &=& \ln(\exp(a)  \cd \exp(b)\\
+&=& \ln(\exp(a+b)) = a + b\\
+&=& \ln(x) + \ln(y)\\
+\end{array}$\\
+\end{proof}
+\subsection[Satz: Wachstum des natürlichen Logarithmus']{Satz}\label{sec:5.17}
+$\lim\limits_{x \to \infty} \frac{\ln(x)}{x^n} = 0$ (für jedes $k \in \N)$\\
+(D.h. ($\ln(n) \in o(n))$\\
+\begin{proof}
+$x = \exp(y), x \leq 1,$ d.h $y \leq 0.\\
+\frac{\ln(x)}{x^k} = \frac{y}{(\exp(y)^k)} \leq \frac{y}{\exp(y)} \to 0 $\ref{sec:4.17}e)
+\end{proof}
+\subsection{Definition}\label{sec:5.18}
+Für $a > 0$ setze $a^x = \exp(x \cd \ln(a)) \underbrace{(\mathit{\exp(\ln(a))})}_0$
+$a \leq e : e^x = \exp(x), a^x$, falls $a > 0$
+TODO: komischer plott mit exponentialfunktionen\\
+\subsection[Satz:]{Satz}\label{sec:5.19}
+Sei $a > 0$
+\begin{enumerate}[a)]
+\i $a^x: \R \to ]0,\infty[$ ist streng monoton wachsend für alle $a > 1$ und streng monoton fallend für $0 < a < 1$.
+\i $a^x, a^y = a^{x+y}\\
+(a^{x^{y}} = a^{xy})$ für alle $x,y \in \R$
+\i Für $x = \frac{p}{q} \in Q (p \in \Z, q > 0)$ stimmt Def. von $a^x$ entsprechend. \ref{sec:5.18} mit der der üblichen Definition $a^{\frac{p}{q}} = \sqrt[q]{a^p}$ überein.
+\begin{proof}
+Folgt aus Definition mit \ref{sec:3.5}
+\end{proof}
+\end{enumerate}
+\subsection{Bemerkung}
+Ist $x \in \R$ und $(x_n)$ Folge mit $x_n \in \mathbb{Q},\ \lim\limits_{n \to \infty} x_n = x,$\\
+so $\lim\limits_{n \to \infty} a^{x_n} = a^x$ \hfill(Stetigkeit)\\
+D.h $a^x$ lässt sich durch $a^{x_n}, x_n \in \mathbb{Q}$, beliebig gut approximieren
+\subsection{Definition}
+Für $a > 0, a \neq 1$, hei\ss t die Umkehrfunktion von $a^x$ \emph{Logarithmus zur Basis a} \\
+$\log_a (x) \hfill (a =2,a=e,a=10 \text{ wichtig})\\
+\log_e (x) = \ln (x)\\
+$
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[axis x line=center,
+    axis y line=center, xmin = -3, ymin = -3,xmax =5,ymax =5]   
+\addplot[samples=100] gnuplot[id=5punktirgendwas]{log10(x)};
+\addplot[samples=100,domain={-2:5}] gnuplot[id=5punktirgendwas2]{log(x)/(log(0.5))};
+\end{axis}
+\end{tikzpicture}
+\caption{Logithmen mit Basen $>1$ und $<1$}
+\end{figure}
+\subsection[Satz:]{Satz}
+Seien $a,b > 0 , a \neq 1 \neq b , x , y > 0$
+\begin{align}
+\log_a(x\cd y) &= \log(x) + \log(y) \tag{a}\\
+\log_a(x^y) &= y \cd \log(x) \tag{b}\\
+\log_a(x) &= \log_a(b) \cd \log_b(x) \tag{c}\\
+\text{Sind a,b > 1 , so } O(\log_a(n)) &= O(\log_b(n)) \tag{d}
+\end{align}
+\begin{proof}
+$a)$ wie \ref{sec:5.10}\\
+b) $a^{y \cd \log_a(a^y)} \underset{\ref{sec:5.19}b)}{=}(a^{\log_a(x)})^{y} = x^y\\
+\hspace*{1cm} \Rightarrow \log_a(x^y) = \log_a(a^{y \cd \log_a(x)}) = y \cd \log_a(x)$\\
+c) $\log_a(x) = \log_a(b^{\log_a(x)}) \overset{b)}{=} \log_b(x) \cd \log_a(b)$\\
+d) Folgt aus c), da $\log_a(b) > 0$
+\end{proof}
+\section{Differenzierbare Funktionen}
+TODO PLOT mit steigungsdreieck\\
+Sekante durch (c,f(c)), (x,f(x))\\
+Steigung der Sekante:\\
+$x \neq c: \underset{\text{Differenzenquotient}}{\frac{f(x) -f(c)}{x-c} =s(x)}$ definiert auf $\R \setminus \{c\}$\\
+Falls $\limit{x \to c} \frac{f(x)-f(c)}{x-c}$ existiert: Steigung der Tangente an Graph von $f$ in $(c,f(c)))$\\
+(Änderungsrate von $f$ in $(c,f(c))$
+\subsection{Definition}
+$\mathcal{I}$ Intervall, $f: \mathcal{I} \to \R ,\, c \in \mathcal{I}$
+\begin{enumerate}[a)]
+\item $f$ he\ss t {\em differenzierbar} (diffbar) an der Stelle $c$, falls $\limit{x \to c} \frac{f(x)-f(c)}{x-c}$ existiert.\\
+Grenzwert hei\ss t \emph{Ableitung} oder \emph{Differentialquotient} von $f$ an der Stelle $c$.\\
+$f'(c) = \biggl( \frac{df}{dx} \raisebox{1pt}{(c)} \biggr) \qquad
+\biggl\lbrack f'(c) = {\displaystyle \lim_{n \to 0}} \frac{f(c+h) -f(c)}{h},\, h := x-c \biggr\rbrack$
+\item f hei\ss t \emph{differenzierbar} auf $\mathcal{I}$, falls $f$ in jedem Punkt von $\mathcal{I}$ differenzierbar ist.\\
+$f' :\begin{cases}
+\mathcal{I} \to R\\
+x \to f(x)
+\end{cases}$
+\end{enumerate}
+\subsection{Beispiel}\label{sec:6.2}
+\begin{enumerate}[a)]
+\item $f(x) = a \cd x^n , n \in \N a \in \R.\\
+x \neq c: \frac{ax^n-ac^n}{x-c} = \frac{a(x-c)(x^{n-1}\ldots)}{x-c}\\
+\limit{x \to c} \frac{ax^n-ac^n}{x-c} = \limit{x \to c} = \frac{a(x-c)(x^{n-1}\ldots)}{x-c} = a \cd n \cd c^{n-1} = f(x).\\
+f'(x) = a \cd n \cd x^{n-1}$ Gilt auch für $n=0$. ($f$ konstant auf $f'$ = 0)
+\item $f(x) = \abs{x}$\\
+\begin{tikzpicture}
+\begin{axis}[axis x line=center,
+    axis y line=center, xmin = -3, ymin = 0,xmax =3,ymax =3, width=5cm,height=3cm]   
+\addplot[samples=100,domain={-3:3}] gnuplot[id=6punkt3]{abs(x)};
+\end{axis}
+\end{tikzpicture}
+\\
+$f$ ist diffbar in 0?\\
+Zu zeigen $\limit{x \to 0} \frac{\abs{x}-0}{x-0}$ existiert nicht. \\
+Sei $(a_n)$ Folge, $a_n < 0 , \limit{n \to \infty} a_n = 0$ (z.B $a_n = -\frac{1}{n}$)\\
+$\limit{n \to \infty} \frac{\abs{a_n}}{a_n} = -1\\
+b_n > 0 , \lim b_n = 0 $(z.B $b_n = \frac{1}{n})\\
+\limit{n \to \infty} \frac{\abs{b_n}}{b_n} = \limit{n \to \infty} \frac{b_n}{b_n} =1$\\
+{\em $f'(0)$ existiert nicht!}
+\end{enumerate}
+\subsection[Satz:]{Satz}\label{sec:6.3}
+$f: \mathcal{I} \to \R $ in $c \in \mathcal{I}$ diffbar.
+Dann gilt für alle $x \in \mathcal{I}:\\
+f(x) = f(c) + f'(c) \cd (x-c) + \mathcal{R}(x) \cd (x-c), \,\\
+$wobei $\mathcal{R}, \mathcal{I} \to \R$ stetig in $c$, $\limit{x \to c}\mathcal{R}(c) = 0$\\
+TODO: PLOT von Sekante\\
+D.h. : $f$ lässt sich in der Nähe von c sehr gut durch eine lineare Funktion (d.h Graph ist Gerade) approximieren.
+\subsection{Korollar}\label{sec:6.4}
+$f : \mathcal{I} \to \R$ diffbar in $c
+\Rightarrow f$ ist steig in $c$.
+Beweis folgt aus \ref{sec:6.3}\\
+Beachte: Umkehrung von 6.4 gilt im Allgemeinen nicht. \ref{sec:6.2}b).\\
+Diffbare Funktionen sind stetig, aber sie haben keine Knicke im Graphen.
+\subsection{Satz (Ableitungsregeln)}\label{sec:6.5}
+$\mathcal{I}$ Intervall, $c \in \mathcal{I}$. Für a)-c)\\
+seien $f,g : \mathcal{I} \to \R $ diffbar in c\\
+\begin{enumerate}[a)]
+\item $\alpha, \beta \in \R$, so $\alpha f + \beta g $ diffbar in $c$,
+ $$(\alpha f + \beta g)'(c) = \alpha \cd f'(c) + \beta \cd g'(c)$$
+\item (Produktregel) $f \cd g$ diffbar in $c$,\\
+$$(f \cd g)'(c) = f(c) \cd g'(c) + f'(c) \cd g(c)$$
+\item (Quotientenregel) Ist $g (x) \neq 0$ auf $\mathcal{I}$, so $$\frac{f}{g}'(c) = \frac{f'(c) \cd g(c) - f(c) \cd g'(c)}{g(c)^2}$$
+\item (Kettenregel)
+$\mathcal{I}_1$ Intervall, $f: \mathcal{I} \to \mathcal{I}_1,$ diffbar in $c\, ,g:\: \mathcal{I} \to \R$ diffbar in $f(c)$, so $g \circ f$ diffbar in $c$, und \\
+\[(g \circ f)' = g'(f(c)) \cd f'(c) \]
+\end{enumerate}
+\begin{proof}
+Nur b):\\
+$\limit{x \to c} \frac{f(x) \cd g(x) - f(c) \cd g(c)}{x-c} = \limit{x \to c} \frac{f(x)(g(x) -g(c)) + g(c)(f(x) -f(c)}{x-c} = \limit{x \to c}f(x) \cd \limit{x \to c} \frac{g(x) -g(c)}{x-c} + g(c) \cd \limit{x \to c} \frac{f(x) -f(c)}{x-c} \underset{\ref{sec:6.4}}{=}f(c) g'(c) + g(c) f'(c).$\\
+\end{proof}
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\item $f(x) = a_n \cd x^n + a_{n-1} \cd x^{n-1} + \ldots + a_0\\
+f'(x) \underset{\substack{\ref{sec:6.5}a)\\
+\ref{sec:6.2}a)}}{=} a_n \cd n \cd x^{n-1} \cd x^{n-2} + \ldots + a_1$
+\item $f(x) = \frac{1}{x^n} = x^{-n} \, (n \in \N)\\
+\mathcal{I} = ]0,\infty[\\
+f'(x) \underset{\substack{\ref{sec:6.2}a)\\
+\ref{sec:6.5}c)}}{=} \frac{0 \cd x^n - 1 \cd x^{n-1}}{x^{2n}} = \frac{-n}{x^{n+1}} = (-n) \cd x^{-n-1}$ gilt auch auf $]-\infty,0[$
+\item $h(x) = (x^2 + x + 1)^2$\\
+(\ref{sec:6.5}d): $f(x) = x^2 + x + 1)\\
+\hspace*{1.05cm}g(x)= x^2\\
+h'(x) = 2 \cd (x^2 + x + 1) \cd (2x + 1)$
+\end{enumerate}
 \begin{thebibliography}{9}
 \bibitem{k1} Kreu\ss ler, Phister Satz 33.16
 \bibitem{k2} WHK 5.37
 \bibitem{k3} WHK 6.21
+\bibitem{k4} WHK 6.24
+\bibitem{k5} WHK 6.25
+\bibitem{k6} WHK 6.25
 \end{thebibliography}
 \end{document}

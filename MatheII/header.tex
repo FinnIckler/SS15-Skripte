@@ -1,7 +1,9 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,12pt,twoside]{article}
+\usepackage{fourier}
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc} %Umlaute & Co
-\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage[leqno,tbtags,nointlimits]{amsmath}
+\usepackage{amssymb,amsthm,amsfonts}
 \usepackage{graphicx}
 \usepackage{ifthen}
 \usepackage{tikz}
@@ -12,10 +14,13 @@
 \usepackage{color}
 \usetikzlibrary{trees,automata,arrows,shapes}
 \pagestyle{fancy}
+\usepackage{hyperref}
 \fancyhf{} %--Clear all fields
+\renewcommand\sectionmark[1]{ \markboth{\thesection\ \textsc{#1}}{}}
 \fancyhead[LO,RE]{\normalsize \leftmark}
-\fancyhead[LE,RO]{\slshape \rightmark}
-\fancyfoot[C]{\thepage}
+\fancyhead[LE,RO]{ \rightmark}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[LE,RO]{\thepage}
 \newcommand{\cd}{\cdot}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -36,15 +41,13 @@
 \usepackage%[margin=15mm]
 {geometry}
 \newcommand{\abs}[1]{\lvert #1 \rvert}
-\renewcommand\headrule{{\color{blue}%
+\renewcommand\headrule{{\color{gray}%
 \hrule height 2pt width\headwidth
 \vspace{1pt}%
 \hrule height 1pt width\headwidth
 \vspace{-4pt}}}
 \makeatletter
 \newcommand{\resetHeadWidth}{\fancy@setoffs}
-\renewcommand\subsection{\@startsection
-{subsection}{2}{0mm}{-\baselineskip}{0.5\baselineskip}{\normalcolor\large\bfseries\uline}}
 \makeatother
 \newcommand{\cucubr}[7]{%
 %origin point, circle radius, start angle, end angle, distance c-b, brace radius, brace options
@@ -64,3 +67,5 @@
 %
 \draw[#7] (#1) ++ (\halfangle:\outerradius) arc (\secondmidanglestop:\secondmidanglestart:#6) arc (\halfangle+\helpanglemid:#4-\helpangleedge:\midradius) arc (#4+90-\turnangleedge-\helpangleedge/2:#4+90-\helpangleedge/2:#6);%
 }
+\newcommand{\limit}[1]{\displaystyle \lim_{#1}}
+\pgfplotsset{compat=1.9}

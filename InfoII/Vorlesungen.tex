@@ -1,5 +1,7 @@
-\documentclass[a4paper,12pt]{scrartcl}
+\documentclass[a4paper,12pt,twoside]{article}
 \input{Codesources}
+\usepackage{fourier}
+\usepackage{hyperref}
 \usepackage[ngerman]{babel}
 \usepackage{graphicx} %Bilder einbinden
 \usepackage{amsfonts,amsmath,amssymb,amsthm,mathtools} %erweiterte Mathe-Zeichen
@@ -31,12 +33,15 @@
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
 \fancyhf{}
+\fancyfoot[LE,RO]{\thepage}
+\fancyhead[LE,RO]{Informatik II Thorsten Grust}
+\fancyhead[LO,RE]{Skript SS15 Finn Ickler}
 \rhead{Informatik II Thorsten Grust}
 \lhead{Skript SS15 Finn Ickler}
 \renewcommand{\lstlistingname}{Codebeispiel}
 \renewcommand{\lstlistlistingname}{Codebeispiele}
-\newcommand{\auf}{\textless}
-\newcommand{\zu}{\textgreater}
+\newcommand{\auf}{$\langle$}
+\newcommand{\zu}{$\rangle$}
 \newcommand{\eval}{$\longrightsquigarrow$}
 \renewcommand{\i}{\item}
 \renewcommand{\t}{\text}
@@ -52,6 +57,8 @@
 \author{Finn Ickler}
 \title{Informatik II Skript Sommersemester 2015}
 \begin{document}
+\renewcommand{\underline}[1]{\emph{#1}}
+\renewcommand{\uline}[1]{\emph{#1}}
 \maketitle
 \tableofcontents
 \lstlistoflistings

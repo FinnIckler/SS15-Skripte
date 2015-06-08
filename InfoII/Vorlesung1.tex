@@ -9,16 +9,16 @@ Die Anwendung von Funktionen wird in Scheme ausschlie\ss lich in Pr\"afixnotatio
 \begin{tabular}{c|c}
 Mathematik & Scheme \\
 \hline
-$44-2$ & \lstinline!(- 44 2)!\\
+$44-2$ & \lstinline!(- 44!\lstinline! 2)!\\
 $f(x,y)$ & \lstinline!(f x y)!\\
 $\sqrt{81}$ & \lstinline!(sqrt 81)!\\
-$9^2$ & \lstinline!code{(! 3)!\\
+$9^2$ & \lstinline|(! 3)|\\
 \end{tabular}\\
 Allgemein: \lstinline[literate=]!(<funktion><argument1><argument2> ...)!
 \end{center}
-\lstinline!(+ 40 2)! und \lstinline!(odd? 42)! sind Beispiele f\"ur \underline{Ausdr\"ucke}, die bei \underline{Auswertung} einen Wert liefern.\\
+\lstinline!(+ 40!\lstinline! 2)! und \lstinline!(odd? 42)! sind Beispiele f\"ur \underline{Ausdr\"ucke}, die bei \underline{Auswertung} einen Wert liefern.\\
 (Notation: \eval)\\
-\lstinline!(+ 40 2)! $\underbrace{\longrightsquigarrow}_{Reduktion}$ 42\\
+\lstinline!(+ 40!\lstinline! 2)! $\underbrace{\longrightsquigarrow}_{Reduktion}$ 42\\
 \lstinline!(odd? 42)! \eval \ \lstinline!#f!
 \bigskip\\
 Interaktionsfenster:\hspace*{2.5cm} $\underbrace{Read \rightarrow Eval \rightarrow Print \rightarrow Loop}_{REPL}$\\

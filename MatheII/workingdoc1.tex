@@ -1,0 +1,12 @@
+\input{header}
+\usepackage{fourier}
+\begin{document}
+\renewcommand{\uline}[1]{\emph{#1}}
+\renewcommand{\underline}[1]{\emph{#1}}
+\renewcommand{\footnoterule}{}
+\begin{tikzpicture}
+\begin{axis}[axis equal, axis y line =center, axis x line =center , xmax = 1,xmin = -1,ymax =2,ymin=0]
+\addplot[domain={-1:1}] gnuplot {log(x**2 + 1)/log(2)};
+\end{axis}
+\end{tikzpicture}
+\end{document}
