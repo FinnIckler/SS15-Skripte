@@ -24,3 +24,6 @@
 \contentsline {lstlisting}{\numberline {24}Check-property mit Einschr\IeC {\"a}nkungen}{35}{lstlisting.24}
 \contentsline {lstlisting}{\numberline {25}Rekursion auf nat\IeC {\"u}rlichen Zahlen: Fakult\IeC {\"a}t}{35}{lstlisting.25}
 \contentsline {lstlisting}{\numberline {26}Fehlerhafte Rekursionen}{36}{lstlisting.26}
+\contentsline {lstlisting}{Endrekursion.rkt}{37}{lstlisting.-28}
+\contentsline {lstlisting}{\numberline {27}Umdrehen einer Liste durch lambda Rekursion}{38}{lstlisting.27}
+\contentsline {lstlisting}{\numberline {28}Letrec und endrekursives Umdrehen einer Liste}{39}{lstlisting.28}
