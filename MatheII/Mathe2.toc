@@ -98,4 +98,9 @@
 \contentsline {subsection}{\numberline {6.4}Korollar}{57}{subsection.6.4}
 \contentsline {subsection}{\numberline {6.5}Satz (Ableitungsregeln)}{57}{subsection.6.5}
 \contentsline {subsection}{\numberline {6.6}Beispiel}{58}{subsection.6.6}
+\contentsline {subsection}{\numberline {6.7}Satz:}{58}{subsection.6.7}
+\contentsline {subsection}{\numberline {6.8}Satz: Ableitungsregeln von cosinus und sinus}{58}{subsection.6.8}
+\contentsline {subsection}{\numberline {6.9}Beispiel}{59}{subsection.6.9}
+\contentsline {subsection}{\numberline {6.10}Satz: Potenzreihen und diverenzierbarkeit}{59}{subsection.6.10}
+\contentsline {subsection}{\numberline {6.11}Korollar}{60}{subsection.6.11}
 \contentsfinish 

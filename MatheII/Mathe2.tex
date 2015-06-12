@@ -1995,6 +1995,72 @@ f'(x) \underset{\substack{\ref{sec:6.2}a)\\
 \hspace*{1.05cm}g(x)= x^2\\
 h'(x) = 2 \cd (x^2 + x + 1) \cd (2x + 1)$
 \end{enumerate}
+\subsection[Satz:]{Satz}
+\begin{enumerate}[a)]
+\i $\lim\limits_{x \to 0} \frac{sin(x)}{1}$
+\i $\lim\limits_{x \to 0} \frac{1-\cos(x)}{x} = 0$
+\end{enumerate}
+\begin{proof}\ \\
+\begin{enumerate}[a)]
+\i Elementargeometrisch + Additionstheoreme \ref{sec:1.7}
+(Man zeig: $\cos(x) < \frac{sin(x)}{x} < 1$ für $0 < x < \frac{\pi}{2}$
+\i $\frac{1-\cos(x)}{x} = \frac{(1-\cos(x))}{x(1+\cos(x))} = \frac{1-\cos(x)}{x(1 + \cos(x))} = \frac{sin^2(x)}{x} \cd \frac{x}{1 + \cos(x)} \to 0$
+\end{enumerate}
+\end{proof}
+\subsection[Satz: Ableitungsregeln von cosinus und sinus]{Satz}
+\begin{enumerate}[a)]
+\i $f(x) = \sin(x)$, so $f'(x) = \cos(x)$
+\i $f(x) = \cos(x),$ so $f'(x) = -\sin(x)$
+\i $f(x) = \tan(x)$, so $f'(x) = 1 + \tan^2(x)$
+\end{enumerate}
+\begin{proof}
+a), $c \in \R$\\
+$\sin'(c) = \lim\limits_{h \to 0}\frac{\sin(h+c) + \sin(c)}{h}\\
+\lim\limits_{h \to 0} \frac{\sin(c) \cd \cos(h) + \cos(c) \cd \sin(h) - \sin(c)}{h}\\
+= \frac{\sin(c) \cd \cos(h) -1}{h} + \lim\limits_{h \to 0} \frac{\cos(c)\sin(h)}{h} = \sin(c) \cd 0 + \cos(c) \cd 1 = \cos(c)$
+b) analog\\
+c) $f(x) = \frac{\sin(x)}{\cos(x)}$ Quotientenregel + a)b) + $\sin^2(x) + \cos^2(x) =1$.\\
+\end{proof}
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\item $f(x) = \begin{cases}
+1 & \text{für }x < 0\\
+\cos(x) & \text{für } x > 0
+\end{cases}$\\
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[axis x line=center,
+    axis y line=center, xmin = -3, ymin = -1,xmax =4,ymax =1,]   
+\addplot[samples=2,domain={-3:0}] gnuplot[id=6punkt9]{1};
+\addplot[samples=100,domain={0:3.1416}] gnuplot[id=6punkt92]{cos(x)};
+\end{axis}
+\end{tikzpicture}
+\caption{Abschnittsweise definierte cosinus Funktion}
+\end{figure}
+$f$ ist diffbar für alle $ x \ne 0\\
+\lim\limits_{x \to 0} \frac{f(x) - f(0)}{x}\\
+\lim\limits_{x \to 0^+} \frac{\cos(x) -1}{x} \underset{\text{\ref{sec:6.7b)}}}{=} 0\\
+\lim\limits_{x \to 0^-} \frac{1 -1 }{x} = 0\\
+\lim\limits_{x \to 0} \frac{f(x) - f(0)}{x} = 0 = f'(0)$
+\item $f(x) = \sin^2(x^3) = (\sin(x^3))^2\\
+f'(x) = 2 \cd \sin(x^3) \cd (\sin(x^3))' = 6 \cd \sin(x^3) \cd \cos(x^3) \cd x^2$\\
+\end{enumerate}
+\subsection[Satz: Potenzreihen und diverenzierbarkeit]{Satz}
+Im Inneren ihres Konvergenzintervalls definieren Potenzreihen eine Funktion\\
+Sei $f(x) = \sum\limits_{k = 0}^{\infty} a_k (x-a)^k$\\
+eine Potenzreihe um a mit Konvergenzradius $\mathbf{R} > 0.$\\
+Dann ist $f$ in $]a-R, a+R[$ diffbar und es gilt : $\sum\limits_{k =1}^{\infty} k \cd a_k \cd (x-a)^{k-1} = f'(x).$\\
+\hfil (gliedweise Ableitung)\newline
+\hfil (Beweis \cite{k7})
+\subsection{Korollar}
+$(\exp(x))' = \exp(x)$
+\begin{proof}
+$\exp(x) = \sum\limits_{k = 0}^{\infty} \frac{x^k}{k!}$ für alle $x \in \R \\
+(\frac{x^k}{k!}) = \frac{k \cd x^{k-1}}{k!} = \frac{x^{k-1}}{(k-1)!}\\
+k = 1, ...$\\
+Beweis folgt.
+\end{proof}
 \begin{thebibliography}{9}
 \bibitem{k1} Kreu\ss ler, Phister Satz 33.16
 \bibitem{k2} WHK 5.37
@@ -2002,5 +2068,6 @@ h'(x) = 2 \cd (x^2 + x + 1) \cd (2x + 1)$
 \bibitem{k4} WHK 6.24
 \bibitem{k5} WHK 6.25
 \bibitem{k6} WHK 6.25
+\bibitem{k7} WHK 7.32
 \end{thebibliography}
 \end{document}
