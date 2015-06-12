@@ -1,6 +1,6 @@
 Die Signatur \underline{one of} lässt genau einen der ausgewählten Werte zu.\\
 \lstinline[mathescape]!(one of <$e_1$> <$e_2$> ... <$e_n$>)!\\
-\racket{Die one-of Signatur}{one-of am Beispiel des Fu\ss ballpunktesystems}{oneof}
+\rackett{Die one-of Signatur}{one-of am Beispiel des Fu\ss ballpunktesystems}{oneofundconditionals}{4}{13}
 Reduktion von if:\\
 \lstinline[mathescape]!(if $t_1$ <$e_1$> <$e_2$>)!\\
 \circled{1} Reduziere $t_1$, erhalte $t_1'$ $\underset{\text{\circled{2}}}{\text{\eval}}
@@ -10,7 +10,7 @@ Reduktion von if:\\
 \end{cases}$\\
 \lstinputlisting[frame=single,
 literate=
-{42}{{{\color[rgb]{0.159,0.501,0.133}42}}}2 {0}{{{\color[rgb]{0.159,0.501,0.133}0}}}1,caption={[Konstruktion eines eigenen Ifs?]Koennen wir unser eigenes `if' aus `cond' konstruieren?  (Nein!)}]{myif.rkt}
+{42}{{{\color[rgb]{0.159,0.501,0.133}42}}}2 {0}{{{\color[rgb]{0.159,0.501,0.133}0}}}1,caption={[Konstruktion eines eigenen Ifs?]Koennen wir unser eigenes `if' aus `cond' konstruieren?  (Nein!)},firstline =23,lastline=41]{oneofundconditionals.rkt}
 Spezifikation Fallunterscheidung (conditional expression):\\
 \begin{tabular}{rlcl}
 \lstinline!(cond!& & & Mathematik:\\
@@ -28,7 +28,7 @@ Sobald $t_i \#t$ ergibt, werte Zweig $e_i$ aus. $e_i$ ist Ergebnis der Fallunter
 \text{\lstinline[mathescape]!$<e_{n+1}>$!}& \t{sonst}
 \end{cases}$
 \newpage
-\racket{Absolutbetrag durch cond}{Absolutwert von x}{Abs}
+\rackett{Absolutbetrag durch cond}{Absolutwert von x}{oneofundconditionals}{14}{22}
 Reduktion von cond $\lbrack \t{eval}_{\t{cond}}\rbrack $\\
 \lstinline[mathescape]!(cond (<$t_1$> <$e_1$>)(<$t_2$> <$e_2$>)$\ldots$(<$t_n$> <$e_n$>))!\\
 \circled{1} Reduziere $t_1$ erhalte $t_1'$ $\underset{\t{\circled{2}}}{\t{\eval}} \begin{cases}
@@ -55,4 +55,4 @@ Spezialform 'and' und 'or' \\
 \lstinline[mathescape]!(and $\t{\argt{1}}$ $\t{\argt{2}}$ $\ldots$ $\t{\argt{n}}$)! \eval \lstinline[mathescape]!(if $\t{\argt{1}}$ (and $\t{\argt{2}}$ $\ldots$ $\t{\argt{n})}$ #f)!\\
 \lstinline[mathescape]!(and)! \eval \lstinline[mathescape]!#t!
 \newpage
-\racket{Boolsche Ausdrücke mit and und or}{Konstruktion komplexer Prädikate mittels `and' und `or'}{andor}
+\rackett{Boolsche Ausdrücke mit and und or}{Konstruktion komplexer Prädikate mittels `and' und `or'}{oneofundconditionals}{42}{53}

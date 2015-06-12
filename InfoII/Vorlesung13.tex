@@ -1,0 +1,133 @@
+\emph{Induktive Definition}\\
+Konstante Definition der natürlichen Zahlen $\mathbb{N}$.\\
+Definition: (Peamo Axiome)
+\begin{align}
+	0 \in& \mathbb{N} \tag{P1} \\
+	\forall n \in& \mathbb{N}: succ(n) \in \mathbb{N} \tag{P2}\\
+	\forall n \in& \mathbb{N}: succ(n) \ne 0 \tag{P3}\\
+	\forall n,m \in& \mathbb{N} : succ(n) = succ(m) \Leftrightarrow n = m \tag{P4}
+\end{align}\\
+TODO: "Plot" mit punkten und Pfeilen
+\begin{multline}
+	\t{Für jede Menge }M \subset N \t{ mit } 0 \in M \\
+	\t{und } \forall n : (n \in M \Rightarrow succ(n) \in M), \t{gilt } M = \mathbb{N} \tag{P5}
+\end{multline}
+''$\mathbb{N}$ enthält nicht mehr als die 0 und die durch $succ()$ generierten Elemente\\
+''Nicht ist sonst in $\mathbb{N}$,\\
+TODO: Plot von zwei kreisen ineinander
+Beweisschema der {\em vollständigen Induktion}\\
+Sei $P(n)$ eine Eigenschaft einer Zahl $n \in \mathbb{N}$\\
+\lstinline|(: P (natural -> boolean))|\\
+Ziel : $\forall n \in \mathbb{N} : P(n)$\\
+Definiere $M = \{n \in \mathbb{N} \vert P(n) \} \subset \mathbb{N}$\hfill
+M enthält die Zahlen n für die $P(n)$ gilt \\
+\emph{Induktionsaxiom}\\
+Falls \par 0 $\in M$\\
+und \par $\forall n : (n \in M \Rightarrow succ(n) \in M)$\\
+dann \par $M \in \mathbb{N}$\\
+\begin{minipage}[c]{0.235\textwidth}
+	Induktionsstart\bigskip\\
+	\ \\
+	Induktionsschritt
+\end{minipage}
+\begin{minipage}[c]{0.765\textwidth}
+	\begin{mdframed}
+		Falls \par $P(0)$\\
+		und \par $\forall (P(n) \Rightarrow P(succ(n))$\\
+		dann \par $\forall n \in \mathbb{N} P(n)$
+	\end{mdframed}
+\end{minipage}
+{\em Beispiel}:\\
+$\begin{array}{ll}
+1 & = 1\\
+1 + 3 & = 4\\
+1 + 3 + 5 & = 9\\
+1 + 3 + 5 + 7 & = 16\\
+\ldots\\
+P(n) & = \underbrace{\sum\limits_{i=0}^{n} (2i + 1)}_{\substack{\t{Summe der}\\
+			\t{ersten n}\\
+			\t{ungeraden Zahlen}}} \overset{!}{=} (n+1)^2
+\end{array}$\\
+\emph{Induktionsschluss P(0)}\\
+$\sum\limits_{0}^{0} (2i + 1) = 2 \cdot 0 + 1 = (0 + 1)^ 2 \checkmark$\\
+Induktionsschritt $\forall n (P(n)) = P (n+1)\\
+\begin{array}{ll}
+\sum\limits_{i=0}^{n+1} (2i + 1) &\overset{\sum}{=} \sum\limits_{i=0}^{n} (2i + 1) + (2 (n+1) +1)\\
+&\overset{iv.}{=} (n+1)^2 + 2n +3\\
+&= n^2 + 4n + 4\\
+ &= ((n+1)+1)^2 \checkmark
+\end{array}$\\
+{\em Beispiel}:\\
+\begin{lstlisting}
+	(define factorial 
+		(lambda (k)
+			(if 
+				(= k 0) 1
+				(* k (factorial (- k 1))))))
+\end{lstlisting}
+$P(x) \equiv \text{\lstinline!(factorial n)!} = \fbox{n!}$ \hfill $\fbox{x}$:(Racket Repräsentation für $x \in \mathbb{N}$)\\
+Zeige : $\forall n \in \mathbb{N} : P(n)$\\
+\emph{Induktionsbasis $P(0)$}\\
+\lstinline[mathescape]!(factorial($\numrak{0}$))!\\
+\begin{enumerate}[\eval]
+\i[$\overset{\star}{\text{\eval}}$] \lstinline[mathescape]!((lambda (k)...)$\numrak{0}$)!
+\i \lstinline[mathescape]|(if (= $\numrak{0}$ 0)1 ...)|
+\i \lstinline[]|(if #t|\lstinline| 1 ...)|
+\i 1 = \numrak{0}! $\checkmark $
+\end{enumerate}
+Induktionsschritt: $\forall n : (P(n) \rightarrow P(n+1))$\\
+\lstinline[mathescape]|(factorial $\numrak{n+1}$)|
+\begin{enumerate}[\eval]
+\i[$\overset{\star}{\text{\eval}}$] \lstinline[mathescape]|((lambda (n)...)$\numrak{n+1}$)|\\
+\i \lstinline[mathescape]|(if (= $\numrak{n+1}$ 0)1 ... (...))|
+\i \lstinline[]|(if #f|\lstinline| 1 ... (...))|
+\i\marginpar{\textcolor{red}{Unter der Annahme, dass tatsächlich Subtraktion implementiert ist}} \lstinline[mathescape]|(* $\numrak{n+1}$ (factorial (- $\numrak{n+1}$ 1)))|
+\i \lstinline[mathescape]|(* $\numrak{n+1}$ (factorial (- $\numrak{n}$)))|
+\i[$\overset{iv}{=}$] \lstinline[mathescape]|(* $\numrak{n + 1}$ n!)|
+\i[=]$(n+1)!\ \checkmark$
+\end{enumerate}
+\emph{Beispiel}:\\
+Jede durch die Konstruktionsanleitung für Funktionen über natürliche Zahlen konstruierte Funktion liefert ein Ergebnis ({\em terminiert immer})\\
+\begin{lstlisting}
+(define f
+	(lambda (n)
+		(if
+			(= n 0) base
+			(step (f (n-1)) n))))
+\end{lstlisting}
+\lstinline|(: base natural)|\\
+\lstinline|(: step (natural natural -> natural))|
+Bsp: step $\rightarrow$ \lstinline|(lambda (x y) (* x y))|\\
+Dann gilt $P(n)$ = \lstinline!(f n)! terminiert (Mit Ergebnis der Signatur \lstinline!natural!)\\
+Zeige $\forall n \in \mathbb{N} : P(n)$\\
+\emph{Induktionsbasis P(0)}:\\
+\lstinline[mathescape]|(f $\numrak{0}$)|
+\begin{enumerate}[\eval]
+\i \lstinline[mathescape]|(if (= $\numrak{0}$ 0) base ...)|
+\i \lstinline[]|(if #t base|
+\i base $\checkmark $
+\end{enumerate}
+Induktionsschritt $\forall n : (P(n) \rightarrow P(n+1))$\\
+\lstinline[mathescape]|(f $\numrak{n+1}$)|
+\begin{enumerate}[\eval]
+	\i \lstinline[mathescape]|(if (= $\numrak{n+1}$ 0) base ... (step ...))|
+	\i \lstinline[]|(if #f|\lstinline| base ... (step ...))|
+	\i \lstinline[mathescape]|(step (f (- $\numrak{n+1}$ 1)) $\numrak{n+1}$)|
+	\i \lstinline[mathescape]|(step $\underbrace{(f \numrak{n})}_{\t{terminiert}}$ $\numrak{n+1}$)|
+	\i[$\Rightarrow$]\lstinline[mathescape]!(step (f $\numrak{n}$) $\numrak{n+1}$)! terminiert
+\end{enumerate}
+\emph{Definition}:(Listen.endliche Folge)\\
+Die Menge $M^*$ (= Listen mit Elementen aus $M$ + \lstinline|list-of M| ist \emph{induktiv} definiert\\
+\begin{align}
+\text{\lstinline!empty!} \in& M^* \tag{L1} \marginnote{Nicht leere Liste}\\
+\forall x \in& M , xs \in M^* \tag{L2} \marginnote{\text{\lstinline!make-pair x xs! $\in M^*$}} \\
+\t{Nichts sonst in }& M^* \tag{L3}
+\end{align}
+Beweisschema \emph{Listeninduktion}\\
+So $P(xs)$ eine Eigenschaft von Listen über M.\\
+\lstinline|(: P ((list-of M) -> boolean))|\\
+\begin{mdframed}
+	Falls $P(\text{\lstinline|empty|})$ \marginnote{Induktionsanfang}\\
+	und \par$\forall x \in M, xs : P(xs) \Rightarrow (P(xs) \Rightarrow (P($\lstinline|make-pair x xs|))\\
+	dann \par $\forall xs \in M^* : P(xs)$ \marginnote{Indukstionsschritt}
+\end{mdframed}

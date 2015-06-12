@@ -1,39 +1,43 @@
-\begin{filecontents*}{FloatArithmetik.rkt}
+\begin{filecontents*}{Grundlagen.rkt}
+;; Die ersten drei Zeilen dieser Datei wurden von DrRacket eingefügt. Sie enthalten Metadaten
+;; über die Sprachebene dieser Datei in einer Form, die DrRacket verarbeiten kann.
+#reader(lib "DMdA-beginner-reader.ss" "deinprogramm")((modname Grundlagen) (read-case-sensitive #f) (teachpacks ()) (deinprogramm-settings #(#f write repeating-decimal #f #t none explicit #f ())))
 ; Achtung: Arithmetik mit Fliesskommazahlen (real)
- unterliegt Rundung!
+unterliegt Rundung!
 (+ 0.7
-   (- (/ 1/2 0.25)
-      (/ 0.6 0.3)))
+(- (/ 1/2 0.25)
+(/ 0.6 0.3)))
 
 (- (+ 0.7
-      (/ 1/2 0.25))
-   (/ 0.6 0.3))
+(/ 1/2 0.25))
+(/ 0.6 0.3))
 
 ; Arithmetik mit rationalen Zahlen (rational) ist exakt
 (- (+ 7/10
-      (/ 1/2 1/4))
-   (/ 6/10 3/10))
-\end{filecontents*}
-\begin{filecontents*}{define.rkt}
+(/ 1/2 1/4))
+(/ 6/10 3/10))
+
 (define absoluter-nullpunkt -273.15)
 (define pi 3.141592653)
 (define Gruendungsjahr-SC-Freiburg 1904)
 (define top-level-domain-germany "de")
 (define minutes-in-a-day (* 24 60))
 (define vorwahl-tuebingen (sqrt 1/2))
-\end{filecontents*}
-\begin{filecontents*}{lambda.rkt}
+
 ; Abstraktion: Ausdruck mit "Loch" @$\odot$@
 (lambda (@$\odot$@) (* @$\odot$@ (* 155 minutes-in-a-day)))
 
 
 ; Zuwachs der Weltbevoelkerung innerhalb von days Tagen
 (define population-growth-in-days
-    (lambda (days) (* days (* 155 minutes-in-a-day))))
+(lambda (days) (* days (* 155 minutes-in-a-day))))
 
 (population-growth-in-days 7)
 \end{filecontents*}
 \begin{filecontents*}{Uhr.rkt}
+;; Die ersten drei Zeilen dieser Datei wurden von DrRacket eingefügt. Sie enthalten Metadaten
+;; über die Sprachebene dieser Datei in einer Form, die DrRacket verarbeiten kann.
+#reader(lib "DMdA-beginner-reader.ss" "deinprogramm")((modname Uhr) (read-case-sensitive #f) (teachpacks ()) (deinprogramm-settings #(#f write repeating-decimal #f #t none explicit #f ())))
 ; Grad, die Minutenzeiger pro Minute zuruecklegt
 (define degrees-per-minute 360/60)
 
@@ -44,50 +48,39 @@
 (: draw-clock (natural natural -> image))
 (check-expect (draw-clock 4 15) (draw-clock 16 15))
 (define draw-clock
-  (lambda (h m)
-    (clock-face (position-hour-hand h m)  
-    	(position-minute-hand m))))
+(lambda (h m)
+(clock-face (position-hour-hand h m)
+(position-minute-hand m))))
 
 ; Winkel (in Grad), den Minutenzeiger zur Minute m einnimmt
 (: position-minute-hand (natural -> rational))
 (check-expect (position-minute-hand 15) 90)
 (check-expect (position-minute-hand 45) 270)
 (define position-minute-hand
-  (lambda (m)
-    (* m degrees-per-minute)))
+(lambda (m)
+(* m degrees-per-minute)))
 
 ; Winkel (in Grad), den Stundenzeiger zur Stunde h einnimmt
 (: position-hour-hand (natural natural -> rational))
 (check-expect (position-hour-hand 3 0) 90)
 (check-expect (position-hour-hand 18 30) 195)
 (define position-hour-hand
-  (lambda (h m)
-    (+ (* (modulo h 12) degrees-per-hour)
-    ; h mod 12 in {0,1,...,11}
-       (* (/ m 60) degrees-per-hour))))
+(lambda (h m)
+(+ (* (modulo h 12) degrees-per-hour)
+; h mod 12 in {0,1,...,11}
+(* (/ m 60) degrees-per-hour))))
 
 ; Zeichne Ziffernblatt mit Minutenzeiger um dm und
 ; Stundenzeiger um dh Grad gedreht
 (: clock-face (rational rational -> image))
 (define clock-face
-  (lambda (dh dm)
-    (clear-pinhole
-     (overlay/pinhole
-      (circle 50 "outline" "black")
-      (rotate (* -1 dh) (put-pinhole 0 35 (line 0 35 "red")))
-      (rotate (* -1 dm) (put-pinhole 0 45 (line 0 45 "blue")))))))
-\end{filecontents*}
-\begin{filecontents*}{oneof.rkt}
-; Punkte der Heimmannschaft bei Ergebnis h:a
-(: heim-punkte (natural natural -> (one-of 3 0 1)))
-(check-expect (heim-punkte 2 0) 3)
-(check-expect (heim-punkte 1 4) 0)
-(check-expect (heim-punkte 3 3) 1)
-(define heim-punkte
-  (lambda (h a)
-    (cond ((> h a) 3)
-          ((< h a) 0)
-          (else    1))))
+(lambda (dh dm)
+(clear-pinhole
+(overlay/pinhole
+(circle 50 "outline" "black")
+(rotate (* -1 dh) (put-pinhole 0 35 (line 0 35 "red")))
+(rotate (* -1 dm) (put-pinhole 0 45 (line 0 45 "blue")))))))
+
 \end{filecontents*}
 \begin{filecontents*}{myif.rkt}
 ; Bedingte Auswertung von e1 oder e2 (abhaengig von t1)

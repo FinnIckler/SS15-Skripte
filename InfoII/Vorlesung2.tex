@@ -3,7 +3,7 @@ Auswertung \underline{zusammengesetzter Ausdr\"ucke} in mehreren Schritten (Step
 (+ ( @\uwave{(+ 20 20)}@ (+ 1 1)) @\eval@ (+ 40 @\uwave{(+ 1 1)}@ @\eval@ (+ 40 2) @\eval@  42 
 \end{lstlisting}
 \lstinputlisting[frame=single,caption={[Arithmetik mit Flie\ss kommazahlen]\textbf{Achtung:} Scheme rundet bei Arithmetik mit Flie\ss kommazahlen (interne Darstellung ist binär)\\
-}]{FloatArithmetik.rkt}
+},firstline=4,lastline=17]{Grundlagen.rkt}
 Ein Wert kann an einen \underline{Namen} (auch \underline{Identifier}) gebunden werden, durch \\
 \lstinline!(define <id> <e>)! \hspace*{1.5cm} \auf id\zu Identifier \ \auf e\zu Ausdruck\\
 Erlaubte konsistente Wiederverwendung, dient der Selbstdokumentation von Programmen\\
@@ -17,17 +17,15 @@ Namen k\"onnen in Scheme beliebig gewählt werden, solange
 Beispiel: euro$\rightarrow$US\$\\
 \underline{\textbf{Achtung:}} Gro\ss-\textbackslash Kleinschreibung ist irrelevant.
 \bigskip\\
-\lstinputlisting[frame=single,caption={[Schlüsselwort define]Bindung von Werten an Namen}]{define.rkt}
+\lstinputlisting[frame=single,caption={[Schlüsselwort define]Bindung von Werten an Namen},firstline=19,lastline=24]{Grundlagen.rkt}
 Eine \underline{lambda-Abstraktion} (auch Funktion, Prozedur) erlaubt die Formatierung von Ausrdr\"ucken, in denen mittels \underline{Parametern} von konkreten Werten abstrahiert wird.\\
 \lstinline[literate=]!(lambda (<p1><p2>...) <e>!\\
 \auf e\zu Rumpf: enth\"alt Vorkommen der Parameter \auf $p_n$\zu\\
 (lambda($\ldots$)) ist eine Spezialform. Wert der lambda-Abstraktion ist \#\auf procedure\zu\\.
 \underline{Anwendung} (auch Application) des lambda-Aufrufs f\"uhrt zur Ersetzung aller Vorkommen der Parameter im Rumpf durch die angegebenen \uline{Argumente}.\\
-\lstinputlisting[frame=single,caption={[Lambda Abstraktion] Lambda-Abstraktion}]{lambda.rkt}
+\lstinputlisting[frame=single,caption={[Lambda Abstraktion] Lambda-Abstraktion},firstline=26,lastline=34]{Grundlagen.rkt}
 \lstinline!(lambda (days) (* days (* 155!\lstinline! minutes-in-a-day))) 365)! \eval\\
 \lstinline!(* 365 (* 155!\lstinline! minutes-in-a-day))! \eval  \lstinline!81468000!\\
 \bigskip\\
 In Scheme leitet ein Semikolon einen Kommentar ein, der bis zum Zeilenende reicht und vom System bei der Auswertung ignoriert wird.\\
 Prozeduren sollten im Programm ein- bis zweizeilige \underline{Kurzbeschreibungen} direkt vorangestellt werden.
-
-

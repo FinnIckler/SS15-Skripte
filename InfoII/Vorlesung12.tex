@@ -1,0 +1,92 @@
+Beobachtung: \lstinline!(factorial 10).!\\
+\lstinline!(* 10 (* 9 (* 8 (* 7 (* 6(factorial 5))))))!\\
+$\underset{\substack{\t{Assozivität}\\
+\t{von } \cdot}}{=}$ \lstinline|(*(*(*(*(* 10 9)8)7)6)(factorial 5))| \eval \lstinline|(* 30240 (factorial 5))|\\
+$\rightarrow$ Multiplikationen können vorgezogen werden \begin{turn}{}
+:-)
+\end{turn}\\
+Idee: Führe Multiplikation sofort aus. Schleife des Zwischenergebnis ({\em akkumulierendes Argument}) durch die ganze Berechnung. Am Ende erhält der Akkumulatoren das Endergebnis.\\
+Beispiel: Berechne 5!\\
+\lstinline!(: fac-worker (natural natural -> natural))!\\
+\begin{tabular}{l|ll}
+n & acc\\
+\hline {\tiny-1}\begin{turn}{45}
+$\curvearrowleft$
+\end{turn}5 & 1 \begin{turn}{-45}
+$\curvearrowright$
+\end{turn} $\cdot$ {\tiny 5} & neutrales Element\\
+{\tiny-1}\begin{turn}{45}
+$\curvearrowleft$
+\end{turn}4 & 5 \begin{turn}{-45}
+$\curvearrowright$
+\end{turn} $\cdot$ {4} \\
+{\tiny-1}\begin{turn}{45}
+{$\curvearrowleft$}
+\end{turn}3 & 20 \begin{turn}{-45}
+$\curvearrowright$
+\end{turn} $\cdot$ {3}\\
+{\tiny-1}\begin{turn}{45}
+$\curvearrowleft$
+\end{turn}2 & 60 \begin{turn}{-45}
+$\curvearrowright$
+\end{turn} $\cdot$ { 2}\\
+{\tiny-1}\begin{turn}{45}
+$\curvearrowleft$
+\end{turn}1 & 120 \begin{turn}{-45}
+$\curvearrowright$
+\end{turn} $\cdot$ {1}\\
+{\tiny-1}\begin{turn}{45}
+$\curvearrowleft$
+\end{turn}0 & 120
+\end{tabular}
+\lstinputlisting[firstline=43, lastline=58]{Endrekursion.rkt}
+Ein Berechnungsprozess ist \emph{iterativ}, falls seine Grö\ss e konstant bleibt.\\
+Damit:
+\par \lstinline|factorial| nicht iterativ
+\par \lstinline|fac-worker| iterativ\\
+Wieso ist \lstinline|fac-worker| iterativ?\\
+Der Rekursive Aufruf ersetzt den aktuell reduzierten Aufruf \emph{vollständig}. Es gibt keinen {\em Kontext} (umgebenden Ausdruck), der auf das Ergebnis des rekursiven Aufrufs ''wartet''\\
+Kontext des rekursiven Aufrufs in:\\
+\begin{enumerate}[-]
+\i \lstinline|factorial|: \hfill \lstinline[mathescape]|(* n $\Box$)|
+\i \lstinline|fac-worker|: \hfill keiner
+\end{enumerate}
+Eine Prozedur ist \emph{endrekursiv} (tail call), wenn sie keinen Kontext besitzt. Prozeduren, die nur endrekursive Prozeduren beinhalten, hei\ss en selber endrekursiv.
+Endrekursive Prozeduren generieren {\em iterative} Berechnungsprozesse\\
+\lstinline|(: rev ((list-of %a)) -> (list-of %a))|\\
+\lstinputlisting[frame=single,firstline=68,lastline=78,caption={[Umdrehen einer Liste durch lambda Rekursion] Liste xs umdrehen}]{Endrekursion.rkt}
+Beobachtung: von \lstinline|(rev (from-to 1 1000))|\\
+$\overbrace{\t{\lstinline[mathescape]|(cat $\underbrace{\t{(list 1000 ... 2)}}_{\t{(cat (list 1000 ... 3) (list 2))}}$ (list 1))|}}^{\t{1000 $\cdot$ \lstinline!make-pair!}}\\
+\rightarrow$ Aufrufe von \lstinline|make-pair|: 1000+999+998+\ldots+1\\
+$\sum\limits_{i=1}^{n} i = \frac{n \cdot (n + 1)}{2}$ {\em Quadratische Aufrufe } \begin{turn}{}
+:-(
+\end{turn}\\
+Konstruiere iterative Listenumkehrfunktion \lstinline|backwards|:\\
+\lstinline|(: backwards-worker ((list-of %a) (list-of %a) -> (list-of %a)))|
+\begin{tabular}{l|l}
+n & acc\\
+\hline{\tiny \lstinline|rest|}\begin{turn}{45}
+$\curvearrowleft$
+\end{turn}\lstinline!(list 1 2 3)! & \lstinline[]!(list)! \begin{turn}{-45}
+$\curvearrowright$
+\end{turn}{\tiny \lstinline|make-pair|}\\
+{\tiny \lstinline|rest|}\begin{turn}{45}
+{$\curvearrowleft$}
+\end{turn}\lstinline!(list 2 3)! & \lstinline[]!(list 1)! \begin{turn}{-45}
+$\curvearrowright$
+\end{turn}{\tiny \lstinline|make-pair|}\\
+{\tiny \lstinline|rest|}\begin{turn}{45}
+$\curvearrowleft$
+\end{turn}\lstinline!(list 3)! & \lstinline[]!(list 2 1)! \begin{turn}{-45}
+$\curvearrowright$
+\end{turn}{\tiny \lstinline|make-pair|}\\
+\lstinline!empty!& \lstinline!(list 3 2 1)!\\
+\end{tabular}\bigskip\\
+Mittels \lstinline!letrec! lassen sich Werte an lokale Namen binden.
+\begin{lstlisting}
+(letrec 
+	((@\argid{1}@ @\arge{1}@) ...
+	(@\argid{n}@ @\arge{n}@))@\arge{}@)
+\end{lstlisting}
+Die Ausdrücke \arge{1},\ldots,\arge{n} und \arge{} dürfen sich auf die Namen \argid{1}\ldots \argid{n} beziehen
+\lstinputlisting[firstline=82,lastline=100,frame=single,caption={[Letrec und endrekursives Umdrehen einer Liste]Effizientere Variante eine Liste umzudrehen}]{Endrekursion.rkt}
