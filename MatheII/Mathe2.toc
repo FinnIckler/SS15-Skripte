@@ -18,10 +18,10 @@
 \contentsline {subsection}{\numberline {2.3}Definition}{13}{subsection.2.3}
 \contentsline {subsection}{\numberline {2.4}Definition}{13}{subsection.2.4}
 \contentsline {subsection}{\numberline {2.5}Beispiele}{13}{subsection.2.5}
-\contentsline {subsection}{\numberline {2.6}Satz: Beschr\IeC {\"a}nktheit und Konvergenz}{14}{subsection.2.6}
+\contentsline {subsection}{\numberline {2.6}Satz: Beschränktheit und Konvergenz}{14}{subsection.2.6}
 \contentsline {subsection}{\numberline {2.7}Bemerkung}{15}{subsection.2.7}
 \contentsline {subsection}{\numberline {2.8}Satz (Rechenregeln f\"ur konvergente Folgen)}{15}{subsection.2.8}
-\contentsline {subsection}{\numberline {2.9}Satz: Kriterien f\IeC {\"u}r Nullfolgen}{16}{subsection.2.9}
+\contentsline {subsection}{\numberline {2.9}Satz: Kriterien für Nullfolgen}{16}{subsection.2.9}
 \contentsline {subsection}{\numberline {2.10}Bemerkung}{17}{subsection.2.10}
 \contentsline {subsection}{\numberline {2.11}Definition}{18}{subsection.2.11}
 \contentsline {subsection}{\numberline {2.12}Satz: Landausymbole bei Polynomen}{18}{subsection.2.12}
@@ -58,7 +58,7 @@
 \contentsline {subsection}{\numberline {4.5}Definition}{36}{subsection.4.5}
 \contentsline {subsection}{\numberline {4.6}Beispiel}{36}{subsection.4.6}
 \contentsline {subsection}{\numberline {4.7}Satz ($\varepsilon -\delta $)-Kriterium}{39}{subsection.4.7}
-\contentsline {subsection}{\numberline {4.8}Satz (Rechenregeln f\IeC {\"u}r Grenzwerte)}{41}{subsection.4.8}
+\contentsline {subsection}{\numberline {4.8}Satz (Rechenregeln für Grenzwerte)}{41}{subsection.4.8}
 \contentsline {subsection}{\numberline {4.9}Beispiel}{41}{subsection.4.9}
 \contentsline {subsection}{\numberline {4.10}Bemerkung}{42}{subsection.4.10}
 \contentsline {subsection}{\numberline {4.11}Beispiel}{42}{subsection.4.11}
@@ -72,12 +72,12 @@
 \contentsline {subsection}{\numberline {5.1}Definition}{46}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Satz}{47}{subsection.5.2}
 \contentsline {subsection}{\numberline {5.3}Beispiel}{47}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}Satz (Rechenregeln f\IeC {\"u}r Stetigkeit)}{48}{subsection.5.4}
-\contentsline {subsection}{\numberline {5.5}Satz: Hintereinanderausf\IeC {\"u}hrung von stetigen Funktionen}{48}{subsection.5.5}
+\contentsline {subsection}{\numberline {5.4}Satz (Rechenregeln für Stetigkeit)}{48}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Satz: Hintereinanderausführung von stetigen Funktionen}{48}{subsection.5.5}
 \contentsline {subsection}{\numberline {5.6}Beispiel}{49}{subsection.5.6}
 \contentsline {subsection}{\numberline {5.7}Satz: Stetigkeit von Potenzreihen}{49}{subsection.5.7}
 \contentsline {subsection}{\numberline {5.8}Korollar}{49}{subsection.5.8}
-\contentsline {subsection}{\numberline {5.9}Satz (Nullstellensatz f\IeC {\"u}r stetige Funktionen)}{49}{subsection.5.9}
+\contentsline {subsection}{\numberline {5.9}Satz (Nullstellensatz für stetige Funktionen)}{49}{subsection.5.9}
 \contentsline {subsection}{\numberline {5.10}Korollar (Zwischenwertsatz)}{50}{subsection.5.10}
 \contentsline {subsection}{\numberline {5.11}Satz (Min-Max-Theorem)}{50}{subsection.5.11}
 \contentsline {subsection}{\numberline {5.12}Definition}{51}{subsection.5.12}
@@ -85,7 +85,7 @@
 \contentsline {subsection}{\numberline {5.14}Satz (Stetigkeit der Umkehrfunktion)}{52}{subsection.5.14}
 \contentsline {subsection}{\numberline {5.15}Korollar}{52}{subsection.5.15}
 \contentsline {subsection}{\numberline {5.16}Satz: Exponentialfunktion und Logarithmus naturalis}{53}{subsection.5.16}
-\contentsline {subsection}{\numberline {5.17}Satz: Wachstum des nat\IeC {\"u}rlichen Logarithmus'}{53}{subsection.5.17}
+\contentsline {subsection}{\numberline {5.17}Satz: Wachstum des natürlichen Logarithmus'}{53}{subsection.5.17}
 \contentsline {subsection}{\numberline {5.18}Definition}{54}{subsection.5.18}
 \contentsline {subsection}{\numberline {5.19}Satz:}{54}{subsection.5.19}
 \contentsline {subsection}{\numberline {5.20}Bemerkung}{54}{subsection.5.20}
@@ -103,4 +103,12 @@
 \contentsline {subsection}{\numberline {6.9}Beispiel}{59}{subsection.6.9}
 \contentsline {subsection}{\numberline {6.10}Satz: Potenzreihen und diverenzierbarkeit}{59}{subsection.6.10}
 \contentsline {subsection}{\numberline {6.11}Korollar}{60}{subsection.6.11}
+\contentsline {subsection}{\numberline {6.12}Satz:}{60}{subsection.6.12}
+\contentsline {subsection}{\numberline {6.13}Satz (Mittelwertsatz)}{60}{subsection.6.13}
+\contentsline {subsection}{\numberline {6.14}Korollar}{61}{subsection.6.14}
+\contentsline {subsection}{\numberline {6.15}Korollar}{62}{subsection.6.15}
+\contentsline {subsection}{\numberline {6.16}Satz (Regeln von L'Hôpital)}{62}{subsection.6.16}
+\contentsline {subsection}{\numberline {6.17}Beispiel}{62}{subsection.6.17}
+\contentsline {section}{\numberline {7}Das bestimmte Integral}{63}{section.7}
+\contentsline {subsection}{\numberline {7.1}Definition}{63}{subsection.7.1}
 \contentsfinish 

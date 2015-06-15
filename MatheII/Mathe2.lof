@@ -1,12 +1,12 @@
 \select@language {ngerman}
 \contentsline {figure}{\numberline {1}{\ignorespaces Veranschaulichung Komplexe Zahlen}}{5}{figure.1}
 \contentsline {figure}{\numberline {2}{\ignorespaces Absolutbetrag}}{7}{figure.2}
-\contentsline {figure}{\numberline {3}{\ignorespaces Imagin\IeC {\"a}re Zahlen im Koordinatensystem durch Polarkoordinaten}}{8}{figure.3}
+\contentsline {figure}{\numberline {3}{\ignorespaces Imaginäre Zahlen im Koordinatensystem durch Polarkoordinaten}}{8}{figure.3}
 \contentsline {figure}{\numberline {4}{\ignorespaces Winkel im Bogenma\ss }}{8}{figure.4}
 \contentsline {figure}{\numberline {5}{\ignorespaces Multiplizieren komplexer Zahlen}}{10}{figure.5}
 \contentsline {figure}{\numberline {6}{\ignorespaces Multiplikation mit i}}{10}{figure.6}
-\contentsline {figure}{\numberline {7}{\ignorespaces Beschr\IeC {\"a}nktheit von Folgen}}{13}{figure.7}
-\contentsline {figure}{\numberline {8}{\ignorespaces Beschr\IeC {\"a}nkte aber nicht konvergente Folge}}{15}{figure.8}
+\contentsline {figure}{\numberline {7}{\ignorespaces Beschränktheit von Folgen}}{13}{figure.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Beschränkte aber nicht konvergente Folge}}{15}{figure.8}
 \contentsline {figure}{\numberline {9}{\ignorespaces Cauchy'sches Konvergenzkriterium}}{20}{figure.9}
 \contentsline {figure}{\numberline {10}{\ignorespaces Monotonie}}{23}{figure.10}
 \contentsline {figure}{\numberline {11}{\ignorespaces Konvergenzradien}}{29}{figure.11}
@@ -28,9 +28,11 @@
 \contentsline {figure}{\numberline {27}{\ignorespaces $sin(\frac {1}{x}$)}}{45}{figure.27}
 \contentsline {figure}{\numberline {28}{\ignorespaces $\frac {e^x}{x^n}$}}{46}{figure.28}
 \contentsline {figure}{\numberline {29}{\ignorespaces Abschnittsweise definierte Funktion}}{47}{figure.29}
-\contentsline {figure}{\numberline {30}{\ignorespaces Eine Fallunterscheidugn f\IeC {\"u}r 5.13}}{51}{figure.30}
+\contentsline {figure}{\numberline {30}{\ignorespaces Eine Fallunterscheidugn für 5.13}}{51}{figure.30}
 \contentsline {figure}{\numberline {31}{\ignorespaces Eine Funktion und ihre Umkehrfunktion}}{52}{figure.31}
 \contentsline {figure}{\numberline {32}{\ignorespaces $\qopname \relax o{exp}(x)$ und $\qopname \relax o{ln}(x)$}}{53}{figure.32}
 \contentsline {figure}{\numberline {33}{\ignorespaces Logithmen mit Basen $>1$ und $<1$}}{55}{figure.33}
 \contentsline {figure}{\numberline {34}{\ignorespaces Abschnittsweise definierte cosinus Funktion}}{59}{figure.34}
+\contentsline {figure}{\numberline {35}{\ignorespaces Ableitung keine Hinreichende Bedingung für Minima/Maxima}}{61}{figure.35}
+\contentsline {figure}{\numberline {36}{\ignorespaces Treppenfunktion}}{64}{figure.36}
 \contentsfinish 

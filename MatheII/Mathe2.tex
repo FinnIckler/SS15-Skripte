@@ -2061,6 +2061,130 @@ $\exp(x) = \sum\limits_{k = 0}^{\infty} \frac{x^k}{k!}$ für alle $x \in \R \\
 k = 1, ...$\\
 Beweis folgt.
 \end{proof}
+	\subsection[Satz:]{Satz}\label{sec:6.18}
+	$f\: : D \to \R $ diffbar.\\
+	Hat $f$ in $c \in D$ lokales Minimum/Maximum, so $f'(c) =0$
+	\begin{proof}
+		\ \\
+		c lokale Max.stelle.\\
+		$f'(c)$ existiert nach Voraussetzung.\\
+		$ f'(c) = \lim\limits_{x \to c^+} \frac{f(x) - f(c)}{x-c}\le 0.\\
+		f'(c) = \lim\limits_{x \to c^-} \frac{f(x) - f(c)}{x-c}\ge 0.\\
+		\Rightarrow f'(c) = 0.$
+	\end{proof}
+	\emph{Vorsicht}: $f'(c) = 0$ ist nicht hinreichend für lokale Maxima/Minima.\\
+	z.B $f(x) = x^3 \quad f'(x) = 3x^2\quad f'(0) = 0\\
+	f$ hat kein Maximum oder Minimum in 0\\
+	\begin{figure}[h!]
+		\centering
+		\begin{tikzpicture}
+		\begin{axis}[axis x line=center,
+		axis y line=center,axis equal,xmax = 5,xmin = -5, ymax =10,ymin=-10]
+		\addplot[samples=50] gnuplot[id=sechspunkt18] {x**3};      
+		\end{axis} 
+		\end{tikzpicture}
+		\caption{Ableitung keine Hinreichende Bedingung für Minima/Maxima}
+	\end{figure}
+	Globale Max/Min von $f$ auf $[a,b]$:
+	\begin{enumerate}[-]
+		\item Bestimme $c \in ]a,b[$ mit $f'(c) = 0$ Teste, ob lokale Max/Min.
+		\item Teste Intervallgrenzen a und b.
+	\end{enumerate}
+	\subsection{Satz (Mittelwertsatz)}\label{sec:6.19}
+	
+	$\mathcal{I} = [a,b], a < b , a,b \in \R$\marginpar{Speziell: $f(a) =f(b) \Rightarrow \exists c \in ]a,b[$ mit $f'(c) = 0$ Satz von Rolle} $\\
+	f: \mathcal{I} \to \R$ stetig und diffbar auf $]a,b[$.\\
+	Dann existiert $c \in ]a,b[$ mit $f'(c) = \frac{f(b)-f(a)}{b-a}$\\
+	TODO: PLOT mit steigung\\
+	\begin{proof}
+		Setze $s(x) = f(a) + \frac{f(b) -f(a)}{b-a} \cd (x-a)$\\
+		(Sekante durch $(a,f(a)),(b,f(b))$\\
+		Def. $h(x) = f(x) - s(x)$. $h(a) = h(b) = 0$.\\
+		Zeige: $\exists c \in ]a,b[ $ mit $h'(c) = 0$.\\
+		Fertig, denn 
+		\begin{align*}
+			h'(x) &=f'(x) - s'(x)\\
+			&= f'(x) - \frac{f(b)-f(a)}{b-a}\\
+			h'(c) = 0 \Rightarrow f'(c) &= \frac{f(b)-f(a)}{b-a} 
+		\end{align*}
+		Ist $h$ konstant, so kann man jedes $c \in ]a,b[$ wählen. Also sei $h$ nicht konstant. $h$ ist stetig auf $[a.b]$. \ref{sec:5.11}. h nimmt auf $[a,b]]$ globales Max. und Min. an: $x_{max}, x_{min}\, , x_{max} \ne x_{min}$, da $h$ nicht konstant $h(a) = h(b)$ O.B.d.A\\
+		$x_{max} \in ]a,b[.$ \ref{sec:6.18} : $h'(x_{max}) = 0$
+	\end{proof}
+	\subsection{Korollar}\label{sec:6.20}
+	$\mathcal{I} = [a,b]. a<b, f: I \to \R$ stetig, diffbar in $]a,b[$. (auch $\mathcal{I} = \R$ oder $[a,\infty]\, ,]-\infty,b]$ erlaubt)
+	\begin{enumerate}[a)]
+		\item Ist $f'(x) = 0$ für alle $x \in ]a,b[,$ so ist $f$ konstant auf $[a,b]$,
+		\item Ist $f'(x) \ge 0$ für alle $ x\in ]a,b[,$ so ist $f$ (streng) monoton wachsend auf $\mathcal{I}$
+		\item Ist $f(x) \le 0$ für alle $x \in ]a,b[$ so ist $f$ (streng) monoton fallend auf $\mathcal{I}$.
+	\end{enumerate}
+	\marginpar{Bedingung für strenge Montonie nur hinreichend, nicht notwendig $f(x)= x^3$ streng monoton steigend $f'(0)=$}
+	\begin{proof}
+		\ \\
+		Wähle $u<v\, , u,v \in [a,b]$ beliebig.\\
+		Wende \ref{sec:6.19} auf $[u,v]$ an. $\exists c \in ]u,v[$ mit $f'(c) = \frac{f(v)-f(u)}{v-u}$\\
+		Daraus folgt im Fall\\
+		a) $f(v) = f(u)$\\
+		b) $f(v) \ge f(u)$\\
+		c) $f(v) \le f(u)$
+	\end{proof}
+	\subsection{Korollar}\label{sec:6.21}
+	$\mathcal{I} = [a,b], a<b$ wie in \ref{sec:6.20}.\\
+	$c \in ]a,b[. f: \mathcal{I} \to \R $ sei stetig in $\mathcal{I}.\\
+	f$ auf $\mathcal{I}_0 = ]a,b[ \setminus \{c\}$ diffbar\\
+	Existiert $\lim\limits_{x \to c} f'(x)$ auf $\mathcal{I}_0$, so existiert $f'(c)$ und $f'(c) = \lim\limits_{x \to c} f'(x).$
+	\subsection{Satz (Regeln von L'Hôpital)} \label{sec:6.22}
+	\begin{enumerate}[a)]
+		\item $\mathcal{I}$ Intervall, c $\in \mathcal{I}$, $f,g: \mathcal{I} \setminus \{c\} \to \R $ diffbar.\\
+		Es gelte $g'(x) > 0$ für alle $ x \in \mathcal{I} \setminus \{c\}$\\
+		Oder\quad : $g'(x) > 0$ für alle $ x \in \mathcal{I} \setminus \{c\}$\\
+		Es gelte $\lim\limits_{x \to c} f(x) = \lim\limits_{x \to c} g(x) = 0$ oder $ \infty$\\
+		Existiert $\lim\limits_{x \to c} \frac{f'(x)}{g'(x)} = L$, so ist $\lim\limits_{x \to c} \frac{f(x)}{g(x)} = L$
+		\item $f,g : [a,\infty[ \to \R $ diffbar.\\
+		Es gelte $ g'(x) > 0$ für alle $x \in [a,\infty[ $\\
+		oder \ \ \quad $g'(x) < 0$ für alle $x \in [a,\infty[ $
+		und $\lim\limits_{x \to \infty} f(x) = \lim\limits_{x \to \infty} g(x) = 0 $ oder $\infty$ \\
+		Existiert $\lim\limits_{x \to \infty} \frac{f'(x)}{g'(x)} = L$, so ist \\
+		a \ \qquad \quad $\lim\limits_{x \to \infty} \frac{f(x)}{g(x)} = L.$
+	\end{enumerate}
+	\subsection{Beispiel} \label{sec:6.23}
+	\begin{enumerate}[a)]
+		\item $\lim\limits_{x \to \infty} \frac{\ln(1 + ax)}{x} = ? (a \in \R)$ Zähler definiert für alle $x \in \R$ mit $1+ax >0$ \ref{sec:6.22}a):\\
+		$\lim\limits_{x \to 0} \frac{\ln(1 +ax )}{x}\\
+		\lim\limits_{x \to 0} \frac{\frac{a}{1+ ax}}{1} = a$\\
+		\item $\lim\limits_{x \cd \ln(x)}\\
+		\lim\limits_{x\to 0^+} - \frac{-ln(x)}{\frac{1}{x}} \underset{\text{\ref{sec:6.22}}}{=} \lim\limits_{x \to 0^0} \frac{\frac{1}{x}}{-\frac{1}{x^2}}=\\
+		\lim\limits_{x \to 0}-\frac{-x^2}{x} = \lim\limits_{x \to 0^+} - x = 0 $
+		\item $\lim\limits_{x \to 0} x^x = \lim\limits_{x \to 0} \exp(x \cd \ln(x))\\
+		\underset{\text{exp stetig}}{=} \exp(\lim\limits_{x \to 0} x \cd \ln(x)) \underset{\text{b)}}{=} \exp(0) =1$.\\
+		(Deshalb definiert man $0^0 = 1$)
+		\item $\lim\limits_{x \to \infty} = \frac{\ln(x)}{x}  \underset{\text{\ref{sec:6.22}}}{=}\\
+		\lim\limits_{x \to \infty} \frac{\frac{1}{x}}{1} =\\
+		\lim\limits_{x \to \infty} = \frac{1}{x} = 0$ (schon in 5.17)
+	\end{enumerate}
+	\section{Das bestimmte Integral}
+	Ziel: Bestimmung des Flächeninhalts zwischen Graph einer Funktion und x-Achse zwischen zwei Grenzen a und b (sofern möglich).
+	TODO PLOT: Flächeninhalt
+	\subsection{Definition}
+	\begin{enumerate}[a)]
+		\item $a,b \in \R, a<b. f:[a,b] \to \R$ hei\ss t \emph{Treppenfunktion}, falls es $ a = a_0 < a_1 < \ldots < a_n = b$ gibt, so dass $f$ auf jedem offenem Intervall $]a_i,a_{i+1}[/, , i= 0 \ldots, n-1 $, konstant ist. (Wert an den $a_i$ beliebig.)\\
+	\begin{figure}[h!]
+		\centering
+		\begin{tikzpicture}
+		\begin{axis}[axis x line=center,
+		axis y line=center,axis equal,xmax = 5,xmin = 0, ymax =10,ymin=0]
+		\draw(axis cs: 0,4)--(axis cs: 1,4);
+		\draw(axis cs: 1,1)--(axis cs: 3,1);
+		\draw(axis cs: 3,2)--(axis cs: 5,2);
+		\draw(axis cs: 5,2.2)--(axis cs: 8,2.2);        
+		\end{axis} 
+		\end{tikzpicture}
+		\caption{Treppenfunktion}
+	\end{figure}
+		\item $f$ wie in a).
+		\[ \int_a^b fdx = \int_a^b f(x)dx := \sum_{i=0}^{n-1} c_i (a_{i+1} -a_i) \]
+		wobei $f(x) = c_i$ auf $]a_i, a_{i+1}[.$\\
+		\emph{Integral} von $f$ über $[a,b]$ (Integral kann negativ sein)
+	\end{enumerate}
 \begin{thebibliography}{9}
 \bibitem{k1} Kreu\ss ler, Phister Satz 33.16
 \bibitem{k2} WHK 5.37
