@@ -2061,6 +2061,73 @@ $\exp(x) = \sum\limits_{k = 0}^{\infty} \frac{x^k}{k!}$ für alle $x \in \R \\
 k = 1, ...$\\
 Beweis folgt.
 \end{proof}
+\subsection{Satz (Ableitung der Umkehrfunktion)}\label{sec:6.12}
+$f: \mathcal{I} \to \mathcal{I}_1$ bijektiv, $\mathcal{I},\mathcal{I}_1$ Intervall (linke und rechte Grenze darf nicht $-\infty/\infty$ sein)
+Sei $f$ in $c \in \mathcal{I}$ diffbar und $f'(c) \ne 0$.\\
+Dann ist $f': \mathcal{I}_1 \to \mathcal{I}$ in $f(c) \in \mathcal{I}_1$ diffbar, und es gilt: $(f^{-1})' (f(c)) = \frac{1}{f(c)}$\\
+Ist $f$ überall auf $\mathcal{I}$ diffbar und $f'(y) \ne 0$ für alle $y \in \mathcal{I}$, so ist $f^{-1}$ auf $\mathcal{I}_1$ diffbar und es gilt: \\
+\[(f^{-1})'(x) = \frac{1}{f'(f^{-1}(x))} \] für alle $x \in \mathcal{I}$.\\
+\emph{Beweisidee}: $f^{-1}$ diffbar an Stelle $f(c)$, falls $f'(c) \ne 0$. Grund: Graph von $f' =$ Graph von $f$ gespiegelt an Winkelhalbierende $s(x) = x.$\\
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[axis x line=center,
+	axis y line=center, xmin = -3, ymin = -1,xmax =4,ymax =1,]   
+	\addplot[samples=2,domain={-3:3},dashed] gnuplot[id=6punkt11]{x};
+	\addplot[samples=50,domain={-3:3}] gnuplot[id=6punkt112]{x**3};
+	\addplot[samples=100,domain={-3:3}] gnuplot[id=6punkt113]{sgn(x) * abs(x)**(1./3.)};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Zwei Funktionen an der Winkelhalbierenden}
+\end{figure}
+$(f^{-1} \circ f)(x) =x$\\
+Ableiten mit Kettenregel.\\
+$f^{-1}(f(x)) \cd f'(x) = 1.$ Beweis folgt.
+\subsection{Bemerkung}
+Bedingung $f'(c) \ne 0$ in \ref{sec:6.12} ist notwendig.\\
+$f : \begin{cases}
+\R \to R\\
+x \to x^3
+\end{cases}$ bijektiv \qquad
+\begin{tikzpicture}
+\begin{axis}[axis x line=center,
+axis y line=center, xmin = -3, ymin = -1,xmax =4,ymax =1,width=5cm, height=3cm]
+\addplot[samples=50,domain={-3:3}] gnuplot[id=6punkt12]{x**3};
+\end{axis}
+\end{tikzpicture}\\
+$f'(0) = 0.$ \hfill ($f'(x) =3x^2)$\\
+$f^{-1}(x) = \sqrt[3]{x} = x^{\frac{1}{3}}\\
+\lim\limits_{x \to 0} \frac{x^{\frac{1}{3}} - 0}{x - 0} = \lim\limits_{x \to 0} \frac{1}{x^{\frac{2}{3}}} = \infty\\
+(f^{-1})'(0)$ existiert nicht. (jedenfalls nicht als reelle Zahl!)
+\subsection[Satz:]{Satz}
+\begin{tabular}{cll|l}
+	& $f(x)$ & & $f'(x)$\\
+	\hline
+	a) & $a^x$ & $(a \in \R, a> 0), x\in \R$ & $\ln(a) \cd a^x$\\
+	b) & $\ln(x)$ & auf $]0,\infty[$ & $\frac{1}{x}$\\
+	c) & $\log_{10}(x)$ & (konst. $a > 0,\, a \ne 1$) auf $]0,\infty[$ & $\frac{1}{\ln(a) \cd x}$\\
+	d) & $x \cd (\ln(x) -1 )$ & auf $]0,\infty[$ & $\ln(x)$\\
+	e) & $x^b \cd (b \in \R)$& auf $]0,\infty[ $ & $b \cd x^{b-1}$ 
+\end{tabular}
+\begin{proof}
+	a)\\
+	$f(x) = \exp(x \cd \ln(a))\\
+	f'(x) \underset{\substack
+		{\text{\ref{sec:6.12}}\\\text{Kettenregel}}}{=} \exp(x \cd \ln(a)) \cd \ln(a) = a^x \cd \ln(a)$\\
+	b) $\ln(x)'  \underset{\text{\ref{sec:6.12}}}{=} \frac{1}{\exp'(\ln(x))} \underset{\text{\ref{sec:6.11}}}{=} \frac{1}{x}$\\
+	c)$ \log'_a(x) \underset{\text{\ref{sec:6.12}}}{=} \frac{1}{\ln(a) \cd a^{\log_a(x)}} = \frac{1}{\ln(a) \cd x}$
+\end{proof}
+\subsection{Satz (logarithmische Abbildung)}
+$f : \mathcal{I} \to ]0,\infty[$ diffbar.\\
+$(\ln(f(x)))' = \frac{f'(x)}{f(x)}$\\
+Beweis : Kettenregel und \ref{sec:6.14}b)\\
+\subsection{Beispiel}
+$f(x) = e^x \cd (sin(x) +2) \cd x^6$ für $x \ne 0\\
+\ln(f(x)) = x + \ln(\sin(x) +2) + 6 \cd \ln(x)\\
+\ln(f(x))' = 1 + \frac{\cos(x)}{\sin(x)} + \frac{6}{x}\\
+f'(x) = (1 + \frac{\cos(x)}{\sin(x) + 2} + \frac{6}{x}) \cd e^x \cd (\sin(x) + 2) \cd x^6$\\
+\subsection{Definition}
+$f : D \to \R $ hat \emph{lokales Maximum}
 	\subsection[Satz:]{Satz}\label{sec:6.18}
 	$f\: : D \to \R $ diffbar.\\
 	Hat $f$ in $c \in D$ lokales Minimum/Maximum, so $f'(c) =0$
