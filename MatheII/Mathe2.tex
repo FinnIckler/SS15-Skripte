@@ -2158,7 +2158,6 @@ $f : D \to \R $ hat \emph{lokales Maximum}
 		\item Teste Intervallgrenzen a und b.
 	\end{enumerate}
 	\subsection{Satz (Mittelwertsatz)}\label{sec:6.19}
-	
 	$\mathcal{I} = [a,b], a < b , a,b \in \R$\marginpar{Speziell: $f(a) =f(b) \Rightarrow \exists c \in ]a,b[$ mit $f'(c) = 0$ Satz von Rolle} $\\
 	f: \mathcal{I} \to \R$ stetig und diffbar auf $]a,b[$.\\
 	Dann existiert $c \in ]a,b[$ mit $f'(c) = \frac{f(b)-f(a)}{b-a}$\\
@@ -2170,9 +2169,9 @@ $f : D \to \R $ hat \emph{lokales Maximum}
 		Zeige: $\exists c \in ]a,b[ $ mit $h'(c) = 0$.\\
 		Fertig, denn 
 		\begin{align*}
-			h'(x) &=f'(x) - s'(x)\\
-			&= f'(x) - \frac{f(b)-f(a)}{b-a}\\
-			h'(c) = 0 \Rightarrow f'(c) &= \frac{f(b)-f(a)}{b-a} 
+			h'(x) &=f'(x) - s'(x)
+			= f'(x) - \frac{f(b)-f(a)}{b-a}\\
+			h'(c) &= 0 \Rightarrow f'(c) = \frac{f(b)-f(a)}{b-a} 
 		\end{align*}
 		Ist $h$ konstant, so kann man jedes $c \in ]a,b[$ wählen. Also sei $h$ nicht konstant. $h$ ist stetig auf $[a.b]$. \ref{sec:5.11}. h nimmt auf $[a,b]]$ globales Max. und Min. an: $x_{max}, x_{min}\, , x_{max} \ne x_{min}$, da $h$ nicht konstant $h(a) = h(b)$ O.B.d.A\\
 		$x_{max} \in ]a,b[.$ \ref{sec:6.18} : $h'(x_{max}) = 0$
@@ -2184,7 +2183,7 @@ $f : D \to \R $ hat \emph{lokales Maximum}
 		\item Ist $f'(x) \ge 0$ für alle $ x\in ]a,b[,$ so ist $f$ (streng) monoton wachsend auf $\mathcal{I}$
 		\item Ist $f(x) \le 0$ für alle $x \in ]a,b[$ so ist $f$ (streng) monoton fallend auf $\mathcal{I}$.
 	\end{enumerate}
-	\marginpar{Bedingung für strenge Montonie nur hinreichend, nicht notwendig $f(x)= x^3$ streng monoton steigend $f'(0)=$}
+	\begin{minipage}[c]{0.5\textwidth}
 	\begin{proof}
 		\ \\
 		Wähle $u<v\, , u,v \in [a,b]$ beliebig.\\
@@ -2194,6 +2193,10 @@ $f : D \to \R $ hat \emph{lokales Maximum}
 		b) $f(v) \ge f(u)$\\
 		c) $f(v) \le f(u)$
 	\end{proof}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+	Bedingung für strenge Montonie nur hinreichend, nicht notwendig $f(x)= x^3$ streng monoton steigend $f'(0)=0$
+\end{minipage}
 	\subsection{Korollar}\label{sec:6.21}
 	$\mathcal{I} = [a,b], a<b$ wie in \ref{sec:6.20}.\\
 	$c \in ]a,b[. f: \mathcal{I} \to \R $ sei stetig in $\mathcal{I}.\\
@@ -2252,6 +2255,127 @@ $f : D \to \R $ hat \emph{lokales Maximum}
 		wobei $f(x) = c_i$ auf $]a_i, a_{i+1}[.$\\
 		\emph{Integral} von $f$ über $[a,b]$ (Integral kann negativ sein)
 	\end{enumerate}
+\subsection{Definition}\label{sec:7.2}
+$a,b \in \R . a < b.\\
+f: [a,b] \to \R$ hei\ss t \emph{Regelfunktion} (oder integrierbare Funktion) $\Leftrightarrow\\
+\forall \varepsilon > 0 \exists$ Treppenfunktion $g:\:[a,b] \to \R$ (abh. von $\varepsilon$): $\abs{f(x) - g(x)} \ge \epsilon$ für alle $x \in [a,b]$.\\
+Bedeutung:\\
+Gleichmä\ss ige Approximierbarkeit durch Treppenfunktion.
+\subsection[Satz: Regelfunktionen]{Satz}\label{sec:7.3}
+$\mathcal{I} = [a,b],\, a,b \in \R,\, a<b$.\\
+\begin{enumerate}[a)]
+	\item Jede Regelfunktion $f$ auf $\mathcal{I}$ ist beschränkt d.h. $\exists m,M \in \R :\: m \leq f(x) \leq M$ für alle $x \in [a,b]$.\\
+	\item Summe, Produkt und Betrag von Regelfunktionen ist wieder eine Regelfunktion
+\end{enumerate}
+\emph{Beweisidee} für a),b):\\
+Man beweist \ref{sec:7.3} zunächst für Treppenfunktionen. Für b): Bestimme gemeinsame Verfeinerung der Intervallunterteilung der beiden Treppenfunktionen
+Dann auf Regelfunktionen übertragen.
+\subsection[Satz: Regelfunktion und Stetigkeit]{Satz}\label{sec:7.4}
+Jede stetige Funktion auf $[a,b]$ ist Regelfunktion
+\emph{Beweis}: \cite{k8}
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[axis x line=center,
+	axis y line=center,axis equal,xmax = 5,xmin = 0, ymax =10,ymin=0, xticklabels={a,b},xtick={1,5}]
+	\addplot[samples=50,domain={1:5}] gnuplot[id=7punkt4]{ 1/12 * x**5 + sin(x+3.141) + 3};       
+	\end{axis} 
+	\end{tikzpicture}
+	\caption{Treppenfunktion}
+\end{figure}
+7.4 gilt auch für sogenannte \emph{stückweise stetige} Funktionen auf $[a,b]$
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[axis x line=center,
+	axis y line=center,axis equal,xmax = 5,xmin = 0, ymax =10,ymin=-2]
+	\addplot[samples=50,domain={1:2}] gnuplot[id=7punkt41]{ 1/12 * x**5 + sin(x+3.141) + 3};
+	\addplot[samples=50,domain={2:3}] gnuplot[id=7punkt42]{ 1/12 * x**5 + sin(x+3.141) - 1};
+	\addplot[samples=50,domain={3:4}] gnuplot[id=7punkt43]{ 1/12 * x**5 + sin(x+3.141) + 8};           
+	\end{axis} 
+	\end{tikzpicture}
+	\caption{Abschnittsweise stetige Funktion}
+\end{figure}
+$[a,b]$ ist Vereinigung \emph{endlicher} Teilintervalle, auf denen Funktion stetig ist.
+\subsection{Beispiel}\label{sec:7.5}
+\begin{enumerate}[a)]
+	\item $f(x) =x^2,\, \mathcal{I} = [0,t]$\\
+	\begin{figure}[h!]
+		\centering
+		\begin{tikzpicture}
+		\begin{axis}[axis x line=center,
+		axis y line=center,axis equal,xmax = 5,xmin = 0, ymax =20,ymin=0,xtick={5},xticklabels={t}]
+		\addplot[samples=50,domain={0:5}] gnuplot[id=7punkt5]{x**2};
+		\draw(axis cs: 0,0)--(axis cs: 0,1);
+		\draw(axis cs: 1,2)--(axis cs: 2,2);
+		\draw(axis cs: 2,2)--(axis cs: 2,0);
+		\draw(axis cs: 1,2)--(axis cs: 1,0);
+		\draw(axis cs: 2,4)--(axis cs: 3,4);
+		\draw(axis cs: 3,4)--(axis cs: 3,0);
+		\draw(axis cs: 2,4)--(axis cs: 2,0);
+		\draw(axis cs: 3,9)--(axis cs: 4,9);
+		\draw(axis cs: 4,9)--(axis cs: 4,0);
+		\draw(axis cs: 3,9)--(axis cs: 3,0);
+		\draw(axis cs: 4,16)--(axis cs: 5,16);
+		\draw(axis cs: 5,16)--(axis cs: 5,0);
+		\draw(axis cs: 4,16)--(axis cs: 4,0);
+		\end{axis} 
+		\end{tikzpicture}
+		\caption{Treppenfunktion (Untersumme) von $x^2$}
+	\end{figure}
+	Definition für $x \in \mathbb{N}$ Treppenfunktion.\\
+	$f_n: [0,t] \to \R \\
+	f_n(x)=\begin{cases}
+	(\frac{it^2}{n}) & \text{falls } x\in [\frac{it}{n}, \frac{(i+1)t}{n}] \text{für ein }i \in \{0,\ldots,n-1\}\\
+	t^2 & \text{falls } x = t
+	\end{cases}\\
+	x \in [0,t]:\: \abs{f(x) -f_n(x)} = ?\\
+	x = t:\: \abs{f(t)-f_n(x)} = 0.\\
+	0 \le x < t:$ Dann $ x \in [\frac{it}{n}, \frac{(i+1)t}{n}]$ für alle $i \in \{0,\ldots,n-1\}.\\
+	\abs{f(x)-f_n(x)} = \abs{x^2 - (\frac{it}{n})^2} \le (\frac{(i+1)t}{n})^2 - (\frac{it}{n})^2 = \frac{2it+t^2}{n^2}\le \frac{2t}{n} + \frac{t^2}{n^2} \xrightarrow[n \to \infty]{} 0$\\
+	\item $f(x) = \begin{cases}
+	0 & x \in \mathbb{Q}\\
+	1 & x \not \in \mathbb{Q}
+	\end{cases}\\
+	f: [0,1] \to \R$
+	TODO: PLOT $f$
+\end{enumerate}
+\subsection{Lemma}\label{sec:7.6}
+$f$ Regelfunktion auf $[a,b]$\\
+\begin{enumerate}[a)]
+	\item $(f_n)_n$ Folge von Treppenfunktion, die \emph{gleichmä\ss ig} gegen $f$ konvergiert, dass hei\ss t es existiert Nullfolge $(a_n)_n$, $a \geq 0$, und $\abs{f_n(x)-f(x)} \le a_n$ für alle $x \in [a,b]$.\\
+	Dann konvergiert die Folge \[\underbrace{\biggl(\int_{a}^{b}f_n(x)dx \biggr)_n}_{\in \R}\]
+	\item Sind $(f_n)_n$ und $(g_n)_n$ zwei Folgen von Treppenfunktionen die gegen $f$ gleichmä\ss ig konvergieren, so :\\
+	\begin{align}
+	\lim_{n \to \infty} \int_{a}^{b} f_n(x)dx = \lim_{n \to \infty} \int_{a}^{b} g_n(x)dx \tag{\text{WHK, 7.20}}
+	\end{align}
+\end{enumerate}
+\subsection{Definition}\label{sec:7.7}
+$f : [a,b] \to \R $ Regelfunktion, $(f_n)_n$ Folge von Treppenfunktionen, die gleichmä\ss if gegen $f$ konvergiert (wie in \ref{sec:7.6} a).\\
+Definition \emph{(bestimmtes) Integral}:
+\[\int_{a}^{b} f(x) dx = \lim_{n \to \infty} \int_a^b f_n(x)dx \]\\
+Treppenfunktion:\\
+$\sum\limits_{i=0}^{n-1} c_i (x_m - x_i)$\\
+\begin{tikzpicture}
+\draw (0,0)--(5,0);
+\draw (0,0.2)--(0,-0.2);
+\node () at (0,0.4) {$a=x_0$};
+\draw (1,0.2)--(1,-0.2);
+\node () at (1,-0.4) {$a=x_i$};
+\draw (2,0.2)--(2,-0.2);
+\draw (3,0.2)--(3,-0.2);
+\draw (4,0.2)--(4,-0.2);
+\node () at (4,-0.4) {$a=x_{i+1}$};
+\draw (5,0.2)--(5,-0.2);
+\node () at (5,0.4) {$b=x_n$};
+\end{tikzpicture}
+\subsection{Beispiel}
+$f(x) = x^2$ auf $[0,t]\\
+f_n$ wie in \ref{sec:7.5}.\\
+\[\int\limits_{a}^b f_n(x)dx = \sum\limits_{i=0}^{n-1}(\frac{it}{n})^2 \cd \frac{t}{n} =\sum\limits_{i=0}^{n+1} i^2 \cd \frac{t^2}{n^3} = \frac{t^3}{n^3}\cd \sum\limits_{i=0}^{n-1} i^2\]\\
+Per Induktion nach n kann man zeigen : $\sum\limits_{i=0}^{n-1} i^2 = \frac{(n-1)n(2n-1)}{6}$\\
+Also : $\int_{0}^{t} f_n(x)dx = \frac{t^3}{n^3} \cd \frac{(n-1)n(2n-1)}{6}\\
+\lim\limits_{n \to \infty} \int_{0}^{t} f_n(x)dx = \frac{t^3}{6} \cd 2 = \frac{t^3}{3}$
 \begin{thebibliography}{9}
 \bibitem{k1} Kreu\ss ler, Phister Satz 33.16
 \bibitem{k2} WHK 5.37
@@ -2260,5 +2384,6 @@ $f : D \to \R $ hat \emph{lokales Maximum}
 \bibitem{k5} WHK 6.25
 \bibitem{k6} WHK 6.25
 \bibitem{k7} WHK 7.32
+\bibitem{k8} WHK 7.19
 \end{thebibliography}
 \end{document}
