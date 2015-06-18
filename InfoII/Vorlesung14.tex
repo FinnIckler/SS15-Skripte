@@ -1,0 +1,94 @@
+\emph{Beispiel}:\\
+\begin{lstlisting}
+(define cat
+	(lambda (xs ys)
+		(cond
+			((empty? xs ) ys)
+			((pair? xs) (make-oair (first xs) (cat (rest xs) ys))))))
+\end{lstlisting}
+
+$\begin{cases}
+	(1) & \text{\lstinline|cat empty ys| = ys}\\
+	\marginnote{($M^*$, \lstinline|cat|,\lstinline|empty| ist ein \emph{Monoid})}(2) & \text{\lstinline|(cat xs empty)| = xs}\\
+	(3) & \text{\lstinline|(cat (cat xs ys) ys)|} = \text{\lstinline|(cat xs (cat ys zy))|}
+\end{cases}$
+\emph{Beweise}:\\
+\begin{enumerate}[(1)]
+	\item \lstinline|(cat empty ys)| $\overset{\star}{\text{\eval}} $ys$ \checkmark$
+	\i $P(xs) =$ \lstinline|(cat xs empty)| = xs 
+\end{enumerate}
+\emph{Induktionsanfang} $P(\text{\lstinline|empty|})$\\
+\lstinline|(cat empty empty)| $\overset{(1)}{=}$ \lstinline|empty| $\checkmark$\\
+\emph{Induktionsschritt} $\forall x \in M: P(xs) \Rightarrow P$(\lstinline|(make-pair x xs)|)\\
+\lstinline|(define make-pair mp)|\\
+\lstinline|(cat (mp x xs) empty)|
+\begin{enumerate}[\eval]
+\item[$\overset{\star}{\text{\eval}}$] \lstinline|(mp (first (mp x xs)) (cat (rest (mp x xs)) empty))|
+\item \lstinline|(mp x (cat xs empty))|
+\item[$\overset{iv.}{=}$] \lstinline|(mp x xs)|$\checkmark$
+\end{enumerate}
+\begin{enumerate}[(3)]
+	\item Listeninduktion über xs (ys,zs $\in M^*$ beliebig)\\
+	$P(xs) \equiv$ \lstinline|(cat (cat xs ys) zs)| = \lstinline|(cat xs (cat ys zs))| 
+\end{enumerate}
+\emph{Induktionsanfang} $P$(\lstinline|empty|)\\
+\lstinline|(cat (cat empty ys) zs)|
+\begin{enumerate}
+\item[\eval]$\overset{(1)}{=}$ \lstinline|(cat ys zs)|
+\item[\reval]$\overset{(1)}{=}$ \lstinline|(cat empty (cat ys zs))|$\checkmark$
+\end{enumerate}
+\emph{Induktionsschritt} $\forall x \in M: P(xs) \Rightarrow P$(\lstinline|(make-pair x xs)|)\\
+\lstinline|(cat (cat (mp x xs) ys)zs))|
+\begin{enumerate}
+\item[$\overset{\star}{\text{\eval}}$] \lstinline|(cat (mp x (cat xs ys)) zs)|
+\item[$\overset{\star}{\text{\eval}}$]
+\lstinline|(mp (cat (cat xs ys)) zs)|
+\item[$\overset{iv.}{=}$] \lstinline|(mp (cat (cat xs ys)zs))|
+\item[\reval] \lstinline|(cat (mp x xs ) (cat ys zs))|$\checkmark$
+\end{enumerate}
+\bigskip
+\emph{Beispiel}: Interaktion von \lstinline|length| und \lstinline|cat| (Distributivität)
+\begin{lstlisting}
+(define length
+	(lambda (xs)
+		(cond
+			((empty? xs)0)
+			((pair? xs) (+ 1 
+				(length (rest xs)))))))
+\end{lstlisting}
+$P(xs)$:\lstinline|(length (cat xs ys))| = \lstinline|(+(length xs) (length ys))|,\\
+ $ys \in M^*$ beliebig.\\
+\emph{Induktionsbasis}:\\
+\lstinline|(length (cat empty ys))|
+\begin{enumerate}
+	\item[$\overset{(1)}{=}$] \lstinline|(length ys)|
+	\item[$\overset{+}{=}$] \lstinline|(+ 0 (length ys))|
+	\item[\reval] \lstinline|(+ (length empty) (length ys))|$\checkmark$
+\end{enumerate}
+\emph{Induktionsschritt}\\
+\lstinline|(length (mp x xs) ys)|
+\begin{enumerate}
+	\i[cat]$\overset{\star}{\text{\eval}}$ \lstinline|(length (mp x (cat xs ys)))|
+	\i[length]$\overset{\star}{\text{\eval}}$ \lstinline|(+ 1 (length (rest (mp x (cat xs ys)))))|
+	\i[rest]$\overset{\star}{\text{\eval}}$ \lstinline|(+ 1 (length (cat xs ys)))|
+	\i[] $\overset{iv.}{=}$ \lstinline|(+ 1(+ (length xs) (length ys)))|
+	\i[ass.] $\overset{(+)}{=}$ \lstinline|(+ (+ 1 (length xs) (length ys)))|
+	\i[\lstinline|length|]$\overset{\star}{\text{\reval}}$ \lstinline|(+ (length (mp x xs) (length ys)))|$\checkmark$
+\end{enumerate}
+\newpage
+\emph{Prozeduren höherer Ordnung}\hfill(higher-order \emph{procedures})
+\begin{lstlisting}
+; Filtere Liste xs nach Elementen, die Prädikat p? erfüllen
+; (Prozedur höherer Ordnung: Parameter p? ist selbst eine Funktion)
+(: filter ((%a -> boolean) (list %a) -> (list %a)))
+(define filter
+	(lambda (p? xs)
+	  (cond 
+	   ((empty? xs) empty)
+	   ((pair? xs)  
+		   (if (p? (first xs))
+			(make-pair (first xs)
+				(filter p? (rest xs)))  
+			(filter p? (rest xs)))))))
+\end{lstlisting}
+Wert des Parameters \lstinline|p?| ist Prozedur $\Rightarrow$ kann angewendet werden

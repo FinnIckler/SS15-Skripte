@@ -1,0 +1,152 @@
+Zwei Orten von \emph{Higher Order Prozeduren} (H.O.P)\\
+\begin{enumerate}[(1)]
+\i akzeptieren, Prozeduren als Parameter oder/und
+\i liefern Prozeduren als Ergebnis
+\end{enumerate}
+\lstinline|filter| ist vom Typ (1).\\
+H.O.P vermeiden Duplizierung von Code und führen zu kompakteren Programmen, verbesserte Lesbarkeit und verbesserte Wartbarkeit.\\
+\emph{Beispiel}: \lstinline|(map f x)|\\
+
+\begin{minipage}{0.45\textwidth}
+	\begin{tikzpicture}
+	\draw[black,solid] (0,0)--(0,1);
+	\draw[black,solid] (0,0)--(1,0);
+	\draw[black,solid] (0,1)--(1,1);
+	\draw[black,solid] (1,1)--(1,0);
+	\draw[black,solid] (0.5,1)--(0.5,0);
+	\node () at (0.25,0.5) {$x_1$};
+	\draw[black,solid] (0.75,0.5)--(1.5,-0.75);
+	\draw[black,solid] (1.5,-0.75)--(1.5,-1.75);
+	\draw[black,solid] (1.5,-0.75)--(2.5,-0.75);
+	\draw[black,solid] (1.5,-1.75)--(2.5,-1.75);
+	\draw[black,solid] (2.5,-1.75)--(2.5,-0.75);
+	\draw[black,solid] (2.0,-1.75)--(2.0,-0.75);
+	\node () at (1.75,-1.25) {$x_2$};
+	\draw[black,dashed] (2.25,-1.25)--(3,-2.5);
+	\draw (3,-2.5)rectangle(4,-3.5);
+	\draw[black,solid] (3.5,-2.5)--(3.5,-3.5);
+	\node () at (3.85,-3.5) {\begin{rotate}{90}
+		\lstinline!empty!
+		\end{rotate}};
+	\node () at (3.25,-3) {$x_n$};
+	\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{0.1\textwidth}
+	\lstinline|(map f xs)|\eval 
+\end{minipage}%
+\begin{minipage}{0.45\textwidth}
+	\begin{tikzpicture}
+	\draw[black,solid] (0,0)--(0,1);
+	\draw[black,solid] (0,0)--(1,0);
+	\draw[black,solid] (0,1)--(1,1);
+	\draw[black,solid] (1,1)--(1,0);
+	\draw[black,solid] (0.5,1)--(0.5,0);
+	\node () at (0,-0.4) {\lstinline[mathescape]|(f $x_1$)|};
+	\draw[black,solid] (0.75,0.5)--(1.5,-0.75);
+	\draw[black,solid] (1.5,-0.75)--(1.5,-1.75);
+	\draw[black,solid] (1.5,-0.75)--(2.5,-0.75);
+	\draw[black,solid] (1.5,-1.75)--(2.5,-1.75);
+	\draw[black,solid] (2.5,-1.75)--(2.5,-0.75);
+	\draw[black,solid] (2.0,-1.75)--(2.0,-0.75);
+	\node () at (1.75,-2.4) {\lstinline[mathescape]|(f $x_2$)|};
+	\draw[black,dashed] (2.25,-1.25)--(3,-2.5);
+	\draw (3,-2.5)rectangle(4,-3.5);
+	\draw[black,solid] (3.5,-2.5)--(3.5,-3.5);
+	\node () at (3.85,-3.5) {\begin{rotate}{90}
+		\lstinline!empty!
+		\end{rotate}};
+	\node () at (3.25,-4) {\lstinline[mathescape]|(f $x_n$)|};
+	\end{tikzpicture}
+\end{minipage}
+\begin{lstlisting}
+;Wende f auf Elemente von Liste xs an
+(: map ((%a -> %b) (list-of %a) -> (list-of %a)))
+(define map
+	(lambda (f xs)
+	  (cond
+	    ((empty? xs) empty)
+	    ((pair? xs) (make-pair (f (first xs) 
+			(map f (rest xs)))))))
+\end{lstlisting}
+\fbox{TODO:Anwendung von map aus Grusts Code}
+
+Allgemeine Transformation von Listen \emph{Listenfaltung} (list folding)\\
+Idee: Ersetze die Listenkonstruktoren \lstinline|make-pair| und \lstinline|empty| systematisch.\\
+\begin{minipage}{0.45\textwidth}
+	\begin{tikzpicture}
+	\draw[black,solid] (0,0)--(0,1);
+	\draw[black,solid] (0,0)--(1,0);
+	\draw[black,solid] (0,1)--(1,1);
+	\draw[black,solid] (1,1)--(1,0);
+	\draw[black,solid] (0.5,1)--(0.5,0);
+	\node () at (0.25,0.5) {$x_1$};
+	\draw[black,solid] (0.75,0.5)--(1.5,-0.75);
+	\draw[black,solid] (1.5,-0.75)--(1.5,-1.75);
+	\draw[black,solid] (1.5,-0.75)--(2.5,-0.75);
+	\draw[black,solid] (1.5,-1.75)--(2.5,-1.75);
+	\draw[black,solid] (2.5,-1.75)--(2.5,-0.75);
+	\draw[black,solid] (2.0,-1.75)--(2.0,-0.75);
+	\node () at (1.75,-1.25) {$x_2$};
+	\draw[black,dashed] (2.25,-1.25)--(3,-2.5);
+	\draw (3,-2.5)rectangle(4,-3.5);
+	\draw[black,solid] (3.5,-2.5)--(3.5,-3.5);
+	\node () at (3.85,-3.5) {\begin{rotate}{90}
+		\lstinline!empty!
+		\end{rotate}};
+	\node () at (3.25,-3) {$x_n$};
+	\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{0.1\textwidth}
+	\lstinline|(foldr z c xs)|\eval 
+\end{minipage}%
+\begin{minipage}{0.45\textwidth}
+	\begin{tikzpicture}
+	\node () at (0,-0.4) {$x_1$};
+	\draw[black,solid] (0.75,0.5)--(1.5,-0.75);
+	\draw[black,solid] (0.75,0.5)--(0.1,-0.4);
+	\node () at (0.75,0.6) {$c$};
+	\node () at (1.5,-0.8) {$c$};
+	\draw[black,solid] (1.55,-1)--(1.25,-2.4);
+	\node () at (1,-2.4) {$x_2$};
+	\draw[black,dashed] (1.55,-1)--(2.55,-2.4);
+	\node () at (2.55,-2.4) {$c$};
+	\draw[black,solid] (2.55,-2.5)--(3.85,-3.4);
+	\draw[black,solid] (2.55,-2.5)--(2.5,-3.4);
+	\node () at (3.85,-3.5) {$z$};
+	\node () at (2.5,-3.5) {$x_n$};
+	\end{tikzpicture}
+\end{minipage}
+\lstinline|(foldr z c xs)| wirkt als Spinetransformer
+\begin{itemize}
+	\i[-] \lstinline|empty| \eval z
+	\i[-] \lstinline|make-pair| \eval c
+	\i[-] Eingabe : Liste \lstinline|(list-of %a)|
+	\i[-] Ausgabe : im Allgemeinen \emph{keine} Liste mehr: \lstinline|%b|
+\end{itemize}
+\begin{lstlisting}
+;Falte Liste xs bzgl. c und z
+(: foldr (%b (%a (list-of %a) -> %b) -> %b))
+(define foldr
+	(lambda (z c xs)
+	  (cond 
+	    ((empty? xs) z)
+	    ((pair? xs)
+	      (c (first xs)
+	         (foldr z c (rest xs)))))))
+\end{lstlisting}
+Beispiele: Listenreduktion mit \lstinline|foldr|\\
+TODO: Gro\ss es Bild von foldr Funktionen
+\begin{lstlisting}
+(: sum ((list-of number) -> number))
+(define sum(lambda (xs)(foldr 0 + xs)))
+\end{lstlisting}
+Beispiel: Länge einer Liste durch Listenreduktion
+TODO: Bild Plotten
+\begin{lstlisting}
+; Listenreduktion via foldr: Länge der Liste xs
+(: my-length ((list-of %a) -> natural))
+(define my-length
+	(lambda (xs)
+		(foldr 0 (lambda (x l) (+ 1 l)) xs)))
+\end{lstlisting}
+\rackett{Anwendungsbeispiele foldr}{Fold und seine Anwendungen}{HigherOrderProcedures}{91}{151}

@@ -27,3 +27,4 @@
 \contentsline {lstlisting}{Endrekursion.rkt}{37}{lstlisting.-28}
 \contentsline {lstlisting}{\numberline {27}Umdrehen einer Liste durch lambda Rekursion}{38}{lstlisting.27}
 \contentsline {lstlisting}{\numberline {28}Letrec und endrekursives Umdrehen einer Liste}{39}{lstlisting.28}
+\contentsline {lstlisting}{\numberline {29}Anwendungsbeispiele foldr}{48}{lstlisting.29}
