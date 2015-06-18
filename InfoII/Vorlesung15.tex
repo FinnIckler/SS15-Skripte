@@ -68,8 +68,6 @@ H.O.P vermeiden Duplizierung von Code und führen zu kompakteren Programmen, ver
 	    ((pair? xs) (make-pair (f (first xs) 
 			(map f (rest xs)))))))
 \end{lstlisting}
-\fbox{TODO:Anwendung von map aus Grusts Code}
-
 Allgemeine Transformation von Listen \emph{Listenfaltung} (list folding)\\
 Idee: Ersetze die Listenkonstruktoren \lstinline|make-pair| und \lstinline|empty| systematisch.\\
 \begin{minipage}{0.45\textwidth}
