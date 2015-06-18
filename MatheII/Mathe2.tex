@@ -1956,7 +1956,17 @@ $f: \mathcal{I} \to \R $ in $c \in \mathcal{I}$ diffbar.
 Dann gilt für alle $x \in \mathcal{I}:\\
 f(x) = f(c) + f'(c) \cd (x-c) + \mathcal{R}(x) \cd (x-c), \,\\
 $wobei $\mathcal{R}, \mathcal{I} \to \R$ stetig in $c$, $\limit{x \to c}\mathcal{R}(c) = 0$\\
-TODO: PLOT von Sekante\\
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[axis x line=center,
+	axis y line=center, xmin = 0, ymin = 0,xmax =5,ymax =5,ytick={2.1,2.5},yticklabels={$f(x_0)$,$f(x_1)$},xtick={2.1,2.7},xticklabels={$x_0$,$x_1$}]   
+	\addplot[samples=2,domain={0:5}] gnuplot[id=sekante]{x};
+	\addplot[samples=50,domain={0.5:4.5}] gnuplot[id=sekante]{x**2-3*x+sin(x)+3.15};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Sekante an Funktion}
+\end{figure}
 D.h. : $f$ lässt sich in der Nähe von c sehr gut durch eine lineare Funktion (d.h Graph ist Gerade) approximieren.
 \subsection{Korollar}\label{sec:6.4}
 $f : \mathcal{I} \to \R$ diffbar in $c
@@ -2160,8 +2170,18 @@ $f : D \to \R $ hat \emph{lokales Maximum}
 	\subsection{Satz (Mittelwertsatz)}\label{sec:6.19}
 	$\mathcal{I} = [a,b], a < b , a,b \in \R$\marginpar{Speziell: $f(a) =f(b) \Rightarrow \exists c \in ]a,b[$ mit $f'(c) = 0$ Satz von Rolle} $\\
 	f: \mathcal{I} \to \R$ stetig und diffbar auf $]a,b[$.\\
-	Dann existiert $c \in ]a,b[$ mit $f'(c) = \frac{f(b)-f(a)}{b-a}$\\
-	TODO: PLOT mit steigung\\
+	Dann existiert $c \in ]a,b[$ mit $f'(c) = \frac{f(b)-f(a)}{b-a}$
+	\begin{figure}[h!]
+		\centering
+		\begin{tikzpicture}
+		\begin{axis}[axis x line=center,
+		axis y line=center, xmin = 0, ymin = 0,xmax =5,ymax =5,xtick={2},xticklabels={$c$}]   
+		\addplot[samples=2,domain={0:5},dashed] gnuplot[id=sekante]{2*x};
+		\addplot[samples=50,domain={0:5}] gnuplot[id=sekante]{2*x**2 - 0.5 * x **3};
+		\end{axis}
+		\end{tikzpicture}
+		\caption{Eine Funktion und ihrer Steigung an der Stelle c}
+	\end{figure}
 	\begin{proof}
 		Setze $s(x) = f(a) + \frac{f(b) -f(a)}{b-a} \cd (x-a)$\\
 		(Sekante durch $(a,f(a)),(b,f(b))$\\
@@ -2233,7 +2253,27 @@ $f : D \to \R $ hat \emph{lokales Maximum}
 	\end{enumerate}
 	\section{Das bestimmte Integral}
 	Ziel: Bestimmung des Flächeninhalts zwischen Graph einer Funktion und x-Achse zwischen zwei Grenzen a und b (sofern möglich).
-	TODO PLOT: Flächeninhalt
+	\begin{figure}[h!]
+		\centering
+		\begin{tikzpicture}
+		\begin{axis}[axis x line=center,
+		axis y line=center, xmin = 0, ymin = 0,xmax =5,ymax =5]  
+		\path[name path=axis] (axis cs:0,0) -- (axis cs:4,0); 
+		\addplot[name path=f,samples=50,domain={0:5}] gnuplot[id=flache]{2*x**2 - 0.5 * x **3};
+		\addplot [
+		thick,
+		color=blue,
+		fill=blue, 
+		fill opacity=0.05
+		]
+		fill between[
+		of=f and axis,
+		soft clip={domain=0:4},
+		];
+		\end{axis}
+		\end{tikzpicture}
+		\caption{Flächeninhalt unter einer Funktion $f$}
+	\end{figure}
 	\subsection{Definition}
 	\begin{enumerate}[a)]
 		\item $a,b \in \R, a<b. f:[a,b] \to \R$ hei\ss t \emph{Treppenfunktion}, falls es $ a = a_0 < a_1 < \ldots < a_n = b$ gibt, so dass $f$ auf jedem offenem Intervall $]a_i,a_{i+1}[/, , i= 0 \ldots, n-1 $, konstant ist. (Wert an den $a_i$ beliebig.)\\
@@ -2338,7 +2378,17 @@ $[a,b]$ ist Vereinigung \emph{endlicher} Teilintervalle, auf denen Funktion stet
 	1 & x \not \in \mathbb{Q}
 	\end{cases}\\
 	f: [0,1] \to \R$
-	TODO: PLOT $f$
+	\begin{figure}[h!]
+		\centering
+		\begin{tikzpicture}
+		\begin{axis}[axis x line=center,
+		axis y line=center, xmin = 0, ymin = 0,xmax =5,ymax =2]  
+		\addplot[only marks,samples=55] gnuplot {0};
+		\addplot[only marks,samples=50] gnuplot {1};
+		\end{axis}
+		\end{tikzpicture}
+		\caption{Nicht integrierbare Funktion}
+	\end{figure}
 \end{enumerate}
 \subsection{Lemma}\label{sec:7.6}
 $f$ Regelfunktion auf $[a,b]$\\
