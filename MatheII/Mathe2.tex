@@ -2436,6 +2436,118 @@ Per Induktion nach n kann man zeigen : $\sum\limits_{i=0}^{n-1} i^2 = \frac{(n-1
 Also : $\int_{0}^{t} f_n(x)dx = \frac{t^3}{n^3} \cd \frac{(n-1)n(2n-1)}{6}\\
 \lim\limits_{n \to \infty} \int_{0}^{t} f_n(x)dx = \frac{t^3}{6} \cd 2 = \frac{t^3}{3}$
 Falls $ t > 0 -\frac{t^3}{3}$
+\subsection{Satz (Rechenregeln für Integrale)}\label{sec:7.9}
+$f,g$ Regelfunktionen auf $[a,b]$.
+\begin{align}
+\int_{a}^{b} (f+g)(x)dx &= \int_{a}^{b} f(x)dx + \int_{a}^{b} g(x)dx \notag\\
+\int_{a}^{b} a \cd f(x)dx &= a \cd \int_{a}^{b} f(x)dx  \tag{a}\\
+f(x) \le g(x) \text{ für alle } x \in [a,b] &\Rightarrow \int_{a}^{b} f(x)dx \le \int_{a}^{b} g(x)dx \tag{b}\\
+\Bigl\lvert\int_{a}^{b} f(x)dx\Bigr\rvert &\le \int_{a}^{b} \abs{f(x)}dx \tag{c}\\
+\text{Sei m $\le f(x)$} \le M\text{ für alle $x \in [a,b]$}: \notag \\
+m(b-a) \le \int_{a}^{b} f(x)dx &\le M(b-a) \tag{d}\\
+a < c < b,\, \text{ so } \int_{a}^{c} f(x)dx &= \int_{c}^{b} f(x)dx \tag{e}
+\end{align}
+\subsection{Beispiel}
+$a < b. \int\limits_{a}^{b} x^2 dx = \frac{b^3}{3} - \frac{a^3}{3}\\
+(o < a < b :)$ \ref{sec:7.9}e $\int\limits_{a}^{b} x^2 dx = \int\limits_{0}^{b} x^2 dx - \int\limits_{0}^{a} x^2 dx = \frac{b^3}{3} - \frac{a^3}{3}$)\\
+Analog für die Fälle $a \le 0 < b$ und $a < b \le 0$
+\subsection{Satz (Mittelwertsatz der Integralrechnung)}
+$f : [a.b] \to \R$ stetig.\\
+Dann existiert $c \in [a,b]$ mit $\int_{b}^{a} f(x)dx = f(c) \cd (b-a)$
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[axis x line=center,
+	axis y line=center, xmin = 0, ymin = 0,xmax =5,ymax =5,xtick={1,4.9},xticklabels={$a$,$b$},ytick =3,yticklabels={$f(c)$}]  
+	\path[name path=axis] (axis cs:0,0) -- (axis cs:4.9,0); \
+	\draw[red] (axis cs:1,3) -- (axis cs:4.9,3); 
+	\addplot[name path=f,samples=50,domain={1:5}] gnuplot[id=flache2]{ 1/12 * x**5 + sin(x+3.141) + 3};
+	\addplot [
+	thick,
+	color=blue,
+	fill=blue, 
+	fill opacity=0.05
+	]
+	fill between[
+	of=f and axis,
+	soft clip={domain=1:4.9},
+	];
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Mittelwertsatz der Integralrechnung}
+\end{figure}
+\begin{proof}
+	$f$ ist stetig nimmt also das Maximum von m an Stelle $x_{min}$ und Maximum $M$ an der Stelle $x_{max}$ an. (\ref{sec:5.11})\\
+	\ref{sec:7.9}d) : $m(b-a) \le \int\limits_{a}^{b} f(x) dx\\
+	f(x_{min}) = m \le \frac{1}{b-a} \cd \int_{a}^{b} f(x)dx \le M = f(x_{max})$\\
+	Zwischenwertsatz für stetige Funktionen \ref{sec:5.10}: $\exists c$ zwischen $x_{min}$ und $x_{max}$ (d.h $c \in [a,b])$ mit $f(c) = \frac{1}{b-a} \int_{a}^{b} f(x)dx$\\
+\end{proof}
+\section{Der Hauptsatz der Differential- und Integralrechnung}
+\subsection{Definition}\label{sec:8.1}
+\begin{enumerate}[a)]
+	\item Sei $[a,b]$ abgeschlossenes, beschränktes (d.h $a,b \in \R , a < b$) Intervall.\\
+	$f : [a,b] \to \R$ integrierbar,\\
+	\[ \int_{a}^{b} f(t) dt = - \int_{b}^{a} f(t) dt \]
+	\item \[ \int_{a}^{a} f(t) dt = 0 \]
+\end{enumerate} \
+\begin{table}[h!]
+	\centering
+	\begin{minipage}[t]{0.7\textwidth}
+		\ref{sec:7.8} $x >0$\\
+		$ x > 0 \int_{0}^{x} t^2 dt = $\fbox{$\frac{x^3}{3}$}$ \\ \biggl(\frac{x^3}{3}\biggr)' = x^2$\\ Kein Zufall\\
+		$x \le 0\\
+		\int\limits_{0}^{x}t^2dt = - \int\limits_{x}^{0} = -(-\frac{x^3}{3}) = \frac{x^3}{3}\\
+		\int\limits_{a}^{b}t^2 = \frac{b^3}{3} - \frac{a^3}{3}$ gilt für alle $a,b \in \R$
+	\end{minipage}
+\end{table} 
+\subsection{Definition}
+Sei $\mathcal{I}$ beliebiges Intervall ($-\infty$ bzw. $\infty$ als linke/rechte Grenze erlaubt).
+\begin{enumerate}[a)]
+	\item $f : \mathcal{I} \to \R$ hei\ss t \emph{lokal integrierbar},wenn $f$ auf jedem ageschlossenem beschränktem Teilintervall $[u,v]$ von $\mathcal{I}$ integrierbar ist.\\
+	TODO: Sehr wellige Funktion\\
+	(Ist $\mathcal{I}$ selbst abgeschlossen und beschränkt, so \glqq lokal integrierbar \glqq = \glqq integrierbar \glqq)
+	\item $F : \mathcal{I} \to \R $ hei\ss t \emph{Stammfunktion} der lokal Integrierbaren Funktion $f : \mathcal{I} \to \R $, wenn gilt \[ \int_{a}^{V} f(t)dt = F(v) - F(u) \] für alle $u,v \in \mathcal{I}$.\\
+	Eine Stammfunktion von $f$ wird auch als \emph{unbestimmtes Integral} von f bezeichnet $F = \int f(t)dt$
+	\subsection{Bemerkung}
+	Ist $f$ lokal integrierbar auf $\mathcal{I}$, so gilt \[ \int_{u}^{v}f(t)dt + \int_{v}^{w} f(t)dt = \int_{u}^{w} f(t)dt \marginnote{\text{Folgt aus \ref{sec:7.9} + \ref{sec:8.1}}} \] für alle $u,v,w \in \mathcal{I}$ (nicht notwendig $ u < v  <w$)
+\end{enumerate}
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+	\item $f(x) = x^2$ lokal integrierbar auf $\R$.\\
+	Stammfunktion von $f$.\\
+	$F(x) = \frac{x^3}{3}$\\
+	\[ \int_{a}^{b} F(b) - F(a) \]
+	\item $f(x) = \begin{cases}
+	0 &\text{ für }x < 0\\
+	1 &\text{ für }x \ge 0\\
+	\end{cases}$\\
+	Heaviside - Funktion\\
+	$f$ ist lokal integrierbar auf $\R$\\
+	TODO: PLOT abschnittsweisedefinierte Funktion\\
+	Stammfunktion von $f$:\\
+	$F(x) =  \begin{cases}
+	0 &\text{ für }x < 0\\
+	x &\text{ für }x \ge 0\\
+	\end{cases}$\\
+	TODO: PLOT\\
+	Zeige: $\forall u, v \in \R:$
+	\[\int_{u}^{v} f(t)dt= F(v)-F(u)\]
+	\begin{align}
+	\int_{u}^{v} f(t)dt &= 0 F(v) - F(u) \tag{u < v < 0}\\
+	\int_{u}^{v} f(t)dt &= 0 = \int_{0}^{v} f(t)dt = 1 \cd v = F(v) - F(u) \tag{u < 0 < v}\\
+	\int_{u}^{v} f(t)dt &= 1 \cd (v - u) F(v) - F(u) \tag{0 < u < v}\\
+	\int_{u}^{v} f(t)dt &= -(F(u) - F(v))= F(v) - F(u) \tag{u \ge 0}
+	\end{align}
+\end{enumerate}
+\subsection[Satz:]{Satz}
+Sei $\mathcal{I} \ne \emptyset$ Intervall, $f : \mathcal{I} \to \R$ lokal \glqq Integrierbar \grqq
+\begin{enumerate}[a)]
+	\item Ist $F$ Stammfunktion von $f$, so auch $G(x) = F(x) +c$ für jedes $ c \in \R$.
+	\item Sind $F$ und $G$ Stammfunktionen von $f$, so ist $F(x) = G(x) + c$ für ein $c \in \R$
+	\item Sei $x_0 \in \mathcal{I}$ beliebig, aber fest gewählt.
+	Dann ist F(x) = $\int_{x_0}^{x} f(t)dt$ eine Stammfunktion von f.\\
+	(Beachte \[ \int_{x_0}^{x} f(t)dt = \int_{x_0'}^{x} f(t)dt + \int_{x_0'}^{x} f(t)dt  \])
+\end{enumerate}
 \begin{thebibliography}{9}
 \bibitem{k1} Kreu\ss ler, Phister Satz 33.16
 \bibitem{k2} WHK 5.37

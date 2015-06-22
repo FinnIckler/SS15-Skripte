@@ -124,4 +124,13 @@
 \contentsline {subsection}{\numberline {7.6}Lemma}{70}{subsection.7.6}
 \contentsline {subsection}{\numberline {7.7}Definition}{71}{subsection.7.7}
 \contentsline {subsection}{\numberline {7.8}Beispiel}{72}{subsection.7.8}
+\contentsline {subsection}{\numberline {7.9}Satz (Rechenregeln für Integrale)}{72}{subsection.7.9}
+\contentsline {subsection}{\numberline {7.10}Beispiel}{73}{subsection.7.10}
+\contentsline {subsection}{\numberline {7.11}Satz (Mittelwertsatz der Integralrechnung)}{73}{subsection.7.11}
+\contentsline {section}{\numberline {8}Der Hauptsatz der Differential- und Integralrechnung}{74}{section.8}
+\contentsline {subsection}{\numberline {8.1}Definition}{74}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Definition}{74}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Bemerkung}{75}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}Beispiel}{75}{subsection.8.4}
+\contentsline {subsection}{\numberline {8.5}Satz:}{76}{subsection.8.5}
 \contentsfinish 
