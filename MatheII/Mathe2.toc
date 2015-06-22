@@ -82,34 +82,34 @@
 \contentsline {subsection}{\numberline {5.11}Satz (Min-Max-Theorem)}{51}{subsection.5.11}
 \contentsline {subsection}{\numberline {5.12}Definition}{52}{subsection.5.12}
 \contentsline {subsection}{\numberline {5.13}Satz: Injektive Funktionen nur bei Monotonie}{52}{subsection.5.13}
-\contentsline {subsection}{\numberline {5.14}Satz (Stetigkeit der Umkehrfunktion)}{53}{subsection.5.14}
-\contentsline {subsection}{\numberline {5.15}Korollar}{53}{subsection.5.15}
+\contentsline {subsection}{\numberline {5.14}Satz (Stetigkeit der Umkehrfunktion)}{52}{subsection.5.14}
+\contentsline {subsection}{\numberline {5.15}Korollar}{54}{subsection.5.15}
 \contentsline {subsection}{\numberline {5.16}Satz: Exponentialfunktion und Logarithmus naturalis}{54}{subsection.5.16}
-\contentsline {subsection}{\numberline {5.17}Satz: Wachstum des natürlichen Logarithmus'}{54}{subsection.5.17}
+\contentsline {subsection}{\numberline {5.17}Satz: Wachstum des natürlichen Logarithmus'}{55}{subsection.5.17}
 \contentsline {subsection}{\numberline {5.18}Definition}{55}{subsection.5.18}
 \contentsline {subsection}{\numberline {5.19}Satz:}{55}{subsection.5.19}
 \contentsline {subsection}{\numberline {5.20}Bemerkung}{55}{subsection.5.20}
-\contentsline {subsection}{\numberline {5.21}Definition}{55}{subsection.5.21}
+\contentsline {subsection}{\numberline {5.21}Definition}{56}{subsection.5.21}
 \contentsline {subsection}{\numberline {5.22}Satz:}{56}{subsection.5.22}
 \contentsline {section}{\numberline {6}Differenzierbare Funktionen}{56}{section.6}
 \contentsline {subsection}{\numberline {6.1}Definition}{57}{subsection.6.1}
 \contentsline {subsection}{\numberline {6.2}Beispiel}{57}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Satz:}{57}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.3}Satz:}{58}{subsection.6.3}
 \contentsline {subsection}{\numberline {6.4}Korollar}{58}{subsection.6.4}
 \contentsline {subsection}{\numberline {6.5}Satz (Ableitungsregeln)}{58}{subsection.6.5}
 \contentsline {subsection}{\numberline {6.6}Beispiel}{59}{subsection.6.6}
-\contentsline {subsection}{\numberline {6.7}Satz:}{59}{subsection.6.7}
+\contentsline {subsection}{\numberline {6.7}Satz:}{60}{subsection.6.7}
 \contentsline {subsection}{\numberline {6.8}Satz: Ableitungsregeln von cosinus und sinus}{60}{subsection.6.8}
 \contentsline {subsection}{\numberline {6.9}Beispiel}{60}{subsection.6.9}
 \contentsline {subsection}{\numberline {6.10}Satz: Potenzreihen und diverenzierbarkeit}{61}{subsection.6.10}
 \contentsline {subsection}{\numberline {6.11}Korollar}{61}{subsection.6.11}
-\contentsline {subsection}{\numberline {6.12}Satz (Ableitung der Umkehrfunktion)}{61}{subsection.6.12}
+\contentsline {subsection}{\numberline {6.12}Satz (Ableitung der Umkehrfunktion)}{62}{subsection.6.12}
 \contentsline {subsection}{\numberline {6.13}Bemerkung}{62}{subsection.6.13}
 \contentsline {subsection}{\numberline {6.14}Satz:}{63}{subsection.6.14}
 \contentsline {subsection}{\numberline {6.15}Satz (logarithmische Abbildung)}{63}{subsection.6.15}
 \contentsline {subsection}{\numberline {6.16}Beispiel}{63}{subsection.6.16}
 \contentsline {subsection}{\numberline {6.17}Definition}{63}{subsection.6.17}
-\contentsline {subsection}{\numberline {6.18}Satz:}{63}{subsection.6.18}
+\contentsline {subsection}{\numberline {6.18}Satz:}{64}{subsection.6.18}
 \contentsline {subsection}{\numberline {6.19}Satz (Mittelwertsatz)}{64}{subsection.6.19}
 \contentsline {subsection}{\numberline {6.20}Korollar}{65}{subsection.6.20}
 \contentsline {subsection}{\numberline {6.21}Korollar}{66}{subsection.6.21}

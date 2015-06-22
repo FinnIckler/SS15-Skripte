@@ -1751,7 +1751,16 @@ f(b_n) \geq 0 \forall n \rightarrow \lim\limits_{n \rightarrow \infty} f(b_n) \g
 \subsection{Korollar (Zwischenwertsatz)}
 $f: D \rightarrow \R $ stetig, $[u,v] \subseteq D$\\
 Dann nimmt $f$ in $[u,v]$ jeden Wert zwischen $f(u)$ und $f(v)$ an (und evtl. weitere)
-TODO: Funktion Plotten mit Zwischenwerten. + Funktion nicht stetig
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[xmin=-0.5,xmax=5,axis x line=center,axis y line=center, ymin = -1.5,ymax = 5,disabledatascaling,ytick = {2,1},yticklabels={$f(u)$,$f(v)$}, xtick={1,3},xticklabels={$u$,$v$}]
+	\addplot[samples=100,domain={1.5:5},red] gnuplot {cos(0.5*(x-2)**1.5)*sin(2.6*x)+1*(cos(1.5*x))+2};
+	\addplot[samples=100,domain={0:1.5}] gnuplot {cos(0.5*(x-2)**1.5)*sin(2.6*x)+1*(cos(1.5*x))+2};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Zwischenwerte}
+\end{figure}
 \begin{proof}
 O.B.d.A $f(u) < f(v)$\\
 Sei $f(u) < b < f(w)\, b$ beliebig, aber dann fest.\\
@@ -2426,6 +2435,7 @@ f_n$ wie in \ref{sec:7.5}.\\
 Per Induktion nach n kann man zeigen : $\sum\limits_{i=0}^{n-1} i^2 = \frac{(n-1)n(2n-1)}{6}$\\
 Also : $\int_{0}^{t} f_n(x)dx = \frac{t^3}{n^3} \cd \frac{(n-1)n(2n-1)}{6}\\
 \lim\limits_{n \to \infty} \int_{0}^{t} f_n(x)dx = \frac{t^3}{6} \cd 2 = \frac{t^3}{3}$
+Falls $ t > 0 -\frac{t^3}{3}$
 \begin{thebibliography}{9}
 \bibitem{k1} Kreu\ss ler, Phister Satz 33.16
 \bibitem{k2} WHK 5.37
