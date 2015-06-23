@@ -1,0 +1,63 @@
+\lstinputlisting[firstline=105,lastline=108]{Animationen-und-HOP-Typ2.rkt}
+Teachpack 'universe' nutzt H.O.P Animationen (Sequenzen von Bildern/Szenen) zu definieren.
+\begin{lstlisting}
+(big bang
+  (@\auf init\zu@)
+  (ontick @\auf tock\zu@)
+  (todraw @\auf render\zu \auf w\zu\auf h\zu@))
+\end{lstlisting}
+\begin{enumerate}[-]
+\item \lstinline[mathescape]|($\az{init}$ %a)| Startzustand
+\item \lstinline[mathescape]|(: $\az{tock}$ (%a -> %a))|
+Funktion, die einen neuen Zustand aus alten Zustand berechnet
+\item \lstinline[mathescape]|(: $\az{render}$ (%a -> image))| Funktio, die aus dem aktuellen eine Szene berechnet (wird in Fenster mit Dimension $\az{w} \cdot \az{h}$ Pixel angezeigt)
+\item Beim Schlie\ss en der Animation wird der letzte Zustand zurückgegeben
+\end{enumerate}
+\rackett{Animation 1: Ein Zähler}{Ein animierter Zähler}{Animationen-und-HOP-Typ2}{4}{13}
+\rackett{Animation 2: Ein Raumschiff}{Ein animiertes Raumschiff}{Animationen-und-HOP-Typ2}{18}{35}
+Ausgabe der römischen Episoden nummern für Film f : \lstinline|(roman (film-episode f))|\\
+Gesuchte Funktion ist \emph{Komposition} von zwei existierenden Funktionen:
+\begin{enumerate}[(1)]
+\item Erst \lstinline[mathescape]|film-episode| anwenden, \emph{dann}
+\item Wende \lstinline[mathescape]|roman| auf das Ergebnis von (1) an
+\end{enumerate}
+Komposition von Prozeduren allgemein:\\
+\lstinline[mathescape]|($\underbrace{\text{(compose f g)}}_{\substack{\text{neue Prozedur realisiert}\\ \text{Komposition von f und g}}}$x)| $\equiv$ \lstinline|(f (g x))|\\
+$\lbrack$ Mathematisch \lstinline|(compose f g)| $\equiv f \circ g$ $\rbrack$\\
+\begin{lstlisting}
+(: compose (%b -> %c) ($a -> %b) -> (%a -> %c))
+(define compose
+  (lambda (f g)
+    (lambda (x)
+      (f (g x)))))
+\end{lstlisting}
+\rackett{Anwendungen von Combined}{Zweites und Drittes Element durch Combined}{Animationen-und-HOP-Typ2}{50}{65}
+\lstinline|repeat|: n-fache Komposition von f auf sich selbst\\
+(n-fache Anwendung von f, Exponentation)\\
+\begin{align*}
+f^0 &= \text{\lstinline|id|} &(\text{\lstinline|id|} \equiv \text{\lstinline|(lambda(x)x)|)}\\
+f^n &= f \circ f^{n-1}& 
+\end{align*}
+\begin{lstlisting}
+(: repeat (natural (%a -> %a) -> (%a -> %a)))
+(define repeat
+  (lambda (n f)
+    (cond
+      ((= n 0)(lambda (x) x)
+      ((> n 0)(compose f (repeat (- n 1) f)))))))
+;Greife auf das n-te Element der Liste xs zu
+(: nth (natural (list-of %a) -> %a))
+(define nth
+  (lambda (n xs)
+    ((compose first (repeat (- n 1) rest))xs)))
+\end{lstlisting}
+
+\rackett{+ als Higher Order Funktion}{Gibt die Funktion + zurück}{Animationen-und-HOP-Typ2}{86}{105}
+
+Reduktion:
+\lstinline|((add 1) 41)|
+\begin{enumerate}
+\item[$\underset{\t{eval}_{id}}{\text{\eval}}$] \lstinline|((lambda (x) (lambda (y) (+ x y))1)41)|
+\item[$\underset{\substack{\t{apply}_{\lambda}\\ [ \text{lambda(x)} ]}}{\text{\eval}}$] \lstinline[mathescape]|($\underbrace{\text{(lambda (y) (+ 1 y)}}_{\substack{\text{Funktion die 1 auf}\\ \text{ihr Argument anwenden} }}$41)|
+\item[$\underset{\substack{\t{apply}_{\lambda}\\ [ \text{lambda(y)} ]}}{\text{\eval}}$] \lstinline[mathescape]|(+ 1 $ $ 41)|
+\end{enumerate}

@@ -3,3 +3,5 @@
 *.pdf
 *.gz
 *.rkt
+workingdoc.*
+.DS_Store
