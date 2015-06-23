@@ -73,7 +73,7 @@ $P(xs)$:\lstinline|(length (cat xs ys))| = \lstinline|(+(length xs) (length ys))
 	\i[rest]$\overset{\star}{\text{\eval}}$ \lstinline|(+ 1 (length (cat xs ys)))|
 	\i[] $\overset{iv.}{=}$ \lstinline|(+ 1(+ (length xs) (length ys)))|
 	\i[ass.] $\overset{(+)}{=}$ \lstinline|(+ (+ 1 (length xs) (length ys)))|
-	\i[\lstinline|length|]$\overset{\star}{\text{\reval}}$ \lstinline|(+ (length (mp x xs) (length ys)))|$\checkmark$
+	\i[length]$\overset{\star}{\text{\reval}}$ \lstinline|(+ (length (mp x xs) (length ys)))|$\checkmark$
 \end{enumerate}
 \newpage
 \emph{Prozeduren höherer Ordnung}\hfill(higher-order \emph{procedures})

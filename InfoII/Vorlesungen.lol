@@ -27,4 +27,10 @@
 \contentsline {lstlisting}{Endrekursion.rkt}{37}{lstlisting.-28}
 \contentsline {lstlisting}{\numberline {27}Umdrehen einer Liste durch lambda Rekursion}{38}{lstlisting.27}
 \contentsline {lstlisting}{\numberline {28}Letrec und endrekursives Umdrehen einer Liste}{39}{lstlisting.28}
+\contentsline {lstlisting}{HigherOrderProcedures.rkt}{46}{lstlisting.-35}
 \contentsline {lstlisting}{\numberline {29}Anwendungsbeispiele foldr}{48}{lstlisting.29}
+\contentsline {lstlisting}{Animationen\textendash und\textendash HOP\textendash Typ2.rkt}{49}{lstlisting.-40}
+\contentsline {lstlisting}{\numberline {30}Animation 1: Ein Zähler}{50}{lstlisting.30}
+\contentsline {lstlisting}{\numberline {31}Animation 2: Ein Raumschiff}{50}{lstlisting.31}
+\contentsline {lstlisting}{\numberline {32}Anwendungen von Combined}{52}{lstlisting.32}
+\contentsline {lstlisting}{\numberline {33}+ als Higher Order Funktion}{52}{lstlisting.33}

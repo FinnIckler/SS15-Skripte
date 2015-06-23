@@ -1,3 +1,110 @@
+\begin{filecontents*}{Animationen-und-HOP-Typ2.rkt}
+; Erstellung von Animationen mit Teachpack "universe"
+; (1) Zähler
+
+(: scene (natural -> image))
+(define scene
+  (lambda (t)
+    (text (number->string t) 100 "red")))
+(big-bang 0
+          (on-tick (lambda (t) (+ t 1)))
+          (to-draw scene 200 100))
+
+
+
+
+; Erstellung von Animationen mit Teachpack "universe"
+; (2) X-Wing Fighter + Scrolling Death Star
+
+(define death-star 
+@\includegraphics[width=\textwidth]{death-star}@)
+(define x-wing @\includegraphics{xwing}@)
+
+
+; Erhalte einfachen Scrolling-Effekt durch Herausschneiden von Teilbildern
+; aus dem Bild der Todessternoberfläche
+; (zu crop und overlay: siehe Dokumentation des Teachpack "image2")
+(: scroll-death-star (natural -> image))
+(define scroll-death-star
+  (lambda (t)
+    (overlay x-wing
+             (crop (modulo (* 8 t) 200) 0 400 440 death-star))))
+(big-bang 0
+          (on-tick (lambda (t) (+ t 1)))
+          (to-draw scroll-death-star))
+
+
+; ----------------------------------------------------------------------
+
+; Komposition der Prozeduren f, g (Mathematik: f ∘ g, "f nach g") 
+(: compose ((%b -> %c) (%a -> %b) -> (%a -> %c)))
+(define compose
+  (lambda (f g)
+    (lambda (x)
+      (f (g x)))))
+
+
+
+; Greife auf das zweite Element der Liste xs zu
+(: second ((list-of %a) -> %a))
+(check-expect (second (list 1 2 3)) 2)
+(check-expect (second (string->strings-list "SCF")) "C")
+(define second
+  (lambda (xs)
+    ((compose first rest) xs)))
+
+
+; Greife auf das dritte Element der Liste xs zu
+(: third ((list-of %a) -> %a))
+(check-expect (third  (list 1 2 3)) 3)
+(check-expect (third (string->strings-list "SCF")) "F")
+(define third
+  (lambda (xs)
+    ((compose first (compose rest rest)) xs)))
+
+
+; Komponiere f n-mal mit sich selbst (fⁿ, Funktions-Exponentation)
+(: repeat (natural (%a -> %a) -> (%a -> %a)))
+(define repeat
+  (lambda (n f)
+    (cond ((= n 0) (lambda (x) x))                      ; ← Identität (id)
+          ((> n 0) (compose (repeat (- n 1) f) f))))) 
+
+
+; Greife auf das n-te Elemente der Liste xs zu
+(: nth (natural (list %a) -> %a))
+(check-expect (nth 2 (string->strings-list "SCF")) "C")
+(check-expect (nth 1 (string->strings-list "SCF")) "S")
+(define nth                   
+  (lambda (n xs)                 
+    ((compose first (repeat (- n 1) rest)) xs)))
+
+
+; ----------------------------------------------------------------------
+; Funktionen, die ihre Argument schrittweise konsumieren
+
+; Konsumiert Argumente x,y in einem Schritt (eine Reduktion von apply_λ)
+(: plus (number number -> number))
+(define plus
+  (lambda (x y)
+    (+ x y)))
+
+; Konsumiert Argumente x,y in zwei Schritten (zwei Reduktionen von apply_λ).
+; Nach dem ersten Schritt ist nur Argument x festgelegt, Ergebnis ist eine
+; Funktion, die das zweite Argument y erwartet.
+(: add (number -> (number -> number)))
+(define add
+  (lambda (x)
+    (lambda (y)
+      (+ x y))))
+
+(map (add 1)  (list 1 2 3 4 5 6 7 8 9 10))
+(map (add 10) (list 1 2 3 4 5 6 7 8 9 10))
+
+
+
+
+\end{filecontents*}
 \begin{filecontents*}{./Grundlagen.rkt}
 ;; Die ersten drei Zeilen dieser Datei wurden von DrRacket eingefügt. Sie enthalten Metadaten
 ;; über die Sprachebene dieser Datei in einer Form, die DrRacket verarbeiten kann.
@@ -649,4 +756,158 @@ unterliegt Rundung!
 
 ; NB:
 ; backwards ist als Funktion `reverse' in DrRacket verfügbar
+\end{filecontents*}
+\begin{filecontents*}{HigherOrderProcedures.rkt}
+; Ist x ein Element in Liste xs?
+(: elem? (number (list-of number) -> boolean))
+(define elem?
+  (lambda (x xs)
+    (cond ((empty? xs) #f)
+          ((pair? xs)
+           (if (= x (first xs))
+               #t
+               (elem? x (rest xs)))))))
+; Gehört der Film f zu den Prequels (Episode I-III, vor "A New Hope")
+(: is-prequel? (film -> boolean))
+(define is-prequel?
+  (lambda (f)
+    (let ((a-new-hope (sw-film 1)))
+      (< (film-episode f)
+         (film-episode a-new-hope)))))
+
+; Erwähnt der Film f den Todesstern in seinem Opening Crawl?
+(: mentions-death-star? (film -> boolean))
+(define mentions-death-star?
+  (lambda (f)
+    ; (string-contains s1 s2) liefert #f oder die Position (0..) des Teilstrings s2 in s1
+    (natural? (string-contains (film-opening-crawl f) "DEATH STAR"))))
+    
+; Kommt Obi-Wan Kenobi im Film f vor?
+(: features-kenobi? (film -> boolean))
+(define features-kenobi?
+  (lambda (f)
+    (elem? 10 (film-characters f))))
+
+
+
+; Filtere Liste xs nach Elementen, die Prädikat p? erfüllen
+; (Prozedur höherer Ordnung: Parameter p? ist selbst eine Funktion)
+(: filter ((%a -> boolean) (list-of %a) -> (list-of %a)))
+(define filter
+  (lambda (p? xs)
+    (cond ((empty? xs) empty)
+          ((pair? xs)  (if (p? (first xs))
+                           (make-pair (first xs)
+                                      (filter p? (rest xs)))  
+                           (filter p? (rest xs)))))))
+
+
+; Wird filter mit verschiedenen Prädikaten parameterisiert,
+; erhalten wir spezifische Filter:
+
+; NB: Auswertung benötigt eine kurze Zeit durch 
+;     Zugriff auf das Star Wars Web-API
+(define prequels-films
+  (filter is-prequel? (sw-films)))
+
+(define death-star-films
+  (filter mentions-death-star? (sw-films)))
+
+(define kenobi-films
+  (filter features-kenobi? (sw-films)))
+
+
+
+; Falte Liste xs bzgl. z und c.  Spine-Transformation:
+; - empty     ~~> z
+; - make-pair ~~> c
+;
+;   +--+--+                             
+;   |  |  |                             
+;   +--+--+                                 c
+;   /     \                                / \ 
+; x1      +--+--+                        x1   c
+;         |  |  |                            / \  
+;         +--+--+   ~~(foldr z c xs)~~>    x2   .
+;         /     \                                \
+;       x2       .                                c
+;                 \                              / \  
+;                 +--+--+                      xn   z                   |
+;                 |  |  |                         
+;                 +--+--+                           
+;                 /     \             (c x1 (c x2 (... (c xn z)...)))  
+;                xn     empty                        
+;
+(: foldr (%b (%a %b -> %b) (list-of %a) -> %b))
+(define foldr
+  (lambda (z c xs)
+    (cond ((empty? xs) z)
+          ((pair? xs)  (c (first xs) (foldr z c (rest xs)))))))
+ 
+
+; Listenreduktion via foldr: Summe der Liste xs
+(: my-sum ((list-of number) -> number))
+(define my-sum
+  (lambda (xs)
+    (foldr 0 + xs)))
+
+; Listenreduktion via foldr: Produkt der Liste xs
+(: my-product ((list-of number) -> number))
+(define my-product
+  (lambda (xs)
+    (foldr 1 * xs)))
+
+; Listenreduktion via foldr: Maximum der Liste xs
+(: my-maximum ((list-of number) -> number))
+(define my-maximum
+  (lambda (xs)
+    (foldr -inf.0 max xs)))
+
+; Identität (auf Listen), implementiert via foldr
+(: my-id ((list-of %a) -> (list-of %a)))
+(define my-id
+  (lambda (xs)
+    (foldr empty make-pair xs)))
+    
+; Reimplementation von append via foldr
+(: my-append ((list-of %a) (list-of %a) -> (list-of %a)))
+(define my-append
+  (lambda (xs ys)
+    (foldr ys make-pair xs)))
+
+; Reimplementation von map via foldr
+(: my-map ((%a -> %b) (list-of %a) -> (list-of %b)))
+(define my-map
+  (lambda (f xs)
+    (foldr empty                                
+           (lambda (y ys) (make-pair (f y) ys))  
+           xs)))
+
+; Reimplementation von reverse via foldr
+(: my-reverse ((list-of %a) -> (list-of %a)))
+(define my-reverse
+  (lambda (xs)
+    (foldr empty                                
+           (lambda (y ys) (append ys (list y)))
+           xs)))
+
+; Listenreduktion via foldr: Länge der Liste xs
+(: my-length ((list-of %a) -> natural))
+(define my-length
+  (lambda (xs)
+    (foldr 0 (lambda (x l) (+ 1 l)) xs)))
+
+; Reimplementation von filter mittels foldr
+(: my-filter ((%a -> boolean) (list-of %a) -> (list-of %a)))
+(define my-filter
+  (lambda (p? xs)
+    (foldr empty 
+           (lambda (y ys) (if (p? y)
+                              (make-pair y ys)
+                              ys)) 
+           xs)))
+
+
+
+
 \end{filecontents*}
