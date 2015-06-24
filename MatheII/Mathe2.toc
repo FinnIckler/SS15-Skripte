@@ -98,18 +98,18 @@
 \contentsline {subsection}{\numberline {6.4}Korollar}{58}{subsection.6.4}
 \contentsline {subsection}{\numberline {6.5}Satz (Ableitungsregeln)}{58}{subsection.6.5}
 \contentsline {subsection}{\numberline {6.6}Beispiel}{59}{subsection.6.6}
-\contentsline {subsection}{\numberline {6.7}Satz:}{60}{subsection.6.7}
+\contentsline {subsection}{\numberline {6.7}Satz:}{59}{subsection.6.7}
 \contentsline {subsection}{\numberline {6.8}Satz: Ableitungsregeln von cosinus und sinus}{60}{subsection.6.8}
 \contentsline {subsection}{\numberline {6.9}Beispiel}{60}{subsection.6.9}
 \contentsline {subsection}{\numberline {6.10}Satz: Potenzreihen und diverenzierbarkeit}{61}{subsection.6.10}
 \contentsline {subsection}{\numberline {6.11}Korollar}{61}{subsection.6.11}
-\contentsline {subsection}{\numberline {6.12}Satz (Ableitung der Umkehrfunktion)}{62}{subsection.6.12}
+\contentsline {subsection}{\numberline {6.12}Satz (Ableitung der Umkehrfunktion)}{61}{subsection.6.12}
 \contentsline {subsection}{\numberline {6.13}Bemerkung}{62}{subsection.6.13}
 \contentsline {subsection}{\numberline {6.14}Satz:}{63}{subsection.6.14}
 \contentsline {subsection}{\numberline {6.15}Satz (logarithmische Abbildung)}{63}{subsection.6.15}
 \contentsline {subsection}{\numberline {6.16}Beispiel}{63}{subsection.6.16}
 \contentsline {subsection}{\numberline {6.17}Definition}{63}{subsection.6.17}
-\contentsline {subsection}{\numberline {6.18}Satz:}{64}{subsection.6.18}
+\contentsline {subsection}{\numberline {6.18}Satz:}{63}{subsection.6.18}
 \contentsline {subsection}{\numberline {6.19}Satz (Mittelwertsatz)}{64}{subsection.6.19}
 \contentsline {subsection}{\numberline {6.20}Korollar}{65}{subsection.6.20}
 \contentsline {subsection}{\numberline {6.21}Korollar}{66}{subsection.6.21}
@@ -117,20 +117,24 @@
 \contentsline {subsection}{\numberline {6.23}Beispiel}{66}{subsection.6.23}
 \contentsline {section}{\numberline {7}Das bestimmte Integral}{67}{section.7}
 \contentsline {subsection}{\numberline {7.1}Definition}{67}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Definition}{68}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.2}Definition}{67}{subsection.7.2}
 \contentsline {subsection}{\numberline {7.3}Satz: Regelfunktionen}{68}{subsection.7.3}
 \contentsline {subsection}{\numberline {7.4}Satz: Regelfunktion und Stetigkeit}{69}{subsection.7.4}
 \contentsline {subsection}{\numberline {7.5}Beispiel}{70}{subsection.7.5}
-\contentsline {subsection}{\numberline {7.6}Lemma}{70}{subsection.7.6}
-\contentsline {subsection}{\numberline {7.7}Definition}{71}{subsection.7.7}
+\contentsline {subsection}{\numberline {7.6}Lemma}{71}{subsection.7.6}
+\contentsline {subsection}{\numberline {7.7}Definition}{72}{subsection.7.7}
 \contentsline {subsection}{\numberline {7.8}Beispiel}{72}{subsection.7.8}
-\contentsline {subsection}{\numberline {7.9}Satz (Rechenregeln für Integrale)}{72}{subsection.7.9}
+\contentsline {subsection}{\numberline {7.9}Satz (Rechenregeln für Integrale)}{73}{subsection.7.9}
 \contentsline {subsection}{\numberline {7.10}Beispiel}{73}{subsection.7.10}
 \contentsline {subsection}{\numberline {7.11}Satz (Mittelwertsatz der Integralrechnung)}{73}{subsection.7.11}
 \contentsline {section}{\numberline {8}Der Hauptsatz der Differential- und Integralrechnung}{74}{section.8}
 \contentsline {subsection}{\numberline {8.1}Definition}{74}{subsection.8.1}
-\contentsline {subsection}{\numberline {8.2}Definition}{74}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.2}Definition}{75}{subsection.8.2}
 \contentsline {subsection}{\numberline {8.3}Bemerkung}{75}{subsection.8.3}
 \contentsline {subsection}{\numberline {8.4}Beispiel}{75}{subsection.8.4}
-\contentsline {subsection}{\numberline {8.5}Satz:}{76}{subsection.8.5}
+\contentsline {subsection}{\numberline {8.5}Satz:Rechenregeln von Stammfunktionen}{76}{subsection.8.5}
+\contentsline {subsection}{\numberline {8.6}Satz:}{77}{subsection.8.6}
+\contentsline {subsection}{\numberline {8.7}Definiton}{77}{subsection.8.7}
+\contentsline {subsection}{\numberline {8.8}Satz (Hauptsatz der Differential- und Integralrechnung)}{78}{subsection.8.8}
+\contentsline {subsection}{\numberline {8.9}Beispiel}{79}{subsection.8.9}
 \contentsfinish 

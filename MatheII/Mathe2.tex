@@ -2539,7 +2539,7 @@ Sei $\mathcal{I}$ beliebiges Intervall ($-\infty$ bzw. $\infty$ als linke/rechte
 	\int_{u}^{v} f(t)dt &= -(F(u) - F(v))= F(v) - F(u) \tag{u \ge 0}
 	\end{align}
 \end{enumerate}
-\subsection[Satz:]{Satz}
+\subsection[Satz:Rechenregeln von Stammfunktionen]{Satz}
 Sei $\mathcal{I} \ne \emptyset$ Intervall, $f : \mathcal{I} \to \R$ lokal \glqq Integrierbar \grqq
 \begin{enumerate}[a)]
 	\item Ist $F$ Stammfunktion von $f$, so auch $G(x) = F(x) +c$ für jedes $ c \in \R$.
@@ -2547,6 +2547,113 @@ Sei $\mathcal{I} \ne \emptyset$ Intervall, $f : \mathcal{I} \to \R$ lokal \glqq 
 	\item Sei $x_0 \in \mathcal{I}$ beliebig, aber fest gewählt.
 	Dann ist F(x) = $\int_{x_0}^{x} f(t)dt$ eine Stammfunktion von f.\\
 	(Beachte \[ \int_{x_0}^{x} f(t)dt = \int_{x_0'}^{x} f(t)dt + \int_{x_0'}^{x} f(t)dt  \])
+\end{enumerate}
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\draw circle (4);
+\draw circle (3);
+\draw circle (2);
+\draw circle (1);
+\node () at (0,3.65) {alle Fkt.};
+\node () at (0,2.55) {lokal integr.};
+\node () at (0,1.45) {stetige Fkt.};
+\node () at (0,0.0) {diffbare Fkt.};
+\end{tikzpicture}
+\caption{Die Welt der Funktionen}
+\end{figure}
+\begin{proof}
+a),b)\\
+$F$ Stammfunktion, $c\in \R G(x) = F(x)+c$ ist Stammfunktion von $f$:\\
+$G(v)-G(u) = F(v) = F(u) = \int_{u}^{v} f(t)dt$\\
+Umgekehrt: Seien $F,G$ zwei Stammfunktionen von $f$.
+Sei $x_0 \in \mathcal{J}$ halte es fest.\\
+$G(x)-G(x_0) = \int\limits_{x_0}^{x}f(t)dt = F(x)-F(x_0)$ für alle $x \in \mathcal{J}\\
+G(x) = F(x) + \underbrace{G(x_0)-F(x_0)}_{=: c}$ für alle $x \in \mathcal{J}$
+c) $u,v \in \mathcal{J}\\
+F(v) - F(u) = \int\limits_{x_0}^{v}f(t)dt = \int\limits_{x_0}^{u} f(t)dt = + \int\limits_{u}^{x_0} f(t)dt + \int\limits_{x_0}^{v} f(t)dt = \int\limits_{u}^{x_0} f(t)dt$
+\end{proof}
+\subsection[Satz:]{Satz}
+Jede Stammfunktion einer lokal integrierbaren Funktion ist stetig.
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\draw circle (4);
+\draw circle (3);
+\draw circle (2);
+\draw circle (1);
+\node () at (0,3.65) {alle Fkt.};
+\node () at (0,2.55) {lokal integr.};
+\node () at (0,1.45) {stetige Fkt.};
+\node () at (0,0.0) {diffbare Fkt.};
+\draw[->,red] (-1.5,1.55)--(-1,1);
+\draw[->,red] (-1.8,1.55)--(0,-4.5);
+\end{tikzpicture}
+\caption{Stammfunktionbildung}
+\end{figure}
+\begin{proof}
+$f: \mathcal{J} \to \R$ lokal integrierbar\\
+$x_0 \in \mathcal{J}$. Zeige: $F$ ist stetig in $x_0$ (Stammfunktion von $f$).\\
+Betrachte $f$ auf $[x_0-1,x_0+1]\cap \mathcal{J}$\\
+Sei $\abs{f(x)} \le M$ für alle $ \in \mathcal{J}_0. (\ref{sec:7.3}a)\\
+\abs{F(x) - F(x_0)} = \abs{\int\limits_{x_0}^{x} f(t)dt} \underset{\text{\ref{sec:7.9}c)}}{\ge} \int\limits_{x_0}^{x} \abs{f(t)dt} \underset{\text{\ref{sec:7.9}d)}}{\ge} M \cd \abs{x-x_0}$ für alle $x\in \mathcal{J}_0.\\ F$ stetig in $x_0$ nach \ref{sec:5.2}
+\end{proof}
+\subsection{Definiton}
+$f: \mathcal{J} \to \R$ hei\ss t \emph{stetig differenzierbar}, falls $f$ differenzierbar ist und die Ableitung $f'$ stetig ist.\\
+$[$Beachte : Nicht jede differenzierbare Funktion ist stetig diffbar\\
+Bsp: $f(x) = \begin{cases}
+x^2 \cd \sin(\frac{1}{x}) & \text{ für } x \ne 0\\
+0 & \text{ für } x = 0
+\end{cases}\\
+f'$ nicht stetig in 0
+\subsection{Satz (Hauptsatz der Differential- und Integralrechnung)}\label{sec:8.8}
+$\mathcal{J}$ beliebiges Intervall, $f : \mathcal{J}\to \R.$
+\begin{enumerate}[a)]
+\item Ist $f$ stetig, so ist jede Stammfunktion $F$ von $f$ differejzierbar auf $\mathcal{J}$ und es gilt $F' = f$.
+\begin{equation}
+\Bigl(\int f(t)dt\Bigr)' = f \tag{a}
+\end{equation}
+Dass hei\ss t $F(x) = \int\limits_{x_0}^{x} f(t)dt \Rightarrow F'(x) = f(x)$
+\item Ist $f$ stetig diffbar auf $\mathcal{J}$, so ist $f$ Stammfunktion von $f'$, dass hei\ss t.
+\begin{equation}
+\int_{x_0}^{x} f'(dt) = f + c \tag{b}
+\end{equation}
+$\forall u,v \in \mathcal{J}:$
+\[ \int_{u}^{v} f'(t)dt = f(v) - f(u) =f(x) \Big\vert_u^v \]
+\end{enumerate}$
+\begin{array}{ccc}
+\textcircled{f}&\xrightarrow{\hspace*{3.cm}}& F = \int f(t)dt\\
+F' = f &\xleftarrow{\hspace*{3.cm}} \\
+&\\
+f'&\xleftarrow{\hspace*{3.cm}} &\textcircled{f} \text{stetig diffbar}\\
+& \xrightarrow{\hspace*{3.cm}}& F = \int f'(t)dt = f + c
+\end{array}$
+\subsection*{Beispiele}
+Zu. \ref{sec:8.8}a):
+\begin{enumerate}[a)]
+\item $g(x) = \int_{1}^{x} \underbrace{e^{t^2} \cd (\sin(t) + \cos(\frac{t}{2})}_{\text{stetig}} dt$
+\ref{sec:8.8}a) : $g'(x) = e^{x^2} \cd (\sin(x) + \cos(\frac{x}{2})$
+\item $g(x) = \int_{0}^{x^2} e^t \cd \sin(t)dt\\
+F(x) = \int\limits_{0}^{x} e^t \cd \sin(t)dt\\
+h(x) = x^2\\
+g = F(h(x)) = (F \circ h)(x)\\
+g'(x) = F'(h(x)) \cd h'(x) = e^{x^2} \cd \sin(x^2) \cd 2x$\\
+\end{enumerate}
+\subsection{Beispiel}
+zu \ref{sec:8.8}b)
+\begin{enumerate}[a)]
+\item $n \in \mathbb{N}_0$:\\
+$ \int a x^n dx = a \cd \frac{x^{n+1}}{n+1} + c \text{ denn } \Bigl(a\frac{x^{n+1}}{n+1}\Bigr)' = ax^n$\\
+d.h : $\int\limits_{u}^{v} a \cd x^n dx = \frac{a}{n+1} (v^{n+1} - u^{n+1})$\\
+Damit : $\int \sum\limits_{i=0}^{n} a_i \cd x^i = \sum\limits_{i=0}^{n} a_i \frac{x{i+1}}{(i+1)}$
+\item $n \ge -2$,so \[ \int \frac{1}{x} dx = \frac{1}{n+1} \cd \frac{1}{x^{n-1}} +c \]
+\item Für $ x > 0$ ist $\ln(x)' \frac{1}{x}$ \hfill (\ref{sec:6.14}b)\\
+Also $\int \frac{1}{x} dx = \ln(x) + c$ auf $]0,\infty[$\\
+Auf $]-\infty,0[$ gilt $\int \frac{1}{x}dx = \ln(\abs{x}) +c$
+\item $\int \ln(x)dx = x \cd \ln(x) - x + c$ auf $]0,\infty[$ \hfill (\ref{sec:6.14}d)
+\item $\int e^x dx = e^x+c$
+\item $\int \sin(x)dx = -\cos(x) +c$
+$\int \cos(x) dx = \sin(x) +c$
 \end{enumerate}
 \begin{thebibliography}{9}
 \bibitem{k1} Kreu\ss ler, Phister Satz 33.16
