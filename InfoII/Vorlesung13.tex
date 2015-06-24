@@ -81,7 +81,7 @@ Induktionsschritt: $\forall n : (P(n) \rightarrow P(n+1))$\\
 \i[$\overset{\star}{\text{\eval}}$] \lstinline[mathescape]|((lambda (n)...)$\numrak{n+1}$)|\\
 \i \lstinline[mathescape]|(if (= $\numrak{n+1}$ 0)1 ... (...))|
 \i \lstinline[]|(if #f|\lstinline| 1 ... (...))|
-\i\marginpar{\textcolor{red}{Unter der Annahme, dass tatsächlich Subtraktion implementiert ist}} \lstinline[mathescape]|(* $\numrak{n+1}$ (factorial (- $\numrak{n+1}$ 1)))|
+\i \ \marginpar{\flushleft \textcolor{red}{Unter der Annahme, dass tatsächlich Subtraktion implementiert ist}} \lstinline[mathescape]|(* $\numrak{n+1}$ (factorial (- $\numrak{n+1}$ 1)))|
 \i \lstinline[mathescape]|(* $\numrak{n+1}$ (factorial (- $\numrak{n}$)))|
 \i[$\overset{iv}{=}$] \lstinline[mathescape]|(* $\numrak{n + 1}$ n!)|
 \i[=]$(n+1)!\ \checkmark$
@@ -120,7 +120,7 @@ Induktionsschritt $\forall n : (P(n) \rightarrow P(n+1))$\\
 Die Menge $M^*$ (= Listen mit Elementen aus $M$ + \lstinline|list-of M| ist \emph{induktiv} definiert\\
 \begin{align}
 \text{\lstinline!empty!} \in& M^* \tag{L1} \marginnote{Nicht leere Liste}\\
-\forall x \in& M , xs \in M^* \tag{L2} \marginnote{\text{\lstinline!make-pair x xs! $\in M^*$}} \\
+\forall x \in& M , xs \in M^* \tag{L2} \marginnote{\flushright \text{\lstinline!(make-pair x xs)!}}\marginnote{\t{$\in M^*$}} \\
 \t{Nichts sonst in }& M^* \tag{L3}
 \end{align}
 Beweisschema \emph{Listeninduktion}\\

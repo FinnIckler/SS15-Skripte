@@ -5,8 +5,8 @@ Reduktion von if:\\
 \lstinline[mathescape]!(if $t_1$ <$e_1$> <$e_2$>)!\\
 \circled{1} Reduziere $t_1$, erhalte $t_1'$ $\underset{\text{\circled{2}}}{\text{\eval}}
 \begin{cases}
-<e_1\t{\zu} &\t{falls } t_1' = \t{\lstinline!#t!}, <e_2\t{\zu niemals ausgewertet}\\
-<e_2\t{\zu} &\t{falls } t_1' = \t{\lstinline!#f!}, <e_1\t{\zu niemals ausgewertet}  
+\t{\arge{1}} &\t{falls } t_1' = \t{\lstinline!#t!}, \t{\arge{2} niemals ausgewertet}\\
+\t{\arge{2}} &\t{falls } t_1' = \t{\lstinline!#f!}, \t{\arge{1} niemals ausgewertet}  
 \end{cases}$\\
 \lstinputlisting[frame=single,
 literate=
@@ -25,7 +25,7 @@ Werte die Tests in den Reihenfolge $t_1,t_2.t_3,\ldots,t_n$ aus.\\
 Sobald $t_i \#t$ ergibt, werte Zweig $e_i$ aus. $e_i$ ist Ergebnis der Fallunterscheidung. Wenn $t_n \#t$ liefert, dann liefert $\\
 \begin{cases}
 \t{Fehlermeldung \glqq \textcolor{red}{cond: alle Tests ergaben false}\grqq}& \t{falls kein else Zweig}\\
-\text{\lstinline[mathescape]!$<e_{n+1}>$!}& \t{sonst}
+\text{\lstinline[mathescape]!$\t{\arge{n+1}}$!}& \t{sonst}
 \end{cases}$
 \newpage
 \rackett{Absolutbetrag durch cond}{Absolutwert von x}{oneofundconditionals}{14}{22}
