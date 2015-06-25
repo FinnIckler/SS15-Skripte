@@ -5,3 +5,4 @@
 *.rkt
 workingdoc.*
 .DS_Store
+*.rkt~
