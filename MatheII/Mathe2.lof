@@ -1,50 +1,51 @@
 \select@language {ngerman}
-\contentsline {figure}{\numberline {1}{\ignorespaces Veranschaulichung Komplexe Zahlen}}{6}{figure.1}
-\contentsline {figure}{\numberline {2}{\ignorespaces Absolutbetrag}}{8}{figure.2}
-\contentsline {figure}{\numberline {3}{\ignorespaces Imaginäre Zahlen im Koordinatensystem durch Polarkoordinaten}}{9}{figure.3}
-\contentsline {figure}{\numberline {4}{\ignorespaces Winkel im Bogenma\ss }}{9}{figure.4}
-\contentsline {figure}{\numberline {5}{\ignorespaces Multiplizieren komplexer Zahlen}}{11}{figure.5}
-\contentsline {figure}{\numberline {6}{\ignorespaces Multiplikation mit i}}{11}{figure.6}
-\contentsline {figure}{\numberline {7}{\ignorespaces Beschränktheit von Folgen}}{14}{figure.7}
-\contentsline {figure}{\numberline {8}{\ignorespaces Beschränkte aber nicht konvergente Folge}}{16}{figure.8}
-\contentsline {figure}{\numberline {9}{\ignorespaces Cauchy'sches Konvergenzkriterium}}{21}{figure.9}
-\contentsline {figure}{\numberline {10}{\ignorespaces Monotonie}}{24}{figure.10}
-\contentsline {figure}{\numberline {11}{\ignorespaces Konvergenzradien}}{30}{figure.11}
-\contentsline {figure}{\numberline {12}{\ignorespaces Die Exponentialreihe}}{32}{figure.12}
-\contentsline {figure}{\numberline {13}{\ignorespaces $f(x) = x^3 - 2x^2 - x+2$}}{34}{figure.13}
-\contentsline {figure}{\numberline {14}{\ignorespaces $e^x$}}{35}{figure.14}
-\contentsline {figure}{\numberline {15}{\ignorespaces Bogenma\ss }}{35}{figure.15}
-\contentsline {figure}{\numberline {16}{\ignorespaces Sinus und Cosinus}}{36}{figure.16}
-\contentsline {figure}{\numberline {17}{\ignorespaces Tangens und Kotangens}}{36}{figure.17}
-\contentsline {figure}{\numberline {18}{\ignorespaces $x^2$}}{38}{figure.18}
-\contentsline {figure}{\numberline {19}{\ignorespaces x+1}}{38}{figure.19}
-\contentsline {figure}{\numberline {20}{\ignorespaces Abschnittsweise definierte Funktion}}{39}{figure.20}
-\contentsline {figure}{\numberline {21}{\ignorespaces $\qopname \relax o{sin}(\frac {1}{x})$}}{40}{figure.21}
-\contentsline {figure}{\numberline {22}{\ignorespaces $x \cdot \qopname \relax o{sin}(\frac {1}{x})$}}{40}{figure.22}
-\contentsline {figure}{\numberline {23}{\ignorespaces geometrische Darstellung des $\varepsilon -\delta $ Kriteriums}}{41}{figure.23}
-\contentsline {figure}{\numberline {24}{\ignorespaces Abschnittsweise definierte Funktion}}{42}{figure.24}
-\contentsline {figure}{\numberline {25}{\ignorespaces Grenzwerte gegen einen Festen Wert}}{43}{figure.25}
-\contentsline {figure}{\numberline {26}{\ignorespaces Funktionen $\qopname \relax m{lim}\limits _{x \rightarrow \infty } = \infty $}}{45}{figure.26}
-\contentsline {figure}{\numberline {27}{\ignorespaces $sin(\frac {1}{x}$)}}{46}{figure.27}
-\contentsline {figure}{\numberline {28}{\ignorespaces $\frac {e^x}{x^n}$}}{47}{figure.28}
-\contentsline {figure}{\numberline {29}{\ignorespaces Abschnittsweise definierte Funktion}}{48}{figure.29}
-\contentsline {figure}{\numberline {30}{\ignorespaces Zwischenwerte}}{51}{figure.30}
-\contentsline {figure}{\numberline {31}{\ignorespaces Eine Fallunterscheidugn für 5.13}}{53}{figure.31}
-\contentsline {figure}{\numberline {32}{\ignorespaces Eine Funktion und ihre Umkehrfunktion}}{53}{figure.32}
-\contentsline {figure}{\numberline {33}{\ignorespaces $\qopname \relax o{exp}(x)$ und $\qopname \relax o{ln}(x)$}}{54}{figure.33}
-\contentsline {figure}{\numberline {34}{\ignorespaces Logithmen mit Basen $>1$ und $<1$}}{56}{figure.34}
-\contentsline {figure}{\numberline {35}{\ignorespaces Sekante an Funktion}}{58}{figure.35}
-\contentsline {figure}{\numberline {36}{\ignorespaces Abschnittsweise definierte cosinus Funktion}}{61}{figure.36}
-\contentsline {figure}{\numberline {37}{\ignorespaces Zwei Funktionen an der Winkelhalbierenden}}{62}{figure.37}
-\contentsline {figure}{\numberline {38}{\ignorespaces Ableitung keine Hinreichende Bedingung für Minima/Maxima}}{64}{figure.38}
-\contentsline {figure}{\numberline {39}{\ignorespaces Eine Funktion und ihrer Steigung an der Stelle c}}{65}{figure.39}
-\contentsline {figure}{\numberline {40}{\ignorespaces Flächeninhalt unter einer Funktion $f$}}{68}{figure.40}
-\contentsline {figure}{\numberline {41}{\ignorespaces Treppenfunktion}}{69}{figure.41}
-\contentsline {figure}{\numberline {42}{\ignorespaces Treppenfunktion}}{69}{figure.42}
-\contentsline {figure}{\numberline {43}{\ignorespaces Abschnittsweise stetige Funktion}}{70}{figure.43}
-\contentsline {figure}{\numberline {44}{\ignorespaces Treppenfunktion (Untersumme) von $x^2$}}{70}{figure.44}
-\contentsline {figure}{\numberline {45}{\ignorespaces Nicht integrierbare Funktion}}{71}{figure.45}
-\contentsline {figure}{\numberline {46}{\ignorespaces Mittelwertsatz der Integralrechnung}}{74}{figure.46}
-\contentsline {figure}{\numberline {47}{\ignorespaces Die Welt der Funktionen}}{77}{figure.47}
-\contentsline {figure}{\numberline {48}{\ignorespaces Stammfunktionbildung}}{78}{figure.48}
+\contentsline {figure}{\numberline {1}{\ignorespaces Veranschaulichung Komplexe Zahlen}}{7}{figure.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Absolutbetrag}}{9}{figure.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces Imaginäre Zahlen im Koordinatensystem durch Polarkoordinaten}}{10}{figure.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces Winkel im Bogenma\ss }}{10}{figure.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces Multiplizieren komplexer Zahlen}}{12}{figure.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces Multiplikation mit i}}{12}{figure.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces Beschränktheit von Folgen}}{15}{figure.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Beschränkte aber nicht konvergente Folge}}{17}{figure.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces Cauchy'sches Konvergenzkriterium}}{22}{figure.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces Monotonie}}{25}{figure.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces Konvergenzradien}}{31}{figure.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces Die Exponentialreihe}}{33}{figure.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces $f(x) = x^3 - 2x^2 - x+2$}}{35}{figure.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces $e^x$}}{36}{figure.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces Bogenma\ss }}{36}{figure.15}
+\contentsline {figure}{\numberline {16}{\ignorespaces Sinus und Cosinus}}{37}{figure.16}
+\contentsline {figure}{\numberline {17}{\ignorespaces Tangens und Kotangens}}{37}{figure.17}
+\contentsline {figure}{\numberline {18}{\ignorespaces $x^2$}}{39}{figure.18}
+\contentsline {figure}{\numberline {19}{\ignorespaces x+1}}{39}{figure.19}
+\contentsline {figure}{\numberline {20}{\ignorespaces Abschnittsweise definierte Funktion}}{40}{figure.20}
+\contentsline {figure}{\numberline {21}{\ignorespaces $\qopname \relax o{sin}(\frac {1}{x})$}}{41}{figure.21}
+\contentsline {figure}{\numberline {22}{\ignorespaces $x \cdot \qopname \relax o{sin}(\frac {1}{x})$}}{41}{figure.22}
+\contentsline {figure}{\numberline {23}{\ignorespaces geometrische Darstellung des $\varepsilon -\delta $ Kriteriums}}{42}{figure.23}
+\contentsline {figure}{\numberline {24}{\ignorespaces Abschnittsweise definierte Funktion}}{43}{figure.24}
+\contentsline {figure}{\numberline {25}{\ignorespaces Grenzwerte gegen einen Festen Wert}}{44}{figure.25}
+\contentsline {figure}{\numberline {26}{\ignorespaces Funktionen $\qopname \relax m{lim}\limits _{x \rightarrow \infty } = \infty $}}{46}{figure.26}
+\contentsline {figure}{\numberline {27}{\ignorespaces $sin(\frac {1}{x}$)}}{47}{figure.27}
+\contentsline {figure}{\numberline {28}{\ignorespaces $\frac {e^x}{x^n}$}}{48}{figure.28}
+\contentsline {figure}{\numberline {29}{\ignorespaces Abschnittsweise definierte Funktion}}{49}{figure.29}
+\contentsline {figure}{\numberline {30}{\ignorespaces Zwischenwerte}}{52}{figure.30}
+\contentsline {figure}{\numberline {31}{\ignorespaces Eine Fallunterscheidugn für 5.13}}{54}{figure.31}
+\contentsline {figure}{\numberline {32}{\ignorespaces Eine Funktion und ihre Umkehrfunktion}}{54}{figure.32}
+\contentsline {figure}{\numberline {33}{\ignorespaces $\qopname \relax o{exp}(x)$ und $\qopname \relax o{ln}(x)$}}{55}{figure.33}
+\contentsline {figure}{\numberline {34}{\ignorespaces Logithmen mit Basen $>1$ und $<1$}}{57}{figure.34}
+\contentsline {figure}{\numberline {35}{\ignorespaces Sekante an Funktion}}{59}{figure.35}
+\contentsline {figure}{\numberline {36}{\ignorespaces Abschnittsweise definierte cosinus Funktion}}{62}{figure.36}
+\contentsline {figure}{\numberline {37}{\ignorespaces Zwei Funktionen an der Winkelhalbierenden}}{63}{figure.37}
+\contentsline {figure}{\numberline {38}{\ignorespaces Ableitung keine Hinreichende Bedingung für Minima/Maxima}}{65}{figure.38}
+\contentsline {figure}{\numberline {39}{\ignorespaces Eine Funktion und ihrer Steigung an der Stelle c}}{66}{figure.39}
+\contentsline {figure}{\numberline {40}{\ignorespaces Flächeninhalt unter einer Funktion $f$}}{69}{figure.40}
+\contentsline {figure}{\numberline {41}{\ignorespaces Treppenfunktion}}{70}{figure.41}
+\contentsline {figure}{\numberline {42}{\ignorespaces Treppenfunktion}}{70}{figure.42}
+\contentsline {figure}{\numberline {43}{\ignorespaces Abschnittsweise stetige Funktion}}{71}{figure.43}
+\contentsline {figure}{\numberline {44}{\ignorespaces Treppenfunktion (Untersumme) von $x^2$}}{71}{figure.44}
+\contentsline {figure}{\numberline {45}{\ignorespaces Nicht integrierbare Funktion}}{72}{figure.45}
+\contentsline {figure}{\numberline {46}{\ignorespaces Mittelwertsatz der Integralrechnung}}{75}{figure.46}
+\contentsline {figure}{\numberline {47}{\ignorespaces Die Welt der Funktionen}}{78}{figure.47}
+\contentsline {figure}{\numberline {48}{\ignorespaces Stammfunktionbildung}}{79}{figure.48}
+\contentsline {figure}{\numberline {49}{\ignorespaces Integral Berechnung $x \cdot \qopname \relax o{cos}(x)$}}{82}{figure.49}
 \contentsfinish 

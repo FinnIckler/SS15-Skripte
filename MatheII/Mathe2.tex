@@ -244,7 +244,7 @@ Suche $\varphi$ mit $0 \leq 2\pi$ mit $\cos(\varphi) =\frac{2}{\sqrt{5}}, \sin(\
 \item[c)] Die komplexen Zahlen von Betrag 1 entsprechen den Punkten auf Einheitskreis: \\$\cos(\varphi) + i \sin(\varphi), 0  \leq \varphi \leq 2\pi$
 \end{enumerate}
 \end{enumerate}
-\subsection{Additionstheoreme der Trigonometrie}
+\subsection{Additionstheoreme der Trigonometrie}\label{sec:1.7}
 \begin{align}
 \sin(\varphi + \psi) &= \sin(\varphi) \cd \cos(\psi) + \cos(\varphi) \cd \sin(\psi) \tag{a}\\
 \cos(\varphi + \psi) &= \cos(\varphi) \cd \cos(\psi) - \sin(\varphi) \cd sin(\varphi) \cd \sin(\psi \tag{b}
@@ -1598,9 +1598,9 @@ $f : D \rightarrow \R.$
 \i $f$ ist \uline{stetig} an $c \in D$, fallse $\lim\limits_{x \rightarrow c} f(x) = f(c)$.\\
 \i $f$ hei\ss t (absolut) stetig, falls $f$ an allen $c \in D$ stetig ist.
 \end{enumerate}
-\subsection{Satz}
+\subsection{Satz}\label{sec:5.2}
 $f: D \rightarrow \R , c \in D.$\\
-Existiert KOnstante $\mathbf{K} > 0$ mit $\abs{f(x) - f(c)} \leq \mathbf{K} \cd \abs{x-c}$ für alle $x \in D$, dann ist $f$ stetig in c.
+Existiert Konstante $\mathbf{K} > 0$ mit $\abs{f(x) - f(c)} \leq \mathbf{K} \cd \abs{x-c}$ für alle $x \in D$, dann ist $f$ stetig in c.
 \begin{proof}\ 
 \\ Sei $\varepsilon > 0$.\\
 Wähle $\delta = \frac{\varepsilon}{\mathbf{K}}$. Ist $\abs{x-c} \leq \delta,$ so ist $\abs{f(x) - f(c)} \leq \mathbf{K} \cd \abs{x-c} \leq \mathbf{K} \cd \delta -\varepsilon.\\
@@ -1748,7 +1748,7 @@ f(a_n) < 0 \forall n \rightarrow \lim\limits_{n \rightarrow \infty} f(a_n) \leq 
 f(b_n) \geq 0 \forall n \rightarrow \lim\limits_{n \rightarrow \infty} f(b_n) \geq 0.\\
 \Rightarrow 0 = \lim(a_n) = \lim(b_n) = f(w).$
  \end{proof}
-\subsection{Korollar (Zwischenwertsatz)}
+\subsection{Korollar (Zwischenwertsatz)}\label{sec:5.10}
 $f: D \rightarrow \R $ stetig, $[u,v] \subseteq D$\\
 Dann nimmt $f$ in $[u,v]$ jeden Wert zwischen $f(u)$ und $f(v)$ an (und evtl. weitere)
 \begin{figure}[h!]
@@ -1769,7 +1769,7 @@ $g(u) = f(u) -b
 g(v) = f(v) -b$\\
 \ref{sec:5.9} (angewandt auf g): Ex. $w \in ]u,v[$ mit $g(w) = 0$,d.h $f(w) =b$.
 \end{proof}
-\subsection{Satz (Min-Max-Theorem)}
+\subsection{Satz (Min-Max-Theorem)}\label{sec:5.11}
 $a,b \in \R , a < b, f : [a,b] \to \R$\\
 (Wichtig: \emph{abgeschlossenes} Intervall)\\
 Dann hat $f$ ein Maximum und ein Minimum auf $[a,b]$, d.h es existieren\\ $x_{min},\ x_{max} \in [a,b]$ mit $f(x_{max}) \leq f(x) \leq f(x_max)$ für alle $x \in [a,b]$ (Beweis mit Bisektionsverfahren, \cite{k4})
@@ -2014,7 +2014,7 @@ f'(x) \underset{\substack{\ref{sec:6.2}a)\\
 \hspace*{1.05cm}g(x)= x^2\\
 h'(x) = 2 \cd (x^2 + x + 1) \cd (2x + 1)$
 \end{enumerate}
-\subsection[Satz:]{Satz}
+\subsection[Satz:]{Satz}\label{sec:6.7}
 \begin{enumerate}[a)]
 \i $\lim\limits_{x \to 0} \frac{sin(x)}{1}$
 \i $\lim\limits_{x \to 0} \frac{1-\cos(x)}{x} = 0$
@@ -2059,7 +2059,7 @@ c) $f(x) = \frac{\sin(x)}{\cos(x)}$ Quotientenregel + a)b) + $\sin^2(x) + \cos^2
 \end{figure}
 $f$ ist diffbar für alle $ x \ne 0\\
 \lim\limits_{x \to 0} \frac{f(x) - f(0)}{x}\\
-\lim\limits_{x \to 0^+} \frac{\cos(x) -1}{x} \underset{\text{\ref{sec:6.7b)}}}{=} 0\\
+\lim\limits_{x \to 0^+} \frac{\cos(x) -1}{x} \underset{\text{\ref{sec:6.7}b)}}{=} 0\\
 \lim\limits_{x \to 0^-} \frac{1 -1 }{x} = 0\\
 \lim\limits_{x \to 0} \frac{f(x) - f(0)}{x} = 0 = f'(0)$
 \item $f(x) = \sin^2(x^3) = (\sin(x^3))^2\\
@@ -2072,7 +2072,7 @@ eine Potenzreihe um a mit Konvergenzradius $\mathbf{R} > 0.$\\
 Dann ist $f$ in $]a-R, a+R[$ diffbar und es gilt : $\sum\limits_{k =1}^{\infty} k \cd a_k \cd (x-a)^{k-1} = f'(x).$\\
 \hfil (gliedweise Ableitung)\newline
 \hfil (Beweis \cite{k7})
-\subsection{Korollar}
+\subsection{Korollar}\label{sec:6.11}
 $(\exp(x))' = \exp(x)$
 \begin{proof}
 $\exp(x) = \sum\limits_{k = 0}^{\infty} \frac{x^k}{k!}$ für alle $x \in \R \\
@@ -2118,7 +2118,7 @@ $f'(0) = 0.$ \hfill ($f'(x) =3x^2)$\\
 $f^{-1}(x) = \sqrt[3]{x} = x^{\frac{1}{3}}\\
 \lim\limits_{x \to 0} \frac{x^{\frac{1}{3}} - 0}{x - 0} = \lim\limits_{x \to 0} \frac{1}{x^{\frac{2}{3}}} = \infty\\
 (f^{-1})'(0)$ existiert nicht. (jedenfalls nicht als reelle Zahl!)
-\subsection[Satz:]{Satz}
+\subsection[Satz:]{Satz}\label{sec:6.14}
 \begin{tabular}{cll|l}
 	& $f(x)$ & & $f'(x)$\\
 	\hline
@@ -2428,7 +2428,7 @@ $\sum\limits_{i=0}^{n-1} c_i (x_m - x_i)$\\
 \draw (5,0.2)--(5,-0.2);
 \node () at (5,0.4) {$b=x_n$};
 \end{tikzpicture}
-\subsection{Beispiel}
+\subsection{Beispiel}\label{sec:7.8}
 $f(x) = x^2$ auf $[0,t]\\
 f_n$ wie in \ref{sec:7.5}.\\
 \[\int\limits_{a}^b f_n(x)dx = \sum\limits_{i=0}^{n-1}(\frac{it}{n})^2 \cd \frac{t}{n} =\sum\limits_{i=0}^{n+1} i^2 \cd \frac{t^2}{n^3} = \frac{t^3}{n^3}\cd \sum\limits_{i=0}^{n-1} i^2\]\\
@@ -2628,7 +2628,22 @@ F' = f &\xleftarrow{\hspace*{3.cm}} \\
 f'&\xleftarrow{\hspace*{3.cm}} &\textcircled{f} \text{stetig diffbar}\\
 & \xrightarrow{\hspace*{3.cm}}& F = \int f'(t)dt = f + c
 \end{array}$
-\subsection*{Beispiele}
+\begin{proof}
+a) Sei $c \in \mathcal{J}$.\\
+Zu zeigen: $\lim\limits_{x \to c} \frac{F(x)-F(c)}{x-c} =f(c), x \ne c,\,x\in\mathcal{J}:\\
+\frac{F(x)-F(c)}{x-c} \underset{\text{F. St.fkt. von f}}{=} \frac{1}{x-c} \int^x_cf(t)dt$\\
+Mittelwertsatz der Integralrechnung (\ref{sec:7.11}). Es existiert $\Theta(x)$ zwischen $x$ und $c$ mit 
+\[ \int_{x}^{c} f(t)dt = f(\Theta(x)) \cd (x-c) \]\\
+$\begin{array}{ll}
+\frac{F(x)-F(c)}{x-c} &= \frac{1}{x-c} \cd f(\Theta(x)) \cd (x-c)\\
+&= f(\Theta(x)) \xrightarrow[\substack{x \to c,\,\text{so}\\\Theta(x) \to c}]{} f(c),\, \text{da $f$ stetig}
+\end{array}$
+b) $f'$ ist stetig.\\
+Sei $F$ eine Stammfunktion von $f'$. Nach a): $F'=f'$.\\
+$(F-f)' = 0.$\\
+\ref{sec:6.20}a) $F -f =c $ konstant, dass hei\ss t $F =f+c$ 
+\end{proof}
+\subsection{Beispiele}
 Zu. \ref{sec:8.8}a):
 \begin{enumerate}[a)]
 \item $g(x) = \int_{1}^{x} \underbrace{e^{t^2} \cd (\sin(t) + \cos(\frac{t}{2})}_{\text{stetig}} dt$
@@ -2646,7 +2661,7 @@ zu \ref{sec:8.8}b)
 $ \int a x^n dx = a \cd \frac{x^{n+1}}{n+1} + c \text{ denn } \Bigl(a\frac{x^{n+1}}{n+1}\Bigr)' = ax^n$\\
 d.h : $\int\limits_{u}^{v} a \cd x^n dx = \frac{a}{n+1} (v^{n+1} - u^{n+1})$\\
 Damit : $\int \sum\limits_{i=0}^{n} a_i \cd x^i = \sum\limits_{i=0}^{n} a_i \frac{x{i+1}}{(i+1)}$
-\item $n \ge -2$,so \[ \int \frac{1}{x} dx = \frac{1}{n+1} \cd \frac{1}{x^{n-1}} +c \]
+\item $n \ge -2$,so \[ \int \frac{1}{x^n} dx = \frac{1}{n+1} \cd \frac{1}{x^{1-n}} +c \]
 \item Für $ x > 0$ ist $\ln(x)' \frac{1}{x}$ \hfill (\ref{sec:6.14}b)\\
 Also $\int \frac{1}{x} dx = \ln(x) + c$ auf $]0,\infty[$\\
 Auf $]-\infty,0[$ gilt $\int \frac{1}{x}dx = \ln(\abs{x}) +c$
@@ -2654,6 +2669,106 @@ Auf $]-\infty,0[$ gilt $\int \frac{1}{x}dx = \ln(\abs{x}) +c$
 \item $\int e^x dx = e^x+c$
 \item $\int \sin(x)dx = -\cos(x) +c$
 $\int \cos(x) dx = \sin(x) +c$
+\end{enumerate}
+\subsection{Satz (Partielle Integration)}\label{sec:8.11}
+Seien $f$ und $g$ stetig diffbare Funktionen auf Intervall $\mathcal{J}$. Dann:\[ fg'dx = f \cd g - \int f'\cd g dx \]
+Für bestimmte Integrale hei\ss t das:\\
+\[ \int\limits_{u}^{v} f(x)\cd g'(x)dx = \underbrace{f \cd g}_{f(v)\cd g(v) - f(u)\cd g(u)}\Bigg\vert - \int\limits_{y}^{u}f'(x)g(x)dx \]
+Für alle $u,v \in \mathcal{J}$\\
+\begin{proof}
+\ref{sec:8.8}b)\\
+$(f\cd g)' = f \cd g' + f' \cd g\\
+\bigintsss (f \cd g' + f' \cd g)dx = f\cd g +c\\
+\bigintsss f \cd g' + \int f'g \cd g = f \cd g$
+\end{proof}
+\subsection{Beispiele}
+\begin{enumerate}[a)]
+\item $\bigintssss \underbrace{x}_{f} \cd \underbrace{\cos(x)}_{g'}dx \underset{\text{\ref{sec:8.11}}}{=} x \cd \sin(x) - \bigintssss \sin(x)dx = x \cd \sin(x) + \cos(x) +c$
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[axis x line=center,
+axis y line=center, xmin = 0, ymin = -5,xmax =5,ymax =5,xtick={3.141},xticklabels={$\pi$},ytick ={-3.141},yticklabels={$-\pi$}]  
+\path[name path=axis] (axis cs:0,0) -- (axis cs:4.9,0); \
+\addplot[name path=f,samples=100,domain={0:5}] gnuplot[id=flache3]{ x * cos(x)};
+\addplot [
+thick,
+color=blue,
+fill=blue, 
+fill opacity=0.05
+]
+fill between[
+of=f and axis,
+soft clip={domain=0:4.9},
+];
+\draw[red,dashed] (axis cs: 3.141,0)--(axis cs: 3.141,-3.141);
+\end{axis}
+\end{tikzpicture}
+\caption[Integral Berechnung $x \cd \cos(x)$]{${\displaystyle \int_{0}^{\pi} x \cd \cos(x)dx = 2} $}
+\end{figure}
+\item $\bigintssss \ln(x) dx = \bigintsss \underset{\substack{\uparrow\\f'}}{1} \cd \underset{\substack{\uparrow\\g}}{\ln(x)}dx = x \cd \ln(x) - \bigintsss x \cd \frac{1}{x}dx = x \ln(x) - x +c$ \hfill (vgl. \ref{sec:8.10}d)
+\item $\bigintsss \cos^2(x)dx \underset{\text{\ref{sec:8.11}}}{=} \underset{\substack{\uparrow\\f'}}{\cos(x)} \cd \underset{\substack{\uparrow\\g}}{\sin(x)} + \bigintsss \sin(x)dx$ \hfill (${\Huge \star}$)\\
+$\begin{array}{ll}
+\bigintsss \cos^2(x)dx &= \cos(x)\cd\sin(x) + \bigintsss 1-\cos^2(x)dx\\
+&= \cos(x) \cd \sin(x) + x - \bigintsss \cos^x(x)dx\\
+&\Rightarrow 2 \cd \bigintsss \cos^2(x)dx = \cos^2(x)dx = \cos(x) \cd \sin(x) + x + c
+\end{array}$
+\end{enumerate}
+\subsection{Satz (Integration durch Substitution)}\label{sec:8.13}
+$\mathcal{I},\mathcal{J}$ Intervalle $f:\mathcal{I} \to \mathcal{J}$ stetig diffbar, $g: \mathcal{J} \to \R$ stetig mit Stammfunktion $G$. Dann ist:
+\[ \int g(f(x)) \cd f'(x)dx = G(f(x))+c \]
+Für das bestimmte Integral hei\ss t das:\\
+\[ \int_{u}^{v} g(f(x)) \cd f'(x) dx = G(f(v)) - G(f(u)) = \int_{f(u)}^{f(v)} g(t)dt \]
+für alle $u,v \in \mathcal{I}$
+\begin{proof}
+$G \circ f$ diffbar: \ref{sec:8.8}a)\\
+Kettenregel:\\
+$\begin{array}{ll}
+(G \circ f)'(x) &= G'(f(x)) - f'(x)\\
+&\underset{\text{\ref{sec:8.8}a}}{=} \underbrace{g(f(x)) \cd f'(x)}_{\text{stetig}}
+\end{array}\\
+$Hauptsatz $G \circ f$ ist Stammfunktion von $g(f(x)) \cd f'(x)$
+\end{proof}
+\emph{Bemerkung}:
+\ref{sec:8.13} kann in 2 Arten angewandt werden:\\
+\emph{1.Art}: Mann hat ein Integral der Form $$\int g(f(x)) \cd f'(x)dx$$\\
+Berechne $$\int g(t)dt = \int_{x_0}^{x}g(t)dt = \underset{\substack{\uparrow\\\text{und ersetze}\\\text{x durch f(x)}}}{G(x)}$$
+\emph{2.Art}:\\
+Man will $\int g(t)dt$ berechnen\\
+Ersetze $t$ durch $f(x)$ (Substitution)\\
+$\bigl\lbrack \frac{dt}{dx} = f'(x) \to dt = f'(x)dx \bigr\rbrack$\\
+und $dt$ durch $f'(x)dx$ ersetzen.\\
+$\to \int g(f(x)) \cd f'(x) dy$\\
+Hoffnung: $\uparrow$ ist einfacher zu berechnen.
+\subsection[Satz:]{Satz}
+$f$ ist stetig diffbar auf $\mathcal{I}$, f stetig auf $\mathcal{I}$.\\
+\begin{enumerate}[a)]
+\item Ist $f(x) \ne 0$ auf $\mathcal{I}$,\\
+so $\int \frac{f'(x)}{f(x)}dx = \ln(\abs{f(x)}) + c$\\
+dass hei\ss t $\int_{a}^{b} \frac{f'(x)}{f(x)} = \ln(\abs{f(b)}) - \ln(\abs{f(a)})$\\
+für alle $a,b \in \mathcal{I}$
+\item ${\displaystyle \int_{a}^{b} g(x + c)dx = \int_{a+c}^{b+c} g(x)dx}$\\
+für alle c mit $a+c, b+c \in \mathcal{I}$.\\
+\item ${\displaystyle \int_{a}^{b} g(c \cd x)dx = \frac{1}{c}\int_{a \cd c}^{b \cd c}g(x)dx}$ für alle $c \ne 0 $ mit $a\cd c, b\cd c\in \mathcal{I}$\\
+\end{enumerate}
+\begin{proof}
+a) Setze $g(x)= \frac{1}{x}$.\\
+Also : $G(x) = \ln(\abs{x}) + c$ für alle x $\ne 0$.\\
+\ref{sec:8.13} ${\displaystyle \int \frac{f'(x)}{f(x)}dx} = \ln(\abs{f(x)}) + c$
+b) Setze $f(x) = x + c$, \ref{sec:8.13}\\
+c) Setze $f(x) = x \cd c$, \ref{sec:8.13}\footnote{Beachte $f'(x)=c$}\\
+\end{proof}
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\item ${\displaystyle \int \tan(x)dx = \int \frac{\sin(x)}{\cos(x)}} = - \int \frac{-(\cos(x))'}{\cos(x)}dx \underset{\text{\ref{sec:8.14}a)}}{=} - \ln(\abs{cos(x)}) +c$\footnote{Gilt auf jedem Intervall $]k\pi + \frac{\pi}{2}, (k+1)\pi+\frac{\pi}{2}[$}
+\item ${\displaystyle x \cd \sin(x^2)dx = \frac{1}{2} \int 2x \sin(x^2)dx \underset{\text{\ref{sec:8.13}}}{=} - \frac{1}{2}\cos(x^2) +c}$
+\item ${\displaystyle \int \frac{x}{x^2+a^2}dx = \frac{1}{2} \int \frac{2x}{x^2 + a^2}dx \underset{\text{\ref{sec:8.14}a)}}{=} \ln(x^2+a^2) + c}$auf $\R$ $(a \ne 0)$
+\item ${\displaystyle \int_{-1}^{1} \sqrt{1-t^2}dt}$\\
+Fläche des Halbkreises vom Radius 1.\\
+Substitution $t = \sin(x)$\\
+$\frac{dt}{dx} = \cos(x), dt = \cos(x)dx\\
+{\displaystyle \int_{-1=\sin(-\frac{\pi}{2})}^{1= \sin(\frac{\pi}{2})}\sqrt{1-t^2} \overset{\text{\ref{sec:8.13}}}{=}\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}
+\sqrt{1-\sin(x)^2} \cd \cos(x)dx = \int\cos^2(x)}dx \overset{\text{\ref{sec:8.11}c}}{=} \frac{\cos(x) \cd \sin(x)}{2} = \frac{\frac{\pi}{2}}{2} - (\frac{\frac{\pi}{2}}{2}) - (\frac{\pi}{4} + \frac{\pi}{4} = \frac{\pi}{2})$ 
 \end{enumerate}
 \begin{thebibliography}{9}
 \bibitem{k1} Kreu\ss ler, Phister Satz 33.16
