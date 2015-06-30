@@ -1,3 +1,359 @@
+\begin{filecontents*}{CurryUndMengen.rkt}
+; Erinnerung: filter
+(: filter ((%a -> boolean) (list-of %a) -> (list-of %a)))
+(define filter
+  (lambda (p? xs)
+    (cond ((empty? xs) empty)
+          ((pair? xs)  (if (p? (first xs))
+                           (make-pair (first xs) (filter p? (rest xs)))
+                           (filter p? (rest xs)))))))
+
+; ----------------------------------------------------------------------
+; Funktionen, die ihre Argument schrittweise konsumieren
+
+; Konsumiert Argumente x,y in einem Schritt (eine Reduktion von apply_λ)
+(: plus (number number -> number))
+(define plus
+  (lambda (x y)
+    (+ x y)))
+
+; Konsumiert Argumente x,y in zwei Schritten (zwei Reduktionen von apply_λ).
+; Nach dem ersten Schritt ist nur Argument x festgelegt, Ergebnis ist eine
+; Funktion, die das zweite Argument y erwartet.
+(: add (number -> (number -> number)))
+(define add
+  (lambda (x)
+    (lambda (y)
+      (+ x y))))
+
+(map (add 1)  (list 1 2 3 4 5 6 7 8 9 10))
+(map (add 10) (list 1 2 3 4 5 6 7 8 9 10))
+
+
+; Zweistellige Funktion f in ihre curried Variante überführen
+(: curry ((%a %b -> %c) -> (%a -> (%b -> %c))))
+(define curry
+  (lambda (f)
+    (lambda (x)
+      (lambda (y)
+        (f x y)))))
+
+; Curried Funktion f in Variante überführen, die beide Argumente
+; in einem Schritt konsumiert
+(: uncurry ((%a -> (%b -> %c)) -> (%a %b -> %c)))
+(define uncurry
+  (lambda (f)
+    (lambda (x y)  
+      ((f x) y))))
+
+(map ((curry +) 1)  (list 1 2 3 4 5 6 7 8 9 10))
+;@\eval@ (list 2 3 4 5 6 7 8 9 10 11)
+(map ((curry +) 10) (list 1 2 3 4 5 6 7 8 9 10))
+;@\eval@ (list 11 12 13 14 15 16 17 18 19 20)
+(filter ((curry =) 2) (list 1 2 3 4 5 4 3 2 1))
+;@\eval@ (list 2 2)
+
+
+; ----------------------------------------------------------------------
+
+; Differenzenquotienten von f (mit Differenz h)
+(: diffquot (real (real -> real) -> (real -> real)))
+(define diffquot
+  (lambda (h f)
+    (lambda (x)
+      (/ (- (f (+ x h)) (f x))
+         h))))
+
+; Berechne Differenzenquotienten mit Differenz h = 0.00001
+; ((derive f) x) @\latexcode{$\equiv$}@ (f' x)
+(: derive ((real -> real) -> (real -> real)))
+(define derive
+  ((curry diffquot) 0.00001))
+
+
+; Beispielfunktion: f1(x) = x³ + 2x  
+(: f1 (real -> real))
+(define f1
+  (lambda (x) (+ (* x x x)
+                 (* 2 x))))
+
+; Ableitung von f1(x)
+; f1'(x) = 3x² + 2
+(check-property
+ (for-all ((x real))
+   (expect-within ((derive f1) x)
+                  (+ (* 3 x x) 2)
+                  0.01)))
+; Ableitung von f(x) = atan(x)
+; f'(x) = 1 / (1 + x²)
+(check-property
+ (for-all ((x real))
+   (expect-within ((derive atan) x)
+                  (/ 1
+                     (+ 1 (* x x)))
+                  0.01)))
+
+; ----------------------------------------------------------------------
+
+; Charakteristische Funktion (M -> boolean) als Repräsentation 
+; für eine Menge S @\latexcode{$\subseteq$}@ M
+(define set-of
+  (lambda (t)
+    (signature (t -> boolean))))
+
+; S42 = { x @\latexcode{$\in$}@ @\latexcode{$\mathbb{Z}$}@ | x > 42 }
+(: S42 (set-of integer))
+(define S42
+  (lambda (x)
+    (> x 42))) 
+
+; Leere Menge @\latexcode{\emptyset}@
+(: empty-set (set-of %a))
+(define empty-set
+  (lambda (x)
+    #f))
+
+; Ist Element x in der Menge S (x @\latexcode{\in}@ S)?
+(: set-member? (%a (set-of %a) -> boolean))
+(define set-member?
+  (lambda (x S)
+    (S x)))
+
+; Element x in Menge S hinzufügen: S @\latexcode{\cup}@ {x}
+(: set-insert (number (set-of number) -> (set-of number)))
+(define set-insert
+  (lambda (x S)
+    (lambda (y)
+      (or (= y x)
+          (S y)))))
+
+; Test: die leere Menge enthält kein Element
+(check-property
+ (for-all ((x integer))
+   (boolean=? (set-member? x empty-set) #f)))
+
+; Test: die Menge @\latexcode{\emptyset}@ @\latexcode{\cup}@ {x} enthält x
+(check-property
+ (for-all ((x integer))
+   (set-member? x (set-insert x empty-set))))
+
+
+; Konstruiere {1,2,3,4,5} = ((((@\latexcode{\emptyset}@ @\latexcode{\cup}@ {1}) @\latexcode{\cup}@ {2}) @\latexcode{\cup}@ {3}) @\latexcode{\cup}@ {4}) @\latexcode{\cup}@ {5})
+(: 1-to-5 (set-of integer))
+(define 1-to-5
+  (set-insert 
+   5
+   (set-insert 
+    4
+    (set-insert 
+     3
+     (set-insert 
+      2
+      (set-insert 
+       1 empty-set))))))
+
+
+
+\end{filecontents*}
+\begin{filecontents*}{StreamsUndMengen.rkt}
+; Charakteristische Funktion (M -> boolean) als Repräsentation 
+; für eine Menge S ⊆ M
+(define set-of
+  (lambda (t)
+    (signature (t -> boolean))))
+
+; S42 = { x ∈ ℤ | x > 42 }
+(: S42 (set-of integer))
+(define S42
+  (lambda (x)
+    (> x 42))) 
+
+; Leere Menge ∅
+(: empty-set (set-of %a))
+(define empty-set
+  (lambda (x)
+    #f))
+
+; Ist Element x in der Menge S (x ∈ S)?
+(: set-member? (%a (set-of %a) -> boolean))
+(define set-member?
+  (lambda (x S)
+    (S x)))
+
+; Element x in Menge S hinzufügen: S ∪ {x}
+(: set-insert (number (set-of number) -> (set-of number)))
+(define set-insert
+  (lambda (x S)
+    (lambda (y)
+      (or (= y x)
+          (S y)))))
+
+; Test: die leere Menge enthält kein Element
+(check-property
+ (for-all ((x integer))
+   (boolean=? (set-member? x empty-set) #f)))
+
+; Test: die Menge ∅ ∪ {x} enthält x
+(check-property
+ (for-all ((x integer))
+   (set-member? x (set-insert x empty-set))))
+
+
+; Konstruiere {1,2,3,4,5} = ((((∅ ∪ {1}) ∪ {2}) ∪ {3}) ∪ {4}) ∪ {5})
+(: 1-to-5 (set-of integer))
+(define 1-to-5
+  (set-insert 5
+              (set-insert 4
+                          (set-insert 3
+                                      (set-insert 2
+                                                  (set-insert 1 empty-set))))))
+;-----------------------------------------------------------------------------------------------------
+; Konvertiere Liste xs in Menge
+(: list->set ((list-of number) -> (set-of number)))
+(define list->set
+  (lambda (xs)
+    (fold empty-set set-insert xs)))
+
+; Beispiel: Konstruiere {1,2,...,10}
+(: 1-to-10 (set-of integer))
+(define 1-to-10
+  (list->set (list 1 2 3 4 5 6 7 8 9 10)))
+
+; Element x aus Menge S löschen
+(: set-delete (number (set-of number) -> (set-of number)))
+(define set-delete
+  (lambda (x S)
+    (lambda (y)
+      (if (= y x)
+          #f
+          (S y)))))
+
+; S @\latexcode{$\cup$}@ T
+; x @\latexcode{$\in$}@ S @\latexcode{$\cup$}@ T <=> x @\latexcode{$\in$}@ S @\latexcode{$\lor$}@ x @\latexcode{$\in$}@ T
+(: set-union ((set-of %a) (set-of %a) -> (set-of %a)))
+(define set-union
+  (lambda (S T)
+    (lambda (x)
+      (or (S x) (T x)))))
+
+; S @\latexcode{$\cap$}@ T
+; x @\latexcode{$\in$}@ S @\latexcode{$\cap$}@ T @\latexcode{$\Leftrightarrow$}@ x @\latexcode{$\in$}@ S @\latexcode{$\land$}@ x @\latexcode{$\in$}@ T
+(: set-intersect ((set-of %a) (set-of %a) -> (set-of %a)))
+(define set-intersect
+  (lambda (S T)
+    (lambda (x)
+      (and (S x) (T x)))))
+
+; S @\latexcode{$\setminus$}@ T
+; x @\latexcode{$\in$}@ S @\latexcode{$\setminus$}@ T @\latexcode{$\Leftrightarrow$}@ x @\latexcode{$\in$}@ S @\latexcode{$\land$}@ x @\latexcode{$\not\in$}@ T
+(: set-difference ((set-of %a) (set-of %a) -> (set-of %a)))
+(define set-difference
+  (lambda (S T)
+    (lambda (x)
+      (and (S x) (not (T x))))))
+
+; ----------------------------------------------------------------------
+
+; Promise, ein Wert des Vertrags t zu liefern (0-stellig Prozedur)
+(define promise
+  (lambda (t)
+    (signature (-> t))))
+
+; Verzögerte Auswertung (delay)
+;
+; Variante 1: 
+; (delay e) ≣ (lambda () e)
+;
+; Variante 2 (nutzt selbstdefinierte Scheme-Syntax-Regel, verfügbar ab
+; Sprachebene "DMdA - fortgeschritten"):
+;
+; (define-syntax delay
+;   (syntax-rules ()
+;     ((_ e)
+;      (lambda () e))))
+
+; Erzwungene Auswertung
+(: force ((promise %a) -> %a))
+(define force
+  (lambda (p)
+    (p)))
+
+; Beispiel: 
+; Promise (werde 41+1 berechnen, falls gefordert)
+(: will-evaluate-to-42 (promise natural))
+(define will-evaluate-to-42
+  (lambda ()     ; oder äquivalent mit Variante 2: (delay (+ 1 41))
+    (+ 41 1)))   
+
+; Verzögerte Ausführung...
+will-evaluate-to-42
+; ... und erzwungene Ausführung
+(force will-evaluate-to-42)
+
+; Polymorphe Paare (isomorph zu `pair')
+(: make-cons (%a %b -> (cons-of %a %b)))
+(: head ((cons-of %a %b) -> %a))
+(: tail ((cons-of %a %b) -> %b))
+(define-record-procedures-parametric cons cons-of
+  make-cons 
+  cons?
+  (head
+   tail))
+
+; Ein Stream besteht aus
+; - einem ersten Element (head)
+; - einem Promise, den Rest des Streams generieren zu können (tail)
+(define stream-of
+  (lambda (t)
+    (signature (cons-of t (promise (stream-of t))))))
+
+; Beispiel:
+; Stream mit Zahlen ab n erzeugen
+(: from (number -> (stream-of number)))
+(define from
+  (lambda (n)
+    (make-cons n (lambda () (from (+ n 1))))))
+  
+; Beispiel (Stream → Liste):
+; Erste n Elemente des Streams str in eine Liste extrahieren
+(: stream-take (natural (stream-of %a) -> (list-of %a)))
+
+(check-expect (stream-take 5 (from 1)) (list 1 2 3 4 5))
+(check-expect (stream-take 0 (from 1)) empty)
+
+(define stream-take
+  (lambda (n str)
+    (if (= n 0)
+        empty
+        (make-pair (head str) 
+                   (stream-take (- n 1) (force (tail str)))))))
+
+; Beispiel (Stream → Stream):
+; Filtere Stream str bzgl. Prädikat p?
+(: stream-filter ((%a -> boolean) (stream-of %a) -> (stream-of %a)))
+
+(check-expect (stream-take 10 
+                           (stream-filter (lambda (x) (= (remainder x 2) 0)) 
+                                          (from 1)))
+              (list 2 4 6 8 10 12 14 16 18 20))
+
+(define stream-filter
+  (lambda (p? str)
+    (if (p? (head str))
+        (make-cons (head str)
+                   (lambda () (stream-filter p? (force (tail str)))))
+        (stream-filter p? (force (tail str))))))
+
+
+
+
+
+
+
+
+
+
+\end{filecontents*}
 \begin{filecontents*}{Animationen-und-HOP-Typ2.rkt}
 ; Erstellung von Animationen mit Teachpack "universe"
 ; (1) Zähler

@@ -39,3 +39,7 @@
 \contentsline {lstlisting}{\numberline {35}Ableitungen berechnen mit Curry}{55}{lstlisting.35}
 \contentsline {lstlisting}{\numberline {36}Mengenoperationen Teil 1}{56}{lstlisting.36}
 \contentsline {lstlisting}{\numberline {37}Mengenoperationen Teil 2}{57}{lstlisting.37}
+\contentsline {lstlisting}{StreamsUndMengen.rkt}{58}{lstlisting.-46}
+\contentsline {lstlisting}{\numberline {38}Listen zu Mengen Konvertierung }{58}{lstlisting.38}
+\contentsline {lstlisting}{\numberline {39}Mengenoperationen}{58}{lstlisting.39}
+\contentsline {lstlisting}{\numberline {40}Implementation von Streams}{60}{lstlisting.40}
