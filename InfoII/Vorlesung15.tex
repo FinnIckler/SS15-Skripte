@@ -124,7 +124,7 @@ Idee: Ersetze die Listenkonstruktoren \lstinline|make-pair| und \lstinline|empty
 \end{itemize}
 \begin{lstlisting}
 ;Falte Liste xs bzgl. c und z
-(: foldr (%b (%a (list-of %a) -> %b) -> %b))
+(: foldr (%b (%a %b -> %b) (list-of %a) -> %b))
 (define foldr
 	(lambda (z c xs)
 	  (cond 
