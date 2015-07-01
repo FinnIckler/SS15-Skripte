@@ -143,4 +143,10 @@
 \contentsline {subsection}{\numberline {8.13}Satz (Integration durch Substitution)}{82}{subsection.8.13}
 \contentsline {subsection}{\numberline {8.14}Satz:}{83}{subsection.8.14}
 \contentsline {subsection}{\numberline {8.15}Beispiel}{84}{subsection.8.15}
+\contentsline {section}{\numberline {9}Matrizen und lineare Gleichungssysteme}{85}{section.9}
+\contentsline {subsection}{\numberline {9.1}Definition}{85}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Definition}{85}{subsection.9.2}
+\contentsline {subsection}{\numberline {9.3}Definition}{86}{subsection.9.3}
+\contentsline {subsection}{\numberline {9.4}Beispiel}{87}{subsection.9.4}
+\contentsline {subsection}{\numberline {9.5}Satz (Rechenregeln von Matrizen)}{87}{subsection.9.5}
 \contentsfinish 
