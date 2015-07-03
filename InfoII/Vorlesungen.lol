@@ -43,3 +43,6 @@
 \contentsline {lstlisting}{\numberline {38}Listen zu Mengen Konvertierung }{58}{lstlisting.38}
 \contentsline {lstlisting}{\numberline {39}Mengenoperationen}{58}{lstlisting.39}
 \contentsline {lstlisting}{\numberline {40}Implementation von Streams}{60}{lstlisting.40}
+\contentsline {lstlisting}{\numberline {41}Rekursiv defnierter Sream}{63}{lstlisting.41}
+\contentsline {lstlisting}{Baeume.rkt}{64}{lstlisting.-48}
+\contentsline {lstlisting}{\numberline {42}Implementation von Bäumen}{66}{lstlisting.42}

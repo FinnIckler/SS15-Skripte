@@ -353,6 +353,32 @@ will-evaluate-to-42
 
 
 
+; Beispiel (Streams → Stream):
+; Erzeuge neuen Stream durch die Anwendung von f
+; auf die Heads der Streams str1, str2
+(: stream-zipWith ((%a %b -> %c) (stream-of %a) (stream-of %b) -> (stream-of %c)))
+(define stream-zipWith
+  (lambda (f str1 str2)
+    (make-cons (f (head str1) (head str2))
+               (lambda () (stream-zipWith f 
+                                          (force (tail str1))
+                                          (force (tail str2)))))))
+
+
+; Die unendliche Folge der Fibonacci-Zahlen 1, 1, 2, 3, 5, ...
+(: fibs (stream-of natural)) 
+(check-expect (stream-take 10 fibs) (list 1 1 2 3 5 8 13 21 34 55))
+(define fibs
+  (make-cons 
+   1
+   (lambda ()
+     (make-cons 
+      1 
+      (lambda ()
+        (stream-zipWith +
+                        fibs
+                        (force (tail fibs))))))))
+ 
 \end{filecontents*}
 \begin{filecontents*}{Animationen-und-HOP-Typ2.rkt}
 ; Erstellung von Animationen mit Teachpack "universe"
