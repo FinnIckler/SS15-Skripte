@@ -1,0 +1,66 @@
+TODO: Grust code Tree-size\\
+Einschub: Pretty-Printing von Bäumen\\
+Prozedur \lstinline|(pp t)| erzeugt formatierten String für Binärbaum t.
+\begin{enumerate}
+\item[] \lstinline[mathescape]|(pp $\Box$)| = \lstinline[mathescape]|"$\textcolor{string}{\Box}$"|
+\item[] \lstinline|(pp |\raisebox{-0.9cm}{\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 1.25cm/#1,
+  level distance = 1.25cm}] 
+\node [arn_n] {x}
+    child{ node [arn_r] {l}                          
+    }
+    child{ node [arn_r] {r}
+		}
+; 
+\end{tikzpicture}}) = \begin{minipage}{0.5\textwidth}
+\begin{tikzpicture}
+
+\end{tikzpicture}
+\end{minipage}
+\end{enumerate}
+Idee : Repräsentiere formatierten String als \emph{Liste von Zeilen} (Strings).
+\begin{enumerate}[(1)]
+\item[$\Rightarrow$(1)] Nutze \lstinline|(string-append)| um Zeilen-String zu definieren (horizontale Konkatenation).
+\item[(2)] Nutze \lstinline|(append)| um die einzelnen Zeilen zu einer Liste von Zeilen zusammenzusetzen (vertikale Konkatenation)
+\end{enumerate}
+Erst direkt vor der Ausgabe werden die Zeilen-Strings zu einem auszugebenden String zusammengesetzt \lstinline|(strings-list->string)|\\
+TODO: Grusts Code
+\bigskip\\
+\emph{Induktion über Binärbäume}\\
+Sei $P(t)$ eine Eigenschaft von Binärbäumen $t \in T(M)$, also \lstinline|(: P((btree-of M) -> boolean))|.
+\begin{mdframed}
+Falls \lstinline|(empty-tree)| \marginnote{Induktionsbasis}
+und
+\par $\forall x \in M,\,r,l\in T(M):\:P(l) \land P(r) \Rightarrow P$\lstinline|(make-node l x r)|\\
+\marginnote{Induktionsschritt} dann
+\par $\forall t \in T(M) : P(t)$
+\end{mdframed}
+Beispiel:\\
+Zusammenhang zwischen Grö\ss e (\lstinline|btree-size|) und Tiefe (\lstinline|btree-depth|) eines Binärbaums t. (\glqq Ein Baum der Tiefe n enthält mindestens n und höchstens $2^n-1$ Konten \grqq).\\
+$P(t) \equiv $\lstinline|(btree-depth t)|$\le$\lstinline|(btree-size t)|$\le 2^{\text{\lstinline|(btree depth t)|}}-1$\\
+\emph{Induktionsbasis P(\lstinline|(empty-tree)|)}\\
+\lstinline|(size empty-tree)|
+\begin{enumerate}
+\item[$\overset{*}{\text{\eval}}$]0
+\item[$\underset{[\text{depth}]}{=}$] $2^0 -1 \checkmark$
+\end{enumerate}
+\emph{Induktionsschritt $(P(l) \land P(r) \Rightarrow P(make-node l x r)$}\\
+\lstinline|(size (make-node l x r)))|
+\begin{enumerate}
+\item[$\underset{[size]}{\text{\eval}}$] \lstinline|(size l)| + 1 + \lstinline|(size r)|
+\item[$\underset{[i.v]}{=}$] $2^{\text{\lstinline|(depth l)|}} - 1 + 1 + 2^{\text{\lstinline|(depth r)|}} - 1$
+\item[=] $2^{\text{\lstinline|(depth l)|}} + 2^{\text{\lstinline|(depth r)|}} - 1$
+\item[$\le$] $2 \cdot \max(2^{\text{\lstinline|(depth l)|}},2^{\text{\lstinline|(depth r)|}})-1$
+\item[=] $2 \cdot 2^{\max(\text{\lstinline|(depth rl)|},\text{\lstinline|(depth r)|})}-1$
+\item[$\underset{[depth]}{\text{\reval}}$] $2^{\text{\lstinline|(depth (make-node l x r))|}}-1 \checkmark$
+\end{enumerate}
+Wie müsste sich \lstinline|btree-fold| eine fold-Operation für \emph{Binärbäume} verhalten? Tree Transformer für Baum t:
+TODO: Bild\\
+\begin{lstlisting}
+(: btree-fold (%a (%a %b %a -> %a) (tree-of %b )-> %b))
+(define btreefold
+  (lambda (z f t)
+    (cond ((empty? t)z)
+	  ((node? t)(f (btree-fold z f(node-left-branch t)))
+		    (node-label t)
+		    (btree-fold z f (node-right-branch t))))))
+\end{lstlisting}

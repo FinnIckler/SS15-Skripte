@@ -33,16 +33,16 @@
 \contentsline {lstlisting}{\numberline {30}Animation 1: Ein Zähler}{50}{lstlisting.30}
 \contentsline {lstlisting}{\numberline {31}Animation 2: Ein Raumschiff}{50}{lstlisting.31}
 \contentsline {lstlisting}{\numberline {32}Anwendungen von Combined}{52}{lstlisting.32}
-\contentsline {lstlisting}{\numberline {33}+ als Higher Order Funktion}{52}{lstlisting.33}
-\contentsline {lstlisting}{CurryUndMengen.rkt}{54}{lstlisting.-44}
-\contentsline {lstlisting}{\numberline {34}Einfache Curry Beispiele}{54}{lstlisting.34}
-\contentsline {lstlisting}{\numberline {35}Ableitungen berechnen mit Curry}{55}{lstlisting.35}
-\contentsline {lstlisting}{\numberline {36}Mengenoperationen Teil 1}{56}{lstlisting.36}
-\contentsline {lstlisting}{\numberline {37}Mengenoperationen Teil 2}{57}{lstlisting.37}
-\contentsline {lstlisting}{StreamsUndMengen.rkt}{58}{lstlisting.-46}
-\contentsline {lstlisting}{\numberline {38}Listen zu Mengen Konvertierung }{58}{lstlisting.38}
-\contentsline {lstlisting}{\numberline {39}Mengenoperationen}{58}{lstlisting.39}
-\contentsline {lstlisting}{\numberline {40}Implementation von Streams}{60}{lstlisting.40}
-\contentsline {lstlisting}{\numberline {41}Rekursiv defnierter Sream}{63}{lstlisting.41}
-\contentsline {lstlisting}{Baeume.rkt}{64}{lstlisting.-48}
+\contentsline {lstlisting}{\numberline {33}+ als Higher Order Funktion}{53}{lstlisting.33}
+\contentsline {lstlisting}{CurryUndMengen.rkt}{55}{lstlisting.-44}
+\contentsline {lstlisting}{\numberline {34}Einfache Curry Beispiele}{55}{lstlisting.34}
+\contentsline {lstlisting}{\numberline {35}Ableitungen berechnen mit Curry}{56}{lstlisting.35}
+\contentsline {lstlisting}{\numberline {36}Mengenoperationen Teil 1}{57}{lstlisting.36}
+\contentsline {lstlisting}{\numberline {37}Mengenoperationen Teil 2}{58}{lstlisting.37}
+\contentsline {lstlisting}{StreamsUndMengen.rkt}{59}{lstlisting.-46}
+\contentsline {lstlisting}{\numberline {38}Listen zu Mengen Konvertierung }{59}{lstlisting.38}
+\contentsline {lstlisting}{\numberline {39}Mengenoperationen}{59}{lstlisting.39}
+\contentsline {lstlisting}{\numberline {40}Implementation von Streams}{61}{lstlisting.40}
+\contentsline {lstlisting}{\numberline {41}Rekursiv defnierter Sream}{64}{lstlisting.41}
+\contentsline {lstlisting}{Baeume.rkt}{65}{lstlisting.-48}
 \contentsline {lstlisting}{\numberline {42}Implementation von Bäumen}{66}{lstlisting.42}
