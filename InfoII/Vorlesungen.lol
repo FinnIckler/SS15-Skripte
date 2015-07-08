@@ -46,3 +46,5 @@
 \contentsline {lstlisting}{\numberline {41}Rekursiv defnierter Sream}{64}{lstlisting.41}
 \contentsline {lstlisting}{Baeume.rkt}{65}{lstlisting.-48}
 \contentsline {lstlisting}{\numberline {42}Implementation von Bäumen}{66}{lstlisting.42}
+\contentsline {lstlisting}{\numberline {43}Berechnung der Grö\ss e eines Baumes}{69}{lstlisting.43}
+\contentsline {lstlisting}{\numberline {44}Entwicklung einer Pretty Print Methode für Bäume}{70}{lstlisting.44}

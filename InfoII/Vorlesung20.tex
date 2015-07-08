@@ -1,4 +1,4 @@
-TODO: Grust code Tree-size\\
+\rackett{Berechnung der Grö\ss e eines Baumes}{Die Grö\ss e eines Baumes}{Baeume}{118}{129}
 Einschub: Pretty-Printing von Bäumen\\
 Prozedur \lstinline|(pp t)| erzeugt formatierten String für Binärbaum t.
 \begin{enumerate}
@@ -23,8 +23,7 @@ Idee : Repräsentiere formatierten String als \emph{Liste von Zeilen} (Strings).
 \item[(2)] Nutze \lstinline|(append)| um die einzelnen Zeilen zu einer Liste von Zeilen zusammenzusetzen (vertikale Konkatenation)
 \end{enumerate}
 Erst direkt vor der Ausgabe werden die Zeilen-Strings zu einem auszugebenden String zusammengesetzt \lstinline|(strings-list->string)|\\
-TODO: Grusts Code
-\bigskip\\
+\rackett{Entwicklung einer Pretty Print Methode für Bäume}{Pretty Print eines Baumes}{Baeume}{136}{174}
 \emph{Induktion über Binärbäume}\\
 Sei $P(t)$ eine Eigenschaft von Binärbäumen $t \in T(M)$, also \lstinline|(: P((btree-of M) -> boolean))|.
 \begin{mdframed}
