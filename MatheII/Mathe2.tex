@@ -2990,6 +2990,7 @@ Eintrag an der Stelle $(i,l):\\
 A \cd (B \cd C)$ Eintrag an Stelle $(i,l)$:\\
 $\sum\limits_{j=1}^{n} a_{ij} \cd e_{jl} = \sum\limits_{j=1}^{n} a_{ij} \cd (\sum\limits_{k=1}^{r} b_{ij} \cd c_{kl}) =  \sum\limits_{j=1}^{n} (\sum\limits_{k=1}^{r} a_{ij} b_{ij} \cd c_{kl}) = \sum\limits_{k=1}^{r} \sum\limits_{j=1}^{n} a_{ij} b_{ij} \cd c_{kl}$
 \end{proof}
+\subsection{Definition}\label{sec:9.6}
 Allgemeine Form eines \emph{lineares Gleichungssystem} (LGS) über K:\\
 $\begin{matrix}
 a_{11}x_1 +& \ldots &+ a_{1n}x_n& = b_1\\
@@ -3168,7 +3169,238 @@ $ B = \begin{pmatrix}
 0&0&1&1/6\\
 0&0&0&-1/6\\
 0&0&0&0
-\end{pmatrix}2$
+\end{pmatrix}$
+\subsection{Gau\ss-Algorithmus zur Lösung von LGS}\label{sec:9.12}
+Gegeben sei LGS $\underset{m\times n}{A}\underset{n\times 1}{x} = \underset{m\times1}{b}$\\
+Wende Algorithmus \ref{sec:9.10} auf (A,b) an, bis man Matrix $(\tilde{A},b')$ erhält, so dem $\tilde{A}$ Zeilenstufenform hat (letzte Spalte b' muss nicht mehr bearbeitet werden).\\
+Man kann noch Spaltenvertauschung am $\tilde{A}$ vornehmen,\\ Beachte: Vertauschung von Spalte $i$ und $k$ bedeutet vertauschung von $x_i$ und $x_k$ (Buch führen).
+Dann kann Matrix $(A',b')$ erhalten werden wobei\\ $(A',b') = 
+\begin{pmatrix}
+1 & a'_{12}&\ldots&\ldots&\ldots& a'_{1n}& b_1'\\
+0 & 1 & a'_{23}&\ldots&\ldots& a'_{2n}& b_2'\\
+0 & 0 & 1 & \ldots & \ldots & a'_{3n} & b_3'\\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots\\
+0 & 0 & 0 & 0 & 0 & 1 & b_m'
+\end{pmatrix}$\\
+Neues LGS $A'x'=b'\\
+x = \begin{pmatrix}
+x_1'\\
+\vdots\\
+x_n'
+\end{pmatrix}$ entsteht aus $x$. durch Permutation der Einträge entsprechend der durchgeführten Spaltenvertauschungen.\\
+Lösungsmenge des LGS $A'x'=b'$ ist leicht zu ermitteln:
+\begin{enumerate}[(1)]
+\item Ist $r < m$ und einer der Einträge $b'_r+a,b'_m$ ungleich 0 ist, so ist LGS nicht lösbar.
+\item Ist $r=m \begin{pmatrix}
+1 & * & * & * & b_1'\\
+0 & 1 & * & * & \vdots\\
+0 & 0 & 1 & * & \vdots\\
+0 & 0 & 0 & 1 & b_m'
+\end{pmatrix}$\\
+oder $ r < m$ und $b'_{r+1} = \ldots = b'_m = 0\\
+\begin{pmatrix}
+1 & * & * & * & b_1'\\
+0 & 1 & * & * & \vdots\\
+0 & 0 & 1 & * & \vdots\\
+0 & 0 & 0 & 0 & b_m'
+\end{pmatrix}$\\
+(betrachte dann nur die ersten $r$ Gleichungen),so gibt es mindestens eine Lösung:
+\item[(2a)] $r<n$:\\
+Wähle $x_{r+1}, \ldots,x_n'$ beliebig uas $K$. Dann:\\ $x'_r = b_r' - \sum\limits_{j=r+1}^{n}a'_{rj}x'_j\\
+\vdots\\
+x'_1 = b'_1 - \sum\limits_{j=2}^{n}a'_{1j}x'_j$\\
+(rekursive Bestimmung der Lösungsmenge).\\
+\item[(2b)] $r = n\\
+\begin{pmatrix}
+1&*&\cdots&\cdots&*&\vdots\\
+0&1&\cdots&\cdots&*&\vdots\\
+\vdots&\vdots&\vdots&\vdots&\vdots&\vdots\\
+0&0&0&0&0&0
+\end{pmatrix}$\\
+Dann sind $x'_1,\ldots,x'_r$ eindeutig bestimmt.\\
+$\begin{array}{ll}
+x_n' &=b'_n\\
+x'_{n-1}&= b'_{n-1}-a_{n-1}x'_n\\
+\vdots &= \vdots\\
+x'_1 &=b'_1 - \sum\limits_{j=2}^{n} a'_{ij}\cd x_j'
+\end{array}
+$\end{enumerate}
+\subsection{Beispiel}
+\begin{enumerate}[a)]
+\item
+$\begin{matrix}
+x_1&+2x_2&-3x_3&=5\\
+2x_1&-x_2&+4x_3&=0\\
+x_1&+x_2&+2x_3&=1
+\end{matrix}\\
+\begin{pmatrix}
+1&2&-3&&5\\
+2&-1&4&&0\\
+1&1&2&&1
+\end{pmatrix}\quad \xrightarrow[\substack{2Z. + (-2)\cd 1.Z\\3Z.+(-1)\cd1.Z}]{}\quad\begin{pmatrix}
+1&2&-3&&5\\
+0&-5&10&&-10\\
+0&-1&5&&-4
+\end{pmatrix}\quad \xrightarrow[-\frac{1}{5}\cd2.Z]{}\quad\begin{pmatrix}
+1&2&-3&&5\\
+0&1&-2&&2\\
+0&-1&5&&-4
+\end{pmatrix}\\
+\xrightarrow[3.Z+2.Z]{}\quad\begin{pmatrix}
+1&2&-3&&5\\
+0&1&-2&&2\\
+0&0&3&&-2
+\end{pmatrix}\quad \xrightarrow[\frac{1}{3}\cd 3.Z]{}\quad\begin{pmatrix}
+1&2&-3&&5\\
+0&1&-2&&2\\
+0&0&1&&-\frac{2}{3}
+\end{pmatrix}\\
+x_3=-\frac{2}{3}\\
+x_2=2+2x_3=2-\frac{4}{3}=\frac{2}{3}\\
+x_1=5-\frac{4}{3}-2=\frac{5}{3}$
+eindeutige Lösung: Lösungsmenge $\mathbb{L} = \left\{\begin{pmatrix}
+-\frac{2}{3}\\
+\frac{2}{3}\\
+\frac{5}{3}
+\end{pmatrix}\right\}$
+\item $\begin{matrix}
+x_1&+2x_2&x_3&+x_4&=0\\
+x_1&-x_2&+2x_3&-x_4&=6\\
+\end{matrix}\\
+\begin{pmatrix}
+1&+2&1&+1&&0\\
+1&-1&+2&-1&&6\\
+\end{pmatrix}\quad\longrightarrow\quad\begin{pmatrix}
+1&+2&1&+1&&0\\
+0&1&-\frac{1}{3}&+\frac{2}{3}&&-2\\
+\end{pmatrix}$\\
+(Fall 2a)\\
+$x_4,x_3$ frei wählbar\\
+$\begin{array}{ll}
+x_2 &= -2 + \frac{1}{3}x_3 - \frac{2}{3}x_4\\
+x_1 &= -2x_2 - x_3 -x_4\\
+&=-2\cd (-2 + \frac{1}{3}x_3 - \frac{2}{3}x_4)-x_3-x_4\\
+&=4-\frac{5}{3}+\frac{1}{3}x_4
+\end{array}\\
+\mathbb{L}= \left\{\begin{pmatrix}
+4-\frac{5}{3}x_3+\frac{1}{3}x_4\\
+-2+\frac{1}{3}x_3-\frac{2}{3}x_4\\
+x_3\\
+x_4
+\end{pmatrix}: x_3,x_4\in K \right\}$
+\item $\begin{matrix}
+x_1&+x_2&=1\\
+2x_1&+x_2&=2\\
+x_1 &-x_2=-1
+\end{matrix}\\
+\begin{pmatrix}
+1&+1&&1\\
+2&1&&2\\
+1 &-1&&-1
+\end{pmatrix}\quad\longrightarrow\quad\begin{pmatrix}
+1&+1&&1\\
+0&-1&&0\\
+0&-2&&-2
+\end{pmatrix}\quad\longrightarrow\quad\begin{pmatrix}
+1&+1&&1\\
+0&-&&0\\
+0&0&&-2
+\end{pmatrix}$\\
+LGS nicht lösbar (Fall 1)
+\item $\begin{matrix}
+x_1&+x_2&=1\\
+2x_1&+x_2&=2\\
+x_1 &-x_2=1
+\end{matrix}\\
+\begin{pmatrix}
+1&+1&&1\\
+2&1&&2\\
+1 &-1&&1
+\end{pmatrix}\quad\longrightarrow\quad\begin{pmatrix}
+1&+1&&1\\
+0&-1&&0\\
+0&-2&&-0
+\end{pmatrix}\quad\longrightarrow\quad\begin{pmatrix}
+1&+1&&1\\
+0&1&&0\\
+0&0&&-0
+\end{pmatrix}$\\
+LGS eindeutig lösbar\\
+$x_2=0\\
+x_1=1-x_2=1\\
+\mathbb{L}=\left\{ \begin{pmatrix}
+1\\
+0
+\end{pmatrix} \right\}$ (Fall 2b)
+\item $\begin{matrix}
+x_1&-x_2&+x_3&=1\\
+-2x_1&+2x_2&-2x_3&=3
+\end{matrix}\\
+\begin{pmatrix}
+1&-1&1&=1\\
+-2&2&-2&=3
+\end{pmatrix}\quad\longrightarrow\quad\begin{pmatrix}
+1&-1&1&=1\\
+0&0&0&=5
+\end{pmatrix}$\\
+LGS ist nicht lösbar
+\item$\begin{matrix}
+x_1&+x_2&+x_3&=0\\
+x_1&+x_2&-2x_3&=1
+\end{matrix}\\
+\begin{pmatrix}
+1&1&1&&0\\
+1&1&-2&&1
+\end{pmatrix}\quad\longrightarrow\quad
+\begin{pmatrix}
+1&1&1&&0\\
+0&0&-3&&1
+\end{pmatrix}\quad\longrightarrow\quad
+\begin{pmatrix}
+1&1&1&&0\\
+0&0&1&&-\frac{1}{3}
+\end{pmatrix}$\quad Vert. 2./3.Sp.\\
+$\begin{pmatrix}
+1&1&1&&0\\
+0&1&0&&-\frac{1}{3}
+\end{pmatrix}\\
+x'3$ frei wählbar\\
+$x_2' = -\frac{1}{3}- 0 \cd x'_3 = -\frac{1}{3}\\
+x_1' = 9 - x_2' - x_3' = \frac{1}{3} - x_3'\\
+x_2$ frei wählbar\\
+$x_3 = -\frac{1}{3}\\
+x_1=\frac{1}{3}-x_2\\
+\mathbb{L}=\left\{ \begin{pmatrix}
+\frac{1}{3}-x_2\\
+x_2\\
+-\frac{1}{3}
+\end{pmatrix} : x_2 \in K \right\}$
+\item LGS über $\mathbb{C}\\
+\begin{matrix}
+(1+i)x_1 &+2x_2 &=3-i\\
+i x_1 &+(-2+2i)x_2&=4
+\end{matrix}\\
+\begin{pmatrix}
+(1+i)&2 &&3-i\\
+i &(-2+2i)&&4
+\end{pmatrix}\quad\longrightarrow\quad\begin{pmatrix}
+1&1-i &&1-2i\\
+i &(-2+2i)&&4
+\end{pmatrix}\quad\longrightarrow\quad\begin{pmatrix}
+1&1-i &&1-2i\\
+0 &-3+i&&2-i
+\end{pmatrix}\\
+\longrightarrow\quad\begin{pmatrix}
+1&1-i &&1-2i\\
+0 &1&&-\frac{7}{10}+\frac{1}{10}i
+\end{pmatrix}$\\
+$x_2 = -\frac{7}{10}+\frac{1}{10}i\\
+x_1 = 1-2i - (1-i)x_2 = \frac{8}{5}-\frac{14}{5}i\\
+\mathbb{L} = \left\{ \begin{pmatrix}
+\frac{8}{5}-\frac{14}{5}i\\
+-\frac{7}{10}+ \frac{1}{10}i
+\end{pmatrix}  \right\}$
+\end{enumerate}
 \begin{thebibliography}{9}
 \bibitem{k1} Kreu\ss ler, Phister Satz 33.16
 \bibitem{k2} WHK 5.37

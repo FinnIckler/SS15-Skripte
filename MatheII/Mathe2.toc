@@ -149,9 +149,12 @@
 \contentsline {subsection}{\numberline {9.3}Definition}{95}{subsection.9.3}
 \contentsline {subsection}{\numberline {9.4}Beispiel}{96}{subsection.9.4}
 \contentsline {subsection}{\numberline {9.5}Satz (Rechenregeln von Matrizen)}{97}{subsection.9.5}
-\contentsline {subsection}{\numberline {9.6}Definition}{100}{subsection.9.6}
+\contentsline {subsection}{\numberline {9.6}Definition}{98}{subsection.9.6}
 \contentsline {subsection}{\numberline {9.7}Definition}{100}{subsection.9.7}
-\contentsline {subsection}{\numberline {9.8}Bemerkung}{100}{subsection.9.8}
-\contentsline {subsection}{\numberline {9.9}Algorithmus zur Transformation einer Matrix auf Zeilenstufenform mit elementaren Zeilenumformungen}{101}{subsection.9.9}
-\contentsline {subsection}{\numberline {9.10}Beispiel}{101}{subsection.9.10}
+\contentsline {subsection}{\numberline {9.8}Definition}{100}{subsection.9.8}
+\contentsline {subsection}{\numberline {9.9}Bemerkung}{100}{subsection.9.9}
+\contentsline {subsection}{\numberline {9.10}Algorithmus zur Transformation einer Matrix auf Zeilenstufenform mit elementaren Zeilenumformungen}{101}{subsection.9.10}
+\contentsline {subsection}{\numberline {9.11}Beispiel}{101}{subsection.9.11}
+\contentsline {subsection}{\numberline {9.12}Gau\ss -Algorithmus zur Lösung von LGS}{102}{subsection.9.12}
+\contentsline {subsection}{\numberline {9.13}Beispiel}{103}{subsection.9.13}
 \contentsfinish 
