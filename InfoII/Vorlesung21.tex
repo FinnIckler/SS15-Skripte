@@ -1,4 +1,4 @@
-TODO: Tree-fold Beispiele\\
+\rackett{Fold über Bäume}{Beispiele von \lstinline|btree-fold|}{Baeume}{189}{219}
 Bestimme die Markierung lm links-Au\ss en im Baum t (oder \lstinline|empty| falls t leer ist).\footnote{Nach dem Prinzip von \glqq How to Replace Failure by a List of Successes \grqq, Wadler 1985}
 \begin{minipage}[c]{0.25\textwidth}
 t = \raisebox{-1cm}{\begin{tikzpicture}
@@ -27,14 +27,14 @@ t = \raisebox{-1cm}{\begin{tikzpicture}
 ; 
 \end{tikzpicture}}\lstinline|)| = \lstinline[mathescape]|(leftmost $\triangle$)|
 \end{minipage}
-\begin{lstlisting}
+\begin{lstlisting}[literate={}]
 (: leftmost (btree-of %a) -> (list-of %a))
 (check-expect (leftmost empty-tree) empty)
 (check-expect (leftmost t1) (list 1))
 (check-expect (leftmost t2) (list 2))
 (define leftmost
   (lambda (t)
-    (btee-fold
+    (btree-fold
       empty
       (lambda (l1 x l2)
         (if (empty? l1)
@@ -95,7 +95,7 @@ $\rightarrow\\
 Listen und rechtstiefe Bäume sind isomorph
 \end{minipage}
 \end{figure}
-TODO: Grusts code hierzu\\
+\rackett{Ismorphie von Listen und rechtstiefe Bäumen}{Listen sind rechtstiefe Bäume}{Baeume}{240}{269}
 Ein \emph{Tiefendurchlauf} (\lstinline|depth-first-traversal|) eines Baumes t sammelt die Markierungen der Teilbäume l, r des Knotens.\\
 $n = $\lstinline|make-node l x r| werden \emph{vor} x eingesammelt (Durchlauf zuerst in der Tiefe). Je nachdem ob x:\\
 (a) zwischen, (b) vor, (c) nach den Markierungen von l,r eingezeichnet wird, erhält man einen
@@ -147,3 +147,4 @@ Idee: Gegeben sei eine Liste von Bäumen
 \item Führe (1) rekursiv auf ts' aus
 \item Konkateniere die Listen aus (1) und (3)
 \end{enumerate}
+\rackett{Breitendurchlauf eines Baumes}{Breitendurchlauf}{Baeume}{311}{370}

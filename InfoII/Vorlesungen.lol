@@ -48,3 +48,6 @@
 \contentsline {lstlisting}{\numberline {42}Implementation von Bäumen}{66}{lstlisting.42}
 \contentsline {lstlisting}{\numberline {43}Berechnung der Grö\ss e eines Baumes}{69}{lstlisting.43}
 \contentsline {lstlisting}{\numberline {44}Entwicklung einer Pretty Print Methode für Bäume}{70}{lstlisting.44}
+\contentsline {lstlisting}{\numberline {45}Fold über Bäume}{72}{lstlisting.45}
+\contentsline {lstlisting}{\numberline {46}Ismorphie von Listen und rechtstiefe Bäumen}{73}{lstlisting.46}
+\contentsline {lstlisting}{\numberline {47}Breitendurchlauf eines Baumes}{76}{lstlisting.47}
