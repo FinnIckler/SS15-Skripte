@@ -3401,6 +3401,158 @@ x_1 = 1-2i - (1-i)x_2 = \frac{8}{5}-\frac{14}{5}i\\
 -\frac{7}{10}+ \frac{1}{10}i
 \end{pmatrix}  \right\}$
 \end{enumerate}
+\newpage
+\begin{center}
+\Huge Nicht mehr Klausurrelevant
+\end{center}
+\section{Der Vektorraum $\R^+$ (Nicht mehr Klausurrelevant)}
+$n \in \N\quad \R^n = \left\{ \begin{pmatrix}
+a_1\\
+\vdots\\
+a_n
+\end{pmatrix} : a_1 \in \R \right\}$\\
+\emph{Spaltenvektoren} der Länge $n:\: \begin{pmatrix}
+a_1\\\vdots\\a_n
+\end{pmatrix} = (a_1,\ldots,a_n)^t\\
+a_1,\ldots,a_n$ \emph{Komponente} der Spaltenvektoren.\\
+Wie bei Matrizen:\\
+\begin{minipage}{.5\textwidth}\[ \begin{pmatrix}
+a_1\\\vdots\\a_n
+\end{pmatrix}+ \begin{pmatrix}
+b_1\\\vdots\\b_n
+\end{pmatrix} = \begin{pmatrix}
+a_1 + b_1\\\vdots\\a_n + b_n
+\end{pmatrix}\]
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+(Multiplikation entspricht der Matrixmultiplikation und ist nicht möglich falls $n > 1$)
+\end{minipage}\\
+Multiplikation eines Spaltenvektors mit einer Zahl (\emph{Skalar})
+\[ a \cd \begin{pmatrix}
+a_1\\\vdots\\a_n
+\end{pmatrix} = \begin{pmatrix}
+aa_1\\\vdots\\aa_n
+\end{pmatrix} \]
+Addition+Abbildung : $\R^n \times \R^n \to \R^n$\\
+$\R^n$ mit Addition und Multiplikation mit Skalaren : \emph{$\R$-Vektorraum}\\
+Die Vektoren im $\R^1 (= \R),\R^2$ und $\R^3$ entsprechen Punkten auf der Zahlengerade, Ebene, dreidimensionalen Raums.
+\begin{figure}[h!]
+\centering
+\caption{Ein Vektor dargestellt durch seinen Ortsvektor}
+\begin{tikzpicture}
+\begin{axis}[axis equal, axis y line = center, axis x line = center, xmax = 3 , ymax = 3, ymin = 0 , xmin = -0.5,xtick={0.1,2},ytick={2},xticklabels={$\begin{pmatrix}
+0\\0
+\end{pmatrix}$,$a_1$},yticklabels={$a_2$}]
+\draw[->] (axis cs:0,0)--(axis cs: 2,2);
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+Punkte des $\R^2,\R^3$ lassen sich identifizieren mit, {\em Ortsvektoren} Pfeile mit Beginn in 0 (Komp = 0) und Ende im entsprechenden Punkt\\
+Addition von Spaltenvektoren entspricht der Addition von Ortsvektoren entsprechend der Parallelogrammregel.
+\begin{figure}[h!]
+\centering
+\caption{Vektoraddition durch Parallelogrammbildung}
+\begin{tikzpicture}
+    \begin{axis}[
+    axis x line=center,
+    axis y line=center,
+    axis equal,
+    ymin = -1,
+    xmin = -3,
+    ymax = 7,
+    xmax = 5.5,
+    xtick ={4},
+    xticklabels={a},
+    ytick ={1},
+    yticklabels={b}]
+    \addplot [black, mark = *, nodes near coords=,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
+       \draw[->](axis cs:0,0)--(axis cs:3.88,2.88);
+           \addplot [black, mark = *, nodes near coords=,every node near coord/.style={anchor=0}] coordinates {( -1, 1)};
+                  \draw[->](axis cs:0,0)--(axis cs:-0.88,0.88);
+\addplot [black, mark = *, nodes near coords=,every node near coord/.style={anchor=0}] coordinates {( 3, 4)};
+    \addplot[mark=none, black] coordinates {(-1,1) (3,4)};
+    \addplot[mark=none, black] coordinates {(3,4) (4,3)};
+    \draw[-> ,red](axis cs:0,0)--(axis cs:2.95,3.88);
+    \end{axis}
+\end{tikzpicture}\end{figure}
+Multiplikation mit Skalaren a :\\ Streckung (falls $\abs{a} > 1$)\\ Stauchung (falls $0 \ge \abs{a} \ge 1$)\\
+Richtungspunkt, falls $a < 0$
+TODO: Steckung und Stauchung\\
+\subsection{Satz (Rechenregeln in $\R^n$)}
+Seien $u,v,w \in \R^n,a,b\in\R$ Dann gilt:\\
+\begin{enumerate}[a)]
+\item \begin{align}
+u + (v + w) &= (u + v) + w \tag{1.1}\\
+v + 0 = 0 + v &= v, \text{wobei } 0\ \textit{Nullvektor} \tag{1.2}\\
+v + -v &= 0 \tag{1.3}\marginnote{$\R^n$ kommutative Gruppe}\\
+u + v &= v + u \tag{1.4}\\
+(a + b)v &= av + bv \tag{2.1}\\
+a(u + v) &= au + av \tag{2.2}\\
+(a \cd b)v &=a(bv)\tag{2.3}\\
+1v &= v \tag{2.4}
+\end{align}
+\item $0 \cdot v = 0$ und $ a \cdot 0 = 0$\\
+Beweis folgt aus entsprechenden Rechenregeln in 0
+\end{enumerate}
+\subsection{Definition}\label{sec:10.2}
+Eine nicht-leere Teilmenge $\mathcal{U} \supset \R^n$ hei\ss t \emph{Unterraum} (oder \emph{Teilraum} von $\R^n$), falls gilt:
+\begin{enumerate}[(1)]
+\item $\forall u_1,\,u_2 \in \mathcal{U}:\: u_1 + u_2 \in \mathcal{U}$ (Abgeschlossenheit bezüglich +)
+\item $\forall u \in \mathcal{U} \forall a \in \R:\: au \in \mathcal{U}
+$(Abgeschlossenheit bezüglich Mult. mit Skalaren)
+\end{enumerate}
+$\mathcal{U}$ enthält Nullvektor \{0\} Unterraum von $\R^n$ (Nullraum)\\
+$\R^n $ ist Unterraum von $\R$
+\subsection{Beispiele}
+\begin{enumerate}[a)]
+\item $0 \ne v \in \R^2\quad G = \{ av: a \in \R \}$ ist Unterraum von $\R^n$\begin{minipage}{.3\textwidth}
+($a_1v,a_2v \in G, (a_1 + a_2)v \in G$\quad2.1 in \ref{sec:10.2}\\
+$av \in G, b \in \R (ba)v \in G$)
+\end{minipage}\\
+G = Ursprungsgerade durch $\begin{pmatrix}
+0\\0
+\end{pmatrix}$ und v = $\begin{pmatrix}
+a_1\\a_2
+\end{pmatrix}
+n = 2$:
+\begin{figure}[h!]
+\centering
+\caption{Gerade dargestellt durch Vektoren}
+\begin{tikzpicture}
+\begin{axis}[axis equal, axis y line = center, axis x line = center, xmax = 3 , ymax = 2, ymin = -2, xmin = -0.5,xtick={0.1,2},ytick={2},xticklabels={$\begin{pmatrix}
+0\\0
+\end{pmatrix}$,$a_1$},yticklabels={$a_2$}]
+\draw[blue,thick] (axis cs:-2,-2)--(axis cs: 2,2);
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+\item $v,w \in \R^n\\
+E = \{ av + bw : a,b \in \R \}$ ist Unterraum von $\R^n\\
+v = o, w = o :\: E = \{ o \}\\
+v \ne o\quad w \not\in \{ av:\: a \in \R \}\\
+E = \R^2 $
+$n = 3:\:$ Ebene durch $\begin{pmatrix}
+0\\0\\0
+\end{pmatrix}$ und durch $v,w$\\
+Ist $w \in \{ av : a \in \R \},$ so ist $E = G$ (aus a))
+\item $v,w \ne o\\
+G' = \{ w + av : a \in \R\}$\\
+$[v \in G' \Leftrightarrow \exists a \in \R: w+ av \in o \Leftrightarrow \exists a \in \R :\: w = (-a)v \in G]$
+\end{enumerate}
+\subsection[Satz:]{Satz}
+Seien $\mathcal{U}_1,\mathcal{U}_2$ Unterräume von $\R^n$\\
+\begin{enumerate}[a)]
+\item $\mathcal{U}_1 \cap \mathcal{U}_2$ ist Unterraum von $\R^n$
+\item $\mathcal{U}_1 \cup \mathcal{U}_2$ ist im Allgemeinen \textsc{kein} Unterraum von $\R^n$
+\item $\mathcal{U}_1 + \mathcal{U}_2 := \{u_1 + u_2 : u_1:\: \mathcal{U}_1, u_2:\: \mathcal{U}_2\}$
+(Summe von $\mathcal{U}_1$ und $\mathcal{U}_2$) ist Unterraum von $\R^n$.
+\item $\U_1 \subseteq \U_1 + \U_2$\quad$\U_2 \subseteq \U_1+\U_2$ und $\U_1 + \U_2$ ist der kleinste Unterraum von $\R^n$, der $\U_1$ und $\U_2$ enthält. (d.h ist $w$ Unterraum von $\R^n$ mit $\U_1,\U_2 \in w,$ so $\U_1 + \U_2 \subseteq W$)
+\end{enumerate}
+\begin{proof}
+a) $\checkmark$\\
+b) TODO\\
+c) TODO
+\end{proof}
 \begin{thebibliography}{9}
 \bibitem{k1} Kreu\ss ler, Phister Satz 33.16
 \bibitem{k2} WHK 5.37
