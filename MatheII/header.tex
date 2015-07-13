@@ -17,12 +17,12 @@
 \usepackage{array}
 \usepackage{mdframed}
 \usepackage{marginnote}
-\usetikzlibrary{trees,automata,arrows,shapes}
+\usetikzlibrary{trees,automata,arrows,shapes,decorations.pathmorphing,matrix}
 \pagestyle{fancy}
 \usepackage{hyperref}
 \fancyhf{} %--Clear all fields
 \renewcommand\sectionmark[1]{ \markboth{\thesection\ \textsc{#1}}{}}
-\fancyhead[LO,RE]{\normalsize \leftmark}
+\fancyhead[LO,RE]{\small \leftmark}
 \fancyhead[LE,RO]{ \rightmark}
 \fancyfoot{} % clear all footer fields
 \fancyfoot[LE,RO]{\thepage}

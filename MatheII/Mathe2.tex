@@ -918,7 +918,7 @@ Falls $\sum b_n \cd x_n$ für alle x absolut konvergiert, so setze $R= \infty$\\
 Wenn nicht, so setze $R = \sup \{\abs{x}:x\in \R, \seriesnull{\abs{b_n}\cd \abs{x_n}} $ konvergiert$ \} < \infty$
 Nach $(\star)$ gilt: $\abs{x} < R \Rightarrow \sum b_nx^n$ konvergiert absolut.\\
 Für $\abs{x} > R$ konvergiert $\sum b_nx^n$ nicht absolut.\\
-Sie konvergiert sogar selbst nicht. (\cite{2})\\
+Sie konvergiert sogar selbst nicht. \\
 \begin{enumerate}[$\Leftrightarrow$]
 \i[]$\sqrt[n]{\abs{b_n} \cd \abs{x}^n} \leq q < 1 $ für alle $n \geq n_0$\\
 \i $\abs{x} \cd \sqrt[n]{\abs{b_n}} \leq 1 < 1$ für alle $n \geq n_0$\\
@@ -1674,7 +1674,61 @@ f$ ist stetig in 0.
 g(x) = \sin(x)
 $
 Sind stetig auf $\R$:
-TODO: Halbkreis plotten.\\
+\begin{figure}[h!]
+\centering
+\caption{Sinus und Cosinus am Einheitskreis}
+\begin{tikzpicture}[scale=3,cap=round]
+  % Local definitions
+  \def\costhirty{0.8660256}
+
+  % Colors
+  \colorlet{anglecolor}{green!50!black}
+  \colorlet{sincolor}{red}
+  \colorlet{tancolor}{orange!80!black}
+  \colorlet{coscolor}{blue}
+
+  % Styles
+  \tikzstyle{axes}=[]
+  \tikzstyle{important line}=[very thick]
+  \tikzstyle{information text}=[rounded corners,fill=red!10,inner sep=1ex]
+
+  % The graphic
+  \draw[style=help lines,step=0.5cm] (-1.4,-1.4) grid (1.4,1.4);
+
+  \draw (0,0) circle (1cm);
+
+  \begin{scope}[style=axes]
+    \draw[->] (-1.5,0) -- (1.5,0) node[right] {$x$};
+    \draw[->] (0,-1.5) -- (0,1.5) node[above] {$y$};
+
+    \foreach \x/\xtext in {-1, -.5/-\frac{1}{2}, 1}
+      \draw[xshift=\x cm] (0pt,1pt) -- (0pt,-1pt) node[below,fill=white]
+            {$\xtext$};
+
+    \foreach \y/\ytext in {-1, -.5/-\frac{1}{2}, .5/\frac{1}{2}, 1}
+      \draw[yshift=\y cm] (1pt,0pt) -- (-1pt,0pt) node[left,fill=white]
+            {$\ytext$};
+  \end{scope}
+
+  \filldraw[fill=green!20,draw=anglecolor] (0,0) -- (3mm,0pt) arc(0:30:3mm);
+  \draw (15:2mm) node[anglecolor] {$\alpha$};
+
+  \draw[style=important line,sincolor]
+    (30:1cm) -- node[left=1pt,fill=white] {$\sin \alpha$} +(0,-.5);
+
+  \draw[style=important line,coscolor]
+    (0,0) -- node[below=2pt,fill=white] {$\cos \alpha$} (\costhirty,0);
+
+  \draw[style=important line,tancolor] (1,0) --
+    node [right=1pt,fill=white]
+    {
+      $\displaystyle \tan \alpha \color{black}=
+      \frac{{\color{sincolor}\sin \alpha}}{\color{coscolor}\cos \alpha}$
+    } (intersection of 0,0--30:1cm and 1,0--1,1) coordinate (t);
+
+  \draw (0,0) -- (t);
+\end{tikzpicture}
+\end{figure}
 Fúr alle $x,c \in \R$ gilt:\\
 $\abs{\sin(x) - \sin(c)} \leq \abs{x-c}.\\
 \sin(x)$ ist stetig auf $\R$ (5.2, $\mathbf{K}$ =1)
@@ -1787,7 +1841,7 @@ $f: D \to \R$ hei\ss t {\em(streng) monoton wachsend (oder steigend)}, falls gil
  Sind $x,y \in D, x < y$, so ist $f(x) \leq f(y) (f(x) < f(y))$\\
 Entsprechend: {\em streng monoton fallend}. $f$ hei\ss t {\em (streng) monoton}, dalls sie entweder (streng) monoton wachsend oder (steng) monoton fallend ist.
 \subsection[Satz: Injektive Funktionen nur bei Monotonie]{Satz}
-$D$ Intervall (rechte\hrule linke Grenze) $\infty,-\infty$ möglich), $f D \to \R$ stetig. Dann gilt: $f$ ist injektiv auf D $\Leftrightarrow f $ ist streng monoton auf D.\\
+$D$ Intervall (rechte\hfill linke Grenze) $\infty,-\infty$ möglich), $f D \to \R$ stetig. Dann gilt: $f$ ist injektiv auf D $\Leftrightarrow f $ ist streng monoton auf D.\\
 \begin{proof}
 $\Leftarrow$ \checkmark \\
 $\Rightarrow$: Angenommen $f$ ist nicht streng monoton auf D.\\
@@ -1797,15 +1851,6 @@ Jetzt muss man Fallunterscheidungen machen.\\
 z.B\\
 $x_1 < x_2 < x_3 < x_4,\ f(x_1) < f(x_3) < f(x_2)$
 \end{proof}
-\begin{figure}[h!]
-\centering
-\begin{tikzpicture}
-\begin{axis}[axis x line = center, axis y line = center, xmin = -1, xmax = 4,ymin = 0,ymax = 4, xticklabels={$x_1$,$x_2$,$x_3$,$x_4$}, yticklabels={$f(x_1)$,$f(x_1)$,$f(x_1)$}, xtick={1,2,3,4} ,ytick={1,2,3}]
-
-\end{axis}
-\end{tikzpicture}
-\caption{Eine Fallunterscheidugn für 5.13}
-\end{figure}
 \subsection{Satz (Stetigkeit der Umkehrfunktion)}\label{sec:5.14}
 $D$ Intervall, $f : D \to f(D) =: D'$\\
 eine stetige, streng monotone (also bijektive) Funktion. Dann ist die Umkehrfunktion $f^{-1} D' \to D$ stetig.\\
@@ -1871,8 +1916,18 @@ $x = \exp(y), x \leq 1,$ d.h $y \leq 0.\\
 \subsection{Definition}\label{sec:5.18}
 Für $a > 0$ setze $a^x = \exp(x \cd \ln(a)) \underbrace{(\mathit{\exp(\ln(a))})}_0$
 $a \leq e : e^x = \exp(x), a^x$, falls $a > 0$
-TODO: komischer plott mit exponentialfunktionen\\
-\subsection[Satz:]{Satz}\label{sec:5.19}
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[axis equal,axis y line =center,axis x line =center,ymin = -5, xmin = -5,xmax = 5,ymax= 5]
+\addplot[smooth] gnuplot[id=expos]{2**x} node[above,pos=0.05] {$a^x > 1$};
+\addplot[smooth,orange] gnuplot[id=expos2]{0.5**x} node[black,above,pos=0.95] {$0 < a^x < 1$};
+\draw(axis cs: -6,1)--(axis cs: 6,1) node[black,above,pos=0.95] {$1^x$};
+\end{axis}
+\end{tikzpicture}
+\caption{Verschiedene Arten Exponentialfunktionen}
+\end{figure}
+\subsection[Satz]{Satz}\label{sec:5.19}
 Sei $a > 0$
 \begin{enumerate}[a)]
 \i $a^x: \R \to ]0,\infty[$ ist streng monoton wachsend für alle $a > 1$ und streng monoton fallend für $0 < a < 1$.
@@ -1903,7 +1958,7 @@ $
 \end{tikzpicture}
 \caption{Logithmen mit Basen $>1$ und $<1$}
 \end{figure}
-\subsection[Satz:]{Satz}
+\subsection[Satz]{Satz}
 Seien $a,b > 0 , a \neq 1 \neq b , x , y > 0$
 \begin{align}
 \log_a(x\cd y) &= \log(x) + \log(y) \tag{a}\\
@@ -1919,7 +1974,45 @@ c) $\log_a(x) = \log_a(b^{\log_a(x)}) \overset{b)}{=} \log_b(x) \cd \log_a(b)$\\
 d) Folgt aus c), da $\log_a(b) > 0$
 \end{proof}
 \section{Differenzierbare Funktionen}
-TODO PLOT mit steigungsdreieck\\
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[
+    thick,
+    >=stealth',
+    dot/.style = {
+      draw,
+      fill = white,
+      circle,
+      inner sep = 0pt,
+      minimum size = 4pt
+    }
+  ]
+  \coordinate (O) at (0,0);
+  \draw[->] (-0.3,0) -- (8,0) coordinate[label = {below:$x$}] (xmax);
+  \draw[->] (0,-0.3) -- (0,5) coordinate[label = {right:$f(x)$}] (ymax);
+  \path[name path=x] (0.3,0.5) -- (6.7,4.7);
+  \path[name path=y] plot[smooth] coordinates {(-0.3,2) (2,1.5) (4,2.8) (6,5)};
+  \scope[name intersections = {of = x and y, name = i}]
+    \fill[gray!20] (i-1) -- (i-2 |- i-1) -- (i-2) -- cycle;
+    \draw      (0.3,0.5) -- (6.7,4.7) node[pos=0.8, below right] {Sekante};
+    \draw[red] plot[smooth] coordinates {(-0.3,2) (2,1.5) (4,2.8) (6,5)};
+    \draw (i-1) node[dot, label = {above:$P$}] (i-1) {} -- node[left]
+      {$f(x_0)$} (i-1 |- O) node[dot, label = {below:$x_0$}] {};
+    \path (i-2) node[dot, label = {above:$Q$}] (i-2) {} -- (i-2 |- i-1)
+      node[dot] (i-12) {};
+    \draw           (i-12) -- (i-12 |- O) node[dot,
+                              label = {below:$x_0 + c$}] {};
+    \draw[blue, <->] (i-2) -- node[right] {$f(x_0 + c) - f(x_0)$}
+                              (i-12);
+    \draw[blue, <->] (i-1) -- node[below] {$c$} (i-12);
+    \path       (i-1 |- O) -- node[below] {$c$} (i-2 |- O);
+    \draw[gray]      (i-2) -- (i-2 -| xmax);
+    \draw[gray, <->] ([xshift = -0.5cm]i-2 -| xmax) -- node[fill = white]
+      {$f(x_0 + c)$}  ([xshift = -0.5cm]xmax);
+  \endscope
+\end{tikzpicture}
+\caption{Steigung am Steigungsdreieck}
+\end{figure}
 Sekante durch (c,f(c)), (x,f(x))\\
 Steigung der Sekante:\\
 $x \neq c: \underset{\text{Differenzenquotient}}{\frac{f(x) -f(c)}{x-c} =s(x)}$ definiert auf $\R \setminus \{c\}$\\
@@ -1960,7 +2053,7 @@ b_n > 0 , \lim b_n = 0 $(z.B $b_n = \frac{1}{n})\\
 \limit{n \to \infty} \frac{\abs{b_n}}{b_n} = \limit{n \to \infty} \frac{b_n}{b_n} =1$\\
 {\em $f'(0)$ existiert nicht!}
 \end{enumerate}
-\subsection[Satz:]{Satz}\label{sec:6.3}
+\subsection[Satz]{Satz}\label{sec:6.3}
 $f: \mathcal{I} \to \R $ in $c \in \mathcal{I}$ diffbar.
 Dann gilt für alle $x \in \mathcal{I}:\\
 f(x) = f(c) + f'(c) \cd (x-c) + \mathcal{R}(x) \cd (x-c), \,\\
@@ -2014,7 +2107,7 @@ f'(x) \underset{\substack{\ref{sec:6.2}a)\\
 \hspace*{1.05cm}g(x)= x^2\\
 h'(x) = 2 \cd (x^2 + x + 1) \cd (2x + 1)$
 \end{enumerate}
-\subsection[Satz:]{Satz}\label{sec:6.7}
+\subsection[Satz]{Satz}\label{sec:6.7}
 \begin{enumerate}[a)]
 \i $\lim\limits_{x \to 0} \frac{sin(x)}{1}$
 \i $\lim\limits_{x \to 0} \frac{1-\cos(x)}{x} = 0$
@@ -2118,7 +2211,7 @@ $f'(0) = 0.$ \hfill ($f'(x) =3x^2)$\\
 $f^{-1}(x) = \sqrt[3]{x} = x^{\frac{1}{3}}\\
 \lim\limits_{x \to 0} \frac{x^{\frac{1}{3}} - 0}{x - 0} = \lim\limits_{x \to 0} \frac{1}{x^{\frac{2}{3}}} = \infty\\
 (f^{-1})'(0)$ existiert nicht. (jedenfalls nicht als reelle Zahl!)
-\subsection[Satz:]{Satz}\label{sec:6.14}
+\subsection[Satz]{Satz}\label{sec:6.14}
 \begin{tabular}{cll|l}
 	& $f(x)$ & & $f'(x)$\\
 	\hline
@@ -2147,7 +2240,7 @@ $f(x) = e^x \cd (sin(x) +2) \cd x^6$ für $x \ne 0\\
 f'(x) = (1 + \frac{\cos(x)}{\sin(x) + 2} + \frac{6}{x}) \cd e^x \cd (\sin(x) + 2) \cd x^6$\\
 \subsection{Definition}
 $f : D \to \R $ hat \emph{lokales Maximum}
-	\subsection[Satz:]{Satz}\label{sec:6.18}
+	\subsection[Satz]{Satz}\label{sec:6.18}
 	$f\: : D \to \R $ diffbar.\\
 	Hat $f$ in $c \in D$ lokales Minimum/Maximum, so $f'(c) =0$
 	\begin{proof}
@@ -2451,7 +2544,7 @@ a < c < b,\, \text{ so } \int_{a}^{c} f(x)dx &= \int_{c}^{b} f(x)dx \tag{e}
 $a < b. \int\limits_{a}^{b} x^2 dx = \frac{b^3}{3} - \frac{a^3}{3}\\
 (o < a < b :)$ \ref{sec:7.9}e $\int\limits_{a}^{b} x^2 dx = \int\limits_{0}^{b} x^2 dx - \int\limits_{0}^{a} x^2 dx = \frac{b^3}{3} - \frac{a^3}{3}$)\\
 Analog für die Fälle $a \le 0 < b$ und $a < b \le 0$
-\subsection{Satz (Mittelwertsatz der Integralrechnung)}
+\subsection{Satz (Mittelwertsatz der Integralrechnung)}\label{sec:7.11}
 $f : [a.b] \to \R$ stetig.\\
 Dann existiert $c \in [a,b]$ mit $\int_{b}^{a} f(x)dx = f(c) \cd (b-a)$
 \begin{figure}[h!]
@@ -2504,7 +2597,18 @@ Dann existiert $c \in [a,b]$ mit $\int_{b}^{a} f(x)dx = f(c) \cd (b-a)$
 Sei $\mathcal{I}$ beliebiges Intervall ($-\infty$ bzw. $\infty$ als linke/rechte Grenze erlaubt).
 \begin{enumerate}[a)]
 	\item $f : \mathcal{I} \to \R$ hei\ss t \emph{lokal integrierbar},wenn $f$ auf jedem ageschlossenem beschränktem Teilintervall $[u,v]$ von $\mathcal{I}$ integrierbar ist.\\
-	TODO: Sehr wellige Funktion\\
+	\begin{figure}[h!]
+\centering
+\caption{Lokal Integrierbar von u bis v}
+\begin{tikzpicture}
+\begin{axis}[axis x line=center,
+axis y line=center, xmin = -3.5, ymin = -2,xmax =5,ymax =5,xtick={-2,4},xticklabels={u,v}]
+\addplot[smooth] gnuplot[id=sehrwellig]{0.2*(sin(x) * cos(3*x) - sin(-5*x) * sin(x)) + 1};
+\draw node at (axis cs: 4.25,-0.1) {\Huge $]$};
+\draw node at (axis cs: -2.25,-0.1) {\Huge $[$};
+\end{axis}
+\end{tikzpicture}
+\end{figure}
 	(Ist $\mathcal{I}$ selbst abgeschlossen und beschränkt, so \glqq lokal integrierbar \glqq = \glqq integrierbar \glqq)
 	\item $F : \mathcal{I} \to \R $ hei\ss t \emph{Stammfunktion} der lokal Integrierbaren Funktion $f : \mathcal{I} \to \R $, wenn gilt \[ \int_{a}^{V} f(t)dt = F(v) - F(u) \] für alle $u,v \in \mathcal{I}$.\\
 	Eine Stammfunktion von $f$ wird auch als \emph{unbestimmtes Integral} von f bezeichnet $F = \int f(t)dt$
@@ -2522,14 +2626,28 @@ Sei $\mathcal{I}$ beliebiges Intervall ($-\infty$ bzw. $\infty$ als linke/rechte
 	1 &\text{ für }x \ge 0\\
 	\end{cases}$\\
 	Heaviside - Funktion\\
-	$f$ ist lokal integrierbar auf $\R$\\
-	TODO: PLOT abschnittsweisedefinierte Funktion\\
+	$f$ ist lokal integrierbar auf $\R$\quad\begin{minipage}[c]{0.3\textwidth}
+\begin{tikzpicture}
+\begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = -3,ymax = 4,xmax = 3,axis x line=center,
+    axis y line=center,width=5cm,height=3cm]   
+\draw [red] (axis cs:0,1)--(axis cs:10,1);
+\draw [red] (axis cs:-10,0)--(axis cs:0,0);
+\end{axis}
+\end{tikzpicture}
+\end{minipage}\\
 	Stammfunktion von $f$:\\
 	$F(x) =  \begin{cases}
 	0 &\text{ für }x < 0\\
 	x &\text{ für }x \ge 0\\
-	\end{cases}$\\
-	TODO: PLOT\\
+	\end{cases}$\quad\begin{minipage}[c]{0.3\textwidth}
+\begin{tikzpicture}
+\begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = -3,ymax = 4,xmax = 3,axis x line=center,
+    axis y line=center,width=5cm,height=3cm]   
+\draw [red] (axis cs:0,0)--(axis cs:10,10);
+\draw [red] (axis cs:-10,0)--(axis cs:0,0);
+\end{axis}
+\end{tikzpicture}
+\end{minipage}\\
 	Zeige: $\forall u, v \in \R:$
 	\[\int_{u}^{v} f(t)dt= F(v)-F(u)\]
 	\begin{align}
@@ -2539,7 +2657,7 @@ Sei $\mathcal{I}$ beliebiges Intervall ($-\infty$ bzw. $\infty$ als linke/rechte
 	\int_{u}^{v} f(t)dt &= -(F(u) - F(v))= F(v) - F(u) \tag{u \ge 0}
 	\end{align}
 \end{enumerate}
-\subsection[Satz:Rechenregeln von Stammfunktionen]{Satz}
+\subsection[Satz]{Satz}
 Sei $\mathcal{I} \ne \emptyset$ Intervall, $f : \mathcal{I} \to \R$ lokal \glqq Integrierbar \grqq
 \begin{enumerate}[a)]
 	\item Ist $F$ Stammfunktion von $f$, so auch $G(x) = F(x) +c$ für jedes $ c \in \R$.
@@ -2573,7 +2691,7 @@ G(x) = F(x) + \underbrace{G(x_0)-F(x_0)}_{=: c}$ für alle $x \in \mathcal{J}$
 c) $u,v \in \mathcal{J}\\
 F(v) - F(u) = \int\limits_{x_0}^{v}f(t)dt = \int\limits_{x_0}^{u} f(t)dt = + \int\limits_{u}^{x_0} f(t)dt + \int\limits_{x_0}^{v} f(t)dt = \int\limits_{u}^{x_0} f(t)dt$
 \end{proof}
-\subsection[Satz:]{Satz}
+\subsection[Satz]{Satz}
 Jede Stammfunktion einer lokal integrierbaren Funktion ist stetig.
 \begin{figure}[h!]
 \centering
@@ -2654,7 +2772,7 @@ h(x) = x^2\\
 g = F(h(x)) = (F \circ h)(x)\\
 g'(x) = F'(h(x)) \cd h'(x) = e^{x^2} \cd \sin(x^2) \cd 2x$\\
 \end{enumerate}
-\subsection{Beispiel}
+\subsection{Beispiel}\label{sec:8.10}
 zu \ref{sec:8.8}b)
 \begin{enumerate}[a)]
 \item $n \in \mathbb{N}_0$:\\
@@ -2714,7 +2832,7 @@ $\begin{array}{ll}
 &\Rightarrow 2 \cd \bigintsss \cos^2(x)dx = \cos^2(x)dx = \cos(x) \cd \sin(x) + x + c
 \end{array}$
 \end{enumerate}
-\subsection{Satz (Integration durch Substitution)}\label{sec:8.13}
+\subsection[\tiny Satz (Integration durch Substitution)]{Satz (Integration durch Substitution)}\label{sec:8.13}
 $\mathcal{I},\mathcal{J}$ Intervalle $f:\mathcal{I} \to \mathcal{J}$ stetig diffbar, $g: \mathcal{J} \to \R$ stetig mit Stammfunktion $G$. Dann ist:
 \[ \int g(f(x)) \cd f'(x)dx = G(f(x))+c \]
 Für das bestimmte Integral hei\ss t das:\\
@@ -2740,7 +2858,7 @@ $\bigl\lbrack \frac{dt}{dx} = f'(x) \to dt = f'(x)dx \bigr\rbrack$\\
 und $dt$ durch $f'(x)dx$ ersetzen.\\
 $\to \int g(f(x)) \cd f'(x) dy$\\
 Hoffnung: $\uparrow$ ist einfacher zu berechnen.
-\subsection[Satz:]{Satz}
+\subsection[Satz]{Satz}\label{sec:8.14}
 $f$ ist stetig diffbar auf $\mathcal{I}$, f stetig auf $\mathcal{I}$.\\
 \begin{enumerate}[a)]
 \item Ist $f(x) \ne 0$ auf $\mathcal{I}$,\\
@@ -2798,7 +2916,19 @@ $A = (a_{ij})_{\substack{i=1\ldots m\\j=1\ldots n}}$, $A = (a_{ij})$
 \item $A = (a_{ij}) \in \mathcal{M}_{n,m}(K).$.\\
 Definiere $A^t = (b_{ij}) \in M_{n,m}(k)$ mit $b_{ij} = a_{ij}$ für $i=1\ldots m,\, j=1\ldots n\\
 A^t$ ist die zu A \emph{transponierte} Matrix.\\
-TODO Plot, Transponierung.\\
+$\begin{pmatrix}
+a_{11}&a_{12}&\ldots&a_{1n}\\
+a_{21}&a_{22}&\ldots&a_{2n}\\
+a_{31}&a_{32}&\ldots&a_{3n}\\
+\vdots&\ddots&\ddots\ldots\\
+a_{m1}&a_{m2}&\ldots&a_{mn}
+\end{pmatrix} \to \begin{pmatrix}
+a_{11}&a_{21}&\ldots&a_{m1}\\
+a_{12}&a_{22}&\ldots&a_{m2}\\
+a_{13}&a_{23}&\ldots&a_{m3}\\
+\vdots&\ddots&\ddots&\ldots\\
+a_{1n}&a_{2n}&\ldots&a_{mn}
+\end{pmatrix}$\\
 (Manchmal $A^T$ statt $A^t$ oder andere Schreibweise)\\
 $1 \times n -$Matrix ($a_11,\ldots 1_1n)$ \emph{Zeilenvektor}\\
 $m \times 1-$-Matrix \emph{Spaltenvektor}$\begin{pmatrix}
@@ -2867,29 +2997,82 @@ Das \emph{Produkt} $A \cd B$ von $A$ und $B$ = $(d_{ik})_{\substack{i=\ldots m\\
 mit $d_{ik} = a_{i1} \cd b_{1k} +  a_{i2} \cd b_{2k} + \ldots +  a_in \cd b_{nk} = \sum\limits_{j=1}^{n} a_{ij} \cd b_{jk}$\\
 ($m \times n$ multiplizieren mit $n \times p\to m \times p$)
 \\
-$\begin{matrix}
-  & \\
-  &  \\
- i \to &
-\end{matrix}
-\begin{pmatrix}
-& & &\\
-& & &\\
-\bullet & \bullet &\bullet & \bullet
-\end{pmatrix}_{m \times n} \cd 
-\begin{matrix}
- +\cd \\
- +\cd  \\
- +\cd
-\end{matrix}\begin{pmatrix}
-& & & \bullet\\
-& & & \bullet \\
-& & & \bullet
-\end{pmatrix}_{n \times p} = \begin{pmatrix}
-& & & \\
-& & & \downarrow \\
-& & & \bullet
-\end{pmatrix}_{m \times p}$\\
+\newcommand{\myunit}{1 cm}
+\tikzset{
+    node style sp/.style={draw,circle,minimum size=\myunit},
+    node style ge/.style={circle,minimum size=\myunit},
+    arrow style mul/.style={draw,sloped,midway,fill=white},
+    arrow style plus/.style={midway,sloped,fill=white},
+}
+\begin{figure}[h!]
+\centering
+\caption{Matrix Multiplikation}
+\begin{tikzpicture}[>=latex]
+% les matrices
+\matrix (A) [matrix of math nodes,%
+             nodes = {node style ge},%
+             left delimiter  = (,%
+             right delimiter = )] at (0,0)
+{%
+  a_{11} & a_{12} & \ldots & a_{1p}  \\
+  |[node style sp]| a_{21}%
+         & |[node style sp]| a_{22}%
+                  & \ldots%
+                           & |[node style sp]| {a_{2p}}; \\
+  \vdots & \vdots & \ddots & \vdots  \\
+  a_{n1} & a_{n2} & \ldots & a_{np}  \\
+};
+\node [draw,below=10pt] at (A.south) 
+    { $A$ : \textcolor{red}{$n$ Reihen} $p$ Spalten};
+
+\matrix (B) [matrix of math nodes,%
+             nodes = {node style ge},%
+             left delimiter  = (,%
+             right delimiter =)] at (6*\myunit,6*\myunit)
+{%
+  b_{11} & |[node style sp]| b_{12}%
+                  & \ldots & b_{1q}  \\
+  b_{21} & |[node style sp]| b_{22}%
+                  & \ldots & b_{2q}  \\
+  \vdots & \vdots & \ddots & \vdots  \\
+  b_{p1} & |[node style sp]| b_{p2}%
+                  & \ldots & b_{pq}  \\
+};
+\node [draw,above=10pt] at (B.north) 
+    { $B$ : $p$ Reihen \textcolor{red}{$q$ Spalten}};
+% matrice rÃƒÂ©sultat
+\matrix (C) [matrix of math nodes,%
+             nodes = {node style ge},%
+             left delimiter  = (,%
+             right delimiter = )] at (6*\myunit,0)
+{%
+  c_{11} & c_{12} & \ldots & c_{1q} \\
+  c_{21} & |[node style sp,red]| c_{22}%
+                  & \ldots & c_{2q} \\
+  \vdots & \vdots & \ddots & \vdots \\
+  c_{n1} & c_{n2} & \ldots & c_{nq} \\
+};
+% les fleches
+\draw[blue] (A-2-1.north) -- (C-2-2.north);
+\draw[blue] (A-2-1.south) -- (C-2-2.south);
+\draw[blue] (B-1-2.west)  -- (C-2-2.west);
+\draw[blue] (B-1-2.east)  -- (C-2-2.east);
+\draw[<->,red](A-2-1) to[in=180,out=90]
+    node[arrow style mul] (x) {$a_{21}\times b_{12}$} (B-1-2);
+\draw[<->,red](A-2-2) to[in=180,out=90]
+    node[arrow style mul] (y) {$a_{22}\times b_{22}$} (B-2-2);
+\draw[<->,red](A-2-4) to[in=180,out=90]
+    node[arrow style mul] (z) {$a_{2p}\times b_{p2}$} (B-4-2);
+\draw[red,->] (x) to node[arrow style plus] {$+$} (y)%
+                  to node[arrow style plus] {$+\raisebox{.5ex}{\ldots}+$} (z)%
+                  to (C-2-2.north west);
+
+
+\node [draw,below=10pt] at (C.south) 
+    {$ C=A\times B$ : \textcolor{red}{$n$ Zeilen}  \textcolor{red}{$q$ Spalten}};
+
+\end{tikzpicture}
+\end{figure}
 Beachte : Produkt von $m\times n$- mit $r \times p$-Matrix ist nicht definiert falls $n \ne r$\\
 \subsection{Beispiel}
 \begin{enumerate}[a)]
@@ -3121,7 +3304,7 @@ Beispiel : $\begin{pmatrix}
 0\ 0 &\vert\underbar{1 0}& 0\\
 0\ 0 & 0\ 0 &\vert\underbar{1}
 \end{pmatrix}$
-\subsection[Algorithmus zur Transformation einer Matrix auf Zeilenstufenform mit elementaren Zeilenumformungen]{Gau\ss\ Algorithmus}
+\subsection[Algorithmus zur Transformation einer Matrix auf Zeilenstufenform mit elementaren Zeilenumformungen]{Gau\ss\ Algorithmus}\label{sec:9.10}
 Sei $B$ eine $(m,n)$-Matrix über $K$, Ist $B$ Nullmatrix, so fertig.\\
 Sei also im Folgenden $B$ nicht Nullmatrix.
 \begin{enumerate}[(1)]
@@ -3170,7 +3353,7 @@ $ B = \begin{pmatrix}
 0&0&0&-1/6\\
 0&0&0&0
 \end{pmatrix}$
-\subsection{Gau\ss-Algorithmus zur Lösung von LGS}\label{sec:9.12}
+\subsection{Gau\ss-Algorithmus}\label{sec:9.12}
 Gegeben sei LGS $\underset{m\times n}{A}\underset{n\times 1}{x} = \underset{m\times1}{b}$\\
 Wende Algorithmus \ref{sec:9.10} auf (A,b) an, bis man Matrix $(\tilde{A},b')$ erhält, so dem $\tilde{A}$ Zeilenstufenform hat (letzte Spalte b' muss nicht mehr bearbeitet werden).\\
 Man kann noch Spaltenvertauschung am $\tilde{A}$ vornehmen,\\ Beachte: Vertauschung von Spalte $i$ und $k$ bedeutet vertauschung von $x_i$ und $x_k$ (Buch führen).
@@ -3401,158 +3584,158 @@ x_1 = 1-2i - (1-i)x_2 = \frac{8}{5}-\frac{14}{5}i\\
 -\frac{7}{10}+ \frac{1}{10}i
 \end{pmatrix}  \right\}$
 \end{enumerate}
-\newpage
-\begin{center}
-\Huge Nicht mehr Klausurrelevant
-\end{center}
-\section{Der Vektorraum $\R^+$ (Nicht mehr Klausurrelevant)}
-$n \in \N\quad \R^n = \left\{ \begin{pmatrix}
-a_1\\
-\vdots\\
-a_n
-\end{pmatrix} : a_1 \in \R \right\}$\\
-\emph{Spaltenvektoren} der Länge $n:\: \begin{pmatrix}
-a_1\\\vdots\\a_n
-\end{pmatrix} = (a_1,\ldots,a_n)^t\\
-a_1,\ldots,a_n$ \emph{Komponente} der Spaltenvektoren.\\
-Wie bei Matrizen:\\
-\begin{minipage}{.5\textwidth}\[ \begin{pmatrix}
-a_1\\\vdots\\a_n
-\end{pmatrix}+ \begin{pmatrix}
-b_1\\\vdots\\b_n
-\end{pmatrix} = \begin{pmatrix}
-a_1 + b_1\\\vdots\\a_n + b_n
-\end{pmatrix}\]
-\end{minipage}%
-\begin{minipage}{.5\textwidth}
-(Multiplikation entspricht der Matrixmultiplikation und ist nicht möglich falls $n > 1$)
-\end{minipage}\\
-Multiplikation eines Spaltenvektors mit einer Zahl (\emph{Skalar})
-\[ a \cd \begin{pmatrix}
-a_1\\\vdots\\a_n
-\end{pmatrix} = \begin{pmatrix}
-aa_1\\\vdots\\aa_n
-\end{pmatrix} \]
-Addition+Abbildung : $\R^n \times \R^n \to \R^n$\\
-$\R^n$ mit Addition und Multiplikation mit Skalaren : \emph{$\R$-Vektorraum}\\
-Die Vektoren im $\R^1 (= \R),\R^2$ und $\R^3$ entsprechen Punkten auf der Zahlengerade, Ebene, dreidimensionalen Raums.
-\begin{figure}[h!]
-\centering
-\caption{Ein Vektor dargestellt durch seinen Ortsvektor}
-\begin{tikzpicture}
-\begin{axis}[axis equal, axis y line = center, axis x line = center, xmax = 3 , ymax = 3, ymin = 0 , xmin = -0.5,xtick={0.1,2},ytick={2},xticklabels={$\begin{pmatrix}
-0\\0
-\end{pmatrix}$,$a_1$},yticklabels={$a_2$}]
-\draw[->] (axis cs:0,0)--(axis cs: 2,2);
-\end{axis}
-\end{tikzpicture}
-\end{figure}
-Punkte des $\R^2,\R^3$ lassen sich identifizieren mit, {\em Ortsvektoren} Pfeile mit Beginn in 0 (Komp = 0) und Ende im entsprechenden Punkt\\
-Addition von Spaltenvektoren entspricht der Addition von Ortsvektoren entsprechend der Parallelogrammregel.
-\begin{figure}[h!]
-\centering
-\caption{Vektoraddition durch Parallelogrammbildung}
-\begin{tikzpicture}
-    \begin{axis}[
-    axis x line=center,
-    axis y line=center,
-    axis equal,
-    ymin = -1,
-    xmin = -3,
-    ymax = 7,
-    xmax = 5.5,
-    xtick ={4},
-    xticklabels={a},
-    ytick ={1},
-    yticklabels={b}]
-    \addplot [black, mark = *, nodes near coords=,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
-       \draw[->](axis cs:0,0)--(axis cs:3.88,2.88);
-           \addplot [black, mark = *, nodes near coords=,every node near coord/.style={anchor=0}] coordinates {( -1, 1)};
-                  \draw[->](axis cs:0,0)--(axis cs:-0.88,0.88);
-\addplot [black, mark = *, nodes near coords=,every node near coord/.style={anchor=0}] coordinates {( 3, 4)};
-    \addplot[mark=none, black] coordinates {(-1,1) (3,4)};
-    \addplot[mark=none, black] coordinates {(3,4) (4,3)};
-    \draw[-> ,red](axis cs:0,0)--(axis cs:2.95,3.88);
-    \end{axis}
-\end{tikzpicture}\end{figure}
-Multiplikation mit Skalaren a :\\ Streckung (falls $\abs{a} > 1$)\\ Stauchung (falls $0 \ge \abs{a} \ge 1$)\\
-Richtungspunkt, falls $a < 0$
-TODO: Steckung und Stauchung\\
-\subsection{Satz (Rechenregeln in $\R^n$)}
-Seien $u,v,w \in \R^n,a,b\in\R$ Dann gilt:\\
-\begin{enumerate}[a)]
-\item \begin{align}
-u + (v + w) &= (u + v) + w \tag{1.1}\\
-v + 0 = 0 + v &= v, \text{wobei } 0\ \textit{Nullvektor} \tag{1.2}\\
-v + -v &= 0 \tag{1.3}\marginnote{$\R^n$ kommutative Gruppe}\\
-u + v &= v + u \tag{1.4}\\
-(a + b)v &= av + bv \tag{2.1}\\
-a(u + v) &= au + av \tag{2.2}\\
-(a \cd b)v &=a(bv)\tag{2.3}\\
-1v &= v \tag{2.4}
-\end{align}
-\item $0 \cdot v = 0$ und $ a \cdot 0 = 0$\\
-Beweis folgt aus entsprechenden Rechenregeln in 0
-\end{enumerate}
-\subsection{Definition}\label{sec:10.2}
-Eine nicht-leere Teilmenge $\mathcal{U} \supset \R^n$ hei\ss t \emph{Unterraum} (oder \emph{Teilraum} von $\R^n$), falls gilt:
-\begin{enumerate}[(1)]
-\item $\forall u_1,\,u_2 \in \mathcal{U}:\: u_1 + u_2 \in \mathcal{U}$ (Abgeschlossenheit bezüglich +)
-\item $\forall u \in \mathcal{U} \forall a \in \R:\: au \in \mathcal{U}
-$(Abgeschlossenheit bezüglich Mult. mit Skalaren)
-\end{enumerate}
-$\mathcal{U}$ enthält Nullvektor \{0\} Unterraum von $\R^n$ (Nullraum)\\
-$\R^n $ ist Unterraum von $\R$
-\subsection{Beispiele}
-\begin{enumerate}[a)]
-\item $0 \ne v \in \R^2\quad G = \{ av: a \in \R \}$ ist Unterraum von $\R^n$\begin{minipage}{.3\textwidth}
-($a_1v,a_2v \in G, (a_1 + a_2)v \in G$\quad2.1 in \ref{sec:10.2}\\
-$av \in G, b \in \R (ba)v \in G$)
-\end{minipage}\\
-G = Ursprungsgerade durch $\begin{pmatrix}
-0\\0
-\end{pmatrix}$ und v = $\begin{pmatrix}
-a_1\\a_2
-\end{pmatrix}
-n = 2$:
-\begin{figure}[h!]
-\centering
-\caption{Gerade dargestellt durch Vektoren}
-\begin{tikzpicture}
-\begin{axis}[axis equal, axis y line = center, axis x line = center, xmax = 3 , ymax = 2, ymin = -2, xmin = -0.5,xtick={0.1,2},ytick={2},xticklabels={$\begin{pmatrix}
-0\\0
-\end{pmatrix}$,$a_1$},yticklabels={$a_2$}]
-\draw[blue,thick] (axis cs:-2,-2)--(axis cs: 2,2);
-\end{axis}
-\end{tikzpicture}
-\end{figure}
-\item $v,w \in \R^n\\
-E = \{ av + bw : a,b \in \R \}$ ist Unterraum von $\R^n\\
-v = o, w = o :\: E = \{ o \}\\
-v \ne o\quad w \not\in \{ av:\: a \in \R \}\\
-E = \R^2 $
-$n = 3:\:$ Ebene durch $\begin{pmatrix}
-0\\0\\0
-\end{pmatrix}$ und durch $v,w$\\
-Ist $w \in \{ av : a \in \R \},$ so ist $E = G$ (aus a))
-\item $v,w \ne o\\
-G' = \{ w + av : a \in \R\}$\\
-$[v \in G' \Leftrightarrow \exists a \in \R: w+ av \in o \Leftrightarrow \exists a \in \R :\: w = (-a)v \in G]$
-\end{enumerate}
-\subsection[Satz:]{Satz}
-Seien $\mathcal{U}_1,\mathcal{U}_2$ Unterräume von $\R^n$\\
-\begin{enumerate}[a)]
-\item $\mathcal{U}_1 \cap \mathcal{U}_2$ ist Unterraum von $\R^n$
-\item $\mathcal{U}_1 \cup \mathcal{U}_2$ ist im Allgemeinen \textsc{kein} Unterraum von $\R^n$
-\item $\mathcal{U}_1 + \mathcal{U}_2 := \{u_1 + u_2 : u_1:\: \mathcal{U}_1, u_2:\: \mathcal{U}_2\}$
-(Summe von $\mathcal{U}_1$ und $\mathcal{U}_2$) ist Unterraum von $\R^n$.
-\item $\U_1 \subseteq \U_1 + \U_2$\quad$\U_2 \subseteq \U_1+\U_2$ und $\U_1 + \U_2$ ist der kleinste Unterraum von $\R^n$, der $\U_1$ und $\U_2$ enthält. (d.h ist $w$ Unterraum von $\R^n$ mit $\U_1,\U_2 \in w,$ so $\U_1 + \U_2 \subseteq W$)
-\end{enumerate}
-\begin{proof}
-a) $\checkmark$\\
-b) TODO\\
-c) TODO
-\end{proof}
+%\newpage
+%\begin{center}
+%\Huge Nicht mehr Klausurrelevant
+%\end{center}
+%\section{Der Vektorraum $\R^+$ (Nicht mehr Klausurrelevant)}
+%$n \in \N\quad \R^n = \left\{ \begin{pmatrix}
+%a_1\\
+%\vdots\\
+%a_n
+%\end{pmatrix} : a_1 \in \R \right\}$\\
+%\emph{Spaltenvektoren} der Länge $n:\: \begin{pmatrix}
+%a_1\\\vdots\\a_n
+%\end{pmatrix} = (a_1,\ldots,a_n)^t\\
+%a_1,\ldots,a_n$ \emph{Komponente} der Spaltenvektoren.\\
+%Wie bei Matrizen:\\
+%\begin{minipage}{.5\textwidth}\[ \begin{pmatrix}
+%a_1\\\vdots\\a_n
+%\end{pmatrix}+ \begin{pmatrix}
+%b_1\\\vdots\\b_n
+%\end{pmatrix} = \begin{pmatrix}
+%a_1 + b_1\\\vdots\\a_n + b_n
+%\end{pmatrix}\]
+%\end{minipage}%
+%\begin{minipage}{.5\textwidth}
+%(Multiplikation entspricht der Matrixmultiplikation und ist nicht möglich falls $n > 1$)
+%\end{minipage}\\
+%Multiplikation eines Spaltenvektors mit einer Zahl (\emph{Skalar})
+%\[ a \cd \begin{pmatrix}
+%a_1\\\vdots\\a_n
+%\end{pmatrix} = \begin{pmatrix}
+%aa_1\\\vdots\\aa_n
+%\end{pmatrix} \]
+%Addition+Abbildung : $\R^n \times \R^n \to \R^n$\\
+%$\R^n$ mit Addition und Multiplikation mit Skalaren : \emph{$\R$-Vektorraum}\\
+%Die Vektoren im $\R^1 (= \R),\R^2$ und $\R^3$ entsprechen Punkten auf der Zahlengerade, Ebene, dreidimensionalen Raums.
+%\begin{figure}[h!]
+%\centering
+%\caption{Ein Vektor dargestellt durch seinen Ortsvektor}
+%\begin{tikzpicture}
+%\begin{axis}[axis equal, axis y line = center, axis x line = center, xmax = 3 , ymax = 3, ymin = 0 , xmin = -0.5,xtick={0.1,2},ytick={2},xticklabels={$\begin{pmatrix}
+%0\\0
+%\end{pmatrix}$,$a_1$},yticklabels={$a_2$}]
+%\draw[->] (axis cs:0,0)--(axis cs: 2,2);
+%\end{axis}
+%\end{tikzpicture}
+%\end{figure}
+%Punkte des $\R^2,\R^3$ lassen sich identifizieren mit, {\em Ortsvektoren} Pfeile mit Beginn in 0 (Komp = 0) und Ende im entsprechenden Punkt\\
+%Addition von Spaltenvektoren entspricht der Addition von Ortsvektoren entsprechend der Parallelogrammregel.
+%\begin{figure}[h!]
+%\centering
+%\caption{Vektoraddition durch Parallelogrammbildung}
+%\begin{tikzpicture}
+%    \begin{axis}[
+%    axis x line=center,
+%    axis y line=center,
+%    axis equal,
+%    ymin = -1,
+%    xmin = -3,
+%    ymax = 7,
+%    xmax = 5.5,
+%    xtick ={4},
+%    xticklabels={a},
+%    ytick ={1},
+%    yticklabels={b}]
+%    \addplot [black, mark = *, nodes near coords=,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
+%       \draw[->](axis cs:0,0)--(axis cs:3.88,2.88);
+%           \addplot [black, mark = *, nodes near coords=,every node near coord/.style={anchor=0}] coordinates {( -1, 1)};
+%                  \draw[->](axis cs:0,0)--(axis cs:-0.88,0.88);
+%\addplot [black, mark = *, nodes near coords=,every node near coord/.style={anchor=0}] coordinates {( 3, 4)};
+%    \addplot[mark=none, black] coordinates {(-1,1) (3,4)};
+%    \addplot[mark=none, black] coordinates {(3,4) (4,3)};
+%    \draw[-> ,red](axis cs:0,0)--(axis cs:2.95,3.88);
+%    \end{axis}
+%\end{tikzpicture}\end{figure}
+%Multiplikation mit Skalaren a :\\ Streckung (falls $\abs{a} > 1$)\\ Stauchung (falls $0 \ge \abs{a} \ge 1$)\\
+%Richtungspunkt, falls $a < 0$
+%TODO: Steckung und Stauchung\\
+%\subsection{Satz (Rechenregeln in $\R^n$)}
+%Seien $u,v,w \in \R^n,a,b\in\R$ Dann gilt:\\
+%\begin{enumerate}[a)]
+%\item \begin{align}
+%u + (v + w) &= (u + v) + w \tag{1.1}\\
+%v + 0 = 0 + v &= v, \text{wobei } 0\ \textit{Nullvektor} \tag{1.2}\\
+%v + -v &= 0 \tag{1.3}\marginnote{$\R^n$ kommutative Gruppe}\\
+%u + v &= v + u \tag{1.4}\\
+%(a + b)v &= av + bv \tag{2.1}\\
+%a(u + v) &= au + av \tag{2.2}\\
+%(a \cd b)v &=a(bv)\tag{2.3}\\
+%1v &= v \tag{2.4}
+%\end{align}
+%\item $0 \cdot v = 0$ und $ a \cdot 0 = 0$\\
+%Beweis folgt aus entsprechenden Rechenregeln in 0
+%\end{enumerate}
+%\subsection{Definition}\label{sec:10.2}
+%Eine nicht-leere Teilmenge $\mathcal{U} \supset \R^n$ hei\ss t \emph{Unterraum} (oder \emph{Teilraum} von $\R^n$), falls gilt:
+%\begin{enumerate}[(1)]
+%\item $\forall u_1,\,u_2 \in \mathcal{U}:\: u_1 + u_2 \in \mathcal{U}$ (Abgeschlossenheit bezüglich +)
+%\item $\forall u \in \mathcal{U} \forall a \in \R:\: au \in \mathcal{U}
+%$(Abgeschlossenheit bezüglich Mult. mit Skalaren)
+%\end{enumerate}
+%$\mathcal{U}$ enthält Nullvektor \{0\} Unterraum von $\R^n$ (Nullraum)\\
+%$\R^n $ ist Unterraum von $\R$
+%\subsection{Beispiele}
+%\begin{enumerate}[a)]
+%\item $0 \ne v \in \R^2\quad G = \{ av: a \in \R \}$ ist Unterraum von $\R^n$\begin{minipage}{.3\textwidth}
+%($a_1v,a_2v \in G, (a_1 + a_2)v \in G$\quad2.1 in \ref{sec:10.2}\\
+%$av \in G, b \in \R (ba)v \in G$)
+%\end{minipage}\\
+%G = Ursprungsgerade durch $\begin{pmatrix}
+%0\\0
+%\end{pmatrix}$ und v = $\begin{pmatrix}
+%a_1\\a_2
+%\end{pmatrix}
+%n = 2$:
+%\begin{figure}[h!]
+%\centering
+%\caption{Gerade dargestellt durch Vektoren}
+%\begin{tikzpicture}
+%\begin{axis}[axis equal, axis y line = center, axis x line = center, xmax = 3 , ymax = 2, ymin = -2, xmin = -0.5,xtick={0.1,2},ytick={2},xticklabels={$\begin{pmatrix}
+%0\\0
+%\end{pmatrix}$,$a_1$},yticklabels={$a_2$}]
+%\draw[blue,thick] (axis cs:-2,-2)--(axis cs: 2,2);
+%\end{axis}
+%\end{tikzpicture}
+%\end{figure}
+%\item $v,w \in \R^n\\
+%E = \{ av + bw : a,b \in \R \}$ ist Unterraum von $\R^n\\
+%v = o, w = o :\: E = \{ o \}\\
+%v \ne o\quad w \not\in \{ av:\: a \in \R \}\\
+%E = \R^2 $
+%$n = 3:\:$ Ebene durch $\begin{pmatrix}
+%0\\0\\0
+%\end{pmatrix}$ und durch $v,w$\\
+%Ist $w \in \{ av : a \in \R \},$ so ist $E = G$ (aus a))
+%\item $v,w \ne o\\
+%G' = \{ w + av : a \in \R\}$\\
+%$[v \in G' \Leftrightarrow \exists a \in \R: w+ av \in o \Leftrightarrow \exists a \in \R :\: w = (-a)v \in G]$
+%\end{enumerate}
+%\subsection[Satz]{Satz}
+%Seien $\mathcal{U}_1,\mathcal{U}_2$ Unterräume von $\R^n$\\
+%\begin{enumerate}[a)]
+%\item $\mathcal{U}_1 \cap \mathcal{U}_2$ ist Unterraum von $\R^n$
+%\item $\mathcal{U}_1 \cup \mathcal{U}_2$ ist im Allgemeinen \textsc{kein} Unterraum von $\R^n$
+%\item $\mathcal{U}_1 + \mathcal{U}_2 := \{u_1 + u_2 : u_1:\: \mathcal{U}_1, u_2:\: \mathcal{U}_2\}$
+%(Summe von $\mathcal{U}_1$ und $\mathcal{U}_2$) ist Unterraum von $\R^n$.
+%\item $\U_1 \subseteq \U_1 + \U_2$\quad$\U_2 \subseteq \U_1+\U_2$ und $\U_1 + \U_2$ ist der kleinste Unterraum von $\R^n$, der $\U_1$ und $\U_2$ enthält. (d.h ist $w$ Unterraum von $\R^n$ mit $\U_1,\U_2 \in w,$ so $\U_1 + \U_2 \subseteq W$)
+%\end{enumerate}
+%\begin{proof}
+%a) $\checkmark$\\
+%b) TODO\\
+%c) TODO
+%\end{proof}
 \begin{thebibliography}{9}
 \bibitem{k1} Kreu\ss ler, Phister Satz 33.16
 \bibitem{k2} WHK 5.37

@@ -28,27 +28,28 @@
 \contentsline {figure}{\numberline {27}{\ignorespaces $sin(\frac {1}{x}$)}}{52}{figure.27}
 \contentsline {figure}{\numberline {28}{\ignorespaces $\frac {e^x}{x^n}$}}{53}{figure.28}
 \contentsline {figure}{\numberline {29}{\ignorespaces Abschnittsweise definierte Funktion}}{55}{figure.29}
-\contentsline {figure}{\numberline {30}{\ignorespaces Zwischenwerte}}{58}{figure.30}
-\contentsline {figure}{\numberline {31}{\ignorespaces Eine Fallunterscheidugn für 5.13}}{60}{figure.31}
+\contentsline {figure}{\numberline {30}{\ignorespaces Sinus und Cosinus am Einheitskreis}}{56}{figure.30}
+\contentsline {figure}{\numberline {31}{\ignorespaces Zwischenwerte}}{58}{figure.31}
 \contentsline {figure}{\numberline {32}{\ignorespaces Eine Funktion und ihre Umkehrfunktion}}{60}{figure.32}
 \contentsline {figure}{\numberline {33}{\ignorespaces $\qopname \relax o{exp}(x)$ und $\qopname \relax o{ln}(x)$}}{61}{figure.33}
-\contentsline {figure}{\numberline {34}{\ignorespaces Logithmen mit Basen $>1$ und $<1$}}{63}{figure.34}
-\contentsline {figure}{\numberline {35}{\ignorespaces Sekante an Funktion}}{66}{figure.35}
-\contentsline {figure}{\numberline {36}{\ignorespaces Abschnittsweise definierte cosinus Funktion}}{69}{figure.36}
-\contentsline {figure}{\numberline {37}{\ignorespaces Zwei Funktionen an der Winkelhalbierenden}}{70}{figure.37}
-\contentsline {figure}{\numberline {38}{\ignorespaces Ableitung keine Hinreichende Bedingung für Minima/Maxima}}{73}{figure.38}
-\contentsline {figure}{\numberline {39}{\ignorespaces Eine Funktion und ihrer Steigung an der Stelle c}}{73}{figure.39}
-\contentsline {figure}{\numberline {40}{\ignorespaces Flächeninhalt unter einer Funktion $f$}}{77}{figure.40}
-\contentsline {figure}{\numberline {41}{\ignorespaces Treppenfunktion}}{78}{figure.41}
-\contentsline {figure}{\numberline {42}{\ignorespaces Treppenfunktion}}{79}{figure.42}
-\contentsline {figure}{\numberline {43}{\ignorespaces Abschnittsweise stetige Funktion}}{79}{figure.43}
-\contentsline {figure}{\numberline {44}{\ignorespaces Treppenfunktion (Untersumme) von $x^2$}}{80}{figure.44}
-\contentsline {figure}{\numberline {45}{\ignorespaces Nicht integrierbare Funktion}}{80}{figure.45}
-\contentsline {figure}{\numberline {46}{\ignorespaces Mittelwertsatz der Integralrechnung}}{83}{figure.46}
-\contentsline {figure}{\numberline {47}{\ignorespaces Die Welt der Funktionen}}{86}{figure.47}
-\contentsline {figure}{\numberline {48}{\ignorespaces Stammfunktionbildung}}{87}{figure.48}
-\contentsline {figure}{\numberline {49}{\ignorespaces Integral Berechnung $x \cdot \qopname \relax o{cos}(x)$}}{91}{figure.49}
-\contentsline {figure}{\numberline {50}{\ignorespaces Ein Vektor dargestellt durch seinen Ortsvektor}}{107}{figure.50}
-\contentsline {figure}{\numberline {51}{\ignorespaces Vektoraddition durch Parallelogrammbildung}}{107}{figure.51}
-\contentsline {figure}{\numberline {52}{\ignorespaces Gerade dargestellt durch Vektoren}}{109}{figure.52}
+\contentsline {figure}{\numberline {34}{\ignorespaces Verschiedene Arten Exponentialfunktionen}}{62}{figure.34}
+\contentsline {figure}{\numberline {35}{\ignorespaces Logithmen mit Basen $>1$ und $<1$}}{64}{figure.35}
+\contentsline {figure}{\numberline {36}{\ignorespaces Steigung am Steigungsdreieck}}{64}{figure.36}
+\contentsline {figure}{\numberline {37}{\ignorespaces Sekante an Funktion}}{66}{figure.37}
+\contentsline {figure}{\numberline {38}{\ignorespaces Abschnittsweise definierte cosinus Funktion}}{69}{figure.38}
+\contentsline {figure}{\numberline {39}{\ignorespaces Zwei Funktionen an der Winkelhalbierenden}}{71}{figure.39}
+\contentsline {figure}{\numberline {40}{\ignorespaces Ableitung keine Hinreichende Bedingung für Minima/Maxima}}{73}{figure.40}
+\contentsline {figure}{\numberline {41}{\ignorespaces Eine Funktion und ihrer Steigung an der Stelle c}}{74}{figure.41}
+\contentsline {figure}{\numberline {42}{\ignorespaces Flächeninhalt unter einer Funktion $f$}}{77}{figure.42}
+\contentsline {figure}{\numberline {43}{\ignorespaces Treppenfunktion}}{78}{figure.43}
+\contentsline {figure}{\numberline {44}{\ignorespaces Treppenfunktion}}{79}{figure.44}
+\contentsline {figure}{\numberline {45}{\ignorespaces Abschnittsweise stetige Funktion}}{80}{figure.45}
+\contentsline {figure}{\numberline {46}{\ignorespaces Treppenfunktion (Untersumme) von $x^2$}}{80}{figure.46}
+\contentsline {figure}{\numberline {47}{\ignorespaces Nicht integrierbare Funktion}}{81}{figure.47}
+\contentsline {figure}{\numberline {48}{\ignorespaces Mittelwertsatz der Integralrechnung}}{84}{figure.48}
+\contentsline {figure}{\numberline {49}{\ignorespaces Lokal Integrierbar von u bis v}}{85}{figure.49}
+\contentsline {figure}{\numberline {50}{\ignorespaces Die Welt der Funktionen}}{88}{figure.50}
+\contentsline {figure}{\numberline {51}{\ignorespaces Stammfunktionbildung}}{88}{figure.51}
+\contentsline {figure}{\numberline {52}{\ignorespaces Integral Berechnung $x \cdot \qopname \relax o{cos}(x)$}}{92}{figure.52}
+\contentsline {figure}{\numberline {53}{\ignorespaces Matrix Multiplikation}}{98}{figure.53}
 \contentsfinish 

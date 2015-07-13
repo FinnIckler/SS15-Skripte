@@ -74,92 +74,87 @@
 \contentsline {subsection}{\numberline {5.3}Beispiel}{54}{subsection.5.3}
 \contentsline {subsection}{\numberline {5.4}Satz (Rechenregeln für Stetigkeit)}{56}{subsection.5.4}
 \contentsline {subsection}{\numberline {5.5}Satz: Hintereinanderausführung von stetigen Funktionen}{56}{subsection.5.5}
-\contentsline {subsection}{\numberline {5.6}Beispiel}{56}{subsection.5.6}
-\contentsline {subsection}{\numberline {5.7}Satz: Stetigkeit von Potenzreihen}{56}{subsection.5.7}
+\contentsline {subsection}{\numberline {5.6}Beispiel}{57}{subsection.5.6}
+\contentsline {subsection}{\numberline {5.7}Satz: Stetigkeit von Potenzreihen}{57}{subsection.5.7}
 \contentsline {subsection}{\numberline {5.8}Korollar}{57}{subsection.5.8}
 \contentsline {subsection}{\numberline {5.9}Satz (Nullstellensatz für stetige Funktionen)}{57}{subsection.5.9}
 \contentsline {subsection}{\numberline {5.10}Korollar (Zwischenwertsatz)}{58}{subsection.5.10}
-\contentsline {subsection}{\numberline {5.11}Satz (Min-Max-Theorem)}{58}{subsection.5.11}
+\contentsline {subsection}{\numberline {5.11}Satz (Min-Max-Theorem)}{59}{subsection.5.11}
 \contentsline {subsection}{\numberline {5.12}Definition}{59}{subsection.5.12}
 \contentsline {subsection}{\numberline {5.13}Satz: Injektive Funktionen nur bei Monotonie}{59}{subsection.5.13}
-\contentsline {subsection}{\numberline {5.14}Satz (Stetigkeit der Umkehrfunktion)}{59}{subsection.5.14}
+\contentsline {subsection}{\numberline {5.14}Satz (Stetigkeit der Umkehrfunktion)}{60}{subsection.5.14}
 \contentsline {subsection}{\numberline {5.15}Korollar}{61}{subsection.5.15}
 \contentsline {subsection}{\numberline {5.16}Satz: Exponentialfunktion und Logarithmus naturalis}{61}{subsection.5.16}
 \contentsline {subsection}{\numberline {5.17}Satz: Wachstum des natürlichen Logarithmus'}{62}{subsection.5.17}
 \contentsline {subsection}{\numberline {5.18}Definition}{62}{subsection.5.18}
-\contentsline {subsection}{\numberline {5.19}Satz:}{62}{subsection.5.19}
+\contentsline {subsection}{\numberline {5.19}Satz}{63}{subsection.5.19}
 \contentsline {subsection}{\numberline {5.20}Bemerkung}{63}{subsection.5.20}
 \contentsline {subsection}{\numberline {5.21}Definition}{63}{subsection.5.21}
-\contentsline {subsection}{\numberline {5.22}Satz:}{64}{subsection.5.22}
+\contentsline {subsection}{\numberline {5.22}Satz}{63}{subsection.5.22}
 \contentsline {section}{\numberline {6}Differenzierbare Funktionen}{64}{section.6}
-\contentsline {subsection}{\numberline {6.1}Definition}{64}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.1}Definition}{65}{subsection.6.1}
 \contentsline {subsection}{\numberline {6.2}Beispiel}{65}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Satz:}{65}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.3}Satz}{66}{subsection.6.3}
 \contentsline {subsection}{\numberline {6.4}Korollar}{66}{subsection.6.4}
-\contentsline {subsection}{\numberline {6.5}Satz (Ableitungsregeln)}{66}{subsection.6.5}
+\contentsline {subsection}{\numberline {6.5}Satz (Ableitungsregeln)}{67}{subsection.6.5}
 \contentsline {subsection}{\numberline {6.6}Beispiel}{67}{subsection.6.6}
-\contentsline {subsection}{\numberline {6.7}Satz:}{67}{subsection.6.7}
+\contentsline {subsection}{\numberline {6.7}Satz}{68}{subsection.6.7}
 \contentsline {subsection}{\numberline {6.8}Satz: Ableitungsregeln von cosinus und sinus}{68}{subsection.6.8}
-\contentsline {subsection}{\numberline {6.9}Beispiel}{68}{subsection.6.9}
-\contentsline {subsection}{\numberline {6.10}Satz: Potenzreihen und diverenzierbarkeit}{69}{subsection.6.10}
-\contentsline {subsection}{\numberline {6.11}Korollar}{69}{subsection.6.11}
+\contentsline {subsection}{\numberline {6.9}Beispiel}{69}{subsection.6.9}
+\contentsline {subsection}{\numberline {6.10}Satz: Potenzreihen und diverenzierbarkeit}{70}{subsection.6.10}
+\contentsline {subsection}{\numberline {6.11}Korollar}{70}{subsection.6.11}
 \contentsline {subsection}{\numberline {6.12}Satz (Ableitung der Umkehrfunktion)}{70}{subsection.6.12}
 \contentsline {subsection}{\numberline {6.13}Bemerkung}{71}{subsection.6.13}
-\contentsline {subsection}{\numberline {6.14}Satz:}{71}{subsection.6.14}
-\contentsline {subsection}{\numberline {6.15}Satz (logarithmische Abbildung)}{71}{subsection.6.15}
+\contentsline {subsection}{\numberline {6.14}Satz}{72}{subsection.6.14}
+\contentsline {subsection}{\numberline {6.15}Satz (logarithmische Abbildung)}{72}{subsection.6.15}
 \contentsline {subsection}{\numberline {6.16}Beispiel}{72}{subsection.6.16}
 \contentsline {subsection}{\numberline {6.17}Definition}{72}{subsection.6.17}
-\contentsline {subsection}{\numberline {6.18}Satz:}{72}{subsection.6.18}
-\contentsline {subsection}{\numberline {6.19}Satz (Mittelwertsatz)}{73}{subsection.6.19}
-\contentsline {subsection}{\numberline {6.20}Korollar}{74}{subsection.6.20}
-\contentsline {subsection}{\numberline {6.21}Korollar}{74}{subsection.6.21}
+\contentsline {subsection}{\numberline {6.18}Satz}{73}{subsection.6.18}
+\contentsline {subsection}{\numberline {6.19}Satz (Mittelwertsatz)}{74}{subsection.6.19}
+\contentsline {subsection}{\numberline {6.20}Korollar}{75}{subsection.6.20}
+\contentsline {subsection}{\numberline {6.21}Korollar}{75}{subsection.6.21}
 \contentsline {subsection}{\numberline {6.22}Satz (Regeln von L'Hôpital)}{75}{subsection.6.22}
-\contentsline {subsection}{\numberline {6.23}Beispiel}{75}{subsection.6.23}
+\contentsline {subsection}{\numberline {6.23}Beispiel}{76}{subsection.6.23}
 \contentsline {section}{\numberline {7}Das bestimmte Integral}{76}{section.7}
-\contentsline {subsection}{\numberline {7.1}Definition}{76}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Definition}{76}{subsection.7.2}
-\contentsline {subsection}{\numberline {7.3}Satz: Regelfunktionen}{77}{subsection.7.3}
-\contentsline {subsection}{\numberline {7.4}Satz: Regelfunktion und Stetigkeit}{78}{subsection.7.4}
-\contentsline {subsection}{\numberline {7.5}Beispiel}{78}{subsection.7.5}
-\contentsline {subsection}{\numberline {7.6}Lemma}{80}{subsection.7.6}
-\contentsline {subsection}{\numberline {7.7}Definition}{81}{subsection.7.7}
-\contentsline {subsection}{\numberline {7.8}Beispiel}{81}{subsection.7.8}
-\contentsline {subsection}{\numberline {7.9}Satz (Rechenregeln für Integrale)}{82}{subsection.7.9}
-\contentsline {subsection}{\numberline {7.10}Beispiel}{82}{subsection.7.10}
-\contentsline {subsection}{\numberline {7.11}Satz (Mittelwertsatz der Integralrechnung)}{82}{subsection.7.11}
-\contentsline {section}{\numberline {8}Der Hauptsatz der Differential- und Integralrechnung}{83}{section.8}
-\contentsline {subsection}{\numberline {8.1}Definition}{83}{subsection.8.1}
+\contentsline {subsection}{\numberline {7.1}Definition}{77}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Definition}{78}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Satz: Regelfunktionen}{78}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.4}Satz: Regelfunktion und Stetigkeit}{79}{subsection.7.4}
+\contentsline {subsection}{\numberline {7.5}Beispiel}{79}{subsection.7.5}
+\contentsline {subsection}{\numberline {7.6}Lemma}{81}{subsection.7.6}
+\contentsline {subsection}{\numberline {7.7}Definition}{82}{subsection.7.7}
+\contentsline {subsection}{\numberline {7.8}Beispiel}{82}{subsection.7.8}
+\contentsline {subsection}{\numberline {7.9}Satz (Rechenregeln für Integrale)}{83}{subsection.7.9}
+\contentsline {subsection}{\numberline {7.10}Beispiel}{83}{subsection.7.10}
+\contentsline {subsection}{\numberline {7.11}Satz (Mittelwertsatz der Integralrechnung)}{83}{subsection.7.11}
+\contentsline {section}{\numberline {8}Der Hauptsatz der Differential- und Integralrechnung}{84}{section.8}
+\contentsline {subsection}{\numberline {8.1}Definition}{84}{subsection.8.1}
 \contentsline {subsection}{\numberline {8.2}Definition}{84}{subsection.8.2}
-\contentsline {subsection}{\numberline {8.3}Bemerkung}{84}{subsection.8.3}
-\contentsline {subsection}{\numberline {8.4}Beispiel}{85}{subsection.8.4}
-\contentsline {subsection}{\numberline {8.5}Satz:Rechenregeln von Stammfunktionen}{85}{subsection.8.5}
-\contentsline {subsection}{\numberline {8.6}Satz:}{87}{subsection.8.6}
-\contentsline {subsection}{\numberline {8.7}Definiton}{87}{subsection.8.7}
-\contentsline {subsection}{\numberline {8.8}Satz (Hauptsatz der Differential- und Integralrechnung)}{88}{subsection.8.8}
-\contentsline {subsection}{\numberline {8.9}Beispiele}{89}{subsection.8.9}
-\contentsline {subsection}{\numberline {8.10}Beispiel}{89}{subsection.8.10}
-\contentsline {subsection}{\numberline {8.11}Satz (Partielle Integration)}{90}{subsection.8.11}
-\contentsline {subsection}{\numberline {8.12}Beispiele}{90}{subsection.8.12}
-\contentsline {subsection}{\numberline {8.13}Satz (Integration durch Substitution)}{91}{subsection.8.13}
-\contentsline {subsection}{\numberline {8.14}Satz:}{92}{subsection.8.14}
-\contentsline {subsection}{\numberline {8.15}Beispiel}{93}{subsection.8.15}
-\contentsline {section}{\numberline {9}Matrizen und lineare Gleichungssysteme}{93}{section.9}
-\contentsline {subsection}{\numberline {9.1}Definition}{93}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}Definition}{95}{subsection.9.2}
-\contentsline {subsection}{\numberline {9.3}Definition}{95}{subsection.9.3}
-\contentsline {subsection}{\numberline {9.4}Beispiel}{96}{subsection.9.4}
-\contentsline {subsection}{\numberline {9.5}Satz (Rechenregeln von Matrizen)}{97}{subsection.9.5}
-\contentsline {subsection}{\numberline {9.6}Definition}{98}{subsection.9.6}
-\contentsline {subsection}{\numberline {9.7}Definition}{100}{subsection.9.7}
-\contentsline {subsection}{\numberline {9.8}Definition}{100}{subsection.9.8}
-\contentsline {subsection}{\numberline {9.9}Bemerkung}{100}{subsection.9.9}
-\contentsline {subsection}{\numberline {9.10}Algorithmus zur Transformation einer Matrix auf Zeilenstufenform mit elementaren Zeilenumformungen}{101}{subsection.9.10}
-\contentsline {subsection}{\numberline {9.11}Beispiel}{101}{subsection.9.11}
-\contentsline {subsection}{\numberline {9.12}Gau\ss -Algorithmus zur Lösung von LGS}{102}{subsection.9.12}
-\contentsline {subsection}{\numberline {9.13}Beispiel}{103}{subsection.9.13}
-\contentsline {section}{\numberline {10}Der Vektorraum $\math@bb {R}^+$ (Nicht mehr Klausurrelevant)}{106}{section.10}
-\contentsline {subsection}{\numberline {10.1}Satz (Rechenregeln in $\math@bb {R}^n$)}{107}{subsection.10.1}
-\contentsline {subsection}{\numberline {10.2}Definition}{108}{subsection.10.2}
-\contentsline {subsection}{\numberline {10.3}Beispiele}{108}{subsection.10.3}
-\contentsline {subsection}{\numberline {10.4}Satz:}{109}{subsection.10.4}
+\contentsline {subsection}{\numberline {8.3}Bemerkung}{86}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}Beispiel}{86}{subsection.8.4}
+\contentsline {subsection}{\numberline {8.5}Satz}{87}{subsection.8.5}
+\contentsline {subsection}{\numberline {8.6}Satz}{87}{subsection.8.6}
+\contentsline {subsection}{\numberline {8.7}Definiton}{89}{subsection.8.7}
+\contentsline {subsection}{\numberline {8.8}Satz (Hauptsatz der Differential- und Integralrechnung)}{89}{subsection.8.8}
+\contentsline {subsection}{\numberline {8.9}Beispiele}{90}{subsection.8.9}
+\contentsline {subsection}{\numberline {8.10}Beispiel}{91}{subsection.8.10}
+\contentsline {subsection}{\numberline {8.11}Satz (Partielle Integration)}{91}{subsection.8.11}
+\contentsline {subsection}{\numberline {8.12}Beispiele}{92}{subsection.8.12}
+\contentsline {subsection}{\numberline {8.13}\relax \fontsize {6}{7}\selectfont Satz (Integration durch Substitution)}{93}{subsection.8.13}
+\contentsline {subsection}{\numberline {8.14}Satz}{94}{subsection.8.14}
+\contentsline {subsection}{\numberline {8.15}Beispiel}{94}{subsection.8.15}
+\contentsline {section}{\numberline {9}Matrizen und lineare Gleichungssysteme}{95}{section.9}
+\contentsline {subsection}{\numberline {9.1}Definition}{95}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Definition}{96}{subsection.9.2}
+\contentsline {subsection}{\numberline {9.3}Definition}{97}{subsection.9.3}
+\contentsline {subsection}{\numberline {9.4}Beispiel}{97}{subsection.9.4}
+\contentsline {subsection}{\numberline {9.5}Satz (Rechenregeln von Matrizen)}{99}{subsection.9.5}
+\contentsline {subsection}{\numberline {9.6}Definition}{100}{subsection.9.6}
+\contentsline {subsection}{\numberline {9.7}Definition}{102}{subsection.9.7}
+\contentsline {subsection}{\numberline {9.8}Definition}{102}{subsection.9.8}
+\contentsline {subsection}{\numberline {9.9}Bemerkung}{102}{subsection.9.9}
+\contentsline {subsection}{\numberline {9.10}Algorithmus zur Transformation einer Matrix auf Zeilenstufenform mit elementaren Zeilenumformungen}{103}{subsection.9.10}
+\contentsline {subsection}{\numberline {9.11}Beispiel}{104}{subsection.9.11}
+\contentsline {subsection}{\numberline {9.12}Gau\ss -Algorithmus}{104}{subsection.9.12}
+\contentsline {subsection}{\numberline {9.13}Beispiel}{106}{subsection.9.13}
 \contentsfinish 
