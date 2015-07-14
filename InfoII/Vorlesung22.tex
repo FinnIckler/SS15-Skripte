@@ -1,0 +1,113 @@
+\emph{Zeichenkodierungen} bilden Zeichen auf Sequenzen von Bits ab. Derzeit sind Codes fester Länge sehr beliebt.
+\begin{enumerate}[]
+\item[ASCII] (Code 0-127, 7Bit, American Standard Code for Information Interchange)
+\item[ISO8859-1] (Code 0-255, 8Bit, besteht aus lateinischen und Steuerzeichen)
+\item[Unicode] (20Bit,codiert Zeichen aus 129 aktuellen und historischen Sprachen, inkl. Klingon)
+\end{enumerate}
+Beispiel Zeichen '\EUR' : 0000 0010 0000 1010 1100
+\bigskip\\
+\emph{Huffman-Codes} nutzen Bitsequenzen variabler Länge.\\
+Idee: Zeicehn mit hoher Frequenz werden mit weniger Bits codiert, als seltene Zeichen.
+$\Rightarrow$ Datenkompression\\
+Huffman-Codes sind Binärbäume mit markierten Blättern:\\
+Beispiel Huffmann-Codes für: \lstinline|"erdbeermarmelade"|\\
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 4cm/#1,
+  level distance = 1.5cm}] 
+\node [arn_r] {}
+    child{ node [arn_r] {}
+		child{ node [arn_x] {r}}
+		child{ node [arn_r] {}
+			child{ node [arn_x] {m}}
+			child{ node [arn_x] {a}}}
+            }
+	child{ node [arn_r] {}
+	    child{ node [arn_r] {}
+			child{ node [arn_r] {}
+				child{ node [arn_x] {b}}
+				child{ node [arn_x] {l}}}
+			child{ node [arn_x] {d}}}
+		child{ node [arn_x] {e}}
+    }
+; 
+\end{tikzpicture}
+\end{figure}
+Code für Zeichen x: Pfad von Wurzel bis Blatt mit Markierung x
+\begin{enumerate}[-]
+\item Abstieg in linken Teilbaum : Bit 0
+\item Abstieg in Rechten Teilbaum: Bit 1
+\end{enumerate}
+\begin{table}[h!]
+\centering
+\begin{tabular}{ccl}
+Zeichen&Frequenz&Code\\\hline
+e & 5 & 11\\
+r & 3 & 00\\
+m & 2 & 010\\
+a & 2 & 101\\
+b & 1 & 1000\\
+l & 1 & 1001
+\end{tabular}
+\end{table}
+Huffman-Codes sind präfix frei, die Bits eines Zeichens sind niemals Präfix eines anderen Zeichens $\rightarrow$ eindeutige Codierung.\\
+$\vert11\vert00\vert101\vert1000\vert11\vert11\ldots \Rightarrow$ erdbee\ldots\\
+(Länge 42 Bit, Unicode = 320 Bit)\\
+Einsetzung in JPEG, MP3, ZIP\\
+Prozeduren zur Huffman-Codierung:
+\begin{enumerate}[(1)]
+\item Decodierung einer Bitsequenz \par\lstinline|(:huff-decode ((huff-tree-of string) (list-of bit) -> string))|
+\item Codierung eines Strungs\par\lstinline|(huff-tree-of string) string -> (list-of bit)|\\
+$\forall$ string : \lstinline|(huff-decode (huff-encode s))| = \lstinline|s|
+\item Huffman-Tree für gegebenen Text erstellen\par\lstinline|(:huffman-code (string -> (huff-tree-of string)))|
+\end{enumerate}
+Decodieren eines huffman-codierten string (= eine Liste aus Bits)\\
+Plan: Baue \\\lstinline|(: decode((huff-tree-of %a)(huff-tree-of %a)(list-of bit)->(list-of %a)))|
+\begin{enumerate}[(1)]
+\item \lstinline[mathescape]|(decode $\underset{ht}\triangle\ \fbox{x}\ [\ldots Bits\ldots]$)| = \lstinline[mathescape]|(make-pair x (decode $\underset{ht}\triangle\ \underset{ht}\triangle\ [\ldots Bits \ldots]$))|
+\item \lstinline[mathescape]|(decode $\underset{ht}\triangle\ \triangle\ [ \ ]$)| = \lstinline[mathescape]|empty|
+\item[(3a)] \lstinline[mathescape]|(decode $\underset{ht}\triangle$ |\raisebox{-0.5cm}{\scalebox{0.5}{\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 1.25cm/#1,
+  level distance = 1.25cm}] 
+\node [arn_n] {}
+    child{ node [arn_r] {l}                          
+    }
+    child{ node [arn_r] {r}
+		}
+; 
+\end{tikzpicture}}}\ \lstinline[mathescape]|$[0\ldots Bits\ldots]$| = \lstinline[mathescape]|(decode $\underset{ht}\triangle\ \underset{l}\triangle\ [\ldots Bits\ldots] $)|
+\item[(3b)] \lstinline[mathescape]|(decode $\underset{ht}\triangle$ |\raisebox{-0.5cm}{\scalebox{0.5}{\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 1.25cm/#1,
+  level distance = 1.25cm}] 
+\node [arn_n] {}
+    child{ node [arn_r] {l}                          
+    }
+    child{ node [arn_r] {r}
+		}
+; 
+\end{tikzpicture}}}\ \lstinline[mathescape]|$[1\ldots Bits\ldots]$| = \lstinline[mathescape]|(decode $\underset{ht}\triangle\ \underset{r}\triangle\ [\ldots Bits\ldots] $)|
+\end{enumerate}
+Zu (1): Neueinstieg an Wurzel des Huffman-Tree $\Rightarrow$ Wurzel des Huffman-Tree als Parameter durchführen.
+TODO: Grusts Code\\
+Huffman-Codierung eines Strings als Liste von Bits\\
+Plan:
+\begin{enumerate}[a)]
+\item
+Codierung eines Zeichens c. Suche mittels einer Tiefensuche von der Wurzel des Huffman-Trees aus. Protokolliere den Pfad beim Absteig als Liste von Bits.\\
+Frage : Wie soll ich reagieren, wenn die Tiefensuche zu einem Blatt mit $x \ne c$ führt?
+Idee : \raisebox{-0.77cm}{\parbox{0.89\textwidth}{Verfolge an inneren Knoten \lstinline|(make-huff-node l r)| jeweils linken und rechten Teilbaum. Suche nach c schlägt fehl in entweder \lstinline|l| oder \lstinline|r|. Bei Fehlschlag liefern wir die leere Bitliste. Beachte \lstinline|(append empty xs)| = xs und \lstinline|(append xs empty)| = xs}}\end{enumerate}
+\lstinline[mathescape]|(: encode ((huff-tree-of %a) $\underset{akku}{\text{(list-of bit)}}\ \underset{Zeichen}{\text{\%a}}$ -> (list-of bit)))|
+\begin{enumerate}[(1)]
+\item \lstinline[mathescape]|(encode $\fbox{x}\ [\ldots Bits\ldots] $ c)| = \lstinline|empty|
+\item \lstinline[mathescape]|(encode $\fbox{c}\ [\ldots Bits\ldots] $ c)| = \lstinline[mathescape]|(reverse $[\ldots Bits \ldots]$)|
+\item \lstinline[mathescape]|(encode| \raisebox{-0.5cm}{\scalebox{0.5}{\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 1.25cm/#1,
+  level distance = 1.25cm}] 
+\node [arn_n] {}
+    child{ node [arn_r] {l}                          
+    }
+    child{ node [arn_r] {r}
+		}
+; 
+\end{tikzpicture}}} \lstinline[mathescape]|$[\ldots Bits\ldots]$ c)| = \lstinline[mathescape]|(append|\raisebox{-0.4cm}{\parbox{0.1\textwidth}{\lstinline[mathescape]|(encode $\underset{l}\triangle\ [0\ldots Bits \ldots]\ $ c)|\\ \lstinline[mathescape]|(encode $\underset{r}\triangle\ [1\ldots Bits\ldots]\ $ c))|}}
+\end{enumerate}
+\begin{enumerate}
+\i[b)] Codiere Zeichen des Strings s mit \lstinline|encode| (mittels map), verbinde einzelne Bitlisten mit \lstinline|flatten| (bzw. \lstinline|concat|)
+\end{enumerate}
