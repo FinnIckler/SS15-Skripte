@@ -50,3 +50,7 @@
 \contentsline {lstlisting}{\numberline {44}Fold über Bäume}{72}{lstlisting.44}
 \contentsline {lstlisting}{\numberline {45}Ismorphie von Listen und rechtstiefe Bäumen}{73}{lstlisting.45}
 \contentsline {lstlisting}{\numberline {46}Breitendurchlauf eines Baumes}{76}{lstlisting.46}
+\contentsline {lstlisting}{Huffman.rkt}{77}{lstlisting.-53}
+\contentsline {lstlisting}{\numberline {47}HUffman Codes}{78}{lstlisting.47}
+\contentsline {lstlisting}{\numberline {48}Huffman-Code Encode}{81}{lstlisting.48}
+\contentsline {lstlisting}{\numberline {49}Decoding von Huffman Codes}{82}{lstlisting.49}

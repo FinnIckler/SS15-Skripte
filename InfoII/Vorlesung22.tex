@@ -1,3 +1,4 @@
+\lstinputlisting[firstline=199,lastline=205]{Huffman.rkt}
 \emph{Zeichenkodierungen} bilden Zeichen auf Sequenzen von Bits ab. Derzeit sind Codes fester Länge sehr beliebt.
 \begin{enumerate}[]
 \item[ASCII] (Code 0-127, 7Bit, American Standard Code for Information Interchange)
@@ -54,6 +55,7 @@ Huffman-Codes sind präfix frei, die Bits eines Zeichens sind niemals Präfix ei
 $\vert11\vert00\vert101\vert1000\vert11\vert11\ldots \Rightarrow$ erdbee\ldots\\
 (Länge 42 Bit, Unicode = 320 Bit)\\
 Einsetzung in JPEG, MP3, ZIP\\
+\rackett{HUffman Codes}{Implementierung von Huffman-Codes}{Huffman}{44}{104}
 Prozeduren zur Huffman-Codierung:
 \begin{enumerate}[(1)]
 \item Decodierung einer Bitsequenz \par\lstinline|(:huff-decode ((huff-tree-of string) (list-of bit) -> string))|
@@ -86,7 +88,7 @@ Plan: Baue \\\lstinline|(: decode((huff-tree-of %a)(huff-tree-of %a)(list-of bit
 \end{tikzpicture}}}\ \lstinline[mathescape]|$[1\ldots Bits\ldots]$| = \lstinline[mathescape]|(decode $\underset{ht}\triangle\ \underset{r}\triangle\ [\ldots Bits\ldots] $)|
 \end{enumerate}
 Zu (1): Neueinstieg an Wurzel des Huffman-Tree $\Rightarrow$ Wurzel des Huffman-Tree als Parameter durchführen.
-TODO: Grusts Code\\
+\rackett{Huffman-Code Encode}{Encodierung eines String in Bit}{Huffman}{157}{180}
 Huffman-Codierung eines Strings als Liste von Bits\\
 Plan:
 \begin{enumerate}[a)]
@@ -111,3 +113,4 @@ Idee : \raisebox{-0.77cm}{\parbox{0.89\textwidth}{Verfolge an inneren Knoten \ls
 \begin{enumerate}
 \i[b)] Codiere Zeichen des Strings s mit \lstinline|encode| (mittels map), verbinde einzelne Bitlisten mit \lstinline|flatten| (bzw. \lstinline|concat|)
 \end{enumerate}
+\rackett{Decoding von Huffman Codes}{Decodierung einer Liste von Bits in einen String}{Huffman}{184}{197}
