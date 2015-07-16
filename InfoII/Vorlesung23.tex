@@ -1,0 +1,90 @@
+Erstellung eines Huffman-Tree eines gegebenen Textes txt. Plan:
+\begin{enumerate}[(H1)]
+\i Stelle Häufigkeit des Vorkommens jedes Zeichen in txt fest. Sortiere in Reihenfolge steigender Häufigkeit (\lstinline|occurences|)
+\end{enumerate}
+Beispiel: \lstinline|(occurences "erdbeermarmelade")|\eval\par \lstinline[mathescape]|(list $\langle$"l" 1$\rangle$ $\langle$"b" 1$\rangle\ \ldots$ $\langle$"e" 5$\rangle$)|\\
+Vorkommen \lstinline[mathescape]|$\langle$i n$\rangle$ (occur)| : Ding i (\lstinline|item|) kommt mit Häufigkeit n (\lstinline|freq|) vor.
+\begin{enumerate}[(H2)]
+\i Baue Huffman-Tree von Blättern her auf. Initialisiere den Aufbau: Für Vorkommen \lstinline[mathescape]|$\langle$i n$\rangle$| konstruiere \lstinline[mathescape]|$\langle\fbox{\text{i}}$ n$\rangle$|
+\i[(H3)] Die beiden Huffman-Trees die die seltensten Zeichen repräsentieren stehen am Anfang der Liste. \lstinline[mathescape]|(list $\langle\fbox{\text{i}}$ n$\rangle$ $\langle\fbox{\text{j}}$ n$\rangle$)|. Konstruktion des Huffman-Tree, die diese \emph{Invariante} bewahren.\\
+\vrule\emph{Iteration}: Wiederhole bis Liste Länge 1 hat:\\
+\begin{tabular}{|rp{.85\textwidth}}
+a)& Fasse Vorkommen \lstinline[mathescape]|$\langle\underset{\text{l}}{\triangle}$ n$\rangle$| und \lstinline[mathescape]|$\langle\underset{\text{r}}{\triangle}$ m$\rangle$| zu einem Vorkommen \lstinline[mathescape]|$\langle$| 
+\raisebox{-0.5cm}{\scalebox{0.5}{\begin{tikzpicture}[->,>=stealth',level/.style={sibling distance = 1.25cm/#1,
+  level distance = 1.25cm}] 
+\node [arn_n] {}
+    child{ node [arn_r] {l}                          
+    }
+    child{ node [arn_r] {r}
+		}
+; 
+\end{tikzpicture}}}
+\lstinline[mathescape]|n+m$\rangle$|\\
+b)&Sortiere dieses Vorkommen bzgl. Häufigkeit n+m in die Restliste ein.
+\end{tabular}\\
+\rule{3cm}{1pt}
+\item[(H4)] Baum ht in \lstinline[mathescape]|(list $\langle\underset{\text{ht}}{\triangle}$ n)| ist der gesuchte Huffman-Tree
+\end{enumerate}
+\rackett{Erzeugen eines Huffman-Trees}{Implementation der Erzeugung von Huffman-Trees}{Huffman}{259}{407}
+\emph{Neue Sprachebene}: DMdA-fortgeschritten
+\begin{enumerate}[-]
+\item Neues Ausgabeformat im REPL
+\subitem \lstinline|(list x1 ... xn)| $\quad\rightarrow\quad$ \lstinline[]|(x1 .. xn)|
+\subitem \lstinline|empty|\qquad\qquad\qquad\ \ $\quad\rightarrow\quad$ \lstinline|()|
+\item Neuer (struktureller) Gleichheitstest für Werte aller (auch benutzerdefinierte)\\
+Signatur: \lstinline|(: equal? (%a %b -> boolean))|
+\end{enumerate}
+\emph{Quote}:\\
+Sei e ein beliebiger Scheme-Ausdruck. Dann liefert \lstinline|(quote e)| die Repräsentation von e -- e wird \emph{nicht} ausgewertet.\\
+Beispiele:\\
+\begin{tabular}{ll}
+\lstinline|(quote 42)|\eval \lstinline|42|&\rdelim\}{2}{-20mm}[Konstante Literale repräsentieren sich selbst]\\
+\lstinline|(quote "UTÜ")|\eval \lstinline|"UTÜ"|&\\
+\lstinline|(quote (+ 40 2))|\eval \lstinline|(+ 40 2)|&\rdelim\}{1}{-20mm}[Funktionsapplikation als Liste]
+\end{tabular}\\
+\emph{Listennotation in Programmen}\\
+\lstinline[literate={}]|(list x1 ... xn)|$\quad\equiv\quad$\lstinline|'(x1 ... xn)|\\
+\lstinline|empty|\qquad\qquad\qquad\ \ \ \ $\quad\equiv\quad$ \lstinline|'()|\\
+\emph{Symbole}:\\
+Was ist \lstinline|(first '(x 12))|?\\
+Was sind \lstinline|lambda, x, +| in \lstinline|'(lambda (x) (+ x 1))|\\
+Neue Signatur \emph{Symbol} zur Repräsentation von Namen in Programmen. Effiziente interne Darstellung/effizient vergleichbar. Kein Zugriff auf die einzelnen Zeichen des Symbols.\\
+\emph{Operationen}:
+\begin{enumerate}[-]
+\item\lstinline|(symbol? (%a -> boolean))|
+\item\lstinline|(: symbol->string (symbol -> string))|
+\end{enumerate}
+Repräsentation und Auswertung arithmetischer Ausdrücke:\\
+\emph{Beispiel}: e $\equiv \overbrace{\text{\lstinline[mathescape]|'($\underset{\substack{\uparrow\\\text{Symbol}}}{*}
+$(! (+ $\underset{\substack{\uparrow\\\text{Number}}}{1}$ 2))|}}^{\text{list}}$\\
+\begin{lstlisting}
+(define arith
+  (signature (mixed number
+                    symbol
+                    (list-of airth))))
+\end{lstlisting}
+Auswertung möglich, wenn Bindungen für Symbole (Variablen \emph{und} Operatoren) an Wert gegeben. \emph{Dictionary} (\emph{Envirement}).\\
+\begin{tabular}{lrcl}
+$d_1$:\\
+&$\lbrace$ x&$\rightarrow$& 3\\
+&*&$\rightarrow$& \lstinline|<procedure : *>|\\
+&+&$\rightarrow$& \lstinline|<procedure : +>|\\
+&!&$\rightarrow$& \lstinline|fac|$\rbrace$\\
+\end{tabular}\\
+e\eval  18\\
+\begin{tabular}{lrcl}
+$d_2$:\\
+&$\lbrace$ x&$\rightarrow$& 1\\
+&*&$\rightarrow$& \lstinline|<procedure : *>|\\
+&+&$\rightarrow$& \lstinline|<procedure : +>|\\
+&!&$\rightarrow$& \lstinline|(lambda (x) (- x))|$\rbrace$\\
+\end{tabular}\\
+e\eval -3\\
+\rackett{Ausdruck Arithmetischer Ausdrucke mittels Quote}{Eigene Programmiersprache die arithmetische Ausdrücke auswerten kann}{Arithmetic}{43}{126}
+Auswertung eines arithmetischen Ausdrucks e (unter Dictionary d)
+\[ \underbrace{\text{\lstinline|((eval d) |}}_{\substack{\text{Konfigurierter}\\\text{Ausdruck}}}\text{\lstinline|e)|} \]
+\begin{enumerate}[(E1)]
+\i \lstinline|((eval d) c)| = c \hfill Konstante
+\i \lstinline[mathescape]|((eval $\{ x_1\rightarrow v_1\ldots x_n\rightarrow v_n \})x_i$)| = $v_i$ \hfill $x_i$ Variable
+\i \ldots
+\end{enumerate}
