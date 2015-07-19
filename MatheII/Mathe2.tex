@@ -1,6 +1,6 @@
 \input{header}
 \hypersetup{%
-    pdfborder = {0 0 0}
+pdfborder = {0 0 0}
 }
 \begin{document}
 \resetHeadWidth
@@ -31,51 +31,51 @@ b = \mathfrak{I}(z)$ Imagin\"arteil von $z\ (Im(z)).\\
 \begin{figure}[h!]
 \begin{minipage}[h]{0.5\textwidth}
 \begin{tikzpicture}
-    \begin{axis}[
-    axis x line=center,
-    axis y line=center,
-    axis equal,
-    xlabel={$Re(z)$},
-    ylabel={$Im(z)$},
-    ymin = -1,
-    xmin = 0,
-    ymax = 5.5,
-    xmax = 5.5,
-    xtick ={1,4},
-    xticklabels={1,a},
-    ytick ={1,3},
-    yticklabels={i,b}]
-    \addplot[dashed,mark=none, black] coordinates {(4,0) (4,3)};
-    \addplot[dashed,mark=none, black] coordinates {(0,3) (4,3)};
-      \addplot [black, mark = *, nodes near coords=$a+bi$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
-    \end{axis}
-  \end{tikzpicture}
+\begin{axis}[
+axis x line=center,
+axis y line=center,
+axis equal,
+xlabel={$Re(z)$},
+ylabel={$Im(z)$},
+ymin = -1,
+xmin = 0,
+ymax = 5.5,
+xmax = 5.5,
+xtick ={1,4},
+xticklabels={1,a},
+ytick ={1,3},
+yticklabels={i,b}]
+\addplot[dashed,mark=none, black] coordinates {(4,0) (4,3)};
+\addplot[dashed,mark=none, black] coordinates {(0,3) (4,3)};
+  \addplot [black, mark = *, nodes near coords=$a+bi$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
+\end{axis}
+\end{tikzpicture}
 \end{minipage}%
 \begin{minipage}[h]{0.5\textwidth}
 \begin{tikzpicture}
-    \begin{axis}[
-    axis x line=center,
-    axis y line=center,
-    axis equal,
-    xlabel={$Re(z)$},
-    ylabel={$Im(z)$},
-    ymin = -1,
-    xmin = -3,
-    ymax = 7,
-    xmax = 5.5,
-    xtick ={1,4},
-    xticklabels={1,a},
-    ytick ={1,3},
-    yticklabels={i,b}]
-    \addplot [black, mark = *, nodes near coords=$a+bi$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
-       \draw[->](axis cs:0,0)--(axis cs:3.88,2.88);
-           \addplot [black, mark = *, nodes near coords=$c+di$,every node near coord/.style={anchor=0}] coordinates {( -1, 1)};
-                  \draw[->](axis cs:0,0)--(axis cs:-0.88,0.88);
+\begin{axis}[
+axis x line=center,
+axis y line=center,
+axis equal,
+xlabel={$Re(z)$},
+ylabel={$Im(z)$},
+ymin = -1,
+xmin = -3,
+ymax = 7,
+xmax = 5.5,
+xtick ={1,4},
+xticklabels={1,a},
+ytick ={1,3},
+yticklabels={i,b}]
+\addplot [black, mark = *, nodes near coords=$a+bi$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
+   \draw[->](axis cs:0,0)--(axis cs:3.88,2.88);
+       \addplot [black, mark = *, nodes near coords=$c+di$,every node near coord/.style={anchor=0}] coordinates {( -1, 1)};
+              \draw[->](axis cs:0,0)--(axis cs:-0.88,0.88);
 \addplot [black, mark = *, nodes near coords=$(a+c)+(b+d)i$,every node near coord/.style={anchor=0}] coordinates {( 3, 4)};
-    \addplot[mark=none, black] coordinates {(-1,1) (3,4)};
-    \addplot[mark=none, black] coordinates {(3,4) (4,3)};
-    \draw[-> ,red](axis cs:0,0)--(axis cs:2.95,3.88);
-    \end{axis}
+\addplot[mark=none, black] coordinates {(-1,1) (3,4)};
+\addplot[mark=none, black] coordinates {(3,4) (4,3)};
+\draw[-> ,red](axis cs:0,0)--(axis cs:2.95,3.88);
+\end{axis}
 \end{tikzpicture}
 \end{minipage}
 \caption[Veranschaulichung Komplexe Zahlen]{Addition entspricht Vektoraddition}
@@ -118,39 +118,39 @@ z,z_1,z_2 \in \C:&
 
 $\abs{z}= +\sqrt{z \cd \bar{z}}$\\
 $$(a+bi) \cd (a-bi) = (a^2 +b^2) + 0i = a^2 + b^2$$\\
-    $
-  \begin{array}{lcl}
-  \lvert z \rvert &=& \text{Abstand von $z$ zu 0}\\
-  &=& \text{L\"ange des Vektors, der $z$ entspricht}
-  \end{array}$\\
+$
+\begin{array}{lcl}
+\lvert z \rvert &=& \text{Abstand von $z$ zu 0}\\
+&=& \text{L\"ange des Vektors, der $z$ entspricht}
+\end{array}$\\
 \begin{figure}[h!]
 \centering
 \begin{tikzpicture}
-    \begin{axis}[
-    axis x line=center,
-    axis y line=center,
-    axis equal,
-    xlabel={$Re(z)$},
-    ylabel={$Im(z)$},
-    ymin = -1,
-    xmin = 0,
-    ymax = 5.5,
-    xmax = 5.5,
-    xtick ={1,4},
-    xticklabels={1,a},
-    ytick ={1,3},
-    yticklabels={i,b}]
-    \addplot[mark=none, black] coordinates {(4,0) (4,3)};
-    \addplot[mark=none, black] coordinates {(0,0) (4,0)};
-      \addplot [black, mark = *, nodes near coords=$a+bi$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
-   \draw[->] (axis cs:0,0)--(axis cs:3.95,2.88);
-   \draw(axis cs:3.5,0) arc [radius=0.5,start angle=180,end angle=90];
-    \end{axis}   
-  \end{tikzpicture}
-  \caption[Absolutbetrag]{Graphische Definition des Absolutbetrages}
-  \end{figure}
-  \item[b)]Abstand von $z_1,z_2 \in \C:$\\
- $$ d(z_1,z_2):= \abs{z_1 - z_2}$$\\
+\begin{axis}[
+axis x line=center,
+axis y line=center,
+axis equal,
+xlabel={$Re(z)$},
+ylabel={$Im(z)$},
+ymin = -1,
+xmin = 0,
+ymax = 5.5,
+xmax = 5.5,
+xtick ={1,4},
+xticklabels={1,a},
+ytick ={1,3},
+yticklabels={i,b}]
+\addplot[mark=none, black] coordinates {(4,0) (4,3)};
+\addplot[mark=none, black] coordinates {(0,0) (4,0)};
+  \addplot [black, mark = *, nodes near coords=$a+bi$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
+\draw[->] (axis cs:0,0)--(axis cs:3.95,2.88);
+\draw(axis cs:3.5,0) arc [radius=0.5,start angle=180,end angle=90];
+\end{axis}   
+\end{tikzpicture}
+\caption[Absolutbetrag]{Graphische Definition des Absolutbetrages}
+\end{figure}
+\item[b)]Abstand von $z_1,z_2 \in \C:$\\
+$$ d(z_1,z_2):= \abs{z_1 - z_2}$$\\
 \end{enumerate}
 \subsection{Rechenreglen f\"ur den Absolutbetrag}
 \begin{align}
@@ -169,62 +169,62 @@ $$(a+bi) \cd (a-bi) = (a^2 +b^2) + 0i = a^2 + b^2$$\\
 Jeder Punkt $\neq (0,0)$ l\"asst sich durch seine Polarkoordinaten $(r,\varphi)$ beschreiben:\\
 \begin{figure}[h!]
 \begin{tikzpicture}
-    \begin{axis}[
-    axis x line=center,
-    axis y line=center,
-    axis equal,
-    xlabel={$Re(z)$},
-    ylabel={$Im(z)$},
-    ymin = -1,
-    xmin = 0,
-    ymax = 5.5,
-    xmax = 5.5,
-    xtick ={1,4},
-    xticklabels={1,a},
-    ytick ={1,3},
-    yticklabels={i,b}]
-      \addplot [black, mark = *, nodes near coords=$a+bi$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
-   \draw[decorate,decoration ={brace,amplitude =10pt},thick] (axis cs:0,0)--(axis cs:4,3);
-      \draw[->] (axis cs:0,0)--(axis cs:3.95,2.88);
-       \addplot [black, mark = none, nodes near coords=$\varphi$,every node near coord/.style={anchor=180}] coordinates {( 1.90, 0.8)};
-       \addplot [black, mark = none, nodes near coords=$r$,every node near coord/.style={anchor=180}] coordinates {( 1.5, 2)};
-   \draw[->](axis cs:2,0) arc [radius=1.95,start angle=0,end angle=37];
-    \end{axis}   
-  \end{tikzpicture}
+\begin{axis}[
+axis x line=center,
+axis y line=center,
+axis equal,
+xlabel={$Re(z)$},
+ylabel={$Im(z)$},
+ymin = -1,
+xmin = 0,
+ymax = 5.5,
+xmax = 5.5,
+xtick ={1,4},
+xticklabels={1,a},
+ytick ={1,3},
+yticklabels={i,b}]
+  \addplot [black, mark = *, nodes near coords=$a+bi$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
+\draw[decorate,decoration ={brace,amplitude =10pt},thick] (axis cs:0,0)--(axis cs:4,3);
+  \draw[->] (axis cs:0,0)--(axis cs:3.95,2.88);
+   \addplot [black, mark = none, nodes near coords=$\varphi$,every node near coord/.style={anchor=180}] coordinates {( 1.90, 0.8)};
+   \addplot [black, mark = none, nodes near coords=$r$,every node near coord/.style={anchor=180}] coordinates {( 1.5, 2)};
+\draw[->](axis cs:2,0) arc [radius=1.95,start angle=0,end angle=37];
+\end{axis}   
+\end{tikzpicture}
 \centering
 \caption[Imaginäre Zahlen im Koordinatensystem durch Polarkoordinaten]{Polarkoordinaten}
 \end{figure}
-  $-r \geq 0, r \in \R\\
-  0 \leq \varphi \leq 2\pi$, wird gemessen von der positiven x-Achse entgegen des Uhrzeigersinnes
+$-r \geq 0, r \in \R\\
+0 \leq \varphi \leq 2\pi$, wird gemessen von der positiven x-Achse entgegen des Uhrzeigersinnes
 \begin{figure}[h!]
 \centering \caption[Winkel im Bogenma\ss]{Umrechnung Grad zu Bogenma\ss}
 \begin{tikzpicture}
-    \begin{axis}[
-    axis x line=center,
-    axis y line=center,
-    axis equal,ymin = -2,xmin = -2,ymax = 2,
-    xmax = 2,xtick ={},
-    xticklabels={},
-    ytick ={},
-    yticklabels={},
-    disabledatascaling]
-    \addplot [black, mark = none, nodes near coords=$\pi$,every node near coord/.style={anchor=180}] coordinates {( -1.5, 0)};
-    \addplot [black, mark = none, nodes near coords=2$\pi$,every node near coord/.style={anchor=180}] coordinates {( 1.25, 0)};
-    \addplot [black, mark = none, nodes near coords=$\frac{\pi}{2}$,every node near coord/.style={anchor=90}] coordinates {(0, 1.5)};
-    \addplot [black, mark = none, nodes near coords=$\frac{3\pi}{2}$,every node near coord/.style={anchor=-90}] coordinates {(0, -1.5)};
-    \draw (axis cs:0,0) circle[radius=1];
-    \draw(axis cs:0,0)--(axis cs:0.77,0.65);
-    \draw(axis cs:0,0)--(axis cs:1,0);
-    \draw[->](axis cs:0.3,0) arc [radius=0.3,start angle=0,end angle=37];
-    %origin point, circle radius, start angle, end angle, distance c-b, brace radius, brace options
-    \cucubr{0,2}{1}{0}{37}{0.1}{0.1}{red}
-    \end{axis}   
-  \end{tikzpicture}
+\begin{axis}[
+axis x line=center,
+axis y line=center,
+axis equal,ymin = -2,xmin = -2,ymax = 2,
+xmax = 2,xtick ={},
+xticklabels={},
+ytick ={},
+yticklabels={},
+disabledatascaling]
+\addplot [black, mark = none, nodes near coords=$\pi$,every node near coord/.style={anchor=180}] coordinates {( -1.5, 0)};
+\addplot [black, mark = none, nodes near coords=2$\pi$,every node near coord/.style={anchor=180}] coordinates {( 1.25, 0)};
+\addplot [black, mark = none, nodes near coords=$\frac{\pi}{2}$,every node near coord/.style={anchor=90}] coordinates {(0, 1.5)};
+\addplot [black, mark = none, nodes near coords=$\frac{3\pi}{2}$,every node near coord/.style={anchor=-90}] coordinates {(0, -1.5)};
+\draw (axis cs:0,0) circle[radius=1];
+\draw(axis cs:0,0)--(axis cs:0.77,0.65);
+\draw(axis cs:0,0)--(axis cs:1,0);
+\draw[->](axis cs:0.3,0) arc [radius=0.3,start angle=0,end angle=37];
+%origin point, circle radius, start angle, end angle, distance c-b, brace radius, brace options
+\cucubr{0,2}{1}{0}{37}{0.1}{0.1}{red}
+\end{axis}   
+\end{tikzpicture}
 \end{figure}
 \\
-  Umfang:$2\pi$\\
-  $\varphi$ in Grad $\widehat{=} \frac{2\pi \cd \varphi}{360}$ im Bogenma\ss\\
-   F\"ur Punkte mit kartesischen Koordinaten $\neq$ (0,0) werden als Polarkoordinate $(r,\varphi)$ verwendet.
+Umfang:$2\pi$\\
+$\varphi$ in Grad $\hat{=} \frac{2\pi \cd \varphi}{360}$ im Bogenma\ss\\
+F\"ur Punkte mit kartesischen Koordinaten $\neq$ (0,0) werden als Polarkoordinate $(r,\varphi)$ verwendet.
 \item[b)]komplexe Zahl $z = a +ib\\
 \begin{array}{rcl}
 r &=& \abs{z} = + \sqrt{a^2+b^2}\\
@@ -247,9 +247,9 @@ Suche $\varphi$ mit $0 \leq 2\pi$ mit $\cos(\varphi) =\frac{2}{\sqrt{5}}, \sin(\
 \subsection{Additionstheoreme der Trigonometrie}\label{sec:1.7}
 \begin{align}
 \sin(\varphi + \psi) &= \sin(\varphi) \cd \cos(\psi) + \cos(\varphi) \cd \sin(\psi) \tag{a}\\
-\cos(\varphi + \psi) &= \cos(\varphi) \cd \cos(\psi) - \sin(\varphi) \cd sin(\varphi) \cd \sin(\psi \tag{b}
+\cos(\varphi + \psi) &= \cos(\varphi) \cd \cos(\psi) - \sin(\varphi) \ \cd \sin(\psi) \tag{b}
 \end{align}
-\subsection{geometrische Interpretation der Multiplikation}
+\subsection{geometrische Interpretation der Multiplikation}\label{sec:1.8}
 \begin{enumerate}
 \item[a)]$w = \abs{w} \cd (\cos(\varphi) + i \cd \sin(\varphi))\\
 z= \abs{z} \cd (\cos(\psi) + i \cd \sin(\psi))\\
@@ -258,47 +258,47 @@ w \cd z =\abs{w \cd z}( \cos(\varphi + \psi) + i \cd \sin(\varphi + \psi))$
 \begin{figure}[h!]
 \begin{tikzpicture}
 \begin{axis}[axis x line=center,
-    axis y line=center,,axis equal,xlabel={$Re(z)$},ylabel={$Im(z)$},ymin = -10,xmin = -10,ymax = 10,xmax = 10,xtick ={1,4},xticklabels={},ytick ={1,3},yticklabels={},disabledatascaling]
-      \addplot [black, mark = *, nodes near coords=$w$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
-            \addplot [black, mark = *, nodes near coords=$z$,every node near coord/.style={anchor=0}] coordinates {( -1, 2)};
-   \draw (axis cs:0,0)--(axis cs:-1,2);
-   \draw (axis cs:0,0)--(axis cs:4,3);
-   \draw[decorate,decoration ={brace,amplitude =10pt}] (axis cs:0,0)--(axis cs:-6.7,0);\\
-   \draw(axis cs:0,0)--(axis cs:-6.7,0);
-   \addplot [black, mark = *, nodes near coords=$w\cd z$,every node near coord/.style={anchor=0}] coordinates {( -6.70, 0)};
-     \addplot [black, mark = none, nodes near coords=$\abs{w} \cd \abs{z}$,every node near coord/.style={anchor=0}] coordinates {( -0.8, -2)};
-       \addplot [black, mark = none, nodes near coords=$\varphi$,every node near coord/.style={anchor=180}] coordinates {( 1.90, 0.8)};
-   \draw[->](axis cs:2,0) arc [radius=1.95,start angle=0,end angle=37];
-      \draw[->](axis cs:3,0) arc [radius=2,start angle=0,end angle=142];
-    \addplot [black, mark = none, nodes near coords=$\psi$,every node near coord/.style={anchor=180}] coordinates {( 2.90, 0.8)};  
-    \end{axis} 
-  \end{tikzpicture}
+axis y line=center,,axis equal,xlabel={$Re(z)$},ylabel={$Im(z)$},ymin = -10,xmin = -10,ymax = 10,xmax = 10,xtick ={1,4},xticklabels={},ytick ={1,3},yticklabels={},disabledatascaling]
+  \addplot [black, mark = *, nodes near coords=$w$,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
+        \addplot [black, mark = *, nodes near coords=$z$,every node near coord/.style={anchor=0}] coordinates {( -1, 2)};
+\draw (axis cs:0,0)--(axis cs:-1,2);
+\draw (axis cs:0,0)--(axis cs:4,3);
+\draw[decorate,decoration ={brace,amplitude =10pt}] (axis cs:0,0)--(axis cs:-6.7,0);\\
+\draw(axis cs:0,0)--(axis cs:-6.7,0);
+\addplot [black, mark = *, nodes near coords=$w\cd z$,every node near coord/.style={anchor=0}] coordinates {( -6.70, 0)};
+ \addplot [black, mark = none, nodes near coords=$\abs{w} \cd \abs{z}$,every node near coord/.style={anchor=0}] coordinates {( -0.8, -2)};
+   \addplot [black, mark = none, nodes near coords=$\varphi$,every node near coord/.style={anchor=180}] coordinates {( 1.90, 0.8)};
+\draw[->](axis cs:2,0) arc [radius=1.95,start angle=0,end angle=37];
+  \draw[->](axis cs:3,0) arc [radius=2,start angle=0,end angle=142];
+\addplot [black, mark = none, nodes near coords=$\psi$,every node near coord/.style={anchor=180}] coordinates {( 2.90, 0.8)};  
+\end{axis} 
+\end{tikzpicture}
 \centering
 \caption{Multiplizieren komplexer Zahlen}
 \end{figure}
-  \item[b)]$z =i, w = a+ ib\\
-  i\cd w = -b \cd ia$\\
-  Multiplikation mit i $\widehat{=}$ Drehung um $90^{\circ}$\\
+\item[b)]$z =i, w = a+ ib\\
+i\cd w = -b \cd ia$\\
+Multiplikation mit i $\hat{=}$ Drehung um $90^{\circ}$\\
 \begin{figure}[h!]
 \begin{tikzpicture}
 \begin{axis}[axis x line=center,
-    axis y line=center,,axis equal,xlabel={$Re(z)$},ylabel={$Im(z)$},ymin = 0,xmin = -5,ymax = 5,xmax = 7,xtick ={-3,3},xticklabels={-a,a},ytick ={1,4},yticklabels={i,-b},disabledatascaling]
+axis y line=center,,axis equal,xlabel={$Re(z)$},ylabel={$Im(z)$},ymin = 0,xmin = -5,ymax = 5,xmax = 7,xtick ={-3,3},xticklabels={-a,a},ytick ={1,4},yticklabels={i,-b},disabledatascaling]
 \draw [dashed] (axis cs:0,0)--(axis cs:3,4);
 \draw [dashed] (axis cs:0,0)--(axis cs:-3,4);
-   \addplot [black, mark = *, nodes near coords=$w$,every node near coord/.style={anchor=0}] coordinates {( 3, 4)};
-      \addplot [black, mark = *, nodes near coords=$i \cd w$,every node near coord/.style={anchor=0}] coordinates {( -3, 4)};
-      \draw[->](axis cs:3,4) arc [radius=3,start angle=0,end angle=180];      
-    \end{axis} 
-  \end{tikzpicture}
+\addplot [black, mark = *, nodes near coords=$w$,every node near coord/.style={anchor=0}] coordinates {( 3, 4)};
+  \addplot [black, mark = *, nodes near coords=$i \cd w$,every node near coord/.style={anchor=0}] coordinates {( -3, 4)};
+  \draw[->](axis cs:3,4) arc [radius=3,start angle=0,end angle=180];      
+\end{axis} 
+\end{tikzpicture}
 \centering
 \caption{Multiplikation mit i}
 \end{figure}
- 
+
 \end{enumerate}
 \subsection{Bemerkung und Definition}
 Wir werden sp\"ater die komplexe Exponentialfunktion einf\"uhren.\\
-$e^{z}$ f\"ur alle $z \in \C$ e = Euler`sche Zahl $\approx 2,718718\ldots\\
-e^{z_1} =cd e^{z_2} = e^{z_1+z_2}, e^{-z} = \frac{1}{e^z}$\\
+$e^{z}$ f\"ur alle $z \in \C$\quad e = Euler`sche Zahl $\approx 2,718718\ldots\\
+e^{z_1} \cd e^{z_2} = e^{z_1+z_2}\quad e^{-z} = \frac{1}{e^z}$\\
 Es gilt: $t \in \R : e^{it} = \cos(t) + i \cd \sin(t)$\\
 Jede komplexe Zahl l\"asst sich schreiben $z = r \cd e^{i \cd \varphi}, r =\abs{z}, \varphi$ Winkel\\
 $r \cd (\cos(\varphi) + i \sin(\varphi))$ ist Polarform von $z.\\
@@ -307,23 +307,25 @@ $\bullet (r,\varphi)$ Polarkoordinaten\\
 $\abs{e^{i\varphi}} = + \sqrt{cos^2(\varphi) + \sin^2(\varphi)}=1\\
 e^{i\varphi},0 \leq \varphi \leq 2\pi,$ Punkte auf dem Einheitskreis.\\
 $e^{i\pi} = -1$\\
-\fbox{$e^{i\pi} +1 =0$} Euler'sche Gleichung
+\begin{equation}
+\boxed{e^{i\pi} +1 =0} \tag{\text{Euler'sche Gleichung}}
+\end{equation}
 \subsection[Satz: Komplexe Wurzeln]{Satz}\label{sec:1.10}
-Sei $w = \mid w \mid \cd ( \cos(\varphi) + i \cd \sin(\varphi)) \in \C$\\
+Sei $w = \abs{w} \cd (\cos(\varphi) + i \cd \sin(\varphi)) \in \C$\\
 \begin{enumerate}
-\item[a)] Ist $m \in \Z$, so ist $w^m = \mid w \mid^m \cd ( \cos(m \cd \varphi) + i \cd \sin(m \cd \varphi))\\
-( m < 0 : w^m = \frac{1}{w^{\mid m \mid}}), w \not = 0$\\
+\item[a)] Ist $m \in \Z$, so ist $w^m = \abs{w}^m \cd ( \cos(m \cd \varphi) + i \cd \sin(m \cd \varphi))\\
+( m < 0 : w^m = \frac{1}{w^{\mid m \mid}}), w \ne 0$
 \item[b)] Quadratwurzeln
 \item[c)] Ist $n \in \N, w \not = 0$, so gibt es genau n n-te Wurzeln von $w:\\
-\sqrt[n]{w} = + \sqrt[n]{\mid w \mid} \cd (\cos(\frac{\varphi}{n} + \frac{2\pi \cd k}{n}) + i \sin(\frac{\varphi}{n}+ \frac{2\pi \cd k}{n})), n \in \N  ,k \in \{0, \ldots,n-1\}$
+\sqrt[n]{w} = + \sqrt[n]{\abs{w}} \cd (\cos(\frac{\varphi}{n} + \frac{2\pi \cd k}{n}) + i \sin(\frac{\varphi}{n}+ \frac{2\pi \cd k}{n})), n \in \N  ,k \in \{0, \ldots,n-1\}$
 \end{enumerate}
 \begin{proof}
 a) richtig, wenn $m=0,1$\\
-$m \geq 2.$ Folgt aus ($\star$)\\
+$m \geq 2.$ Folgt aus \ref{sec:1.8}\\
 $m=-a:\\
-w^{-1} = \frac{1}{w} = \frac{1}{\mid w \mid^2 \cd ( \cos^2(\varphi) + i \cd \sin^2( \varphi))} \cd \mid w \mid \cd \cos(\varphi) - \sin(\varphi)\\
-= \frac{1}{w} = \frac{1}{mid w \mid \cd \underbrace{( \cos^2(\varphi) + i \cd \sin^2( \varphi))}}_{=1} \cd \mid w \mid \cd \cos(\varphi) - \sin(\varphi)\\
-= \frac{1}{\mid w \mid } \cd (\cos(-\varphi + i \cd \sin(-\varphi)) = \mid w \mid^{-1} \cd (\cos(-\varphi) + \sin(-\varphi))$\\
+w^{-1} = \frac{1}{w} = \frac{1}{\abs{w}^2 \cd ( \cos^2(\varphi) + i \cd \sin^2( \varphi))} \cd \abs{w}\cd \cos(\varphi) - \sin(\varphi)\\
+= \frac{1}{w} = \frac{1}{\abs{w} \cd \underbrace{( \cos^2(\varphi) + i \cd \sin^2( \varphi))}}_{=1} \cd \abs{w} \cd \cos(\varphi) - \sin(\varphi)\\
+= \frac{1}{\abs{w}} \cd (\cos(-\varphi + i \cd \sin(-\varphi)) = \abs{w}^{-1} \cd (\cos(-\varphi) + \sin(-\varphi))$\\
 \end{proof}
 \subsection{Beispiel}
 Quadratwurzel aus $i:\\
@@ -345,7 +347,7 @@ mit irgendwelchen Koeffizienten: $a_n \ldots a_0 \in \C$ hat Nullstelle in $\C$
 \subsection{Definition}
 Sei k $\in \Z$,
 $A_k := \{ m \in \Z : m > k\}\\
-(k = 0 A_0 \in \N_0, k = 1 , A_n \in \N)$\\
+(k = 0,\, A_0 \in \N_0,\, k = 1,\, A_n \in \N)$\\
 Abbildung a $: A \Rightarrow \R $(oder $\C)\\
 \hspace*{2.5cm} m \Rightarrow a_n\\
 $hei\ss t \underline{Folge} reeller Zahlen\\
@@ -358,7 +360,7 @@ $a_m$ hei\ss t \underline{m-tes Glied} der Folge, m \underline{Index}\\
 \item[a)] $a_n = 5$ f\"ur alle $n > 1$\\
 $(5,5,5,5,5,5,5,5,5,5,5,5,5,\ldots$)\\
 \item[b)] $a_n = n$ f\"ur alle $n>1$\\
- (1,2,3,4,5,6,7,8,9,10,$\ldots$)\\
+(1,2,3,4,5,6,7,8,9,10,$\ldots$)\\
 \item[c)] $a_n = \frac{1}{n}\\
 (\frac{1}{1}, \frac{1}{2} ,\frac{1}{3}, \frac{1}{4}, \ldots)$\\
 \item[d)]$a_n \frac{(n+1)^2}{2^n}\\
@@ -381,7 +383,7 @@ D.h. $\exists D > 0 : - D \leq a_n \leq D$ f\"ur alle $n > k$.\\
 \centering \caption{Beschränktheit von Folgen}
 \begin{tikzpicture}
 \begin{axis}[axis x line=center,
-    axis y line=center,axis equal,ymin = -4,xmin = 0,ymax = 4,xmax = 7,xtick ={1,2,3,4,5},ytick ={3,-3},yticklabels={D,-D}]
+axis y line=center,axis equal,ymin = -4,xmin = 0,ymax = 4,xmax = 7,xtick ={1,2,3,4,5},ytick ={3,-3},yticklabels={D,-D}]
 \draw [dashed] (axis cs:-10,3)--(axis cs:10,3);
 \draw [dashed] (axis cs:-10,-3)--(axis cs:10,-3);
 \addplot [black, mark = +] coordinates {( 1, 0.3)};
@@ -390,11 +392,11 @@ D.h. $\exists D > 0 : - D \leq a_n \leq D$ f\"ur alle $n > k$.\\
 \addplot [black, mark = +] coordinates {( 4, 1)};
 \addplot [black, mark = +] coordinates {( 5, 0.5)};   
 \end{axis}
-  \end{tikzpicture} 
+\end{tikzpicture} 
 \end{figure}
 \subsection{Definition}
 Eine Folge $(a_n)_{n \geq k}$ hei\ss t \uline{konvergent} gegen $\varepsilon \in \R$ (konvergent gegen $\varepsilon$), falls gilt:\\
-$\forall \varepsilon > 0 \exists n(\varepsilon) \in \N \forall n \geq n(\varepsilon) : \mid a_n -c \mid < \varepsilon\\
+$\forall \varepsilon > 0 \exists n(\varepsilon) \in \N \forall n \geq n(\varepsilon) : \abs{a_n -c} < \varepsilon\\
 c = \lim_{n \Rightarrow \infty} a_n $ (oder einfach $c = \lim a_n$)\\
 c hei\ss t \uline{Grenzwert} (oder Limes) der Folge ($a_n$)\\
 (Grenzwert h\"angt nicht von endlich vielen Anfangsgliedern ab (der Folge))\\
@@ -403,8 +405,8 @@ Eine Folge die gegen 0 konvertiert, hei\ss t \uline{Nullfolge}\\
 \begin{enumerate}
 \item[a)]$r \in \R : a_n = r$ f\"ur alle $n \geq 1$\\
 $(r,r,\ldots)\\
-\lim_{n \Rightarrow \infty} = r\\
-\mid a_n - r \mid = 0$ f\"ur alle $n$\\
+\lim\limits_{n \Rightarrow \infty} = r\\
+\abs{a_n - r} = 0$ f\"ur alle $n$\\
 F\"ur jedes $\varepsilon >0$ kann man $n(\varepsilon) = 1$ w\"ahlen
 \item[b)]$a_n = n$ f\"ur alle $ n\ \geq 1$\\
 Folge ist nicht beschr\"ankt, konvergiert nicht.
@@ -419,8 +421,8 @@ Aus Mathe I folgt, dass solch ein $n(\varepsilon)$ existiert.\\
 z.B $n(\varepsilon) - \ceil{\frac{1}{2}} + 1 > \frac{1}{\varepsilon}$\\
 Dann:\\
 $\abs{a_n -0} < \frac{1}{n} < \varepsilon$ f\"ur alle $n \geq n(\varepsilon)$
-\item[d)]$a_n = \frac{3n^2+1}{n^2+n+1}$ f\"ur lle $n \geq 1$\\
-Behauptung: $\lim_{n\Rightarrow\infty}a_n = 3\\
+\item[d)]$a_n = \frac{3n^2+1}{n^2+n+1}$ f\"ur alle $n \geq 1$\\
+Behauptung: $\lim\limits_{n\Rightarrow\infty}a_n = 3\\
 \begin{array}{rlll}
 \abs{a-3} &=& \abs{\frac{3n^2+1}{n^2+n+1}-3}&= \abs{\frac{3n^2+1-3(n^2+n+1)}{n^2+n+1}}\\
 &=& \abs{\frac{-3n-2}{n^2+n+1}} &= \frac{3n+2}{n^2+n+1}
@@ -437,35 +439,35 @@ Sei $c \in \mathbb{R}$ beliebig, W\"ahle $\varepsilon = \frac{1}{2}$\\
 \centering
 \begin{tikzpicture}
 \begin{axis}[axis x line=center,
-    axis y line=center,axis equal,ymin = -2,xmin = 0,ymax = 2,xmax = 6,xtick ={1,2,3,4,5},ytick ={3,-3},yticklabels={D,-D},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={},extra tick style = {grid = major}]
+axis y line=center,axis equal,ymin = -2,xmin = 0,ymax = 2,xmax = 6,xtick ={1,2,3,4,5},ytick ={3,-3},yticklabels={D,-D},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={},extra tick style = {grid = major}]
 \addplot [black, mark = +] coordinates {( 1, -1)};
 \addplot [black, mark = +] coordinates {( 2, 1)};
 \addplot [black, mark = +] coordinates {( 3, -1)};
 \addplot [black, mark = +] coordinates {( 4, 1)};
 \addplot [black, mark = +] coordinates {( 5, -1)};
-               
+           
 \end{axis}
-  \end{tikzpicture}
+\end{tikzpicture}
 \caption[Beschränkte aber nicht konvergente Folge]{$(-1)^n$ ist beschränkt aber konvergiert nicht}
 \end{figure}
 
 $2 = \abs{a_n-a_{n+1}} \leq \abs{a_n - c} + \abs{c - a_{n+1}} < \frac{1}{2}+ \frac{1}{2} =$\underline{$1$} $\lightning$
 \end{enumerate}
 \subsection[Satz: Beschränktheit und Konvergenz]{Satz}\label{sec:2.6}
-Jede konvergente Folge ist beschr\"ankt. (Umkehrung nicht: \ref{sec:2.5}e))\\
+Jede konvergente Folge ist beschr\"ankt. (Umkehrung nicht: \ref{sec:2.5}e))
 \begin{proof}
 Sei $c= \lim a_n$, w\"ahle $\varepsilon =1$,\\
 Es existiert $n(1) \in \N$ mit $\abs{a_n -c} < 1$ f\"ur alle $n \geq n(1)$\\
 Dann ist\\
 $\abs{a_n} = \abs{a_n-c+c} \leq \abs{a_n -c} + \abs{c} < 1 + \abs{c}$ f\"ur alle $n \geq n(1)\\
-M = max \{ \abs{a_k},\abs{a_{k+1}},\ldots,\abs{a_{n(1)-1)}, 1 + \abs{c} \}\\
+M = \max \{ \abs{a_k},\abs{a_{k+1}},\ldots,\abs{a_{n(1)-1)}}, 1 + \abs{c} \}\\
 $ Dann: $\abs{a_n} \leq M$ f\"ur alle $n \geq k\\
 -M \leq a_n \leq M$
 \end{proof}
 \subsection{Bemerkung}\label{sec:2.7}
 \begin{enumerate}
-\item[a)]$(a_n)_{n \geq 1}$ Nullfolge $\Leftrightarrow (\abs{a_n})_{n \geq 1}$ Nullfolge ($\abs{a_n - 0} = \abs{a_n} - \abs{\abs{a_n}-0}}$
-\item[b)]$\lim_{n\Rightarrow\infty} a_n = c \Leftrightarrow (a_n -c)_{n \geq k}$ ist Nullfolge $\Leftrightarrow (\abs{a_n -c})_{n \geq k}$ ist Nullfolge
+\item[a)]$(a_n)_{n \geq 1}$ Nullfolge $\Leftrightarrow (\abs{a_n})_{n \geq 1}$ Nullfolge ($\abs{a_n - 0} = \abs{a_n} - \abs{\abs{a_n}-0}$
+\item[b)]$\lim\limits_{n\Rightarrow\infty} a_n = c \Leftrightarrow (a_n -c)_{n \geq k}$ ist Nullfolge $\Leftrightarrow (\abs{a_n -c})_{n \geq k}$ ist Nullfolge
 \end{enumerate}
 \subsection{Satz (Rechenregeln f\"ur konvergente Folgen)}\label{sec:2.8}
 Seien $(a_n)_{n \geq k}$ und $(b_n)_{n \geq k}$ konvergente Folgen, $\lim a_n = c, \lim b_n = d.$\\
@@ -482,7 +484,7 @@ insbesondere $\lim(r \cd b_N) = r \cd \lim b_n = r \cd d$ f\"ur jedes $r \in \R.
 \fbox{$c_n$ muss nicht konvergieren!}
 \end{enumerate}
 \begin{proof}
-Exemplarisch:\\
+Exemplarisch:
 \begin{enumerate}
 \item[b)] Sei $\varepsilon > 0$. Dann existiert $n_1(\frac{\varepsilon}{2})$ und $n_2(\frac{\varepsilon}{2})$ und $\abs{a_n -c} < \frac{\varepsilon}{2}$ f\"ur alle $n \geq n_1(\frac{\varepsilon}{2})\\
 \abs{b_n-d} < \frac{\varepsilon}{2}$ f\"ur alle $n \geq n_2(\frac{\varepsilon}{2})$\\
@@ -501,7 +503,7 @@ $= \abs{c -a_n - d +b_n} \leq \abs{c-a_n} + \abs{d -b_n}\\
 \subsection[Satz: Kriterien für Nullfolgen]{Satz}\label{sec:2.9}
 \begin{enumerate}
 \item[a)] $0 \leq q \leq 1$ Dann ist $(q^n)_{n \geq 1}$ Nullfolge
-\item[b)]Ist $m \in \N$, so ist $((\frac{1}{n^m})_{n \geq 1}$ Nullfolge.
+\item[b)]Ist $m \in \N$, so ist $(\frac{1}{n^m})_{n \geq 1}$ Nullfolge.
 \item[c)]Sei $0 \leq q < 1, m \in \N$\\
 Dann ist ($n^m \cd q^n)_{n \geq 1}$ Nullfolge
 \item[d)] Ist $r > 1, m \in \N$, so ist $(\frac{n^m}{r^n}_{r \geq 1}$ eine Nullfolge)
@@ -510,18 +512,18 @@ Q(x) = b_e \cd x^e + \ldots b_0 , b_i \in \R , b_e \not = 0$\\
 Sei $Q(n) \not = 0 $ f\"ur alle $n \geq k.$\\
 \begin{enumerate}
 \item[-]Ist $m>e$, so ist $\frac{P(n)}{Q(n)}$ nicht konvergent
-\item[-]Ist $m = e$, so ist $\lim_{n\Rightarrow \infty} \frac{P(n)}{Q(n)}= \frac{a_m}{b_e} = \frac{a_m}{b_m}$\\
+\item[-]Ist $m = e$, so ist $\lim_{n\Rightarrow \infty} \frac{P(n)}{Q(n)}= \frac{a_m}{b_e} = \frac{a_m}{b_m}$
 \item[-]Ist $m < l$, so ist$ (\frac{P(n)}{Q(n)})$ ein Nullfolge
 \end{enumerate}
 \end{enumerate}
 \begin{enumerate}[a)]
-\i Sei $0 \leq q \leq 1$ Dann ist $(q^n)_{n \geq}$ eine Nullfolge\\
+\i Sei $0 \leq q \leq 1$ Dann ist $(q^n)_{n \geq}$ eine Nullfolge
 \begin{proof}
 a) Richtig für $q > 0$. Sei jetzt $q > 0$.\\
 Sei $\varepsilon > 0$. Mathe I: Es gibt ein $n(\varepsilon) \in \N$ mit $q^{n(\varepsilon} < \varepsilon.$\\
 Für alle $n \geq n(\varepsilon)$ gilt: $\abs{q^{n} -o} = q^n < q^{n(\varepsilon)} < \varepsilon.$\\
 \end{proof}
-\i \ref{sec:2.5}c): $\frac{1}{n}_{n \geq 1}$ Nullfolge Beh. folgt mit 2.8.c)\\
+\i \ref{sec:2.5}c): $\frac{1}{n}_{n \geq 1}$ Nullfolge Beh. folgt mit 2.8.c)
 \i Richtig für $q=0$. Sei jetzt $q > 0$.\\
 \underline{1.Fall}: m= 1\\
 $\frac{1}{q} = 1+t, t > 0.\\
@@ -555,23 +557,23 @@ a_n \leq x \leq b_n\\
 0 < b_n - a_n = \frac{b_0 - a_0}{2^n}\\
 0 \leq \abs{x-a_n} \leq b_n - a_n = \frac{b_0-a_n}{2} \Leftarrow$ Nullfolge (\ref{sec:2.9}b)\\
 \ref{sec:2.8}e)$ (\abs{x-a_n})$ Nullfolge.\\
-\ref{sec:2.7}e): $\lim_{n \rightarrow \infty} a_n = x$\\
-Analog: $\lim_{n \rightarrow \infty} b_n = x\\
+\ref{sec:2.7}e): $\lim\limits_{n \rightarrow \infty} a_n = x$\\
+Analog: $\lim\limits_{n \rightarrow \infty} b_n = x\\
 $\ref{sec:2.9} d) e) sind Beispiele für asymptotischen Vergleich von Folgen
 \subsection{Definition}
 \begin{enumerate}[a)]
 \i Eine Folge $(a_n)_{ n \geq k}$ hei\ss t \underline{strikt positiv}, falls $a_n > 0$ für alle $n \geq k$.\\
-Sei im Folgenden $(a_n)_{n \geq k}$ eine strikt positive Folge.\\
+Sei im Folgenden $(a_n)_{n \geq k}$ eine strikt positive Folge.
 \i $\begin{array}{rcl}
 \mathbb{O}(a_n) &=& \{ (b_n)_{n \geq k} : \text{ist beschränkt} \}\\
 &=& \{ (b_n)_{n \geq k} \exists C > 0 \text{ mit } \abs{b_n} \leq C \cd a_n \}
 \end{array}$
-\i $O(a_n) = \{(b_n)_{n \geq k}: (\frac{b_n}{a_n} \text{ist Nullfolge} \}\\
+\i $O(a_n) = \{(b_n)_{n \geq k}: (\frac{b_n}{a_n}) \text{ist Nullfolge} \}\\
 (b_n) \in o(a_n)$ hei\ss t Folge $(a_n)$ wächst wesentlich schneller als die Folge $(b_n)$.
 Klar: $o(a_n) \subset O(a_n)\\
 O,o ($ \glqq gro\ss \ Oh\grqq, \glqq klein Oh\grqq)\\
 \underline{Landau-Symbole}\\
-$\begin{array}{lcrll}
+$\begin{array}{lrrll}
 \text{z.B}& (n^2) &\in& o(n^3)\\
 & (n^2+n+1) &\in& O(n^2) & n^2 + n + 1 \leq 3n^2\\
 & (n^2) &\in&O(n^2 + n +1) &n^2 \leq n^2 + n + 1
@@ -588,7 +590,7 @@ Sei $P(x) = a_m \cd x^m + \ldots + a_1 \cd x + a_o, m \geq 0, a_m \not = 0$.
 \i $(P(n)) \in o(n!)$ für alle $l>m$ und\\
 $(P(n)) \in O(n')$ für alle $l \geq m$.
 \i ist $r > 1$, so ist $(P(n)) \in o(r^n).\\
-\lbrack(r^n)$ wächst deutlich schneller als $(P(n))\rbrack$\\
+\lbrack(r^n)$ wächst deutlich schneller als $(P(n))\rbrack$
 \begin{proof}
 a) folgt aus \ref{sec:2.9}e).\\
 $m = l$ (\ref{sec:2.6})\\
@@ -626,8 +628,8 @@ $(a_n){n \geq 1}$ streng monoton steigend.
 \i $(a_n)_{n \geq k}$ monoton fallend und nach unten beschränkt, so konvergiert $(a_n)_{n \geq k}$ und $\lim\limits_{n \rightarrow \infty} a_n = \inf \{a_n: n\geq k \}.$
 \begin{proof}
 a)\\
-$ c \sup \{a_n : n \geq k\}.$ existiert (Mathe I).
-Zeige: $\lim\limits_{a_n} = c$.\\
+$ c = \sup \{a_n : n \geq k\}.$ existiert (Mathe I).
+Zeige: $\lim\limits_{n \to \infty}a_n = c$.\\
 Sei $\varepsilon > 0$. Dann existiert $n(\varepsilon)$ mit $c-\varepsilon < a_{n(\varepsilon)} \leq c$\\
 Denn sonst $a_n \leq c - \varepsilon$ für alle $n \geq k$ und $c - \varepsilon$ wäre obere Schranke für $\{a_n : n \geq k \}$ Widerspruch dazu, dass c kleinste obere Schranke. Für alle $n \geq n(\varepsilon)\\
 c- \varepsilon \leq a_{n(\varepsilon)} \leq a_n \leq c\\
@@ -637,7 +639,7 @@ b) analog
 \end{enumerate}
 \subsection{Satz (Cauchy'sches Konvergenzkriterium)}
 \hfill (Cauchy, 1789 - 1859)\\
-Sei $(a_n)_{n \geq k}$ eine Folge. Dann sind äquivalent:\\
+Sei $(a_n)_{n \geq k}$ eine Folge. Dann sind äquivalent:
 \begin{enumerate}[(1)]
 \i $(a_n)_{n \geq k}$ konvergent
 \i $\forall \varepsilon > 0 \exists \ N -M(\varepsilon) \forall n,m \geq N: \abs{a_n - a_m} < \varepsilon$ (Cauchyfolge)\\
@@ -647,7 +649,7 @@ Grenzwert muss nicht bekannt sein!
 \centering
 \begin{tikzpicture}
 \begin{axis}[axis x line=center,
-    axis y line=center,axis equal,ymin = -4,xmin = 0,ymax = 4,xmax = 7,xtick ={1, 6}, xticklabels={N(1),N($\varepsilon$)},ytick ={3,-3},yticklabels={D,-D},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={},extra tick style = {grid = major}]
+axis y line=center,axis equal,ymin = -4,xmin = 0,ymax = 4,xmax = 7,xtick ={1, 6}, xticklabels={N(1),N($\varepsilon$)},ytick ={3,-3},yticklabels={D,-D},extra x ticks={0},extra x tick label={0},extra y ticks={0},extra y tick labels={},extra tick style = {grid = major}]
 \draw [dashed] (axis cs:-10,3)--(axis cs:10,3);
 \draw [dashed] (axis cs:-10,-3)--(axis cs:10,-3);
 \draw [red] (axis cs:-10,0.1)--(axis cs:10,0.1);
@@ -664,12 +666,12 @@ Grenzwert muss nicht bekannt sein!
 \addplot [black, mark = none, nodes near coords=$\varepsilon$,every node near coord/.style={anchor=180}] coordinates {( 5, -2)};
 \draw [-> , red] (axis cs: 5,-2)--(axis cs: 5, 0.25);              
 \end{axis}
-  \end{tikzpicture}
+\end{tikzpicture}
 \caption{Cauchy'sches Konvergenzkriterium}
 \end{figure}
 \subsection{Definition}
 \begin{enumerate}[a)]
-\i Sei $(a_i)_{i \geq k}$ eine Folge, $s_n \sum\limits_{i = k}^{n} a_i , n \geq k$ (Partialsummen der Folge)\\
+\i Sei $(a_i)_{i \geq k}$ eine Folge, $s_n = \sum\limits_{i = k}^{n} a_i , n \geq k$ (Partialsummen der Folge)\\
 Dann hei\ss t $(s_n)_{n \geq k}$ eine \underline{unendliche Reihe}\\
 $(k-1: a_1, a_1+a_2, a_1 + a_2 + a_2,\ldots)$\\
 Schreibweise : $\sum\limits_{i = k}^{\infty} a_i$\\
@@ -678,7 +680,7 @@ so schreibt man $\sum\limits_{i = k}^{\infty} a_i =c.$ Reihe \underline{konvergi
 Wenn $(s_n)$ nicht konvergiert, so hei\ss t die Reihe $\sum\limits_{i =k}^{\infty} a_i$ \underline{divergent.}\\
 (Zwei Bedeutungen von $\sum\limits_{i = k}^{\infty} a_i:$\\
 \begin{enumerate}[-]
-\i Folge der Partialsummen\\
+\i Folge der Partialsummen
 \i Grenzwert von $(s_n)$, falls dieser existiert
 \end{enumerate}
 $\sum\limits_{i=k}^{\infty} a_i = \sum\limits_{n=k}^{\infty} a_n = (s_m)_{m \geq k}$
@@ -719,7 +721,7 @@ n &= 2^1 &=2 &: s_2 =  1 + \frac{1}{2}\\
 n &= 2^3 &=8 &: s_8 = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4}+ \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} > s_7 > s_6 \ldots 
 \end{array}$\\
 Per Induktion zu beweisen!
-\i $\seriesnull{\frac{1}{n^2}}$ konvergiert.\\
+\i $\seriesnull{\frac{1}{i^2}}$ konvergiert.\\
 Folge der Partialsummen ist monoton steigend.\\
 2.16a) Zeige, dass die Folge der Partialsummen nach aber beschränkt ist.\\
 $\begin{array}{lcl}
@@ -745,14 +747,14 @@ $s_k \underset{(2)}{\leq} s_{2n-1} \underset{\uparrow}{<} s_{2n} \underset{(1)}{
 \centering \caption{Monotonie}
 \begin{tikzpicture}
 \begin{axis}[height=3cm,width=9cm,axis x line=center,
-    axis y line=none,axis equal,ymin = 0,xmin = 0,ymax = 0,xmax = 7,xtick ={1,2,3,4,5,6}, xticklabels={$s_1$,$s_3$,$s_5$,$s_6$,$s_4$,$s_2$},ytick ={},yticklabels={}]             
+axis y line=none,axis equal,ymin = 0,xmin = 0,ymax = 0,xmax = 7,xtick ={1,2,3,4,5,6}, xticklabels={$s_1$,$s_3$,$s_5$,$s_6$,$s_4$,$s_2$},ytick ={},yticklabels={}]             
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 Abstand $s_{2n} - s_{2n-1} = \frac{1}{2n}$ geht gegen 0.\\
 $\sup \{s_{2n-1} : n \geq 1\} \\
 \inf\{s_{2n} : n \geq 1\} \\
-= \lim\limits_{i \leftarrow \infty} (-1^i) \frac{1}{i} \in ]-1, -\frac{1}{2}[$ (Es gilt $limes = -\ln 2)$
+= \lim\limits_{i \to \infty} (-1^i) \frac{1}{i} \in ]-1, -\frac{1}{2}[$ (Es gilt $\lim = -\ln 2)$
 \end{enumerate}
 \subsection*{Bemerkung}
 Was bedeutet $0.\bar{8} = 0.88888888\ldots$? (Dezimalsystem)\\
@@ -787,10 +789,10 @@ aber $\sum\limits_{i=1}^{\infty} \abs{a_i}$ konvergiert nicht. $(\star)$
 $\series{a_i}$ hei\ss t \underline{absolut konvergent}, falls $\series{\abs{a_i}}$ konvergiert. \\
 (Falls alle $a_i \geq 0:$ Konvergent = absolut Konvergent)
 \subsection{Korollar}
-Ist $\series{a_i}$ absolut konvergent, sp ist auch konvergiert. Die Umkehrung gilt im Allgemeinen nicht.\\
+Ist $\series{a_i}$ absolut konvergent, so auch konvergent. Die Umkehrung gilt im Allgemeinen nicht.\\
 \underline{Beweis}: 1.Behauptung 2.22 mit $b_i = \abs{a_i}$\\
 Umkehrung siehe $(\star)$
-\subsection*{Bermerkung}
+\subsection*{Bemerkung}
 Was bedeutet $0,a_1,a_2,a_3,a_4 \ldots\\
 a_i \in \{0 \ldots 9\}$ (Dezimalsystem)\\
 $a_1 \cd \frac{1}{10} a_2 \cd \frac{1}{100} \ldots a_n \cd \frac{1}{10^n} \leq 9 \cd \frac{1}{10} 9 \cd \frac{1}{100} \ldots 9 \cd \cd \frac{1}{10^n}\\
@@ -807,7 +809,7 @@ Ist $\sqrt[i]{\abs{a_i}} \geq 1$ für unendlich viele i so divergiert $\series{a
 Existiert $q > 1$ und ein Index $i_0$, so dass $\abs{\frac{a_{i+1}}{a_i } } \leq$ für alle $i \geq i_0$,\\
 so konvergiert $\series{a_i}$ absolut. 
 \end{enumerate}
-\begin{proof} \ \\
+\begin{proof}
 \begin{enumerate}[a)]
 \i $\abs{a_i} \leq q^i$ für alle $i \geq i_0$
 \i[] $\sum\limits_{i=i_0}^{\infty} q^i$ konvergiert (2.20 a)) 
@@ -838,13 +840,13 @@ z.B. harmonische Reihen : $\sum\limits_{i=1 }^{\infty} \frac{1}{i}$ divergiert.\
 \subsection{Beispiel}
 Sei $x \in \R$. Dann konvergiert $\seriesnull{\frac{x^i}{i!}}$ absolut $(0^0=1, 0! = 1):$\\
 Quotientenkriterium:\\
-$\abs{\frac{x^{i+1} \cd i!}{(i+1)! \cd x^i}} = \abs{frac{x}{i+1}} = \frac{\abs{x}}{i+1}$ Wähle $i_o$, so dass $i_0 + 1 > 2 \cd \abs{x}$\\
+$\abs{\frac{x^{i+1} \cd i!}{(i+1)! \cd x^i}} = \abs{\frac{x}{i+1}} = \frac{\abs{x}}{i+1}$ Wähle $i_o$, so dass $i_0 + 1 > 2 \cd \abs{x}$\\
 Für alle $i \geq i_0$:\\
 $\frac{\abs{x}}{(i+1)} \leq \frac{\abs{x}}{(i_0+1)} < \frac{\abs{x}}{2 \cd \abs{x}} = \frac{1}{2} = q$.
 \subsection{Bemerkung}
 Gegeben seien zwei endliche Summen\\
-$\seriesalg{n=0}{k}{a_n}, \seriesalg{n=0}{l}{b_n}$.\\
-$(\seriesalg{n=0}{k}{a_n})(\seriesalg{n=0}{l}{b_n})$
+$\seriesalg{a_n}{k}{n=0}, \seriesalg{b_n}{l}{n=0}$.\\
+$(\seriesalg{a_n}{k}{n=0})(\seriesalg{b_n}{l}{n=0})$
 \begin{huge}
 $(\star)$
 \end{huge}\\
@@ -854,16 +856,15 @@ $(\star)$
 \end{huge}
 $= \underbrace{a_0 b_0}_{\text{Indexsumme 0}} + \underbrace{(a_0b_1+ a_1b_0)}_{\text{Indexsumme 2}} + \ldots + \underbrace{a_kb_l}_{\text{Indexsumme k+l}}$
 \subsection{Definition}
-Seien $ \seriesnull{a_n}, \seriesnull{b_n}$ unendliche Reihen.\\
-Das \underline{Cauchy-Produkt}(\underline{Faltungsprodukt}) der beiden Reihen ist die Reihe $\seriesnull{c_n}$, wobei $c_n = \seriesnull{a_i \cd b_{n-1}} = a_0b_n + ab_{n-1} + \ldots a_nb_0$
+Seien $ \seriesnull{a_n}, \seriesnnull{b_n}$ unendliche Reihen.\\
+Das \underline{Cauchy-Produkt}(\underline{Faltungsprodukt}) der beiden Reihen ist die Reihe $\seriesnnull{c_n}$, wobei $c_n = \seriesnnull{a_i \cd b_{n-1}} = a_0b_n + ab_{n-1} + \ldots a_nb_0$
 \subsection[Satz: Konvergenz im Cauchy Produkt]{Satz}
-Sind $\seriesnull{a_n}, \seriesnull{b_n}$ absolut konvergent Reihen mit Grenzwert $c ,d$, so ist das Cauchy Produkt auch absolut konvergent mit Grenzwert $c \cd d$. \begin{flushright}
+Sind $\seriesnnull{a_n}, \seriesnnull{b_n}$ absolut konvergent Reihen mit Grenzwert $c ,d$, so ist das Cauchy Produkt auch absolut konvergent mit Grenzwert $c \cd d$. \hfill
 Beweis: \cite{k1}
-\end{flushright}
 
 \section{Potenzreihen}
 \subsection{Definition}
-Sei $(b_n)$ eine reelle Zahlenfolge, $a \in \Re$\\
+Sei $(b_n)$ eine reelle Zahlenfolge, $a \in \R$\\
 Dann hei\ss t $\sum\limits_{n=0}^{\infty} b_n \cd (x-a)^n$ eine \underline{Potenzreihe} (mit \underline{Entwicklungspunkt} a))
 Speziell: $a=0\\
 \sum\limits_{n = 0}^{\infty} b_n \cd x^n$\\
@@ -874,11 +875,11 @@ Dann Grenzwert $b_ 0$ (da $0^0 = 1$)\\
 Ob Potenzreihe für andere x konvergiert, hängt von $b_n$ ab!
 \subsection{Beispiel} 
 \begin{enumerate}[a)]
-\i $\seriesnull{x^n} (b_n =1$ für alle $n$)\\
+\i $\seriesnnull{x^n} (b_n =1$ für alle $n$)\\
 geometrische Reihe, konvergiert für alle $x \in \  ]-1,1[$
-\i $\seriesnull{2^n \cd x^n} (b_n = 2^n) = \seriesnull{(2 \cd x)^n}$
+\i $\seriesnnull{2^n \cd x^n} (b_n = 2^n) = \seriesnnull{(2 \cd x)^n}$
 konvergiert genau dann nach a), wenn $\abs{2x} < 1$, d.h $\abs{x} < \frac{1}{2}$ d.h. $x \in ]-0.5, 0.5[$\\
-\i $\seriesnull{\frac{x^n}{n!}} (b_n = \frac{1}{n})$\\
+\i $\seriesnnull{\frac{x^n}{n!}} (b_n = \frac{1}{n})$\\
 konvergiert für alle $x, \ x \in ]-\infty,\infty[ = \R $\\
 \end{enumerate}
 \subsection{Satz}
@@ -886,13 +887,13 @@ Sei $ \seriesnull{b_n \cd x^n}$ eine Potenzreihe (um 0). Dann gibt es $R \in \R 
 \begin{enumerate}
 \i Für alle $x \in \R$ und $\abs{x} < R$ konvergiert Potenzreihe absolut (d.h. $\seriesnull{b_n \cd x^n}$
 konvergiert, dann auch $\seriesnull{b_n \cd x^n}$)\\
-Falls $R = \infty$, so hei\ss t das, dass Potenzreihe für alle $x \in \R$ absolut konvergiert.\\
-\i Für alle $x \in \R$ mit $\abs{x} > R$ divergiert $\seriesnull{b_n \cd x^n}$\\
+Falls $R = \infty$, so hei\ss t das, dass Potenzreihe für alle $x \in \R$ absolut konvergiert.
+\i Für alle $x \in \R$ mit $\abs{x} > R$ divergiert $\seriesnnull{b_n \cd x^n}$
 \begin{figure}[h!]
 \centering \caption[Konvergenzradien]{Konvergenzradien und ihre Aussagen}
 \begin{tikzpicture}
 \begin{axis}[width =8cm,height=5cm,axis x line=center,
-    axis y line=none,axis equal,ymin = 0,xmin = -2,ymax = 0,xmax = 2,xtick ={-1, 0 , 1}, xticklabels={-R,  ,R},ytick ={},yticklabels={}]   
+axis y line=none,axis equal,ymin = 0,xmin = -2,ymax = 0,xmax = 2,xtick ={-1, 0 , 1}, xticklabels={-R,  ,R},ytick ={},yticklabels={}]   
 \addplot [black, mark = *, nodes near coords=div.,every node near coord/.style={anchor=90}] coordinates {( -1.5, 0)};
 \addplot [black, mark = *, nodes near coords=konvgt.,every node near coord/.style={anchor=90}] coordinates {( 0, 0)};
 \addplot [black, mark = *, nodes near coords=keine Aus.,every node near coord/.style={anchor=-90}] coordinates {( 1, 0)};
@@ -903,36 +904,34 @@ Falls $R = \infty$, so hei\ss t das, dass Potenzreihe für alle $x \in \R$ absol
 \end{figure}
 $(\lim\limits_{n \rightarrow \infty} \sqrt[n]{\abs{b_n}} = 0 \Rightarrow R = \infty)$
 (Für $\abs{x} = R$ lassen sich keine allgemeine Aussagen treffen).\\
-R hei\ss t der \underline{Konvergenzradius} der Potenzreihe $\seriesnull{b_n \cd x^n}$\\
+R hei\ss t der \underline{Konvergenzradius} der Potenzreihe $\seriesnnull{b_n \cd x^n}$\\
 Konvergenzintervall $<-R,R>$\\
-besteht aus allen $x$ für die $\seriesnull{b_n \cd x^n}$ konvergiert.\\
+besteht aus allen $x$ für die $\seriesnnull{b_n \cd x^n}$ konvergiert.\\
 $<$ kann [ oder ] bedeuten.\\
 $>$ kann ] oder [ bedeuten.
 \end{enumerate}
 \begin{proof}
 $\abs{x_1,x_2} \R, \abs{x_1} \leq \abs{x_2}$\\
-Dann: Falls $\seriesnull{\abs{b_n} \cd \abs{x_n}^n}$ konvergiert, so auch$ \seriesnull{\abs{b_n} \cd \abs{x_n}^n}$ (2.22) \begin{huge}
+Dann: Falls $\seriesnnull{\abs{b_n} \cd \abs{x_n}^n}$ konvergiert, so auch$ \seriesnnull{\abs{b_n} \cd \abs{x_n}^n}$ (2.22) \begin{huge}
 $(\star)$
 \end{huge}\\
 Falls $\sum b_n \cd x_n$ für alle x absolut konvergiert, so setze $R= \infty$\\
-Wenn nicht, so setze $R = \sup \{\abs{x}:x\in \R, \seriesnull{\abs{b_n}\cd \abs{x_n}} $ konvergiert$ \} < \infty$
+Wenn nicht, so setze $R = \sup \{\abs{x}:x\in \R, \seriesnnull{\abs{b_n}\cd \abs{x_n}} $ konvergiert$ \} < \infty$
 Nach $(\star)$ gilt: $\abs{x} < R \Rightarrow \sum b_nx^n$ konvergiert absolut.\\
 Für $\abs{x} > R$ konvergiert $\sum b_nx^n$ nicht absolut.\\
 Sie konvergiert sogar selbst nicht. \\
 \begin{enumerate}[$\Leftrightarrow$]
-\i[]$\sqrt[n]{\abs{b_n} \cd \abs{x}^n} \leq q < 1 $ für alle $n \geq n_0$\\
-\i $\abs{x} \cd \sqrt[n]{\abs{b_n}} \leq 1 < 1$ für alle $n \geq n_0$\\
-\i $\lim\limits_{n \rightarrow \infty} \abs{x_n} \cd \sqrt[n]{\abs{b_n}} < 1$\\
+\i[]$\sqrt[n]{\abs{b_n} \cd \abs{x}^n} \leq q < 1 $ für alle $n \geq n_0$
+\i $\abs{x} \cd \sqrt[n]{\abs{b_n}} \leq 1 < 1$ für alle $n \geq n_0$
+\i $\lim\limits_{n \rightarrow \infty} \abs{x_n} \cd \sqrt[n]{\abs{b_n}} < 1$
 \i[$\uparrow$](setze $\varepsilon = 1 - \lim\limits_{n \rightarrow \infty} \abs{x} \cd \sqrt[n]{\abs{b_n}} > 0)$
 \i $\abs{x} < \frac{1}{\lim\limits_{x \rightarrow \infty} \sqrt[n]{\abs{b_n}}}$
 \i[] $\exists n_0 \forall n \geq n_0 : s - \frac{\varepsilon}{2} < \abs{x} \cd \sqrt[n]{b_n} \leq s + \frac{\varepsilon}{2} =: q < 1$
-\end{enumerate}
-
- 
+\end{enumerate} 
 \end{proof}
 \subsection{Bemerkung}
-Konvergenz von Potenzreihen der Form $\seriesnull{b_n \cd (x-a)^n}$:\\
-gleichen Konvergenzradius $R$ wie $\seriesnull{b_n \cd x^n}$\\
+Konvergenz von Potenzreihen der Form $\seriesnnull{b_n \cd (x-a)^n}$:\\
+gleichen Konvergenzradius $R$ wie $\seriesnnull{b_n \cd x^n}$\\
 konvergiert absolut für $\abs{x-a} < R$, d.h $x \in \ ]a-R,  a+R[$
 Divergiert für $\abs{x-a} > R$.\\
 Keine Aussage für $\abs{x-a} = R$, d.h $ x = a-R$ oder $x = a+R$\\
@@ -940,10 +939,10 @@ Konvergenzintervall $<a-R,a+R>$
 \subsection{Die Exponentialreihe}\label{sec:3.5}
 \begin{enumerate}[a)]
 \i Exponentialreihe
-\i[] $\seriesnull{\frac{x^n}{n!}} (b_n = \frac{1}{n!})$
+\i[] $\seriesnnull{\frac{x^n}{n!}} (b_n = \frac{1}{n!})$
 \i[]\hspace*{1pt} 2.28 Reihe konvergiert für alle $x \in \R.$
 \end{enumerate}
-Setze für $x \in \R : \exp(x):= \seriesnull{\frac{x^n}{n!}}$\\
+Setze für $x \in \R : \exp(x):= \seriesnnull{\frac{x^n}{n!}}$\\
 \underline{Exponentialfunktion}
 $\exp(0) = \frac{0^n}{0!} = 1$\\
 \begin{enumerate}
@@ -952,7 +951,7 @@ $\exp(0) = \frac{0^n}{0!} = 1$\\
 \i[=] $\seriesalg{(\seriesnull{\frac{x^i}{i!}\cd \frac{y^{n-i}}{(n-i)!}})}{\infty}{n=0}$\\
 \i[=]$\seriesalg{(\seriesnull{\frac{1}{n!}\cd \frac{n!}{i! \cd (n-i)!} \cd x^i \cd y^{n-i})}}{\infty}{n=0}$
 \i[=]$\seriesalg{(\seriesnull{{n\choose i} \cd x \cd y^{n-i})}}{\infty}{n=0}$
-\i[=] $\seriesnull{\frac{1}{n}! \cd (x+y)^n}$ = exp(x+y)\\
+\i[=] $\seriesnnull{\frac{1}{n}! \cd (x+y)^n}$ = exp(x+y)\\
 \fbox{$\exp(x+y) = \exp(x) \cd \exp(y)$ für alle x,y $\in \R$}\\
 Daraus folgt: 1 = $\exp(0) = \exp(x + (-x)) = \exp(x) \cd \exp(-x)$\\
 \fbox{$\exp(-x) = \frac{1}{\exp(x)}$ für alle x $\in \R$}$(\star)$\\
@@ -962,7 +961,7 @@ Für alle x $\geq 0: \exp(x) > 0.$ Dann auch wegen $(\star)$\\
 \centering
 \begin{tikzpicture}
 \begin{axis}[axis x line=center,
-    axis y line=center,axis equal,ymin = -0.1,xmin = -2,ymax = 5,xmax = 2]   
+axis y line=center,axis equal,ymin = -0.1,xmin = -2,ymax = 5,xmax = 2]   
 \addplot gnuplot[id=e]{exp(x)};
 \end{axis}
 \end{tikzpicture}
@@ -1016,8 +1015,8 @@ $a\%$ statt $100\% \cd G e^\frac{a}{100}$
 \section[Funktionen und Grenzwerte]{Reelle Funktionen und Grenzwerte von Funktionen}
 \subsection{Definition}
 \underline{Reelle Funktionen f in einer Variable} ist Abbildung\\
-$ f : D \rightarrow \R$, wobei $D \subset \R $ ($D$ = Definitionsbereich).\\
-Typisch: $ D = \R$, Intervall, Verschachtelung von Intervallen
+$ f : D \rightarrow \R$, wobei $D \subseteq \R $ ($D$ = Definitionsbereich).\\
+Typisch: $ D = \R$, Intervall, Verschachtlung von Intervallen
 \subsection{Beispiel}
 \begin{enumerate}[a)]
 \i \underline{Polynomfunktionen} (ganzrationale Funktion, Polynome)\\$
@@ -1035,7 +1034,7 @@ Graph von $f$:\\
 \centering
 \begin{tikzpicture}
 \begin{axis}[axis x line=center,
-    axis y line=center]   
+axis y line=center]   
 \addplot[samples=50] gnuplot[id=4punkt2a]{x**3 - 2*x**2 - x+2};
 \end{axis}
 \end{tikzpicture}
@@ -1056,13 +1055,13 @@ Fkt. $\R \rightarrow \R$
 \caption{$e^x$}
 \begin{tikzpicture}
 \begin{axis}[axis x line=center,
-    axis y line=center]   
+axis y line=center]   
 \addplot[samples=50] gnuplot[id=4punkt2c]{exp(x)};
 \end{axis}
 \end{tikzpicture}
 \end{figure}
 \i Hintereinanderausführung von Funktionen:\\
-$f: D_1 \rightarrow \R, g: D_2 \rightarrow \R  f(D_1) \subset f(D_2)$, dann $ g \circ f : \\\begin{cases}
+$f: D_1 \rightarrow \R, g: D_2 \rightarrow \R  f(D_1) \subseteq f(D_2)$, dann $ g \circ f : \\\begin{cases}
 D_1 \Rightarrow & \R \\
 x \rightarrow & g(f(x)) 
 \end{cases} $\\
@@ -1074,32 +1073,32 @@ f,g : \R \rightarrow \R \\
 \begin{figure*}[h!]
 \centering
 \begin{tikzpicture}
-    \begin{axis}[
-    axis x line=center,
-    axis y line=center,
-    axis equal,ymin = -2,xmin = -2,ymax = 2,
-    xmax = 2,xtick ={},
-    xticklabels={},
-    ytick ={0.65},
-    yticklabels={s},
-    disabledatascaling,
-    extra tick style = {grid = major}]
-    \addplot [black, mark = none, nodes near coords=$\pi$,every node near coord/.style={anchor=180}] coordinates {( -1.5, 0)};
-    \addplot [black, mark = none, nodes near coords=2$\pi$,every node near coord/.style={anchor=180}] coordinates {( 1.25, 0)};
-    \addplot [black, mark = none, nodes near coords=$\frac{\pi}{2}$,every node near coord/.style={anchor=90}] coordinates {(0, 1.5)};
-    \addplot [black, mark = none, nodes near coords=$\frac{3\pi}{2}$,every node near coord/.style={anchor=-90}] coordinates {(0, -1.5)};
-    \addplot [black, mark = none, nodes near coords=$x$,every node near coord/.style={anchor=0}] coordinates {(1.65, 0.4)};
-    \draw (axis cs:0.77,0.65)--(axis cs:0.77,0);
-    \draw (axis cs:0,0) circle[radius=1];
-    \draw(axis cs:0,0)--(axis cs:0.77,0.65);
-    \draw(axis cs:0,0)--(axis cs:1,0);
-    \draw[->](axis cs:0.3,0) arc [radius=0.3,start angle=0,end angle=37];
-    %origin point, circle radius, start angle, end angle, distance c-b, brace radius, brace options
-    \cucubr{0,2}{1}{0}{37}{0.1}{0.1}{red}
-    \end{axis}   
-  \end{tikzpicture}
-  \caption{Bogenma\ss}
-  \end{figure*}
+\begin{axis}[
+axis x line=center,
+axis y line=center,
+axis equal,ymin = -2,xmin = -2,ymax = 2,
+xmax = 2,xtick ={},
+xticklabels={},
+ytick ={0.65},
+yticklabels={s},
+disabledatascaling,
+extra tick style = {grid = major}]
+\addplot [black, mark = none, nodes near coords=$\pi$,every node near coord/.style={anchor=180}] coordinates {( -1.5, 0)};
+\addplot [black, mark = none, nodes near coords=2$\pi$,every node near coord/.style={anchor=180}] coordinates {( 1.25, 0)};
+\addplot [black, mark = none, nodes near coords=$\frac{\pi}{2}$,every node near coord/.style={anchor=90}] coordinates {(0, 1.5)};
+\addplot [black, mark = none, nodes near coords=$\frac{3\pi}{2}$,every node near coord/.style={anchor=-90}] coordinates {(0, -1.5)};
+\addplot [black, mark = none, nodes near coords=$x$,every node near coord/.style={anchor=0}] coordinates {(1.65, 0.4)};
+\draw (axis cs:0.77,0.65)--(axis cs:0.77,0);
+\draw (axis cs:0,0) circle[radius=1];
+\draw(axis cs:0,0)--(axis cs:0.77,0.65);
+\draw(axis cs:0,0)--(axis cs:1,0);
+\draw[->](axis cs:0.3,0) arc [radius=0.3,start angle=0,end angle=37];
+%origin point, circle radius, start angle, end angle, distance c-b, brace radius, brace options
+\cucubr{0,2}{1}{0}{37}{0.1}{0.1}{red}
+\end{axis}   
+\end{tikzpicture}
+\caption{Bogenma\ss}
+\end{figure*}
 \\$0 \geq x \geq 2\pi$ x = Bogenma\ss \ von $\varphi$ in Grad, so $x = \frac{\varphi}{360} \cd \pi\\
 \sin(x) = s , \cos(x) = c$
 Für beliebig $x \in \R$: \\
@@ -1110,7 +1109,7 @@ Periodische Fortsetzung, d.h. $x \in \R . x = x' + k \cd 2\pi , k \in \Z , x' \i
 \centering
 \begin{tikzpicture}
 \begin{axis}[ymin=-1,ymax=1,xmin=-5,xmax=5,axis x line=center,
-    axis y line=center]   
+axis y line=center]   
 \addplot[blue,samples=500] gnuplot[id=sin3]{sin(x)};
 \addplot[red,samples=500] gnuplot[id=cos]{cos(x)};
 \end{axis}
@@ -1129,7 +1128,7 @@ $\cot(x) = \frac{\cos(x)}{\sin(x)}$ für alle $x \in \R$ mit $\sin(x) \not = 0$\
 \centering
 \begin{tikzpicture}
 \begin{axis}[axis x line=center,
-    axis y line=center,xmin=-3,xmax=3,ymin=-3,ymax=3] 
+axis y line=center,xmin=-3,xmax=3,ymin=-3,ymax=3] 
 \addplot[blue,samples=100] gnuplot[id=tan]{tan(x)};
 \addplot[red,samples=100] gnuplot[id=cotan]{1/tan(x)};
 \end{axis}
@@ -1138,9 +1137,9 @@ $\cot(x) = \frac{\cos(x)}{\sin(x)}$ für alle $x \in \R$ mit $\sin(x) \not = 0$\
 \end{figure}
 \end{enumerate}
 \subsection{Definition}
-Sei $D \subset \R , c \in \R$ hei\ss t \underline{Adharenzpunkt} von D, falls es eine Folge $(a_n)_n , a_n \in D$, mit $\lim\limits_{n \rightarrow \infty} a_n = c$ gibt.\\
+Sei $D \subseteq \R , c \in \R$ hei\ss t \underline{Adharenzpunkt} von D, falls es eine Folge $(a_n)_n , a_n \in D$, mit $\lim\limits_{n \rightarrow \infty} a_n = c$ gibt.\\
 $\bar{D} =$ Menge der Adharenzpunkte von D\\
-\hspace*{0.4cm} = \underline{Abschluss} von D\\
+\phantom{D} = \underline{Abschluss} von D\\
 klar: $D \subset \bar{D}.\\
 d \in D.$ konstante Folge $(a_n)_{n \geq 1}$ mit $a_n = d \ . \lim\limits_{n \rightarrow \infty} a_n = \lim\limits_{n \rightarrow \infty} d = d.$\\
 Also: $d \in \bar{D}$.
@@ -1161,7 +1160,7 @@ a \in \bar{D}\\
 a_n = a + \frac{b-a}{n} \in D, n \geq 2\\
 \lim\limits_{n \rightarrow \infty} a_n = a$\\
 Also $[a,b] \subset \bar{D}$.\\
-Ist $c \not \in [a,b]$ ,etwa $ c< a$, dann ist $\abs{a_n -c} \geq a- c > 0$ für alle $a_n \in ]a,b[$ Also: $\lim\limits_{a_n} \not = c$\\
+Ist $c \ni [a,b]$ ,etwa $ c< a$, dann ist $\abs{a_n -c} \geq a- c > 0$ für alle $a_n \in ]a,b[$ Also: $\lim\limits_{a_n} \not = c$\\
 \i $\mathcal{I}$ Intervall in $\R , x_1 , \ldots , x_r \in \mathcal{I},\\
 D = \mathcal{I} \ \{x_1,\ldots,x_r\}\\
 $\begin{tikzpicture}
@@ -1188,14 +1187,40 @@ $\begin{tikzpicture}
 \bar{D} = \bar{\mathcal{I}} = [a,b],$\\
 falls $\mathcal{I} = <a,b>.$\\
 \i $\mathbb{Q} \subset \R \\
-\bar{\mathbb{Q}} = \R $\\
-\begin{tikzpicture}
-\draw[black, solid](0,0)--(7,0);
-\end{tikzpicture}\\
+\bar{\mathbb{Q}} = \R $
 \end{enumerate}
 \subsection{Definition}
 $f: D \rightarrow , c \in \bar{D}.\\
 d \in \R$ hei\ss t \underline{Grenzwert von f(x) für x gegen c},$ d = \lim\limits_{x \rightarrow c},$ wenn für \underline{jede} Folge $(a_n) \in D$, die gegen c konvergiert, die Bildfolge $(f(a_n))_n$ gegen d konvergiert.
+
+\subsection*{Bemerkung}
+$\lim\limits_{x \rightarrow c} f(x) = d \Leftrightarrow$ Für alle Folgen $(a_n), a_n \in D$, mit $\lim\limits_{n \rightarrow \infty} a_n =c $ gilt $\lim\limits_{n \rightarrow \infty} f(a_n) =e $
+Wenn man zeigen will, dass $\lim\limits_{x \rightarrow c} f(x)$ nicht existiert, gibt es 2 Möglichkeiten:
+\begin{enumerate}[-]
+\i Suche \underline{eine} \underline{bestimmte} Folge $(a_n), \lim\limits_{n \Rightarrow \infty} a_n = c,$ so dass $\lim\limits_{x \rightarrow \infty} f(a_n)$ nicht existiert.
+\i Suche zwei Folgen $(a_n), (b_n), \lim\limits_{x \rightarrow \infty} a_n = c, \lim\limits_{x \rightarrow \infty} b_n = c$ und $\lim\limits_{x \rightarrow \infty} f(a_n) \not = \lim\limits_{x \rightarrow \infty} f(b_n)$
+\end{enumerate}
+\begin{figure*}[h!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = -3,ymax = 4,xmax = 3,axis x line=center,
+axis y line=center]   
+\draw [red] (axis cs:0,1)--(axis cs:10,1);
+\draw [red] (axis cs:-10,0)--(axis cs:0,0);
+\end{axis}
+\end{tikzpicture}
+\caption{Abschnittsweise definierte Funktion}
+\end{figure*}
+$a_n = (-1)^n \cd \frac{1}{n}\\
+\lim\limits_{n \rightarrow \infty} a_n = 0\\
+f(a_n) = (1 0 1 0 1 0 \ldots)\\
+\lim\limits_{n \rightarrow \infty} f(a_n)$ existiert nicht.\\
+Oder:\\
+\textcolor{red}{$a_n = \frac{1}{n}
+\lim\limits_{n \rightarrow \infty} a_n = 0$}\\
+\textcolor{red}{$b_n = -\frac{1}{n}
+\lim\limits_{n \rightarrow \infty} b_n = 0$}\\
+Aber: $\lim\limits_{x \rightarrow \infty} f(a_n) \not = \lim\limits_{x \rightarrow \infty} f(b_n)$
 \subsection[Beispiel]{Beispiel:}
 \begin{enumerate}[a)]
 \i Sei $f(x) = b_k x^k + \ldots + b_1x + b_0$, eine Polynomfunktion, $ c \in \R $.
@@ -1209,7 +1234,7 @@ Sei $(a_n)$ Folge mit $\lim\limits_{n \rightarrow \infty} a_n = c\\
 \centering
 \begin{tikzpicture}
 \begin{axis}[axis x line=center,
-    axis y line=center]   
+axis y line=center]   
 \addplot[samples=25] gnuplot[id=4punkt6a]{x**2};
 \end{axis}
 \end{tikzpicture}
@@ -1222,7 +1247,7 @@ Auf $D$ ist $f(x) = \frac{(x+1)(x-1)}{(x-1)} = (x+1) $
 \centering
 \begin{tikzpicture}
 \begin{axis}[axis x line=center,
-    axis y line=center]   
+axis y line=center]   
 \addplot[samples=10] gnuplot[id=4punkt6b]{x+1};
 \end{axis}
 \end{tikzpicture}
@@ -1243,7 +1268,7 @@ D = \R \\$
 \centering
 \begin{tikzpicture}
 \begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = -3,ymax = 4,xmax = 3,axis x line=center,
-    axis y line=center]   
+axis y line=center]   
 \draw [red] (axis cs:0,1)--(axis cs:10,1);
 \draw [red] (axis cs:-10,0)--(axis cs:0,0);
 \end{axis}
@@ -1261,7 +1286,7 @@ a_n  =- \frac{1}{n}, \lim a_n = 0\\
 \centering
 \begin{tikzpicture}
 \begin{axis}[axis x line=center,
-    axis y line=center]   
+axis y line=center]   
 \addplot[samples=5000] gnuplot[id=sin2]{sin(1/x)};
 \end{axis}
 \end{tikzpicture}
@@ -1278,7 +1303,7 @@ a'_n = \frac{1}{(2n + \frac{1}{2}\pi)} \rightarrow 0 , f(a'n) = \sin(2\pi n + \f
 \centering
 \begin{tikzpicture}
 \begin{axis}[ymin = -1,ymax = 1 , xmax = 1,xmin=-1,axis x line=center,
-    axis y line=center]   
+axis y line=center]   
 \addplot[samples=5000] gnuplot[id=sin1]{x* sin(1/x)};
 \end{axis}
 \end{tikzpicture}
@@ -1294,19 +1319,19 @@ $f: D \rightarrow \R, c \in \bar{D}.$ Dann gilt: $\lim\limits_{x \rightarrow c} 
 \centering
 \caption{geometrische Darstellung des $\varepsilon-\delta$ Kriteriums}
 \begin{tikzpicture}
-    \begin{axis} [
-    ytick={1,1.5,2},
-    yticklabels={$d-\varepsilon$,$d$,$d+\varepsilon$},
-    xtick={3,3.5,4},
-    xticklabels={$c-d$,$c$,$c+d$},
-    axis x line=center,
-    axis y line=center,
-    xmin=-1,xmax=5,ymin=-1,ymax=4]
-    \draw[red] (axis cs:-1,1)--(axis cs: 5,1);
-    \draw[red] (axis cs:-1,2)--(axis cs: 5,2);
-    \draw[black,dashed] (axis cs:4,-5)--(axis cs: 4,8);
-    \draw[black,dashed] (axis cs:3,-5)--(axis cs: 3,8);    
-    \addplot[samples=500] gnuplot{(2/(x+3))*sin(2*x)+(x/3.141592653)};
+\begin{axis} [
+ytick={1,1.5,2},
+yticklabels={$d-\varepsilon$,$d$,$d+\varepsilon$},
+xtick={3,3.5,4},
+xticklabels={$c-d$,$c$,$c+d$},
+axis x line=center,
+axis y line=center,
+xmin=-1,xmax=5,ymin=-1,ymax=4]
+\draw[red] (axis cs:-1,1)--(axis cs: 5,1);
+\draw[red] (axis cs:-1,2)--(axis cs: 5,2);
+\draw[black,dashed] (axis cs:4,-5)--(axis cs: 4,8);
+\draw[black,dashed] (axis cs:3,-5)--(axis cs: 3,8);    
+\addplot[samples=500] gnuplot{(2/(x+3))*sin(2*x)+(x/3.141592653)};
 :    \end{axis}
 \end{tikzpicture}
 \end{figure}
@@ -1324,34 +1349,6 @@ Für alle $x \in D$ mit \underline{$\abs{x-c} \leq \delta$} gilt $\abs{f(x) -d} 
 Da $\lim\limits_{n \rightarrow \infty} a_n =c$, existiert $n_0$ mit $\abs{a_n -c} \geq \delta$ für alle $n \geq n_0$\\
 Nach $(\star)$ gilt: $\abs{f(a_n) -d} < \varepsilon \forall n \geq n_0. \checkmark$
 \end{proof}
-\subsection*{Bemerkung}
-$\lim\limits_{x \rightarrow c} f(x) = d \Leftrightarrow$ Für alle Folgen $(a_n), a_n \in D$, mit $\lim\limits_{n \rightarrow \infty} a_n =c $ gilt $\lim\limits_{n \rightarrow \infty} f(a_n) =e $
-Wenn man zeigen will, dass $\lim\limits_{x \rightarrow c} f(x)$ nicht existiert, gibt es 2 Möglichkeiten:
-\begin{enumerate}[-]
-\i Suche \underline{eine} \underline{bestimmte} Folge $(a_n), \lim\limits_{n \Rightarrow \infty} a_n = c,$ so dass $\lim\limits_{x \rightarrow \infty} f(a_n)$ nicht existiert.
-\i Suche zwei Folgen $(a_n), (b_n), \lim\limits_{x \rightarrow \infty} a_n = c, \lim\limits_{x \rightarrow \infty} b_n = c$ und $\lim\limits_{x \rightarrow \infty} f(a_n) \not = \lim\limits_{x \rightarrow \infty} f(b_n)$
-\end{enumerate}
-\begin{figure*}[h!]
-\centering
-\begin{tikzpicture}
-\begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = -3,ymax = 4,xmax = 3,axis x line=center,
-    axis y line=center]   
-\draw [red] (axis cs:0,1)--(axis cs:10,1);
-\draw [red] (axis cs:-10,0)--(axis cs:0,0);
-\end{axis}
-\end{tikzpicture}
-\caption{Abschnittsweise definierte Funktion}
-\end{figure*}
-$a_n = (-1)^n \cd \frac{1}{n}\\
-\lim\limits_{n \rightarrow \infty} a_n = 0\\
-f(a_n) = (1 0 1 0 1 0 \ldots)\\
-\lim\limits_{n \rightarrow \infty} f(a_n)$ existiert nicht.\\
-Oder:\\
-\textcolor{red}{$a_n = \frac{1}{n}
-\lim\limits_{n \rightarrow \infty} a_n = 0$}\\
-\textcolor{red}{$b_n = -\frac{1}{n}
-\lim\limits_{n \rightarrow \infty} b_n = 0$}\\
-Aber: $\lim\limits_{x \rightarrow \infty} f(a_n) \not = \lim\limits_{x \rightarrow \infty} f(b_n)$
 \subsection{Satz (Rechenregeln für Grenzwerte)}
 $f,g, D \rightarrow \R, c \in \bar{D}$, Existieren die Grenzwerte auf der rechten Seite der folgenden Gleichungen, so auch die auf der linken (und es gilt Gleichheit)\\
 \begin{enumerate}[a)]
@@ -1391,7 +1388,7 @@ so exisitiert $\lim\limits_{x \rightarrow c} f(x) = d$.
 \begin{minipage}[t]{.5\textwidth}
 \begin{tikzpicture}
 \begin{axis}[ymin = -1,ymax = 1 , xmax = 5,xmin=-5,axis x line=center,
-    axis y line=center]   
+axis y line=center]   
 \addplot[samples=5000] gnuplot[id=abgefahrenersinus]{sin(2*x**2) * sin(x) * sin(0.25*x)};
 \end{axis}
 \end{tikzpicture}
@@ -1399,7 +1396,7 @@ so exisitiert $\lim\limits_{x \rightarrow c} f(x) = d$.
 \begin{minipage}[t]{.5\textwidth}
 \begin{tikzpicture}
 \begin{axis}[domain= -1:100,ymin = -0.5,ymax = 3, extra x ticks={0},xmin =0,xmax=100,axis x line=center,
-    axis y line=center]   
+axis y line=center]   
 \addplot[samples=1000] gnuplot[id=geradeasymptote]{(2*x**2+2)/(x**2 + x + 3)};
 \end{axis}
 \end{tikzpicture}
@@ -1409,7 +1406,7 @@ so exisitiert $\lim\limits_{x \rightarrow c} f(x) = d$.
 \end{figure}
 Grenzwert: $d \in \R$
 \subsection{Definition}
-$D = <b, \infty[ , f : D \rightarrow \R$
+$D = \langle b, \infty[ , f : D \rightarrow \R$
 \hspace*{3cm} (z.B $D=\R$)\\
 \underline{$f$ konvergiert gegen $d \in \R$ für x gegen unendlich},\\
 $\lim\limits_{f(x)} = d, $falls gilt:\\
@@ -1420,7 +1417,7 @@ $\forall \varepsilon > 0 \exists M = M(\varepsilon) \forall x \geq M: \abs{f(x) 
 \i $\lim\limits_{x \rightarrow \infty} \frac{1}{x} = 0$\qquad \begin{minipage}[c]{\textwidth}
 \begin{tikzpicture}
 \begin{axis}[width =5cm,height=3cm, ymin = -5,ymax = 5 , xmax = 5,xmin=-5,axis x line=center,
-    axis y line=center]   
+axis y line=center]   
 \addplot[samples=100] gnuplot[id=1durchx]{x**-1};
 \end{axis}
 \end{tikzpicture}
@@ -1447,13 +1444,13 @@ $\lim\limits_{x \rightarrow c} f(x) = \infty$, falls gilt:\\
 $\forall L > 0 \exists \underset{= \delta (L)}{\delta > 0} \forall x \in D : \abs{x -c} \leq \delta \Rightarrow f(x) \geq L.$\\
 \i $<b, \infty[ \supset D, f : D \rightarrow \R, $ \underline{f geht gegen $\infty$, für x gegen $\infty$}: $\lim\limits_{x \rightarrow \infty} f(x) = \infty$,\\
 falls gilt: \\
-$\forall L > 0 \exists M > 0 \forall x \in D, x \geq M, f(x) \geq L$.\\
+$\forall L > 0 \exists M > 0 \forall x \in D, x \geq M, f(x) \geq L$.
 \begin{figure}[h!]
 \begin{minipage}[t]{\textwidth}
 \begin{minipage}[t]{.5\textwidth}
 \begin{tikzpicture}
 \begin{axis}[ymin = -2,ymax = 2 , xmax = 2,xmin=-2,axis x line=center,
-    axis y line=center]   
+axis y line=center]   
 \addplot[samples=10] gnuplot[id=gerade413]{(1.33333333333)*x - 1};
 \draw[dashed] (axis cs: 0,1)--(axis cs: 1.5,1);
 \draw[dashed] (axis cs: 1.5,0)--(axis cs: 1.5,1);
@@ -1469,7 +1466,7 @@ $\forall L > 0 \exists M > 0 \forall x \in D, x \geq M, f(x) \geq L$.\\
 \begin{minipage}[t]{.5\textwidth}
 \begin{tikzpicture}
 \begin{axis}[ymin = -5,ymax = 5 , xmax = 5,xmin=-5,axis x line=center,
-    axis y line=center]   
+axis y line=center]   
 \addplot[samples=500] gnuplot[id=1durchxabs]{abs(x)**-1};
 \end{axis}
 \end{tikzpicture}
@@ -1481,7 +1478,7 @@ $\forall L > 0 \exists M > 0 \forall x \in D, x \geq M, f(x) \geq L$.\\
 $\lim\limits_{x \rightarrow c} f(x) = - \infty \begin{minipage}[c]{\textwidth}
 \begin{tikzpicture}
 \begin{axis}[width =5cm,height=3cm, ymin = -5,ymax = 5 , xmax = 5,xmin=-5,axis x line=center,
-    axis y line=center]   
+axis y line=center]   
 \addplot[samples=100] gnuplot[id=1durchx]{-1 * abs(x)**-1};
 \end{axis}
 \end{tikzpicture}
@@ -1489,7 +1486,7 @@ $\lim\limits_{x \rightarrow c} f(x) = - \infty \begin{minipage}[c]{\textwidth}
 \lim\limits_{x \rightarrow \infty} f(x) = - \infty \begin{minipage}[c]{\textwidth}
 \begin{tikzpicture}
 \begin{axis}[width =5cm,height=3cm, ymin = -5,ymax = 5 , xmax = 5,xmin=-5,axis x line=center,
-    axis y line=center]   
+axis y line=center]   
 \addplot[samples=100] gnuplot[id=1durchx]{-1 *x**3};
 \end{axis}
 \end{tikzpicture}
@@ -1497,7 +1494,7 @@ $\lim\limits_{x \rightarrow c} f(x) = - \infty \begin{minipage}[c]{\textwidth}
 \lim\limits_{x \rightarrow -\infty} f(x) =  \infty \begin{minipage}[c]{\textwidth}
 \begin{tikzpicture}
 \begin{axis}[width =5cm,height=3cm, ymin = -1,ymax = 5 , xmax = 5,xmin=-5,axis x line=center,
-    axis y line=center]   
+axis y line=center]   
 \addplot[samples=100] gnuplot[id=1durchx]{x**2};
 \end{axis}
 \end{tikzpicture}
@@ -1505,7 +1502,7 @@ $\lim\limits_{x \rightarrow c} f(x) = - \infty \begin{minipage}[c]{\textwidth}
 \lim\limits_{x \rightarrow -\infty} f(x) = - \infty$ \begin{minipage}[c]{\textwidth}
 \begin{tikzpicture}
 \begin{axis}[width =5cm,height=3cm, ymin = -5,ymax = 1 , xmax = 5,xmin=-5,axis x line=center,
-    axis y line=center]   
+axis y line=center]   
 \addplot[samples=100] gnuplot[id=1durchx]{-1 *x**2};
 \end{axis}
 \end{tikzpicture}
@@ -1524,13 +1521,13 @@ dann ist $\lim\limits_{x \rightarrow c} \frac{1}{f(x)} = \infty (-\infty)$
 \centering
 \begin{tikzpicture}
 \begin{axis}[ymin = -1,ymax = 1 , xmax = 1,xmin=-1,axis x line=center,
-    axis y line=center]   
+axis y line=center]   
 \addplot[samples=5000] gnuplot[id=sin1]{x* sin(1/x)};
 \end{axis}
 \end{tikzpicture}
 \caption{$sin(\frac{1}{x}$)}
 \end{figure*}
-\i Falls $\lim\limits_{x \rightarrow \infty} =0$ und falls $T >0$ existiert mit $f(x) > 0 f.a x \geq T ,$ so $(f(x) < 0)$\\
+\i Falls $\lim\limits_{x \rightarrow \infty} =0$ und falls $T >0$ existiert mit $f(x) > 0 $ für alle $x \geq T ,$ so $(f(x) < 0)$\\
 ist $\lim\limits_{x \rightarrow \infty} \frac{1}{f(x)} = \infty (- \infty)$\\
 (Entsprechend für $\lim\limits_{x \rightarrow - \infty})$
 \end{enumerate}
@@ -1539,17 +1536,17 @@ ist $\lim\limits_{x \rightarrow \infty} \frac{1}{f(x)} = \infty (- \infty)$\\
 \i 
 \begin{itemize}
 \i $f(x) = \frac{1}{x} , D = ]0,\infty[\\
-\lim\limits_{x \rightarrow 0} f(x) = \infty\\$
+\lim\limits_{x \rightarrow 0} f(x) = \infty$
 \i $f(x) = \frac{1}{x}, D = ]-\infty,0[\\
 \lim\limits_{x \rightarrow 0} f(x) = -\infty$
 \i $f(x) = \frac{1}{x} , D = ]0,\infty[\\
-\lim\limits_{x \rightarrow 0} f(x) = \infty\\$
+\lim\limits_{x \rightarrow 0} f(x) = \infty$
 \end{itemize} 
-\i $\lim\limits_{x \rightarrow \infty} sin(x)$ existiert nicht
+\i $\lim\limits_{x \rightarrow \infty} \sin(x)$ existiert nicht
 \begin{minipage}[c]{\textwidth}
 \begin{tikzpicture}
 \begin{axis}[ymin = -1,ymax = 1 , xmax = 5,xmin=-5,ytick ={-1,0,1},axis x line=center,
-    axis y line=center, width = 5cm, height = 3cm]   
+axis y line=center, width = 5cm, height = 3cm]   
 \addplot[samples=100] gnuplot[id=sin417]{sin(x)};
 \end{axis}
 \end{tikzpicture}
@@ -1562,8 +1559,8 @@ ist $\lim\limits_{x \rightarrow \infty} \frac{1}{f(x)} = \infty (- \infty)$\\
 \end{cases}\\
 \lim\limits_{x \rightarrow -\infty} P(x) = 
 \begin{cases}
-\infty , \text{falls }& a_k > 0 \text{k gerade oder} a_k < 0 \text{ k ungerade}\\
--\infty , \text{falls }& a_k < 0 \text{k gerade oder} a_k > 0 \text{ k ungerade}
+\infty , \text{falls }& a_k > 0 \text{k gerade oder } a_k < 0 \text{ k ungerade}\\
+-\infty , \text{falls }& a_k < 0 \text{k gerade oder } a_k > 0 \text{ k ungerade}
 \end{cases}$
 \i $P(x)$ wie in c)\\
 $Q(x) = b_l^l + \ldots + b_0$\\
@@ -1577,13 +1574,13 @@ $\lim\limits_{x \rightarrow \infty} \frac{P(x)}{Q(x)} =
 \centering
 \begin{tikzpicture}
 \begin{axis}[axis x line=center,
-    axis y line=center]   
+axis y line=center]   
 \addplot[samples=100] gnuplot[id=4punkt17e]{exp(x)*(x**5)};
 \end{axis}
 \end{tikzpicture}
 \caption{$\frac{e^x}{x^n}$}
 \end{figure}
-$\forall L > 0 \exists\ M \forall\ x \gg M : f(x) \gg L$\\
+$\forall L > 0 \exists\ M \forall\ x \ge M : f(x) \ge L$\\
 Sei L $ \geq 0, x > 0$. \\
 $e^x = \sum\limits_{k =0}^{\infty} \frac{x^k}{k!} > \frac{x^{n+1}}{(n+1)!}\\
 \frac{e^x}{x^n} > \frac{x}{(n+1)!}$\\
@@ -1595,7 +1592,7 @@ Folgt aus e) und \ref{sec:4.16}a)
 \subsection{Definition}
 $f : D \rightarrow \R.$
 \begin{enumerate}[a)]
-\i $f$ ist \uline{stetig} an $c \in D$, fallse $\lim\limits_{x \rightarrow c} f(x) = f(c)$.\\
+\i $f$ ist \uline{stetig} an $c \in D$, falls $\lim\limits_{x \rightarrow c} f(x) = f(c)$.
 \i $f$ hei\ss t (absolut) stetig, falls $f$ an allen $c \in D$ stetig ist.
 \end{enumerate}
 \subsection{Satz}\label{sec:5.2}
@@ -1612,22 +1609,11 @@ $\reversemarginpar{4.7} $\lim\limits_{x \rightarrow c} f(x) = f(c).$
 \i $f(x) = \begin{cases}
 0 , \text{falls }&, x \not = 0\\
 1, \text{falls }&, x = 0\\
-\end{cases} $
-\begin{figure}[h!]
-\centering
-\begin{tikzpicture}
-\begin{axis}[axis x line=center,
-    axis y line=center, xmin = -5, xmax=5]   
-\draw[blue] (axis cs: -10,0)--(axis cs: 0,0);
-\draw[blue] (axis cs: 0,0)--(axis cs: 10,0);
-\end{axis}
-\end{tikzpicture}
-\caption{Abschnittsweise definierte Funktion}
-\end{figure}
+\end{cases} $ \\
 $f$ ist nicht steig in 0.\\
 $a_n = \frac{1}{n}, a_n \rightarrow 0\\
 f(a_n) = 0\\
-(f(f(a_n)) \rightarrow 0 \neq f(0)$\\
+(f(f(a_n)) \rightarrow 0 \neq f(0)$
 \i $f(x) = \begin{cases}
 0 , \text{falls }&, x > 0\\
 1, \text{falls }&, x < 0\\
@@ -1636,7 +1622,7 @@ f ist nicht stetig in 0.
 \begin{minipage}[c]{0.3\textwidth}
 \begin{tikzpicture}
 \begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = -3,ymax = 4,xmax = 3,axis x line=center,
-    axis y line=center,width=5cm,height=3cm]   
+axis y line=center,width=5cm,height=3cm]   
 \draw [red] (axis cs:0,1)--(axis cs:10,1);
 \draw [red] (axis cs:-10,0)--(axis cs:0,0);
 \end{axis}
@@ -1645,13 +1631,13 @@ f ist nicht stetig in 0.
 \i $f(x) = \begin{cases}
 \sin(\frac{1}{x}) , \text{falls }&, x \not = 0\\
 0, \text{falls }&, x = 0\\
-\end{cases}
+\end{cases}\\
 \lim\limits_x \rightarrow 0 \sin(\frac{1}{x})$ ex. nicht.\\
 $f$ ist nicht stetig in 0.
 \begin{minipage}[c]{0.3\textwidth}
 \begin{tikzpicture}
 \begin{axis}[ymin = -1,ymax = 1 , xmax = 1,xmin=-1,axis x line=center,
-    axis y line=center,width = 5cm,height =3cm]   
+axis y line=center,width = 5cm,height =3cm]   
 \addplot[samples=5000] gnuplot[id=sin1]{sin(1/x)};
 \end{axis}
 \end{tikzpicture}
@@ -1659,90 +1645,89 @@ $f$ ist nicht stetig in 0.
 \i $f(x) = \begin{cases}
 x \cd \sin(\frac{1}{x}) , \text{falls }&, x \not = 0\\
 0, \text{falls }&, x = 0\\
-\end{cases}
+\end{cases}\\
 \lim\limits_{x \rightarrow 0} x \cd \sin(\frac{1}{x}) = 0 = f(0)\\
 f$ ist stetig in 0.
 \begin{minipage}[c]{0.3\textwidth}
 \begin{tikzpicture}
 \begin{axis}[ymin = -1,ymax = 1 , xmax = 1,xmin=-1,axis x line=center,
-    axis y line=center,width = 5cm,height =3cm]   
+axis y line=center,width = 5cm,height =3cm]   
 \addplot[samples=5000] gnuplot[id=sin1]{x * sin(1/x)};
 \end{axis}
 \end{tikzpicture}
 \end{minipage}
 \i $f(x) = \sin(x)\\
-g(x) = \sin(x)
+g(x) = \cos(x)
 $
 Sind stetig auf $\R$:
 \begin{figure}[h!]
 \centering
 \caption{Sinus und Cosinus am Einheitskreis}
 \begin{tikzpicture}[scale=3,cap=round]
-  % Local definitions
-  \def\costhirty{0.8660256}
+% Local definitions
+\def\costhirty{0.8660256}
 
-  % Colors
-  \colorlet{anglecolor}{green!50!black}
-  \colorlet{sincolor}{red}
-  \colorlet{tancolor}{orange!80!black}
-  \colorlet{coscolor}{blue}
+% Colors
+\colorlet{anglecolor}{green!50!black}
+\colorlet{sincolor}{red}
+\colorlet{tancolor}{orange!80!black}
+\colorlet{coscolor}{blue}
 
-  % Styles
-  \tikzstyle{axes}=[]
-  \tikzstyle{important line}=[very thick]
-  \tikzstyle{information text}=[rounded corners,fill=red!10,inner sep=1ex]
+% Styles
+\tikzstyle{axes}=[]
+\tikzstyle{important line}=[very thick]
+\tikzstyle{information text}=[rounded corners,fill=red!10,inner sep=1ex]
 
-  % The graphic
-  \draw[style=help lines,step=0.5cm] (-1.4,-1.4) grid (1.4,1.4);
+% The graphic
+\draw[style=help lines,step=0.5cm] (-1.4,-1.4) grid (1.4,1.4);
 
-  \draw (0,0) circle (1cm);
+\draw (0,0) circle (1cm);
 
-  \begin{scope}[style=axes]
-    \draw[->] (-1.5,0) -- (1.5,0) node[right] {$x$};
-    \draw[->] (0,-1.5) -- (0,1.5) node[above] {$y$};
+\begin{scope}[style=axes]
+\draw[->] (-1.5,0) -- (1.5,0) node[right] {$x$};
+\draw[->] (0,-1.5) -- (0,1.5) node[above] {$y$};
 
-    \foreach \x/\xtext in {-1, -.5/-\frac{1}{2}, 1}
-      \draw[xshift=\x cm] (0pt,1pt) -- (0pt,-1pt) node[below,fill=white]
-            {$\xtext$};
+\foreach \x/\xtext in {-1, -.5/-\frac{1}{2}, 1}
+  \draw[xshift=\x cm] (0pt,1pt) -- (0pt,-1pt) node[below,fill=white]
+        {$\xtext$};
 
-    \foreach \y/\ytext in {-1, -.5/-\frac{1}{2}, .5/\frac{1}{2}, 1}
-      \draw[yshift=\y cm] (1pt,0pt) -- (-1pt,0pt) node[left,fill=white]
-            {$\ytext$};
-  \end{scope}
+\foreach \y/\ytext in {-1, -.5/-\frac{1}{2}, .5/\frac{1}{2}, 1}
+  \draw[yshift=\y cm] (1pt,0pt) -- (-1pt,0pt) node[left,fill=white]
+        {$\ytext$};
+\end{scope}
 
-  \filldraw[fill=green!20,draw=anglecolor] (0,0) -- (3mm,0pt) arc(0:30:3mm);
-  \draw (15:2mm) node[anglecolor] {$\alpha$};
+\filldraw[fill=green!20,draw=anglecolor] (0,0) -- (3mm,0pt) arc(0:30:3mm);
+\draw (15:2mm) node[anglecolor] {$\alpha$};
 
-  \draw[style=important line,sincolor]
-    (30:1cm) -- node[left=1pt,fill=white] {$\sin \alpha$} +(0,-.5);
+\draw[style=important line,sincolor]
+(30:1cm) -- node[left=1pt,fill=white] {$\sin \alpha$} +(0,-.5);
 
-  \draw[style=important line,coscolor]
-    (0,0) -- node[below=2pt,fill=white] {$\cos \alpha$} (\costhirty,0);
+\draw[style=important line,coscolor]
+(0,0) -- node[below=2pt,fill=white] {$\cos \alpha$} (\costhirty,0);
 
-  \draw[style=important line,tancolor] (1,0) --
-    node [right=1pt,fill=white]
-    {
-      $\displaystyle \tan \alpha \color{black}=
-      \frac{{\color{sincolor}\sin \alpha}}{\color{coscolor}\cos \alpha}$
-    } (intersection of 0,0--30:1cm and 1,0--1,1) coordinate (t);
+\draw[style=important line,tancolor] (1,0) --
+node [right=1pt,fill=white]
+{
+  $\displaystyle \tan \alpha \color{black}=
+  \frac{{\color{sincolor}\sin \alpha}}{\color{coscolor}\cos \alpha}$
+} (intersection of 0,0--30:1cm and 1,0--1,1) coordinate (t);
 
-  \draw (0,0) -- (t);
+\draw (0,0) -- (t);
 \end{tikzpicture}
 \end{figure}
 Fúr alle $x,c \in \R$ gilt:\\
 $\abs{\sin(x) - \sin(c)} \leq \abs{x-c}.\\
 \sin(x)$ ist stetig auf $\R$ (5.2, $\mathbf{K}$ =1)
 \end{enumerate}
-
 \subsection{Satz (Rechenregeln für Stetigkeit)}
 $f,g : D \rightarrow \R, c \in D$,\\
-sind $f$ und $g$ stetig in c, dann auch $f \pm/\cdot$ und $\abs{f}$. Ist $g(x) \neq 0$ für alle $x \in D,$ so ist auch $\frac{f}{g}$ stetig in c.\\
+sind $f$ und $g$ stetig in c, dann auch $f \pm/\cdot$ und $\abs{f}$. Ist $g(x) \neq 0$ für alle $x \in D,$ so ist auch $\frac{f}{g}$ stetig in c.
 \begin{proof}
 Folgt aus 4.8
 \end{proof}
 \subsection[Satz: Hintereinanderausführung von stetigen Funktionen]{Satz}
-$D,D' \subseteq \R , F : D \rightarrow \R,\\
-g: D' \rightarrow \R , f(D) \subseteq D'.$.
+$D,D' \subseteq \R , f : D \rightarrow \R,\\
+g: D' \rightarrow \R , f(D) \subseteq D'.$\\
 Ist $f$ stetig in $c \in D$ und ist g stetig in $f(c) \in D'$, so ist $g \circ f$ stetig in c,
 \begin{proof}
 $(a_n) \rightarrow c, a_n \in D$.\\
@@ -1753,14 +1738,14 @@ g stetig in f(c): $(g \circ f)(a_n)(a_n)\ (g \circ f)(c)$
 \begin{enumerate}[a)]
 \i $f(x) = \sin(\frac{1}{\abs{x^2-1}}), D = \R \setminus \{1,-1 \}.
 f$ ist stetig auf D.
-Folgt aus $5.3_{\text{a),f und 5.4,5.5}}$.
+Folgt aus $5.3_{\text{a),f) und 5.4,5.5}}$.
 \i $f(x) = \begin{cases}
 x \cd \sin(\frac{1}{x}) &\text{falls } x \neq 0\\
 0 &\text{falls } x = 0 
-\end{cases}$
+\end{cases}$\\
 stetig auf $\R$,
 5.3e) für $c = 0$ für $c \neq 0$. 5.3,5.4,5.5
-\i $f(x) = \tan(x) (= \frac{sin(x)}{cos(x)})\\
+\i $f(x) = \tan(x) (= \frac{\sin(x)}{\cos(x)})\\
 D = \R \setminus \{\frac{\pi}{2}+ k\pi: k \in \Z \}
 f$ stetig auf D
 \end{enumerate}
@@ -1775,9 +1760,9 @@ c \in D
 \i $ \lim\limits_{n \rightarrow \infty} \sum\limits_{i=0}^{\infty} a_i (x-a)^i = f(c)$
 \end{enumerate}
 \subsection{Korollar}\label{sec:5.8}
-$f(x = \exp(x) = e^x$ ist stetig auf $\R$
+$f(x) = \exp(x) = e^x$ ist stetig auf $\R$
 \subsection{Satz (Nullstellensatz für stetige Funktionen)}\label{sec:5.9}
-$f: D \rightarrow$ stetig, $[u,v] \subset D, u < v$\\
+$f: D \rightarrow$ stetig, $[u,v] \subseteq D, u < v$\\
 Es gelte $f(v) \cd f(v) < 0$ \\
 (d.h $f(u) > 0, f(v) > 0$, oder $f(u) > 0, f(v) < 0$)
 Dann existiert $w \in ]u,v[$ mit $f(v)=0$\\
@@ -1787,7 +1772,7 @@ O.B.d.A., $f(n) < 0 < f(v).$\\
 \centering
 \begin{tikzpicture}
 \begin{axis}[xmin=-5,xmax=2,axis x line=center,
-    axis y line=none,disabledatascaling, xtick={-2,0,2},xticklabels={$a=u$,$c$,$v=b$}]
+axis y line=none,disabledatascaling, xtick={-2,0,2},xticklabels={$a=u$,$c$,$v=b$}]
 \end{axis}
 \end{tikzpicture}
 \end{figure}
@@ -1801,30 +1786,30 @@ f$ ist stetig in w $\Rightarrow \lim\limits_{n \rightarrow \infty} f(a_n) = \lim
 f(a_n) < 0 \forall n \rightarrow \lim\limits_{n \rightarrow \infty} f(a_n) \leq 0.\\
 f(b_n) \geq 0 \forall n \rightarrow \lim\limits_{n \rightarrow \infty} f(b_n) \geq 0.\\
 \Rightarrow 0 = \lim(a_n) = \lim(b_n) = f(w).$
- \end{proof}
+\end{proof}
 \subsection{Korollar (Zwischenwertsatz)}\label{sec:5.10}
 $f: D \rightarrow \R $ stetig, $[u,v] \subseteq D$\\
 Dann nimmt $f$ in $[u,v]$ jeden Wert zwischen $f(u)$ und $f(v)$ an (und evtl. weitere)
 \begin{figure}[h!]
-	\centering
-	\begin{tikzpicture}
-	\begin{axis}[xmin=-0.5,xmax=5,axis x line=center,axis y line=center, ymin = -1.5,ymax = 5,disabledatascaling,ytick = {2,1},yticklabels={$f(u)$,$f(v)$}, xtick={1,3},xticklabels={$u$,$v$}]
-	\addplot[samples=100,domain={1.5:5},red] gnuplot {cos(0.5*(x-2)**1.5)*sin(2.6*x)+1*(cos(1.5*x))+2};
-	\addplot[samples=100,domain={0:1.5}] gnuplot {cos(0.5*(x-2)**1.5)*sin(2.6*x)+1*(cos(1.5*x))+2};
-	\end{axis}
-	\end{tikzpicture}
-	\caption{Zwischenwerte}
+\centering
+\begin{tikzpicture}
+\begin{axis}[xmin=-0.5,xmax=5,axis x line=center,axis y line=center, ymin = -1.5,ymax = 5,disabledatascaling,ytick = {2,1},yticklabels={$f(u)$,$f(v)$}, xtick={1,3},xticklabels={$u$,$v$}]
+\addplot[samples=100,domain={1.5:5},red] gnuplot {cos(0.5*(x-2)**1.5)*sin(2.6*x)+1*(cos(1.5*x))+2};
+\addplot[samples=100,domain={0:1.5}] gnuplot {cos(0.5*(x-2)**1.5)*sin(2.6*x)+1*(cos(1.5*x))+2};
+\end{axis}
+\end{tikzpicture}
+\caption{Zwischenwerte}
 \end{figure}
 \begin{proof}
 O.B.d.A $f(u) < f(v)$\\
-Sei $f(u) < b < f(w)\, b$ beliebig, aber dann fest.\\
+Sei $f(u) < b < f(w)\, b$\quad beliebig, aber dann fest.\\
 Definiere $g(x) = f(x) -b $ stetig\\
-$g(u) = f(u) -b
-g(v) = f(v) -b$\\
+$g(u) = f(u) -b < 0\\
+g(v) = f(v) -b > 0$\\
 \ref{sec:5.9} (angewandt auf g): Ex. $w \in ]u,v[$ mit $g(w) = 0$,d.h $f(w) =b$.
 \end{proof}
 \subsection{Satz (Min-Max-Theorem)}\label{sec:5.11}
-$a,b \in \R , a < b, f : [a,b] \to \R$\\
+$a,b \in \R , a < b, f : [a,b] \to \R$ stetig\\
 (Wichtig: \emph{abgeschlossenes} Intervall)\\
 Dann hat $f$ ein Maximum und ein Minimum auf $[a,b]$, d.h es existieren\\ $x_{min},\ x_{max} \in [a,b]$ mit $f(x_{max}) \leq f(x) \leq f(x_max)$ für alle $x \in [a,b]$ (Beweis mit Bisektionsverfahren, \cite{k4})
 \subsection*{Zur Erinnerung}
@@ -1838,10 +1823,10 @@ $f^{-1} :[0,\infty[ \to [0,\infty[\\
 f^{-1}(x) = +\sqrt{x}$
 \subsection{Definition}
 $f: D \to \R$ hei\ss t {\em(streng) monoton wachsend (oder steigend)}, falls gilt:\\
- Sind $x,y \in D, x < y$, so ist $f(x) \leq f(y) (f(x) < f(y))$\\
+Sind $x,y \in D, x < y$, so ist $f(x) \leq f(y) (f(x) < f(y))$\\
 Entsprechend: {\em streng monoton fallend}. $f$ hei\ss t {\em (streng) monoton}, dalls sie entweder (streng) monoton wachsend oder (steng) monoton fallend ist.
 \subsection[Satz: Injektive Funktionen nur bei Monotonie]{Satz}
-$D$ Intervall (rechte\hfill linke Grenze) $\infty,-\infty$ möglich), $f D \to \R$ stetig. Dann gilt: $f$ ist injektiv auf D $\Leftrightarrow f $ ist streng monoton auf D.\\
+$D$ Intervall (rechte/linke Grenze) $\infty,-\infty$ möglich), $f D \to \R$ stetig. Dann gilt: $f$ ist injektiv auf D $\Leftrightarrow f $ ist streng monoton auf D.
 \begin{proof}
 $\Leftarrow$ \checkmark \\
 $\Rightarrow$: Angenommen $f$ ist nicht streng monoton auf D.\\
@@ -1901,7 +1886,7 @@ Also: exp: $\R \to ]0,\infty[$ bijektiv\\
 $\ln:\ ]0,\infty[ \to \R$, streng monoton wachsend, stetig, bijektiv (\ref{sec:5.14}).\\
 $x,y > 0. \exists a,b \in \R $ mit $x \in \exp(a), y =\exp(b).\\
 \begin{array}{lcl}
-\ln(xy) &=& \ln(\exp(a)  \cd \exp(b)\\
+\ln(xy) &=& \ln(\exp(a)  \cd \exp(b))\\
 &=& \ln(\exp(a+b)) = a + b\\
 &=& \ln(x) + \ln(y)\\
 \end{array}$\\
@@ -1951,7 +1936,7 @@ $
 \centering
 \begin{tikzpicture}
 \begin{axis}[axis x line=center,
-    axis y line=center, xmin = -3, ymin = -3,xmax =5,ymax =5]   
+axis y line=center, xmin = -3, ymin = -3,xmax =5,ymax =5]   
 \addplot[samples=100] gnuplot[id=5punktirgendwas]{log10(x)};
 \addplot[samples=100,domain={-2:5}] gnuplot[id=5punktirgendwas2]{log(x)/(log(0.5))};
 \end{axis}
@@ -1969,7 +1954,7 @@ Seien $a,b > 0 , a \neq 1 \neq b , x , y > 0$
 \begin{proof}
 $a)$ wie \ref{sec:5.10}\\
 b) $a^{y \cd \log_a(a^y)} \underset{\ref{sec:5.19}b)}{=}(a^{\log_a(x)})^{y} = x^y\\
-\hspace*{1cm} \Rightarrow \log_a(x^y) = \log_a(a^{y \cd \log_a(x)}) = y \cd \log_a(x)$\\
+\Rightarrow \log_a(x^y) = \log_a(a^{y \cd \log_a(x)}) = y \cd \log_a(x)$\\
 c) $\log_a(x) = \log_a(b^{\log_a(x)}) \overset{b)}{=} \log_b(x) \cd \log_a(b)$\\
 d) Folgt aus c), da $\log_a(b) > 0$
 \end{proof}
@@ -1977,39 +1962,39 @@ d) Folgt aus c), da $\log_a(b) > 0$
 \begin{figure}[h!]
 \centering
 \begin{tikzpicture}[
-    thick,
-    >=stealth',
-    dot/.style = {
-      draw,
-      fill = white,
-      circle,
-      inner sep = 0pt,
-      minimum size = 4pt
-    }
-  ]
-  \coordinate (O) at (0,0);
-  \draw[->] (-0.3,0) -- (8,0) coordinate[label = {below:$x$}] (xmax);
-  \draw[->] (0,-0.3) -- (0,5) coordinate[label = {right:$f(x)$}] (ymax);
-  \path[name path=x] (0.3,0.5) -- (6.7,4.7);
-  \path[name path=y] plot[smooth] coordinates {(-0.3,2) (2,1.5) (4,2.8) (6,5)};
-  \scope[name intersections = {of = x and y, name = i}]
-    \fill[gray!20] (i-1) -- (i-2 |- i-1) -- (i-2) -- cycle;
-    \draw      (0.3,0.5) -- (6.7,4.7) node[pos=0.8, below right] {Sekante};
-    \draw[red] plot[smooth] coordinates {(-0.3,2) (2,1.5) (4,2.8) (6,5)};
-    \draw (i-1) node[dot, label = {above:$P$}] (i-1) {} -- node[left]
-      {$f(x_0)$} (i-1 |- O) node[dot, label = {below:$x_0$}] {};
-    \path (i-2) node[dot, label = {above:$Q$}] (i-2) {} -- (i-2 |- i-1)
-      node[dot] (i-12) {};
-    \draw           (i-12) -- (i-12 |- O) node[dot,
-                              label = {below:$x_0 + c$}] {};
-    \draw[blue, <->] (i-2) -- node[right] {$f(x_0 + c) - f(x_0)$}
-                              (i-12);
-    \draw[blue, <->] (i-1) -- node[below] {$c$} (i-12);
-    \path       (i-1 |- O) -- node[below] {$c$} (i-2 |- O);
-    \draw[gray]      (i-2) -- (i-2 -| xmax);
-    \draw[gray, <->] ([xshift = -0.5cm]i-2 -| xmax) -- node[fill = white]
-      {$f(x_0 + c)$}  ([xshift = -0.5cm]xmax);
-  \endscope
+thick,
+>=stealth',
+dot/.style = {
+  draw,
+  fill = white,
+  circle,
+  inner sep = 0pt,
+  minimum size = 4pt
+}
+]
+\coordinate (O) at (0,0);
+\draw[->] (-0.3,0) -- (8,0) coordinate[label = {below:$x$}] (xmax);
+\draw[->] (0,-0.3) -- (0,5) coordinate[label = {right:$f(x)$}] (ymax);
+\path[name path=x] (0.3,0.5) -- (6.7,4.7);
+\path[name path=y] plot[smooth] coordinates {(-0.3,2) (2,1.5) (4,2.8) (6,5)};
+\scope[name intersections = {of = x and y, name = i}]
+\fill[gray!20] (i-1) -- (i-2 |- i-1) -- (i-2) -- cycle;
+\draw      (0.3,0.5) -- (6.7,4.7) node[pos=0.8, below right] {Sekante};
+\draw[red] plot[smooth] coordinates {(-0.3,2) (2,1.5) (4,2.8) (6,5)};
+\draw (i-1) node[dot, label = {above:$P$}] (i-1) {} -- node[left]
+  {$f(x_0)$} (i-1 |- O) node[dot, label = {below:$x_0$}] {};
+\path (i-2) node[dot, label = {above:$Q$}] (i-2) {} -- (i-2 |- i-1)
+  node[dot] (i-12) {};
+\draw           (i-12) -- (i-12 |- O) node[dot,
+                          label = {below:$x_0 + c$}] {};
+\draw[blue, <->] (i-2) -- node[right] {$f(x_0 + c) - f(x_0)$}
+                          (i-12);
+\draw[blue, <->] (i-1) -- node[below] {$c$} (i-12);
+\path       (i-1 |- O) -- node[below] {$c$} (i-2 |- O);
+\draw[gray]      (i-2) -- (i-2 -| xmax);
+\draw[gray, <->] ([xshift = -0.5cm]i-2 -| xmax) -- node[fill = white]
+  {$f(x_0 + c)$}  ([xshift = -0.5cm]xmax);
+\endscope
 \end{tikzpicture}
 \caption{Steigung am Steigungsdreieck}
 \end{figure}
@@ -2040,7 +2025,7 @@ f'(x) = a \cd n \cd x^{n-1}$ Gilt auch für $n=0$. ($f$ konstant auf $f'$ = 0)
 \item $f(x) = \abs{x}$\\
 \begin{tikzpicture}
 \begin{axis}[axis x line=center,
-    axis y line=center, xmin = -3, ymin = 0,xmax =3,ymax =3, width=5cm,height=3cm]   
+axis y line=center, xmin = -3, ymin = 0,xmax =3,ymax =3, width=5cm,height=3cm]   
 \addplot[samples=100,domain={-3:3}] gnuplot[id=6punkt3]{abs(x)};
 \end{axis}
 \end{tikzpicture}
@@ -2059,15 +2044,15 @@ Dann gilt für alle $x \in \mathcal{I}:\\
 f(x) = f(c) + f'(c) \cd (x-c) + \mathcal{R}(x) \cd (x-c), \,\\
 $wobei $\mathcal{R}, \mathcal{I} \to \R$ stetig in $c$, $\limit{x \to c}\mathcal{R}(c) = 0$\\
 \begin{figure}[h!]
-	\centering
-	\begin{tikzpicture}
-	\begin{axis}[axis x line=center,
-	axis y line=center, xmin = 0, ymin = 0,xmax =5,ymax =5,ytick={2.1,2.5},yticklabels={$f(x_0)$,$f(x_1)$},xtick={2.1,2.7},xticklabels={$x_0$,$x_1$}]   
-	\addplot[samples=2,domain={0:5}] gnuplot[id=sekante]{x};
-	\addplot[samples=50,domain={0.5:4.5}] gnuplot[id=sekante]{x**2-3*x+sin(x)+3.15};
-	\end{axis}
-	\end{tikzpicture}
-	\caption{Sekante an Funktion}
+\centering
+\begin{tikzpicture}
+\begin{axis}[axis x line=center,
+axis y line=center, xmin = 0, ymin = 0,xmax =5,ymax =5,ytick={2.1,2.5},yticklabels={$f(x_0)$,$f(x_1)$},xtick={2.1,2.7},xticklabels={$x_0$,$x_1$}]   
+\addplot[samples=2,domain={0:5}] gnuplot[id=sekante]{x};
+\addplot[samples=50,domain={0.5:4.5}] gnuplot[id=sekante]{x**2-3*x+sin(x)+3.15};
+\end{axis}
+\end{tikzpicture}
+\caption{Sekante an Funktion}
 \end{figure}
 D.h. : $f$ lässt sich in der Nähe von c sehr gut durch eine lineare Funktion (d.h Graph ist Gerade) approximieren.
 \subsection{Korollar}\label{sec:6.4}
@@ -2081,7 +2066,7 @@ $\mathcal{I}$ Intervall, $c \in \mathcal{I}$. Für a)-c)\\
 seien $f,g : \mathcal{I} \to \R $ diffbar in c\\
 \begin{enumerate}[a)]
 \item $\alpha, \beta \in \R$, so $\alpha f + \beta g $ diffbar in $c$,
- $$(\alpha f + \beta g)'(c) = \alpha \cd f'(c) + \beta \cd g'(c)$$
+$$(\alpha f + \beta g)'(c) = \alpha \cd f'(c) + \beta \cd g'(c)$$
 \item (Produktregel) $f \cd g$ diffbar in $c$,\\
 $$(f \cd g)'(c) = f(c) \cd g'(c) + f'(c) \cd g(c)$$
 \item (Quotientenregel) Ist $g (x) \neq 0$ auf $\mathcal{I}$, so $$\frac{f}{g}'(c) = \frac{f'(c) \cd g(c) - f(c) \cd g'(c)}{g(c)^2}$$
@@ -2104,18 +2089,18 @@ f'(x) \underset{\substack{\ref{sec:6.2}a)\\
 \ref{sec:6.5}c)}}{=} \frac{0 \cd x^n - 1 \cd x^{n-1}}{x^{2n}} = \frac{-n}{x^{n+1}} = (-n) \cd x^{-n-1}$ gilt auch auf $]-\infty,0[$
 \item $h(x) = (x^2 + x + 1)^2$\\
 (\ref{sec:6.5}d): $f(x) = x^2 + x + 1)\\
-\hspace*{1.05cm}g(x)= x^2\\
+\phantom{(\ref{sec:6.5}d)}g(x)= x^2\\
 h'(x) = 2 \cd (x^2 + x + 1) \cd (2x + 1)$
 \end{enumerate}
 \subsection[Satz]{Satz}\label{sec:6.7}
 \begin{enumerate}[a)]
-\i $\lim\limits_{x \to 0} \frac{sin(x)}{1}$
+\i $\lim\limits_{x \to 0} \frac{\sin(x)}{1}$
 \i $\lim\limits_{x \to 0} \frac{1-\cos(x)}{x} = 0$
 \end{enumerate}
 \begin{proof}\ \\
 \begin{enumerate}[a)]
 \i Elementargeometrisch + Additionstheoreme \ref{sec:1.7}
-(Man zeig: $\cos(x) < \frac{sin(x)}{x} < 1$ für $0 < x < \frac{\pi}{2}$
+(Man zeigt: $\cos(x) < \frac{\sin(x)}{x} < 1$ für $0 < x < \frac{\pi}{2}$
 \i $\frac{1-\cos(x)}{x} = \frac{(1-\cos(x))}{x(1+\cos(x))} = \frac{1-\cos(x)}{x(1 + \cos(x))} = \frac{sin^2(x)}{x} \cd \frac{x}{1 + \cos(x)} \to 0$
 \end{enumerate}
 \end{proof}
@@ -2143,7 +2128,7 @@ c) $f(x) = \frac{\sin(x)}{\cos(x)}$ Quotientenregel + a)b) + $\sin^2(x) + \cos^2
 \centering
 \begin{tikzpicture}
 \begin{axis}[axis x line=center,
-    axis y line=center, xmin = -3, ymin = -1,xmax =4,ymax =1,]   
+axis y line=center, xmin = -3, ymin = -1,xmax =4,ymax =1,]   
 \addplot[samples=2,domain={-3:0}] gnuplot[id=6punkt9]{1};
 \addplot[samples=100,domain={0:3.1416}] gnuplot[id=6punkt92]{cos(x)};
 \end{axis}
@@ -2171,7 +2156,7 @@ $(\exp(x))' = \exp(x)$
 $\exp(x) = \sum\limits_{k = 0}^{\infty} \frac{x^k}{k!}$ für alle $x \in \R \\
 (\frac{x^k}{k!}) = \frac{k \cd x^{k-1}}{k!} = \frac{x^{k-1}}{(k-1)!}\\
 k = 1, ...$\\
-Beweis folgt.
+Behauptung folgt.
 \end{proof}
 \subsection{Satz (Ableitung der Umkehrfunktion)}\label{sec:6.12}
 $f: \mathcal{I} \to \mathcal{I}_1$ bijektiv, $\mathcal{I},\mathcal{I}_1$ Intervall (linke und rechte Grenze darf nicht $-\infty/\infty$ sein)
@@ -2181,20 +2166,20 @@ Ist $f$ überall auf $\mathcal{I}$ diffbar und $f'(y) \ne 0$ für alle $y \in \m
 \[(f^{-1})'(x) = \frac{1}{f'(f^{-1}(x))} \] für alle $x \in \mathcal{I}$.\\
 \emph{Beweisidee}: $f^{-1}$ diffbar an Stelle $f(c)$, falls $f'(c) \ne 0$. Grund: Graph von $f' =$ Graph von $f$ gespiegelt an Winkelhalbierende $s(x) = x.$\\
 \begin{figure}[h!]
-	\centering
-	\begin{tikzpicture}
-	\begin{axis}[axis x line=center,
-	axis y line=center, xmin = -3, ymin = -1,xmax =4,ymax =1,]   
-	\addplot[samples=2,domain={-3:3},dashed] gnuplot[id=6punkt11]{x};
-	\addplot[samples=50,domain={-3:3}] gnuplot[id=6punkt112]{x**3};
-	\addplot[samples=100,domain={-3:3}] gnuplot[id=6punkt113]{sgn(x) * abs(x)**(1./3.)};
-	\end{axis}
-	\end{tikzpicture}
-	\caption{Zwei Funktionen an der Winkelhalbierenden}
+\centering
+\begin{tikzpicture}
+\begin{axis}[axis x line=center,
+axis y line=center, xmin = -3, ymin = -1,xmax =4,ymax =1,]   
+\addplot[samples=2,domain={-3:3},dashed] gnuplot[id=6punkt11]{x};
+\addplot[samples=50,domain={-3:3}] gnuplot[id=6punkt112]{x**3};
+\addplot[samples=100,domain={-3:3}] gnuplot[id=6punkt113]{sgn(x) * abs(x)**(1./3.)};
+\end{axis}
+\end{tikzpicture}
+\caption{Zwei Funktionen an der Winkelhalbierenden}
 \end{figure}
 $(f^{-1} \circ f)(x) =x$\\
 Ableiten mit Kettenregel.\\
-$f^{-1}(f(x)) \cd f'(x) = 1.$ Beweis folgt.
+$f^{-1}(f(x)) \cd f'(x) = 1.$ Behauptung folgt.
 \subsection{Bemerkung}
 Bedingung $f'(c) \ne 0$ in \ref{sec:6.12} ist notwendig.\\
 $f : \begin{cases}
@@ -2213,190 +2198,190 @@ $f^{-1}(x) = \sqrt[3]{x} = x^{\frac{1}{3}}\\
 (f^{-1})'(0)$ existiert nicht. (jedenfalls nicht als reelle Zahl!)
 \subsection[Satz]{Satz}\label{sec:6.14}
 \begin{tabular}{cll|l}
-	& $f(x)$ & & $f'(x)$\\
-	\hline
-	a) & $a^x$ & $(a \in \R, a> 0), x\in \R$ & $\ln(a) \cd a^x$\\
-	b) & $\ln(x)$ & auf $]0,\infty[$ & $\frac{1}{x}$\\
-	c) & $\log_{10}(x)$ & (konst. $a > 0,\, a \ne 1$) auf $]0,\infty[$ & $\frac{1}{\ln(a) \cd x}$\\
-	d) & $x \cd (\ln(x) -1 )$ & auf $]0,\infty[$ & $\ln(x)$\\
-	e) & $x^b \cd (b \in \R)$& auf $]0,\infty[ $ & $b \cd x^{b-1}$ 
+& $f(x)$ & & $f'(x)$\\
+\hline
+a) & $a^x$ & $(a \in \R, a> 0), x\in \R$ & $\ln(a) \cd a^x$\\
+b) & $\ln(x)$ & auf $]0,\infty[$ & $\frac{1}{x}$\\
+c) & $\log_{10}(x)$ & (konst. $a > 0,\, a \ne 1$) auf $]0,\infty[$ & $\frac{1}{\ln(a) \cd x}$\\
+d) & $x \cd (\ln(x) -1 )$ & auf $]0,\infty[$ & $\ln(x)$\\
+e) & $x^b \cd (b \in \R)$& auf $]0,\infty[ $ & $b \cd x^{b-1}$ 
 \end{tabular}
 \begin{proof}
-	a)\\
-	$f(x) = \exp(x \cd \ln(a))\\
-	f'(x) \underset{\substack
-		{\text{\ref{sec:6.12}}\\\text{Kettenregel}}}{=} \exp(x \cd \ln(a)) \cd \ln(a) = a^x \cd \ln(a)$\\
-	b) $\ln(x)'  \underset{\text{\ref{sec:6.12}}}{=} \frac{1}{\exp'(\ln(x))} \underset{\text{\ref{sec:6.11}}}{=} \frac{1}{x}$\\
-	c)$ \log'_a(x) \underset{\text{\ref{sec:6.12}}}{=} \frac{1}{\ln(a) \cd a^{\log_a(x)}} = \frac{1}{\ln(a) \cd x}$
+a)\\
+$f(x) = \exp(x \cd \ln(a))\\
+f'(x) \underset{\substack
+	{\text{\ref{sec:6.12}}\\\text{Kettenregel}}}{=} \exp(x \cd \ln(a)) \cd \ln(a) = a^x \cd \ln(a)$\\
+b) $\ln(x)'  \underset{\text{\ref{sec:6.12}}}{=} \frac{1}{\exp'(\ln(x))} \underset{\text{\ref{sec:6.11}}}{=} \frac{1}{x}$\\
+c)$ \log'_a(x) \underset{\text{\ref{sec:6.12}}}{=} \frac{1}{\ln(a) \cd a^{\log_a(x)}} = \frac{1}{\ln(a) \cd x}$
 \end{proof}
 \subsection{Satz (logarithmische Abbildung)}
 $f : \mathcal{I} \to ]0,\infty[$ diffbar.\\
 $(\ln(f(x)))' = \frac{f'(x)}{f(x)}$\\
 Beweis : Kettenregel und \ref{sec:6.14}b)\\
 \subsection{Beispiel}
-$f(x) = e^x \cd (sin(x) +2) \cd x^6$ für $x \ne 0\\
+$f(x) = e^x \cd (\sin(x) +2) \cd x^6$ für $x \ne 0\\
 \ln(f(x)) = x + \ln(\sin(x) +2) + 6 \cd \ln(x)\\
 \ln(f(x))' = 1 + \frac{\cos(x)}{\sin(x)} + \frac{6}{x}\\
 f'(x) = (1 + \frac{\cos(x)}{\sin(x) + 2} + \frac{6}{x}) \cd e^x \cd (\sin(x) + 2) \cd x^6$\\
 \subsection{Definition}
 $f : D \to \R $ hat \emph{lokales Maximum}
-	\subsection[Satz]{Satz}\label{sec:6.18}
-	$f\: : D \to \R $ diffbar.\\
-	Hat $f$ in $c \in D$ lokales Minimum/Maximum, so $f'(c) =0$
-	\begin{proof}
-		\ \\
-		c lokale Max.stelle.\\
-		$f'(c)$ existiert nach Voraussetzung.\\
-		$ f'(c) = \lim\limits_{x \to c^+} \frac{f(x) - f(c)}{x-c}\le 0.\\
-		f'(c) = \lim\limits_{x \to c^-} \frac{f(x) - f(c)}{x-c}\ge 0.\\
-		\Rightarrow f'(c) = 0.$
-	\end{proof}
-	\emph{Vorsicht}: $f'(c) = 0$ ist nicht hinreichend für lokale Maxima/Minima.\\
-	z.B $f(x) = x^3 \quad f'(x) = 3x^2\quad f'(0) = 0\\
-	f$ hat kein Maximum oder Minimum in 0\\
-	\begin{figure}[h!]
-		\centering
-		\begin{tikzpicture}
-		\begin{axis}[axis x line=center,
-		axis y line=center,axis equal,xmax = 5,xmin = -5, ymax =10,ymin=-10]
-		\addplot[samples=50] gnuplot[id=sechspunkt18] {x**3};      
-		\end{axis} 
-		\end{tikzpicture}
-		\caption{Ableitung keine Hinreichende Bedingung für Minima/Maxima}
-	\end{figure}
-	Globale Max/Min von $f$ auf $[a,b]$:
-	\begin{enumerate}[-]
-		\item Bestimme $c \in ]a,b[$ mit $f'(c) = 0$ Teste, ob lokale Max/Min.
-		\item Teste Intervallgrenzen a und b.
-	\end{enumerate}
-	\subsection{Satz (Mittelwertsatz)}\label{sec:6.19}
-	$\mathcal{I} = [a,b], a < b , a,b \in \R$\marginpar{Speziell: $f(a) =f(b) \Rightarrow \exists c \in ]a,b[$ mit $f'(c) = 0$ Satz von Rolle} $\\
-	f: \mathcal{I} \to \R$ stetig und diffbar auf $]a,b[$.\\
-	Dann existiert $c \in ]a,b[$ mit $f'(c) = \frac{f(b)-f(a)}{b-a}$
-	\begin{figure}[h!]
-		\centering
-		\begin{tikzpicture}
-		\begin{axis}[axis x line=center,
-		axis y line=center, xmin = 0, ymin = 0,xmax =5,ymax =5,xtick={2},xticklabels={$c$}]   
-		\addplot[samples=2,domain={0:5},dashed] gnuplot[id=sekante]{2*x};
-		\addplot[samples=50,domain={0:5}] gnuplot[id=sekante]{2*x**2 - 0.5 * x **3};
-		\end{axis}
-		\end{tikzpicture}
-		\caption{Eine Funktion und ihrer Steigung an der Stelle c}
-	\end{figure}
-	\begin{proof}
-		Setze $s(x) = f(a) + \frac{f(b) -f(a)}{b-a} \cd (x-a)$\\
-		(Sekante durch $(a,f(a)),(b,f(b))$\\
-		Def. $h(x) = f(x) - s(x)$. $h(a) = h(b) = 0$.\\
-		Zeige: $\exists c \in ]a,b[ $ mit $h'(c) = 0$.\\
-		Fertig, denn 
-		\begin{align*}
-			h'(x) &=f'(x) - s'(x)
-			= f'(x) - \frac{f(b)-f(a)}{b-a}\\
-			h'(c) &= 0 \Rightarrow f'(c) = \frac{f(b)-f(a)}{b-a} 
-		\end{align*}
-		Ist $h$ konstant, so kann man jedes $c \in ]a,b[$ wählen. Also sei $h$ nicht konstant. $h$ ist stetig auf $[a.b]$. \ref{sec:5.11}. h nimmt auf $[a,b]]$ globales Max. und Min. an: $x_{max}, x_{min}\, , x_{max} \ne x_{min}$, da $h$ nicht konstant $h(a) = h(b)$ O.B.d.A\\
-		$x_{max} \in ]a,b[.$ \ref{sec:6.18} : $h'(x_{max}) = 0$
-	\end{proof}
-	\subsection{Korollar}\label{sec:6.20}
-	$\mathcal{I} = [a,b]. a<b, f: I \to \R$ stetig, diffbar in $]a,b[$. (auch $\mathcal{I} = \R$ oder $[a,\infty]\, ,]-\infty,b]$ erlaubt)
-	\begin{enumerate}[a)]
-		\item Ist $f'(x) = 0$ für alle $x \in ]a,b[,$ so ist $f$ konstant auf $[a,b]$,
-		\item Ist $f'(x) \ge 0$ für alle $ x\in ]a,b[,$ so ist $f$ (streng) monoton wachsend auf $\mathcal{I}$
-		\item Ist $f(x) \le 0$ für alle $x \in ]a,b[$ so ist $f$ (streng) monoton fallend auf $\mathcal{I}$.
-	\end{enumerate}
-	\begin{minipage}[c]{0.5\textwidth}
-	\begin{proof}
-		\ \\
-		Wähle $u<v\, , u,v \in [a,b]$ beliebig.\\
-		Wende \ref{sec:6.19} auf $[u,v]$ an. $\exists c \in ]u,v[$ mit $f'(c) = \frac{f(v)-f(u)}{v-u}$\\
-		Daraus folgt im Fall\\
-		a) $f(v) = f(u)$\\
-		b) $f(v) \ge f(u)$\\
-		c) $f(v) \le f(u)$
-	\end{proof}
+\subsection[Satz]{Satz}\label{sec:6.18}
+$f\: : D \to \R $ diffbar.\\
+Hat $f$ in $c \in D$ lokales Minimum/Maximum, so $f'(c) =0$
+\begin{proof}
+\ \\
+c lokale Max.stelle.\\
+$f'(c)$ existiert nach Voraussetzung.\\
+$ f'(c) = \lim\limits_{x \to c^+} \frac{f(x) - f(c)}{x-c}\le 0.\\
+f'(c) = \lim\limits_{x \to c^-} \frac{f(x) - f(c)}{x-c}\ge 0.\\
+\Rightarrow f'(c) = 0.$
+\end{proof}
+\noindent\emph{Vorsicht}: $f'(c) = 0$ ist nicht hinreichend für lokale Maxima/Minima.\\
+z.B $f(x) = x^3 \quad f'(x) = 3x^2\quad f'(0) = 0\\
+f$ hat kein Maximum oder Minimum in 0\\
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[axis x line=center,
+	axis y line=center,axis equal,xmax = 5,xmin = -5, ymax =10,ymin=-10]
+	\addplot[samples=50] gnuplot[id=sechspunkt18] {x**3};      
+	\end{axis} 
+	\end{tikzpicture}
+	\caption{Ableitung keine Hinreichende Bedingung für Minima/Maxima}
+\end{figure}
+Globale Max/Min von $f$ auf $[a,b]$:
+\begin{enumerate}[-]
+	\item Bestimme $c \in ]a,b[$ mit $f'(c) = 0$ Teste, ob lokale Max/Min.
+	\item Teste Intervallgrenzen a und b.
+\end{enumerate}
+\subsection{Satz (Mittelwertsatz)}\label{sec:6.19}
+$\mathcal{I} = [a,b], a < b , a,b \in \R$\marginpar{Speziell: $f(a) =f(b) \Rightarrow \exists c \in ]a,b[$ mit $f'(c) = 0$ Satz von Rolle} $\\
+f: \mathcal{I} \to \R$ stetig und diffbar auf $]a,b[$.\\
+Dann existiert $c \in ]a,b[$ mit $f'(c) = \frac{f(b)-f(a)}{b-a}$
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[axis x line=center,
+	axis y line=center, xmin = 0, ymin = 0,xmax =5,ymax =5,xtick={2},xticklabels={$c$}]   
+	\addplot[samples=2,domain={0:5},dashed] gnuplot[id=sekante]{2*x};
+	\addplot[samples=50,domain={0:5}] gnuplot[id=sekante]{2*x**2 - 0.5 * x **3};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Eine Funktion und ihrer Steigung an der Stelle c}
+\end{figure}
+\begin{proof}
+	Setze $s(x) = f(a) + \frac{f(b) -f(a)}{b-a} \cd (x-a)$\\
+	(Sekante durch $(a,f(a)),(b,f(b))$\\
+	Def. $h(x) = f(x) - s(x)$. $h(a) = h(b) = 0$.\\
+	Zeige: $\exists c \in ]a,b[ $ mit $h'(c) = 0$.\\
+	Fertig, denn 
+	\begin{align*}
+		h'(x) &=f'(x) - s'(x)
+		= f'(x) - \frac{f(b)-f(a)}{b-a}\\
+		h'(c) &= 0 \Rightarrow f'(c) = \frac{f(b)-f(a)}{b-a} 
+	\end{align*}
+	Ist $h$ konstant, so kann man jedes $c \in ]a,b[$ wählen. Also sei $h$ nicht konstant. $h$ ist stetig auf $[a.b]$. \ref{sec:5.11}. h nimmt auf $[a,b]]$ globales Max. und Min. an: $x_{max}, x_{min}\, , x_{max} \ne x_{min}$, da $h$ nicht konstant $h(a) = h(b)$ O.B.d.A\\
+	$x_{max} \in ]a,b[.$ \ref{sec:6.18} : $h'(x_{max}) = 0$
+\end{proof}
+\subsection{Korollar}\label{sec:6.20}
+$\mathcal{I} = [a,b]. a<b, f: I \to \R$ stetig, diffbar in $]a,b[$. (auch $\mathcal{I} = \R$ oder $[a,\infty]\, ,]-\infty,b]$ erlaubt)
+\begin{enumerate}[a)]
+	\item Ist $f'(x) = 0$ für alle $x \in ]a,b[,$ so ist $f$ konstant auf $[a,b]$,
+	\item Ist $f'(x) \ge 0$ für alle $ x\in ]a,b[,$ so ist $f$ (streng) monoton wachsend auf $\mathcal{I}$
+	\item Ist $f(x) \le 0$ für alle $x \in ]a,b[$ so ist $f$ (streng) monoton fallend auf $\mathcal{I}$.
+\end{enumerate}
+\begin{minipage}[c]{0.5\textwidth}
+\begin{proof}
+	\ \\
+	Wähle $u<v\, , u,v \in [a,b]$ beliebig.\\
+	Wende \ref{sec:6.19} auf $[u,v]$ an. $\exists c \in ]u,v[$ mit $f'(c) = \frac{f(v)-f(u)}{v-u}$\\
+	Daraus folgt im Fall\\
+	a) $f(v) = f(u)$\\
+	b) $f(v) \ge f(u)$\\
+	c) $f(v) \le f(u)$
+\end{proof}
 \end{minipage}
 \begin{minipage}[t]{0.5\textwidth}
-	Bedingung für strenge Montonie nur hinreichend, nicht notwendig $f(x)= x^3$ streng monoton steigend $f'(0)=0$
+Bedingung für strenge Montonie nur hinreichend, nicht notwendig $f(x)= x^3$ streng monoton steigend $f'(0)=0$
 \end{minipage}
-	\subsection{Korollar}\label{sec:6.21}
-	$\mathcal{I} = [a,b], a<b$ wie in \ref{sec:6.20}.\\
-	$c \in ]a,b[. f: \mathcal{I} \to \R $ sei stetig in $\mathcal{I}.\\
-	f$ auf $\mathcal{I}_0 = ]a,b[ \setminus \{c\}$ diffbar\\
-	Existiert $\lim\limits_{x \to c} f'(x)$ auf $\mathcal{I}_0$, so existiert $f'(c)$ und $f'(c) = \lim\limits_{x \to c} f'(x).$
-	\subsection{Satz (Regeln von L'Hôpital)} \label{sec:6.22}
-	\begin{enumerate}[a)]
-		\item $\mathcal{I}$ Intervall, c $\in \mathcal{I}$, $f,g: \mathcal{I} \setminus \{c\} \to \R $ diffbar.\\
-		Es gelte $g'(x) > 0$ für alle $ x \in \mathcal{I} \setminus \{c\}$\\
-		Oder\quad : $g'(x) > 0$ für alle $ x \in \mathcal{I} \setminus \{c\}$\\
-		Es gelte $\lim\limits_{x \to c} f(x) = \lim\limits_{x \to c} g(x) = 0$ oder $ \infty$\\
-		Existiert $\lim\limits_{x \to c} \frac{f'(x)}{g'(x)} = L$, so ist $\lim\limits_{x \to c} \frac{f(x)}{g(x)} = L$
-		\item $f,g : [a,\infty[ \to \R $ diffbar.\\
-		Es gelte $ g'(x) > 0$ für alle $x \in [a,\infty[ $\\
-		oder \ \ \quad $g'(x) < 0$ für alle $x \in [a,\infty[ $
-		und $\lim\limits_{x \to \infty} f(x) = \lim\limits_{x \to \infty} g(x) = 0 $ oder $\infty$ \\
-		Existiert $\lim\limits_{x \to \infty} \frac{f'(x)}{g'(x)} = L$, so ist \\
-		a \ \qquad \quad $\lim\limits_{x \to \infty} \frac{f(x)}{g(x)} = L.$
-	\end{enumerate}
-	\subsection{Beispiel} \label{sec:6.23}
-	\begin{enumerate}[a)]
-		\item $\lim\limits_{x \to \infty} \frac{\ln(1 + ax)}{x} = ? (a \in \R)$ Zähler definiert für alle $x \in \R$ mit $1+ax >0$ \ref{sec:6.22}a):\\
-		$\lim\limits_{x \to 0} \frac{\ln(1 +ax )}{x}\\
-		\lim\limits_{x \to 0} \frac{\frac{a}{1+ ax}}{1} = a$\\
-		\item $\lim\limits_{x \cd \ln(x)}\\
-		\lim\limits_{x\to 0^+} - \frac{-ln(x)}{\frac{1}{x}} \underset{\text{\ref{sec:6.22}}}{=} \lim\limits_{x \to 0^0} \frac{\frac{1}{x}}{-\frac{1}{x^2}}=\\
-		\lim\limits_{x \to 0}-\frac{-x^2}{x} = \lim\limits_{x \to 0^+} - x = 0 $
-		\item $\lim\limits_{x \to 0} x^x = \lim\limits_{x \to 0} \exp(x \cd \ln(x))\\
-		\underset{\text{exp stetig}}{=} \exp(\lim\limits_{x \to 0} x \cd \ln(x)) \underset{\text{b)}}{=} \exp(0) =1$.\\
-		(Deshalb definiert man $0^0 = 1$)
-		\item $\lim\limits_{x \to \infty} = \frac{\ln(x)}{x}  \underset{\text{\ref{sec:6.22}}}{=}\\
-		\lim\limits_{x \to \infty} \frac{\frac{1}{x}}{1} =\\
-		\lim\limits_{x \to \infty} = \frac{1}{x} = 0$ (schon in 5.17)
-	\end{enumerate}
-	\section{Das bestimmte Integral}
-	Ziel: Bestimmung des Flächeninhalts zwischen Graph einer Funktion und x-Achse zwischen zwei Grenzen a und b (sofern möglich).
-	\begin{figure}[h!]
-		\centering
-		\begin{tikzpicture}
-		\begin{axis}[axis x line=center,
-		axis y line=center, xmin = 0, ymin = 0,xmax =5,ymax =5]  
-		\path[name path=axis] (axis cs:0,0) -- (axis cs:4,0); 
-		\addplot[name path=f,samples=50,domain={0:5}] gnuplot[id=flache]{2*x**2 - 0.5 * x **3};
-		\addplot [
-		thick,
-		color=blue,
-		fill=blue, 
-		fill opacity=0.05
-		]
-		fill between[
-		of=f and axis,
-		soft clip={domain=0:4},
-		];
-		\end{axis}
-		\end{tikzpicture}
-		\caption{Flächeninhalt unter einer Funktion $f$}
-	\end{figure}
-	\subsection{Definition}
-	\begin{enumerate}[a)]
-		\item $a,b \in \R, a<b. f:[a,b] \to \R$ hei\ss t \emph{Treppenfunktion}, falls es $ a = a_0 < a_1 < \ldots < a_n = b$ gibt, so dass $f$ auf jedem offenem Intervall $]a_i,a_{i+1}[/, , i= 0 \ldots, n-1 $, konstant ist. (Wert an den $a_i$ beliebig.)\\
-	\begin{figure}[h!]
-		\centering
-		\begin{tikzpicture}
-		\begin{axis}[axis x line=center,
-		axis y line=center,axis equal,xmax = 5,xmin = 0, ymax =10,ymin=0]
-		\draw(axis cs: 0,4)--(axis cs: 1,4);
-		\draw(axis cs: 1,1)--(axis cs: 3,1);
-		\draw(axis cs: 3,2)--(axis cs: 5,2);
-		\draw(axis cs: 5,2.2)--(axis cs: 8,2.2);        
-		\end{axis} 
-		\end{tikzpicture}
-		\caption{Treppenfunktion}
-	\end{figure}
-		\item $f$ wie in a).
-		\[ \int_a^b fdx = \int_a^b f(x)dx := \sum_{i=0}^{n-1} c_i (a_{i+1} -a_i) \]
-		wobei $f(x) = c_i$ auf $]a_i, a_{i+1}[.$\\
-		\emph{Integral} von $f$ über $[a,b]$ (Integral kann negativ sein)
-	\end{enumerate}
+\subsection{Korollar}\label{sec:6.21}
+$\mathcal{I} = [a,b], a<b$ wie in \ref{sec:6.20}.\\
+$c \in ]a,b[. f: \mathcal{I} \to \R $ sei stetig in $\mathcal{I}.\\
+f$ auf $\mathcal{I}_0 = ]a,b[ \setminus \{c\}$ diffbar\\
+Existiert $\lim\limits_{x \to c} f'(x)$ auf $\mathcal{I}_0$, so existiert $f'(c)$ und $f'(c) = \lim\limits_{x \to c} f'(x).$
+\subsection{Satz (Regeln von L'Hôpital)} \label{sec:6.22}
+\begin{enumerate}[a)]
+	\item $\mathcal{I}$ Intervall, c $\in \mathcal{I}$, $f,g: \mathcal{I} \setminus \{c\} \to \R $ diffbar.\\
+	Es gelte $g'(x) > 0$ für alle $ x \in \mathcal{I} \setminus \{c\}$\\
+	Oder\quad : $g'(x) > 0$ für alle $ x \in \mathcal{I} \setminus \{c\}$\\
+	Es gelte $\lim\limits_{x \to c} f(x) = \lim\limits_{x \to c} g(x) = 0$ oder $ \infty$\\
+	Existiert $\lim\limits_{x \to c} \frac{f'(x)}{g'(x)} = L$, so ist $\lim\limits_{x \to c} \frac{f(x)}{g(x)} = L$
+	\item $f,g : [a,\infty[ \to \R $ diffbar.\\
+	Es gelte $ g'(x) > 0$ für alle $x \in [a,\infty[ $\\
+	oder \ \ \quad $g'(x) < 0$ für alle $x \in [a,\infty[ $
+	und $\lim\limits_{x \to \infty} f(x) = \lim\limits_{x \to \infty} g(x) = 0 $ oder $\infty$ \\
+	Existiert $\lim\limits_{x \to \infty} \frac{f'(x)}{g'(x)} = L$, so ist \\
+	\phantom{Existiert} $\lim\limits_{x \to \infty} \frac{f(x)}{g(x)} = L.$
+\end{enumerate}
+\subsection{Beispiel} \label{sec:6.23}
+\begin{enumerate}[a)]
+	\item $\lim\limits_{x \to \infty} \frac{\ln(1 + ax)}{x} = ? (a \in \R)$ Zähler definiert für alle $x \in \R$ mit $1+ax >0$ \ref{sec:6.22}a):\\
+	$\lim\limits_{x \to 0} \frac{\ln(1 +ax )}{x}\\
+	\lim\limits_{x \to 0} \frac{\frac{a}{1+ ax}}{1} = a$\\
+	\item $\lim\limits_{x \cd \ln(x)}\\
+	\lim\limits_{x\to 0^+} - \frac{-ln(x)}{\frac{1}{x}} \underset{\text{\ref{sec:6.22}}}{=} \lim\limits_{x \to 0^0} \frac{\frac{1}{x}}{-\frac{1}{x^2}}=\\
+	\lim\limits_{x \to 0}-\frac{-x^2}{x} = \lim\limits_{x \to 0^+} - x = 0 $
+	\item $\lim\limits_{x \to 0} x^x = \lim\limits_{x \to 0} \exp(x \cd \ln(x))\\
+	\underset{\text{exp stetig}}{=} \exp(\lim\limits_{x \to 0} x \cd \ln(x)) \underset{\text{b)}}{=} \exp(0) =1$.\\
+	(Deshalb definiert man $0^0 = 1$)
+	\item $\lim\limits_{x \to \infty} = \frac{\ln(x)}{x}  \underset{\text{\ref{sec:6.22}}}{=}\\
+	\lim\limits_{x \to \infty} \frac{\frac{1}{x}}{1} =\\
+	\lim\limits_{x \to \infty} = \frac{1}{x} = 0$ (schon in 5.17)
+\end{enumerate}
+\section{Das bestimmte Integral}
+Ziel: Bestimmung des Flächeninhalts zwischen Graph einer Funktion und x-Achse zwischen zwei Grenzen a und b (sofern möglich).
+\begin{figure}[h!t]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[axis x line=center,
+	axis y line=center, xmin = 0, ymin = 0,xmax =5,ymax =5]  
+	\path[name path=axis] (axis cs:0,0) -- (axis cs:4,0); 
+	\addplot[name path=f,samples=50,domain={0:5}] gnuplot[id=flache]{2*x**2 - 0.5 * x **3};
+	\addplot [
+	thick,
+	color=blue,
+	fill=blue, 
+	fill opacity=0.05
+	]
+	fill between[
+	of=f and axis,
+	soft clip={domain=0:4},
+	];
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Flächeninhalt unter einer Funktion $f$}
+\end{figure}
+\subsection{Definition}
+\begin{enumerate}[a)]
+	\item $a,b \in \R, a<b. f:[a,b] \to \R$ hei\ss t \emph{Treppenfunktion}, falls es $ a = a_0 < a_1 < \ldots < a_n = b$ gibt, so dass $f$ auf jedem offenem Intervall $]a_i,a_{i+1}[/, , i= 0 \ldots, n-1 $, konstant ist. (Wert an den $a_i$ beliebig.)\\
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[axis x line=center,
+	axis y line=center,axis equal,xmax = 5,xmin = 0, ymax =10,ymin=0]
+	\draw(axis cs: 0,4)--(axis cs: 1,4);
+	\draw(axis cs: 1,1)--(axis cs: 3,1);
+	\draw(axis cs: 3,2)--(axis cs: 5,2);
+	\draw(axis cs: 5,2.2)--(axis cs: 8,2.2);        
+	\end{axis} 
+	\end{tikzpicture}
+	\caption{Treppenfunktion}
+\end{figure}
+	\item $f$ wie in a).
+	\[ \int_a^b fdx = \int_a^b f(x)dx := \sum_{i=0}^{n-1} c_i (a_{i+1} -a_i) \]
+	wobei $f(x) = c_i$ auf $]a_i, a_{i+1}[.$\\
+	\emph{Integral} von $f$ über $[a,b]$ (Integral kann negativ sein)
+\end{enumerate}
 \subsection{Definition}\label{sec:7.2}
 $a,b \in \R . a < b.\\
 f: [a,b] \to \R$ hei\ss t \emph{Regelfunktion} (oder integrierbare Funktion) $\Leftrightarrow\\
@@ -2406,101 +2391,101 @@ Gleichmä\ss ige Approximierbarkeit durch Treppenfunktion.
 \subsection[Satz: Regelfunktionen]{Satz}\label{sec:7.3}
 $\mathcal{I} = [a,b],\, a,b \in \R,\, a<b$.\\
 \begin{enumerate}[a)]
-	\item Jede Regelfunktion $f$ auf $\mathcal{I}$ ist beschränkt d.h. $\exists m,M \in \R :\: m \leq f(x) \leq M$ für alle $x \in [a,b]$.\\
-	\item Summe, Produkt und Betrag von Regelfunktionen ist wieder eine Regelfunktion
+\item Jede Regelfunktion $f$ auf $\mathcal{I}$ ist beschränkt d.h. $\exists m,M \in \R :\: m \leq f(x) \leq M$ für alle $x \in [a,b]$.\\
+\item Summe, Produkt und Betrag von Regelfunktionen ist wieder eine Regelfunktion
 \end{enumerate}
 \emph{Beweisidee} für a),b):\\
 Man beweist \ref{sec:7.3} zunächst für Treppenfunktionen. Für b): Bestimme gemeinsame Verfeinerung der Intervallunterteilung der beiden Treppenfunktionen
 Dann auf Regelfunktionen übertragen.
 \subsection[Satz: Regelfunktion und Stetigkeit]{Satz}\label{sec:7.4}
 Jede stetige Funktion auf $[a,b]$ ist Regelfunktion
-\emph{Beweis}: \cite{k8}
+\emph{Beweis}: \cite{k8}\\
 \begin{figure}[h!]
-	\centering
-	\begin{tikzpicture}
-	\begin{axis}[axis x line=center,
-	axis y line=center,axis equal,xmax = 5,xmin = 0, ymax =10,ymin=0, xticklabels={a,b},xtick={1,5}]
-	\addplot[samples=50,domain={1:5}] gnuplot[id=7punkt4]{ 1/12 * x**5 + sin(x+3.141) + 3};       
-	\end{axis} 
-	\end{tikzpicture}
-	\caption{Treppenfunktion}
+\centering
+\begin{tikzpicture}
+\begin{axis}[axis x line=center,
+axis y line=center,axis equal,xmax = 5,xmin = 0, ymax =10,ymin=0, xticklabels={a,b},xtick={1,5}]
+\addplot[samples=50,domain={1:5}] gnuplot[id=7punkt4]{ 1/12 * x**5 + sin(x+3.141) + 3};       
+\end{axis} 
+\end{tikzpicture}
+\caption{Treppenfunktion}
 \end{figure}
 7.4 gilt auch für sogenannte \emph{stückweise stetige} Funktionen auf $[a,b]$
 \begin{figure}[h!]
-	\centering
-	\begin{tikzpicture}
-	\begin{axis}[axis x line=center,
-	axis y line=center,axis equal,xmax = 5,xmin = 0, ymax =10,ymin=-2]
-	\addplot[samples=50,domain={1:2}] gnuplot[id=7punkt41]{ 1/12 * x**5 + sin(x+3.141) + 3};
-	\addplot[samples=50,domain={2:3}] gnuplot[id=7punkt42]{ 1/12 * x**5 + sin(x+3.141) - 1};
-	\addplot[samples=50,domain={3:4}] gnuplot[id=7punkt43]{ 1/12 * x**5 + sin(x+3.141) + 8};           
-	\end{axis} 
-	\end{tikzpicture}
-	\caption{Abschnittsweise stetige Funktion}
+\centering
+\begin{tikzpicture}
+\begin{axis}[axis x line=center,
+axis y line=center,axis equal,xmax = 5,xmin = 0, ymax =10,ymin=-2]
+\addplot[samples=50,domain={1:2}] gnuplot[id=7punkt41]{ 1/12 * x**5 + sin(x+3.141) + 3};
+\addplot[samples=50,domain={2:3}] gnuplot[id=7punkt42]{ 1/12 * x**5 + sin(x+3.141) - 1};
+\addplot[samples=50,domain={3:4}] gnuplot[id=7punkt43]{ 1/12 * x**5 + sin(x+3.141) + 8};           
+\end{axis} 
+\end{tikzpicture}
+\caption{Abschnittsweise stetige Funktion}
 \end{figure}
 $[a,b]$ ist Vereinigung \emph{endlicher} Teilintervalle, auf denen Funktion stetig ist.
 \subsection{Beispiel}\label{sec:7.5}
 \begin{enumerate}[a)]
-	\item $f(x) =x^2,\, \mathcal{I} = [0,t]$\\
-	\begin{figure}[h!]
-		\centering
-		\begin{tikzpicture}
-		\begin{axis}[axis x line=center,
-		axis y line=center,axis equal,xmax = 5,xmin = 0, ymax =20,ymin=0,xtick={5},xticklabels={t}]
-		\addplot[samples=50,domain={0:5}] gnuplot[id=7punkt5]{x**2};
-		\draw(axis cs: 0,0)--(axis cs: 0,1);
-		\draw(axis cs: 1,2)--(axis cs: 2,2);
-		\draw(axis cs: 2,2)--(axis cs: 2,0);
-		\draw(axis cs: 1,2)--(axis cs: 1,0);
-		\draw(axis cs: 2,4)--(axis cs: 3,4);
-		\draw(axis cs: 3,4)--(axis cs: 3,0);
-		\draw(axis cs: 2,4)--(axis cs: 2,0);
-		\draw(axis cs: 3,9)--(axis cs: 4,9);
-		\draw(axis cs: 4,9)--(axis cs: 4,0);
-		\draw(axis cs: 3,9)--(axis cs: 3,0);
-		\draw(axis cs: 4,16)--(axis cs: 5,16);
-		\draw(axis cs: 5,16)--(axis cs: 5,0);
-		\draw(axis cs: 4,16)--(axis cs: 4,0);
-		\end{axis} 
-		\end{tikzpicture}
-		\caption{Treppenfunktion (Untersumme) von $x^2$}
-	\end{figure}
-	Definition für $x \in \mathbb{N}$ Treppenfunktion.\\
-	$f_n: [0,t] \to \R \\
-	f_n(x)=\begin{cases}
-	(\frac{it^2}{n}) & \text{falls } x\in [\frac{it}{n}, \frac{(i+1)t}{n}] \text{für ein }i \in \{0,\ldots,n-1\}\\
-	t^2 & \text{falls } x = t
-	\end{cases}\\
-	x \in [0,t]:\: \abs{f(x) -f_n(x)} = ?\\
-	x = t:\: \abs{f(t)-f_n(x)} = 0.\\
-	0 \le x < t:$ Dann $ x \in [\frac{it}{n}, \frac{(i+1)t}{n}]$ für alle $i \in \{0,\ldots,n-1\}.\\
-	\abs{f(x)-f_n(x)} = \abs{x^2 - (\frac{it}{n})^2} \le (\frac{(i+1)t}{n})^2 - (\frac{it}{n})^2 = \frac{2it+t^2}{n^2}\le \frac{2t}{n} + \frac{t^2}{n^2} \xrightarrow[n \to \infty]{} 0$\\
-	\item $f(x) = \begin{cases}
-	0 & x \in \mathbb{Q}\\
-	1 & x \not \in \mathbb{Q}
-	\end{cases}\\
-	f: [0,1] \to \R$
-	\begin{figure}[h!]
-		\centering
-		\begin{tikzpicture}
-		\begin{axis}[axis x line=center,
-		axis y line=center, xmin = 0, ymin = 0,xmax =5,ymax =2]  
-		\addplot[only marks,samples=55] gnuplot {0};
-		\addplot[only marks,samples=50] gnuplot {1};
-		\end{axis}
-		\end{tikzpicture}
-		\caption{Nicht integrierbare Funktion}
-	\end{figure}
+\item $f(x) =x^2,\, \mathcal{I} = [0,t]$\\
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[axis x line=center,
+	axis y line=center,axis equal,xmax = 5,xmin = 0, ymax =20,ymin=0,xtick={5},xticklabels={t}]
+	\addplot[samples=50,domain={0:5}] gnuplot[id=7punkt5]{x**2};
+	\draw(axis cs: 0,0)--(axis cs: 0,1);
+	\draw(axis cs: 1,2)--(axis cs: 2,2);
+	\draw(axis cs: 2,2)--(axis cs: 2,0);
+	\draw(axis cs: 1,2)--(axis cs: 1,0);
+	\draw(axis cs: 2,4)--(axis cs: 3,4);
+	\draw(axis cs: 3,4)--(axis cs: 3,0);
+	\draw(axis cs: 2,4)--(axis cs: 2,0);
+	\draw(axis cs: 3,9)--(axis cs: 4,9);
+	\draw(axis cs: 4,9)--(axis cs: 4,0);
+	\draw(axis cs: 3,9)--(axis cs: 3,0);
+	\draw(axis cs: 4,16)--(axis cs: 5,16);
+	\draw(axis cs: 5,16)--(axis cs: 5,0);
+	\draw(axis cs: 4,16)--(axis cs: 4,0);
+	\end{axis} 
+	\end{tikzpicture}
+	\caption{Treppenfunktion (Untersumme) von $x^2$}
+\end{figure}
+Definition für $x \in \mathbb{N}$ Treppenfunktion.\\
+$f_n: [0,t] \to \R \\
+f_n(x)=\begin{cases}
+(\frac{it^2}{n}) & \text{falls } x\in [\frac{it}{n}, \frac{(i+1)t}{n}] \text{für ein }i \in \{0,\ldots,n-1\}\\
+t^2 & \text{falls } x = t
+\end{cases}\\
+x \in [0,t]:\: \abs{f(x) -f_n(x)} = ?\\
+x = t:\: \abs{f(t)-f_n(x)} = 0.\\
+0 \le x < t:$ Dann $ x \in [\frac{it}{n}, \frac{(i+1)t}{n}]$ für alle $i \in \{0,\ldots,n-1\}.\\
+\abs{f(x)-f_n(x)} = \abs{x^2 - (\frac{it}{n})^2} \le (\frac{(i+1)t}{n})^2 - (\frac{it}{n})^2 = \frac{2it+t^2}{n^2}\le \frac{2t}{n} + \frac{t^2}{n^2} \xrightarrow[n \to \infty]{} 0$\\
+\item $f(x) = \begin{cases}
+0 & x \in \mathbb{Q}\\
+1 & x \not \in \mathbb{Q}
+\end{cases}\\
+f: [0,1] \to \R$
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[axis x line=center,
+	axis y line=center, xmin = 0, ymin = 0,xmax =5,ymax =2]  
+	\addplot[only marks,samples=55] gnuplot {0};
+	\addplot[only marks,samples=50] gnuplot {1};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Nicht integrierbare Funktion}
+\end{figure}
 \end{enumerate}
 \subsection{Lemma}\label{sec:7.6}
 $f$ Regelfunktion auf $[a,b]$\\
 \begin{enumerate}[a)]
-	\item $(f_n)_n$ Folge von Treppenfunktion, die \emph{gleichmä\ss ig} gegen $f$ konvergiert, dass hei\ss t es existiert Nullfolge $(a_n)_n$, $a \geq 0$, und $\abs{f_n(x)-f(x)} \le a_n$ für alle $x \in [a,b]$.\\
-	Dann konvergiert die Folge \[\underbrace{\biggl(\int_{a}^{b}f_n(x)dx \biggr)_n}_{\in \R}\]
-	\item Sind $(f_n)_n$ und $(g_n)_n$ zwei Folgen von Treppenfunktionen die gegen $f$ gleichmä\ss ig konvergieren, so :\\
-	\begin{align}
-	\lim_{n \to \infty} \int_{a}^{b} f_n(x)dx = \lim_{n \to \infty} \int_{a}^{b} g_n(x)dx \tag{\text{WHK, 7.20}}
-	\end{align}
+\item $(f_n)_n$ Folge von Treppenfunktion, die \emph{gleichmä\ss ig} gegen $f$ konvergiert, dass hei\ss t es existiert Nullfolge $(a_n)_n$, $a \geq 0$, und $\abs{f_n(x)-f(x)} \le a_n$ für alle $x \in [a,b]$.\\
+Dann konvergiert die Folge \[\underbrace{\biggl(\int_{a}^{b}f_n(x)dx \biggr)_n}_{\in \R}\]
+\item Sind $(f_n)_n$ und $(g_n)_n$ zwei Folgen von Treppenfunktionen die gegen $f$ gleichmä\ss ig konvergieren, so :\\
+\begin{align}
+\lim_{n \to \infty} \int_{a}^{b} f_n(x)dx = \lim_{n \to \infty} \int_{a}^{b} g_n(x)dx \tag{\text{WHK, 7.20}}
+\end{align}
 \end{enumerate}
 \subsection{Definition}\label{sec:7.7}
 $f : [a,b] \to \R $ Regelfunktion, $(f_n)_n$ Folge von Treppenfunktionen, die gleichmä\ss if gegen $f$ konvergiert (wie in \ref{sec:7.6} a).\\
@@ -2548,56 +2533,56 @@ Analog für die Fälle $a \le 0 < b$ und $a < b \le 0$
 $f : [a.b] \to \R$ stetig.\\
 Dann existiert $c \in [a,b]$ mit $\int_{b}^{a} f(x)dx = f(c) \cd (b-a)$
 \begin{figure}[h!]
-	\centering
-	\begin{tikzpicture}
-	\begin{axis}[axis x line=center,
-	axis y line=center, xmin = 0, ymin = 0,xmax =5,ymax =5,xtick={1,4.9},xticklabels={$a$,$b$},ytick =3,yticklabels={$f(c)$}]  
-	\path[name path=axis] (axis cs:0,0) -- (axis cs:4.9,0); \
-	\draw[red] (axis cs:1,3) -- (axis cs:4.9,3); 
-	\addplot[name path=f,samples=50,domain={1:5}] gnuplot[id=flache2]{ 1/12 * x**5 + sin(x+3.141) + 3};
-	\addplot [
-	thick,
-	color=blue,
-	fill=blue, 
-	fill opacity=0.05
-	]
-	fill between[
-	of=f and axis,
-	soft clip={domain=1:4.9},
-	];
-	\end{axis}
-	\end{tikzpicture}
-	\caption{Mittelwertsatz der Integralrechnung}
+\centering
+\begin{tikzpicture}
+\begin{axis}[axis x line=center,
+axis y line=center, xmin = 0, ymin = 0,xmax =5,ymax =5,xtick={1,4.9},xticklabels={$a$,$b$},ytick =3,yticklabels={$f(c)$}]  
+\path[name path=axis] (axis cs:0,0) -- (axis cs:4.9,0); \
+\draw[red] (axis cs:1,3) -- (axis cs:4.9,3); 
+\addplot[name path=f,samples=50,domain={1:5}] gnuplot[id=flache2]{ 1/12 * x**5 + sin(x+3.141) + 3};
+\addplot [
+thick,
+color=blue,
+fill=blue, 
+fill opacity=0.05
+]
+fill between[
+of=f and axis,
+soft clip={domain=1:4.9},
+];
+\end{axis}
+\end{tikzpicture}
+\caption{Mittelwertsatz der Integralrechnung}
 \end{figure}
 \begin{proof}
-	$f$ ist stetig nimmt also das Maximum von m an Stelle $x_{min}$ und Maximum $M$ an der Stelle $x_{max}$ an. (\ref{sec:5.11})\\
-	\ref{sec:7.9}d) : $m(b-a) \le \int\limits_{a}^{b} f(x) dx\\
-	f(x_{min}) = m \le \frac{1}{b-a} \cd \int_{a}^{b} f(x)dx \le M = f(x_{max})$\\
-	Zwischenwertsatz für stetige Funktionen \ref{sec:5.10}: $\exists c$ zwischen $x_{min}$ und $x_{max}$ (d.h $c \in [a,b])$ mit $f(c) = \frac{1}{b-a} \int_{a}^{b} f(x)dx$\\
+$f$ ist stetig nimmt also das Maximum von m an Stelle $x_{min}$ und Maximum $M$ an der Stelle $x_{max}$ an. (\ref{sec:5.11})\\
+\ref{sec:7.9}d) : $m(b-a) \le \int\limits_{a}^{b} f(x) dx\\
+f(x_{min}) = m \le \frac{1}{b-a} \cd \int_{a}^{b} f(x)dx \le M = f(x_{max})$\\
+Zwischenwertsatz für stetige Funktionen \ref{sec:5.10}: $\exists c$ zwischen $x_{min}$ und $x_{max}$ (d.h $c \in [a,b])$ mit $f(c) = \frac{1}{b-a} \int_{a}^{b} f(x)dx$\\
 \end{proof}
 \section{Der Hauptsatz der Differential- und Integralrechnung}
 \subsection{Definition}\label{sec:8.1}
 \begin{enumerate}[a)]
-	\item Sei $[a,b]$ abgeschlossenes, beschränktes (d.h $a,b \in \R , a < b$) Intervall.\\
-	$f : [a,b] \to \R$ integrierbar,\\
-	\[ \int_{a}^{b} f(t) dt = - \int_{b}^{a} f(t) dt \]
-	\item \[ \int_{a}^{a} f(t) dt = 0 \]
+\item Sei $[a,b]$ abgeschlossenes, beschränktes (d.h $a,b \in \R , a < b$) Intervall.\\
+$f : [a,b] \to \R$ integrierbar,\\
+\[ \int_{a}^{b} f(t) dt = - \int_{b}^{a} f(t) dt \]
+\item \[ \int_{a}^{a} f(t) dt = 0 \]
 \end{enumerate} \
 \begin{table}[h!]
-	\centering
-	\begin{minipage}[t]{0.7\textwidth}
-		\ref{sec:7.8} $x >0$\\
-		$ x > 0 \int_{0}^{x} t^2 dt = $\fbox{$\frac{x^3}{3}$}$ \\ \biggl(\frac{x^3}{3}\biggr)' = x^2$\\ Kein Zufall\\
-		$x \le 0\\
-		\int\limits_{0}^{x}t^2dt = - \int\limits_{x}^{0} = -(-\frac{x^3}{3}) = \frac{x^3}{3}\\
-		\int\limits_{a}^{b}t^2 = \frac{b^3}{3} - \frac{a^3}{3}$ gilt für alle $a,b \in \R$
-	\end{minipage}
+\centering
+\begin{minipage}[t]{0.7\textwidth}
+	\ref{sec:7.8} $x >0$\\
+	$ x > 0 \int_{0}^{x} t^2 dt = $\fbox{$\frac{x^3}{3}$}$ \\ \biggl(\frac{x^3}{3}\biggr)' = x^2$\\ Kein Zufall\\
+	$x \le 0\\
+	\int\limits_{0}^{x}t^2dt = - \int\limits_{x}^{0} = -(-\frac{x^3}{3}) = \frac{x^3}{3}\\
+	\int\limits_{a}^{b}t^2 = \frac{b^3}{3} - \frac{a^3}{3}$ gilt für alle $a,b \in \R$
+\end{minipage}
 \end{table} 
 \subsection{Definition}
 Sei $\mathcal{I}$ beliebiges Intervall ($-\infty$ bzw. $\infty$ als linke/rechte Grenze erlaubt).
 \begin{enumerate}[a)]
-	\item $f : \mathcal{I} \to \R$ hei\ss t \emph{lokal integrierbar},wenn $f$ auf jedem ageschlossenem beschränktem Teilintervall $[u,v]$ von $\mathcal{I}$ integrierbar ist.\\
-	\begin{figure}[h!]
+\item $f : \mathcal{I} \to \R$ hei\ss t \emph{lokal integrierbar},wenn $f$ auf jedem ageschlossenem beschränktem Teilintervall $[u,v]$ von $\mathcal{I}$ integrierbar ist.\\
+\begin{figure}[h!]
 \centering
 \caption{Lokal Integrierbar von u bis v}
 \begin{tikzpicture}
@@ -2609,62 +2594,62 @@ axis y line=center, xmin = -3.5, ymin = -2,xmax =5,ymax =5,xtick={-2,4},xticklab
 \end{axis}
 \end{tikzpicture}
 \end{figure}
-	(Ist $\mathcal{I}$ selbst abgeschlossen und beschränkt, so \glqq lokal integrierbar \glqq = \glqq integrierbar \glqq)
-	\item $F : \mathcal{I} \to \R $ hei\ss t \emph{Stammfunktion} der lokal Integrierbaren Funktion $f : \mathcal{I} \to \R $, wenn gilt \[ \int_{a}^{V} f(t)dt = F(v) - F(u) \] für alle $u,v \in \mathcal{I}$.\\
-	Eine Stammfunktion von $f$ wird auch als \emph{unbestimmtes Integral} von f bezeichnet $F = \int f(t)dt$
-	\subsection{Bemerkung}
-	Ist $f$ lokal integrierbar auf $\mathcal{I}$, so gilt \[ \int_{u}^{v}f(t)dt + \int_{v}^{w} f(t)dt = \int_{u}^{w} f(t)dt \marginnote{\text{Folgt aus \ref{sec:7.9} + \ref{sec:8.1}}} \] für alle $u,v,w \in \mathcal{I}$ (nicht notwendig $ u < v  <w$)
+(Ist $\mathcal{I}$ selbst abgeschlossen und beschränkt, so \glqq lokal integrierbar \glqq = \glqq integrierbar \glqq)
+\item $F : \mathcal{I} \to \R $ hei\ss t \emph{Stammfunktion} der lokal Integrierbaren Funktion $f : \mathcal{I} \to \R $, wenn gilt \[ \int_{a}^{V} f(t)dt = F(v) - F(u) \] für alle $u,v \in \mathcal{I}$.\\
+Eine Stammfunktion von $f$ wird auch als \emph{unbestimmtes Integral} von f bezeichnet $F = \int f(t)dt$
+\subsection{Bemerkung}
+Ist $f$ lokal integrierbar auf $\mathcal{I}$, so gilt \[ \int_{u}^{v}f(t)dt + \int_{v}^{w} f(t)dt = \int_{u}^{w} f(t)dt \marginnote{\text{Folgt aus \ref{sec:7.9} + \ref{sec:8.1}}} \] für alle $u,v,w \in \mathcal{I}$ (nicht notwendig $ u < v  <w$)
 \end{enumerate}
 \subsection{Beispiel}
 \begin{enumerate}[a)]
-	\item $f(x) = x^2$ lokal integrierbar auf $\R$.\\
-	Stammfunktion von $f$.\\
-	$F(x) = \frac{x^3}{3}$\\
-	\[ \int_{a}^{b} F(b) - F(a) \]
-	\item $f(x) = \begin{cases}
-	0 &\text{ für }x < 0\\
-	1 &\text{ für }x \ge 0\\
-	\end{cases}$\\
-	Heaviside - Funktion\\
-	$f$ ist lokal integrierbar auf $\R$\quad\begin{minipage}[c]{0.3\textwidth}
+\item $f(x) = x^2$ lokal integrierbar auf $\R$.\\
+Stammfunktion von $f$.\\
+$F(x) = \frac{x^3}{3}$\\
+\[ \int_{a}^{b} F(b) - F(a) \]
+\item $f(x) = \begin{cases}
+0 &\text{ für }x < 0\\
+1 &\text{ für }x \ge 0\\
+\end{cases}$\\
+Heaviside - Funktion\\
+$f$ ist lokal integrierbar auf $\R$\quad\begin{minipage}[c]{0.3\textwidth}
 \begin{tikzpicture}
 \begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = -3,ymax = 4,xmax = 3,axis x line=center,
-    axis y line=center,width=5cm,height=3cm]   
+axis y line=center,width=5cm,height=3cm]   
 \draw [red] (axis cs:0,1)--(axis cs:10,1);
 \draw [red] (axis cs:-10,0)--(axis cs:0,0);
 \end{axis}
 \end{tikzpicture}
 \end{minipage}\\
-	Stammfunktion von $f$:\\
-	$F(x) =  \begin{cases}
-	0 &\text{ für }x < 0\\
-	x &\text{ für }x \ge 0\\
-	\end{cases}$\quad\begin{minipage}[c]{0.3\textwidth}
+Stammfunktion von $f$:\\
+$F(x) =  \begin{cases}
+0 &\text{ für }x < 0\\
+x &\text{ für }x \ge 0\\
+\end{cases}$\quad\begin{minipage}[c]{0.3\textwidth}
 \begin{tikzpicture}
 \begin{axis}[legend style={draw none},axis equal,ymin = -4,xmin = -3,ymax = 4,xmax = 3,axis x line=center,
-    axis y line=center,width=5cm,height=3cm]   
+axis y line=center,width=5cm,height=3cm]   
 \draw [red] (axis cs:0,0)--(axis cs:10,10);
 \draw [red] (axis cs:-10,0)--(axis cs:0,0);
 \end{axis}
 \end{tikzpicture}
 \end{minipage}\\
-	Zeige: $\forall u, v \in \R:$
-	\[\int_{u}^{v} f(t)dt= F(v)-F(u)\]
-	\begin{align}
-	\int_{u}^{v} f(t)dt &= 0 F(v) - F(u) \tag{u < v < 0}\\
-	\int_{u}^{v} f(t)dt &= 0 = \int_{0}^{v} f(t)dt = 1 \cd v = F(v) - F(u) \tag{u < 0 < v}\\
-	\int_{u}^{v} f(t)dt &= 1 \cd (v - u) F(v) - F(u) \tag{0 < u < v}\\
-	\int_{u}^{v} f(t)dt &= -(F(u) - F(v))= F(v) - F(u) \tag{u \ge 0}
-	\end{align}
+Zeige: $\forall u, v \in \R:$
+\[\int_{u}^{v} f(t)dt= F(v)-F(u)\]
+\begin{align}
+\int_{u}^{v} f(t)dt &= 0 F(v) - F(u) \tag{u < v < 0}\\
+\int_{u}^{v} f(t)dt &= 0 = \int_{0}^{v} f(t)dt = 1 \cd v = F(v) - F(u) \tag{u < 0 < v}\\
+\int_{u}^{v} f(t)dt &= 1 \cd (v - u) F(v) - F(u) \tag{0 < u < v}\\
+\int_{u}^{v} f(t)dt &= -(F(u) - F(v))= F(v) - F(u) \tag{u \ge 0}
+\end{align}
 \end{enumerate}
 \subsection[Satz]{Satz}
 Sei $\mathcal{I} \ne \emptyset$ Intervall, $f : \mathcal{I} \to \R$ lokal \glqq Integrierbar \grqq
 \begin{enumerate}[a)]
-	\item Ist $F$ Stammfunktion von $f$, so auch $G(x) = F(x) +c$ für jedes $ c \in \R$.
-	\item Sind $F$ und $G$ Stammfunktionen von $f$, so ist $F(x) = G(x) + c$ für ein $c \in \R$
-	\item Sei $x_0 \in \mathcal{I}$ beliebig, aber fest gewählt.
-	Dann ist F(x) = $\int_{x_0}^{x} f(t)dt$ eine Stammfunktion von f.\\
-	(Beachte \[ \int_{x_0}^{x} f(t)dt = \int_{x_0'}^{x} f(t)dt + \int_{x_0'}^{x} f(t)dt  \])
+\item Ist $F$ Stammfunktion von $f$, so auch $G(x) = F(x) +c$ für jedes $ c \in \R$.
+\item Sind $F$ und $G$ Stammfunktionen von $f$, so ist $F(x) = G(x) + c$ für ein $c \in \R$
+\item Sei $x_0 \in \mathcal{I}$ beliebig, aber fest gewählt.
+Dann ist F(x) = $\int_{x_0}^{x} f(t)dt$ eine Stammfunktion von f.\\
+(Beachte \[ \int_{x_0}^{x} f(t)dt = \int_{x_0'}^{x} f(t)dt + \int_{x_0'}^{x} f(t)dt  \])
 \end{enumerate}
 \begin{figure}[h!]
 \centering
@@ -2999,10 +2984,10 @@ mit $d_{ik} = a_{i1} \cd b_{1k} +  a_{i2} \cd b_{2k} + \ldots +  a_in \cd b_{nk}
 \\
 \newcommand{\myunit}{1 cm}
 \tikzset{
-    node style sp/.style={draw,circle,minimum size=\myunit},
-    node style ge/.style={circle,minimum size=\myunit},
-    arrow style mul/.style={draw,sloped,midway,fill=white},
-    arrow style plus/.style={midway,sloped,fill=white},
+node style sp/.style={draw,circle,minimum size=\myunit},
+node style ge/.style={circle,minimum size=\myunit},
+arrow style mul/.style={draw,sloped,midway,fill=white},
+arrow style plus/.style={midway,sloped,fill=white},
 }
 \begin{figure}[h!]
 \centering
@@ -3010,47 +2995,47 @@ mit $d_{ik} = a_{i1} \cd b_{1k} +  a_{i2} \cd b_{2k} + \ldots +  a_in \cd b_{nk}
 \begin{tikzpicture}[>=latex]
 % les matrices
 \matrix (A) [matrix of math nodes,%
-             nodes = {node style ge},%
-             left delimiter  = (,%
-             right delimiter = )] at (0,0)
+         nodes = {node style ge},%
+         left delimiter  = (,%
+         right delimiter = )] at (0,0)
 {%
-  a_{11} & a_{12} & \ldots & a_{1p}  \\
-  |[node style sp]| a_{21}%
-         & |[node style sp]| a_{22}%
-                  & \ldots%
-                           & |[node style sp]| {a_{2p}}; \\
-  \vdots & \vdots & \ddots & \vdots  \\
-  a_{n1} & a_{n2} & \ldots & a_{np}  \\
+a_{11} & a_{12} & \ldots & a_{1p}  \\
+|[node style sp]| a_{21}%
+     & |[node style sp]| a_{22}%
+              & \ldots%
+                       & |[node style sp]| {a_{2p}}; \\
+\vdots & \vdots & \ddots & \vdots  \\
+a_{n1} & a_{n2} & \ldots & a_{np}  \\
 };
 \node [draw,below=10pt] at (A.south) 
-    { $A$ : \textcolor{red}{$n$ Reihen} $p$ Spalten};
+{ $A$ : \textcolor{red}{$n$ Reihen} $p$ Spalten};
 
 \matrix (B) [matrix of math nodes,%
-             nodes = {node style ge},%
-             left delimiter  = (,%
-             right delimiter =)] at (6*\myunit,6*\myunit)
+         nodes = {node style ge},%
+         left delimiter  = (,%
+         right delimiter =)] at (6*\myunit,6*\myunit)
 {%
-  b_{11} & |[node style sp]| b_{12}%
-                  & \ldots & b_{1q}  \\
-  b_{21} & |[node style sp]| b_{22}%
-                  & \ldots & b_{2q}  \\
-  \vdots & \vdots & \ddots & \vdots  \\
-  b_{p1} & |[node style sp]| b_{p2}%
-                  & \ldots & b_{pq}  \\
+b_{11} & |[node style sp]| b_{12}%
+              & \ldots & b_{1q}  \\
+b_{21} & |[node style sp]| b_{22}%
+              & \ldots & b_{2q}  \\
+\vdots & \vdots & \ddots & \vdots  \\
+b_{p1} & |[node style sp]| b_{p2}%
+              & \ldots & b_{pq}  \\
 };
 \node [draw,above=10pt] at (B.north) 
-    { $B$ : $p$ Reihen \textcolor{red}{$q$ Spalten}};
+{ $B$ : $p$ Reihen \textcolor{red}{$q$ Spalten}};
 % matrice rÃƒÂ©sultat
 \matrix (C) [matrix of math nodes,%
-             nodes = {node style ge},%
-             left delimiter  = (,%
-             right delimiter = )] at (6*\myunit,0)
+         nodes = {node style ge},%
+         left delimiter  = (,%
+         right delimiter = )] at (6*\myunit,0)
 {%
-  c_{11} & c_{12} & \ldots & c_{1q} \\
-  c_{21} & |[node style sp,red]| c_{22}%
-                  & \ldots & c_{2q} \\
-  \vdots & \vdots & \ddots & \vdots \\
-  c_{n1} & c_{n2} & \ldots & c_{nq} \\
+c_{11} & c_{12} & \ldots & c_{1q} \\
+c_{21} & |[node style sp,red]| c_{22}%
+              & \ldots & c_{2q} \\
+\vdots & \vdots & \ddots & \vdots \\
+c_{n1} & c_{n2} & \ldots & c_{nq} \\
 };
 % les fleches
 \draw[blue] (A-2-1.north) -- (C-2-2.north);
@@ -3058,18 +3043,18 @@ mit $d_{ik} = a_{i1} \cd b_{1k} +  a_{i2} \cd b_{2k} + \ldots +  a_in \cd b_{nk}
 \draw[blue] (B-1-2.west)  -- (C-2-2.west);
 \draw[blue] (B-1-2.east)  -- (C-2-2.east);
 \draw[<->,red](A-2-1) to[in=180,out=90]
-    node[arrow style mul] (x) {$a_{21}\times b_{12}$} (B-1-2);
+node[arrow style mul] (x) {$a_{21}\times b_{12}$} (B-1-2);
 \draw[<->,red](A-2-2) to[in=180,out=90]
-    node[arrow style mul] (y) {$a_{22}\times b_{22}$} (B-2-2);
+node[arrow style mul] (y) {$a_{22}\times b_{22}$} (B-2-2);
 \draw[<->,red](A-2-4) to[in=180,out=90]
-    node[arrow style mul] (z) {$a_{2p}\times b_{p2}$} (B-4-2);
+node[arrow style mul] (z) {$a_{2p}\times b_{p2}$} (B-4-2);
 \draw[red,->] (x) to node[arrow style plus] {$+$} (y)%
-                  to node[arrow style plus] {$+\raisebox{.5ex}{\ldots}+$} (z)%
-                  to (C-2-2.north west);
+              to node[arrow style plus] {$+\raisebox{.5ex}{\ldots}+$} (z)%
+              to (C-2-2.north west);
 
 
 \node [draw,below=10pt] at (C.south) 
-    {$ C=A\times B$ : \textcolor{red}{$n$ Zeilen}  \textcolor{red}{$q$ Spalten}};
+{$ C=A\times B$ : \textcolor{red}{$n$ Zeilen}  \textcolor{red}{$q$ Spalten}};
 
 \end{tikzpicture}
 \end{figure}
@@ -3636,27 +3621,27 @@ Addition von Spaltenvektoren entspricht der Addition von Ortsvektoren entspreche
 \centering
 \caption{Vektoraddition durch Parallelogrammbildung}
 \begin{tikzpicture}
-    \begin{axis}[
-    axis x line=center,
-    axis y line=center,
-    axis equal,
-    ymin = -1,
-    xmin = -3,
-    ymax = 7,
-    xmax = 5.5,
-    xtick ={4},
-    xticklabels={a},
-    ytick ={1},
-    yticklabels={b}]
-    \addplot [black, mark = *, nodes near coords=,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
-       \draw[->](axis cs:0,0)--(axis cs:3.88,2.88);
-           \addplot [black, mark = *, nodes near coords=,every node near coord/.style={anchor=0}] coordinates {( -1, 1)};
-                  \draw[->](axis cs:0,0)--(axis cs:-0.88,0.88);
+\begin{axis}[
+axis x line=center,
+axis y line=center,
+axis equal,
+ymin = -1,
+xmin = -3,
+ymax = 7,
+xmax = 5.5,
+xtick ={4},
+xticklabels={a},
+ytick ={1},
+yticklabels={b}]
+\addplot [black, mark = *, nodes near coords=,every node near coord/.style={anchor=180}] coordinates {( 4, 3)};
+   \draw[->](axis cs:0,0)--(axis cs:3.88,2.88);
+       \addplot [black, mark = *, nodes near coords=,every node near coord/.style={anchor=0}] coordinates {( -1, 1)};
+              \draw[->](axis cs:0,0)--(axis cs:-0.88,0.88);
 \addplot [black, mark = *, nodes near coords=,every node near coord/.style={anchor=0}] coordinates {( 3, 4)};
-    \addplot[mark=none, black] coordinates {(-1,1) (3,4)};
-    \addplot[mark=none, black] coordinates {(3,4) (4,3)};
-    \draw[-> ,red](axis cs:0,0)--(axis cs:2.95,3.88);
-    \end{axis}
+\addplot[mark=none, black] coordinates {(-1,1) (3,4)};
+\addplot[mark=none, black] coordinates {(3,4) (4,3)};
+\draw[-> ,red](axis cs:0,0)--(axis cs:2.95,3.88);
+\end{axis}
 \end{tikzpicture}\end{figure}
 Multiplikation mit Skalaren a :\\ Streckung (falls $\abs{a} > 1$)\\ Stauchung (falls $0 \ge \abs{a} \ge 1$)\\
 Richtungspunkt, falls $a < 0$
