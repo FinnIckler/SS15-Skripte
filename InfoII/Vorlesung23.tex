@@ -86,5 +86,17 @@ Auswertung eines arithmetischen Ausdrucks e (unter Dictionary d)
 \begin{enumerate}[(E1)]
 \i \lstinline|((eval d) c)| = c \hfill Konstante
 \i \lstinline[mathescape]|((eval $\{ x_1\rightarrow v_1\ldots x_n\rightarrow v_n \})x_i$)| = $v_i$ \hfill $x_i$ Variable
-\i \ldots
+\i \lstinline[mathescape]|((eval d) $e_1$ $e_2$ $\ldots$ $e_n$)| = \lstinline[mathescape]|(...((eval d) $e_1$) ((eval d) $e_2$) ... ((eval d) $e_n$))|
 \end{enumerate}
+%TODO Graphisch (e1 e2)
+\begin{lstlisting}
+(: eval ((dict-of symbol) %a -> (arith %b)))
+(define eval
+  (lambda (d)
+    (lambda (e)
+      (cond ((constant? e)e)
+            ((variable? e)(lookup-dict d e))
+            ((compound? e)
+              (let ((es (map (eval d) e)))
+                (foldl (first es) (lambda (f x) (f x))) (rest es))))))))
+\end{lstlisting}

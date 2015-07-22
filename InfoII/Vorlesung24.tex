@@ -1,0 +1,47 @@
+Das \emph{$\lambda$-Kalkül} ist eine Notation für beliebige (berechenbare) Funktionen : Entwickelt in den 1930er Jahren von Alonzo Church (*1903  \dagger1995) als neue Grundlage der Mathematik. Seither verwendet als Theoretischer Unterbau von Programmiersprachen.\\
+\emph{Syntax des $\lambda$-Kalküls}\\
+Die Menge der Ausdrücke (expressions) E des $\lambda$-Kalküls ist induktiv definiert. Sei V eine unendliche Menge an Variablennamen
+\begin{enumerate}[-]
+\item $\forall v \in V : v \in E$ \hfill $[$Variablen$]$
+\item $\forall e_1,e_2 \in E:$ \lstinline[mathescape]|($\underset{\text{Funktion}}{e_1}\ \underset{\text{Argument}}{e_2})$| $\in E$ \hfill$[$Applikation$]$
+\item $\forall v \in V, e_1 \in E :$ \lstinline[mathescape]|($\lambda$ $\underset{\text{Parameter}}{v}$ $\underset{\text{body}}{e_1}$)| $\in E$ \hfill $[$Abstraktion$]$
+\end{enumerate}
+\emph{Beispiele}:\\
+$y \in E$\\
+\lstinline[mathescape]|($\lambda$ y y)| $\in E$ Identitätsfunktion\\
+\lstinline[mathescape]|($\lambda$ y z)| $\in E$ Funktion ignoriert y,liefert z\\
+\lstinline[mathescape]|((f x)y)| $\in E$ Currying\\
+\lstinline[mathescape]|($\lambda$ f (f x))| $\in E$ Anwendung von Funktion f auf x (H.O.P)\\
+\emph{Abkürzungen}:\\
+\lstinline[mathescape]|(..(($e_1$ $e_2$) $e_3$)... $e_n$)| $\equiv$ \lstinline[mathescape]|($e_1$ $e_2$ ... $e_n$|\\
+\lstinline|(f x y)| $\equiv$ \lstinline|((f x) y)|
+\rackett{Implementation des lambda Kalküls}{Das Lambda Kalkül durch Schemes Quote Technik implementiert}{lambdacalc}{127}{217}
+\emph{Freie/Gebundene Variablen}\\
+Zur Auswertung von $E_1 \equiv$ \lstinline[mathescape]|(($\lambda$ x (f x y)) z)|
+\begin{enumerate}[-]
+\item wird der hier nicht bekannte Wert von Variablen f,y,z benötigt, während
+\item der Wert von x im Rumpf \lstinline|(f x y)| durch das Argument z festgelegt ist.
+\end{enumerate}
+in $E_2$ ist
+\begin{enumerate}[-]
+\item Variable x (durch das \lstinline[mathescape]|$\lambda$ x|) als Parameter \emph{gebunden}, während
+\item Variablen f,y,z \emph{frei} sind
+\end{enumerate}
+Welche Variablen eines Ausdrucks sind frei/gebunden?\\
+free(v) = $\{v\}$\\
+free(\lstinline[mathescape]|($e_1$ $e_2$)|) = free(\lstinline[mathescape]|$e_1$|) $\cup$ free(\lstinline[mathescape]|$e_2$|)\\
+free(\lstinline[mathescape]|($\lambda$ v $e_1$)|) = free(\lstinline[mathescape]|$e_1$|)$\setminus$\{ v \}\\
+bound(v) = $\varnothing$\\
+bound(\lstinline[mathescape]|($e_1$ $e_2$)|) = bound(\lstinline[mathescape]|$e_1$|) $\cup$ bound(\lstinline[mathescape]|$e_2$|)\\
+bound(\lstinline[mathescape]|($\lambda$ v $e_1$)|) = bound(\lstinline[mathescape]|$e_1$|)$\cup$\{ v \}\\
+\emph{Beispiel}\\
+\reversemarginpar{Klausur}$\begin{cases}
+\text{free}(E_1) &= \{fyz\}\\
+\text{bound}(E_1)&= \{x\}
+\end{cases}$\\
+\emph{Achtung:}
+Bindung/Freiheit muss für jedes Vorkommen separat entschieden werden.\\
+$E_2\equiv$ \lstinline[mathescape]|($x_1$($\lambda$ $x_2$ $x_2$))|\\
+free($E_2$) = \{x\}\\
+bound($E_2$) = \{x\}
+\rackett{Freie und gebundene Variablen im lambda Kalkül}{Prozeduren die herausfinden ob Variablen frei oder gebunden sind}{lambdacalc}{219}{256}

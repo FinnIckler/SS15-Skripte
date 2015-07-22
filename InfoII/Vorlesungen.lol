@@ -56,3 +56,5 @@
 \contentsline {lstlisting}{\numberline {49}Huffman-Code Encode}{88}{lstlisting.49}
 \contentsline {lstlisting}{\numberline {50}Erzeugen eines Huffman-Trees}{90}{lstlisting.50}
 \contentsline {lstlisting}{\numberline {51}Ausdruck Arithmetischer Ausdrucke mittels Quote}{95}{lstlisting.51}
+\contentsline {lstlisting}{\numberline {52}Implementation des lambda Kalküls}{98}{lstlisting.52}
+\contentsline {lstlisting}{\numberline {53}Freie und gebundene Variablen im lambda Kalkül}{101}{lstlisting.53}
