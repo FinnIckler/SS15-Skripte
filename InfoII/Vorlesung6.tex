@@ -1,5 +1,6 @@
-\underline{Zusammengesetze Daten}\\
-Ein Charakter \underline{besteht} aus drei \underline{Komponenten}\\
+\lstinputlisting[firstline=100,lastline=103]{Record-Definitionen.rkt}
+\emph{Zusammengesetze Daten}\\
+Ein Charakter \emph{besteht} aus drei \emph{Komponenten}\\
 \begin{tabular}{clcl}
 - & Name des Charakters &(name)\rdelim\}{3}{0mm}
 [Datendefinition für zusammengesetzte Daten]\\
@@ -16,13 +17,13 @@ jedi? & \#f \\
 force & 25 \\
 \hline
 \end{tabular}\\
-\racket{Record Definitionen}{Starwars Charakter als Racket Records}{records}
-Zusammengesetzte Daten = \underline{Records} in Scheme Record-Definition legt fest:\\
+\rackett{Record Definitionen}{Starwars Charakter als Racket Records}{Record-Definitionen}{4}{28}
+Zusammengesetzte Daten = \emph{Records} in Scheme Record-Definition legt fest:\\
 \begin{tabular}{cll}
 - & Record-Signatur\\
-- & \underline{Konstruktor} & (baut aus Komponenten einen Record)\\
+- & \emph{Konstruktor} & (baut aus Komponenten einen Record)\\
 - & Prädikat & (liegt ein Record vor?)\\
-- & Liste von \underline{Selektoren}& (lesen jeweils eine Komponente des Records)
+- & Liste von \emph{Selektoren}& (lesen jeweils eine Komponente des Records)
 \end{tabular}\\
 \begin{lstlisting}
 (define-record-procedure <t>
@@ -54,10 +55,10 @@ Spezialform check-property:\\
 ;Bezieht sich auf <id1> ... <idn>	
 \end{lstlisting}
 Test erfolgreich, falls \arge{} für beliebig gewählte Bedeutungen für \argid{1} $\ldots$ \argid{n} immer \#t ergibt\\
-\racket{Check-property}{Interaktion von Selektoren und Konstruktor:}{checkproperty}
-\underline{Beispiel:} Die Summe von zwei natürlichen Zahlen ist mindestens so gro\ss \ wie jeder dieser Zahlen: $ \forall x_1 \in \mathbb{N}, x_2 \in \mathbb{N} : x_1 + x_2 \geq \max\{x_1,x_2\}$
-\lstinputlisting[frame=single,literate={ü}{{\"u}}1,caption={[Übersetzung mathematischer Aussagen in check-property]Mathematische $\forall$-Aussage in Racket}]{forall.rkt}
-Konstruktion von Funktionen, die bestimmte gesetzte Daten \underline{konsumiert}.\\
+\rackett{Check-property}{Interaktion von Selektoren und Konstruktor:}{Record-Definitionen}{35}{54}
+\emph{Beispiel:} Die Summe von zwei natürlichen Zahlen ist mindestens so gro\ss \ wie jeder dieser Zahlen: $ \forall x_1 \in \mathbb{N}, x_2 \in \mathbb{N} : x_1 + x_2 \geq \max\{x_1,x_2\}$
+\rackett{Übersetzung mathematischer Aussagen in check-property}{Mathematische $\forall$-Aussage in Racket}{Record-Definitionen}{57}{61}
+Konstruktion von Funktionen, die bestimmte gesetzte Daten \emph{konsumiert}.\\
 \begin{enumerate}[-]
 \i Welche Record-Componenten sind relevant für Funktionen?
 \begin{enumerate}[$\rightarrow$]
@@ -70,8 +71,8 @@ Konstruktion von Funktionen, die bestimmte gesetzte Daten \underline{konsumiert}
     ... (character-force c) )...))
 \end{lstlisting}
 \end{enumerate}
-Konstruktion von Funktionen, die zusammengesetzte Daten \underline{konstruieren}
-\i Der konstruktor \underline{muss} aufgerufen werden
+Konstruktion von Funktionen, die zusammengesetzte Daten \emph{konstruieren}
+\i Der konstruktor \emph{muss} aufgerufen werden
 \begin{enumerate}[$\rightarrow$]
 \i Schablone:
 \begin{lstlisting}
@@ -81,5 +82,5 @@ Konstruktion von Funktionen, die zusammengesetzte Daten \underline{konstruieren}
 \end{lstlisting}
 \end{enumerate}
 \i Konkrete Beispiele:
-\racket{Konstruktoren und Selektoren}{Abfragen der Eigenschaften von character Records}{konstruktor}
+\rackett{Konstruktoren und Selektoren}{Abfragen der Eigenschaften von character Records}{Record-Definitionen}{154}{171}
 \end{enumerate}

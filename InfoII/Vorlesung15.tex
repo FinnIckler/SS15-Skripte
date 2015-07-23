@@ -114,7 +114,7 @@ Idee: Ersetze die Listenkonstruktoren \lstinline|make-pair| und \lstinline|empty
 	\node () at (3.85,-3.5) {$z$};
 	\node () at (2.5,-3.5) {$x_n$};
 	\end{tikzpicture}
-\end{minipage}
+\end{minipage}\\
 \lstinline|(foldr z c xs)| wirkt als Spinetransformer
 \begin{itemize}
 	\i[-] \lstinline|empty| \eval z
@@ -134,7 +134,6 @@ Idee: Ersetze die Listenkonstruktoren \lstinline|make-pair| und \lstinline|empty
 	         (foldr z c (rest xs)))))))
 \end{lstlisting}
 Beispiele: Listenreduktion mit \lstinline|foldr|\\
-TODO: Gro\ss es Bild von foldr Funktionen
 \begin{lstlisting}
 (: sum ((list-of number) -> number))
 (define sum(lambda (xs)(foldr 0 + xs)))

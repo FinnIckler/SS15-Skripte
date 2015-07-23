@@ -82,7 +82,7 @@ Induktionsschritt: $\forall n : (P(n) \rightarrow P(n+1))$\\
 \i \lstinline[mathescape]|(if (= $\numrak{n+1}$ 0)1 ... (...))|
 \i \lstinline[]|(if #f|\lstinline| 1 ... (...))|
 \i \ \marginpar{\flushleft \textcolor{red}{Unter der Annahme, dass tatsächlich Subtraktion implementiert ist}} \lstinline[mathescape]|(* $\numrak{n+1}$ (factorial (- $\numrak{n+1}$ 1)))|
-\i \lstinline[mathescape]|(* $\numrak{n+1}$ (factorial (- $\numrak{n}$)))|
+\i \lstinline[mathescape]|(* $\numrak{n+1}$ (factorial $\numrak{n}$))|
 \i[$\overset{iv}{=}$] \lstinline[mathescape]|(* $\numrak{n + 1}$ n!)|
 \i[=]$(n+1)!\ \checkmark$
 \end{enumerate}

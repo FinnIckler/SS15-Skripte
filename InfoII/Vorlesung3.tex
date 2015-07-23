@@ -1,3 +1,4 @@
+\lstinputlisting[firstline=33, lastline=36]{Prozeduren.rkt}
 Eine Signatur pr\"uft, ob ein Name an einen Wert einer angegebenen Sorte (Typ) gebunden wird. Signaturverletzungen werden protokolliert.\\
 \lstinline!(: <id> <signatur>)!\\
 Bereits eingebaute Sinaturen\\
@@ -8,24 +9,23 @@ rational&$\mathbb{Q}$& image\\
 real&$\mathbb{R}$&$\ldots$\\
 number&$\mathbb{C}$
 \end{tabular}\\
-\lstinline!(: ...)! ist eine Spezialform und hat keinen Wert, aber einen Effekt: Signaturpr\"ufung\\
+\lstinline!(: ...)! ist eine Spezialform und hat keinen Wert, aber einen Effekt: Signaturprüfung\\
 \uline{Prozedur Signatur} spezifizieren sowohl Signaturen f\"ur die Parameter $\text{P}_1,\text{P}_2,\ldots\text{P}_n$ als auch den Ergebniswert der Prozedur,\\
 \lstinline[literate=]!(: <Signatur P1> ... <Signatur Pn> -> <Signatur Ergebnis>)!\\
-Prozedur Signaturen werden \underline{bei jeder Anwendung} einer Prozedur auf Verletzung gepr\"uft. \underline{Testf\"alle} dokumentieren das erwartete Ergebnis einer Prozedur f\"ur ausgew\"ahlte Argumente:
+Prozedur Signaturen werden \emph{bei jeder Anwendung} einer Prozedur auf Verletzung gepr\"uft. \emph{Testf\"alle} dokumentieren das erwartete Ergebnis einer Prozedur f\"ur ausgew\"ahlte Argumente:
 \begin{center}
 \lstinline[literate=]!(check-expect <e1> <e2>)!\end{center}
 Werte Ausdruck \auf $\text{e}_1$\zu \ aus und teste, ob der erhaltene Wert der Erwartung \auf $\text{e}_2$\zu \ entspricht (= der Wert von \auf $\text{e}_2$\zu) \
 Einer Prozedur sollte Testf\"alle direkt vorangestellt werden.\\
-Spezialform: kein Wert, sondern Effekt: Testverletzung protokollieren
-\bigskip\\
-\underline{Konstruktionsanleitung f\"ur Prozeduren:}
+Spezialform: kein Wert, sondern Effekt: Testverletzung protokollieren\\
+\emph{Konstruktionsanleitung f\"ur Prozeduren:}
 \begin{enumerate}
 \item[(1)]Kurzbeschreibung (ein- bis zweizeiliger Kommentar mit Bezug auf Parametername)
 \item[(2)]Signaturen
 \item[(3)]Testf\"alle
 \item[(4)]Prozedurrumpf
 \end{enumerate}
-\underline{Top-Down-Entwurf} (Programmieren durch ``Wunschdenken``)\\
+\emph{Top-Down-Entwurf} (Programmieren durch ``Wunschdenken``)\\
 Beispiel: Zeichne Ziffernblatt (Stunden- und Minutenzeiger) zu Uhrzeit h:m auf einer analogen 24h-Uhr\\
 \begin{tikzpicture}
     \begin{axis}[
@@ -50,4 +50,4 @@ Beispiel: Zeichne Ziffernblatt (Stunden- und Minutenzeiger) zu Uhrzeit h:m auf e
   Minutenzeiger legt $\frac{360^{\circ}}{60}$ Grad pro Minute zur\"uck (also $\frac{360}{60} \cdot m$)\\
   Studentenzeiger legt $\frac{360}{12}$ pro Stunde zur\"uck
  ($\frac{360}{12} \cdot h +\frac{360}{12} \cdot \frac{m}{60}$)
- \rackett{Bilderzusammenstellung am Beispiel einer Uhr}{Bauen der Uhr durch Top Down Entwurf}{Uhr}{4}{45}
+ \rackett{Bilderzusammenstellung am Beispiel einer Uhr}{Bauen der Uhr durch Top Down Entwurf}{Prozeduren}{44}{87}

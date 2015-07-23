@@ -1,34 +1,9 @@
+
 Auswertung \underline{zusammengesetzter Ausdr\"ucke} in mehreren Schritten (Steps), von ``innen nach au\ss en``, bis keine Reduktion mehr m\"oglich ist.\\
 \begin{lstlisting}
 (+ ( @\uwave{(+ 20 20)}@ (+ 1 1)) @\eval@ (+ 40 @\uwave{(+ 1 1)}@ @\eval@ (+ 40 2) @\eval@  42 
 \end{lstlisting}
-\begin{mdframed}
-\begin{SCodeFlow}\begin{RktBlk}\begin{SingleColumn}\RktCmt{;}\RktCmt{~}\RktCmt{Achtung{\hbox{\texttt{:}}} Arithmetik mit Fliesskommazahlen (real) unterliegt Rundung{\hbox{\texttt{!}}}}
-
-\RktPn{(}\RktSym{+}\mbox{\hphantom{\Scribtexttt{x}}}\RktVal{0{\hbox{\texttt{.}}}7}
-
-\mbox{\hphantom{\Scribtexttt{xxx}}}\RktPn{(}\RktSym{\mbox{{-}}}\mbox{\hphantom{\Scribtexttt{x}}}\RktPn{(}\RktSym{/}\mbox{\hphantom{\Scribtexttt{x}}}\RktVal{1/2}\mbox{\hphantom{\Scribtexttt{x}}}\RktVal{0{\hbox{\texttt{.}}}25}\RktPn{)}
-
-\mbox{\hphantom{\Scribtexttt{xxxxxx}}}\RktPn{(}\RktSym{/}\mbox{\hphantom{\Scribtexttt{x}}}\RktVal{0{\hbox{\texttt{.}}}6}\mbox{\hphantom{\Scribtexttt{x}}}\RktVal{0{\hbox{\texttt{.}}}3}\RktPn{)}\RktPn{)}\RktPn{)}
-
-\mbox{\hphantom{\Scribtexttt{x}}}
-
-\RktPn{(}\RktSym{\mbox{{-}}}\mbox{\hphantom{\Scribtexttt{x}}}\RktPn{(}\RktSym{+}\mbox{\hphantom{\Scribtexttt{x}}}\RktVal{0{\hbox{\texttt{.}}}7}
-
-\mbox{\hphantom{\Scribtexttt{xxxxxx}}}\RktPn{(}\RktSym{/}\mbox{\hphantom{\Scribtexttt{x}}}\RktVal{1/2}\mbox{\hphantom{\Scribtexttt{x}}}\RktVal{0{\hbox{\texttt{.}}}25}\RktPn{)}\RktPn{)}
-
-\mbox{\hphantom{\Scribtexttt{xxx}}}\RktPn{(}\RktSym{/}\mbox{\hphantom{\Scribtexttt{x}}}\RktVal{0{\hbox{\texttt{.}}}6}\mbox{\hphantom{\Scribtexttt{x}}}\RktVal{0{\hbox{\texttt{.}}}3}\RktPn{)}\RktPn{)}
-
-\mbox{\hphantom{\Scribtexttt{x}}}
-
-\RktCmt{;}\RktCmt{~}\RktCmt{Arithmetik mit rationalen Zahlen (rational) ist exakt}
-
-\RktPn{(}\RktSym{\mbox{{-}}}\mbox{\hphantom{\Scribtexttt{x}}}\RktPn{(}\RktSym{+}\mbox{\hphantom{\Scribtexttt{x}}}\RktVal{7/10}
-
-\mbox{\hphantom{\Scribtexttt{xxxxxx}}}\RktPn{(}\RktSym{/}\mbox{\hphantom{\Scribtexttt{x}}}\RktVal{1/2}\mbox{\hphantom{\Scribtexttt{x}}}\RktVal{1/4}\RktPn{)}\RktPn{)}
-
-\mbox{\hphantom{\Scribtexttt{xxx}}}\RktPn{(}\RktSym{/}\mbox{\hphantom{\Scribtexttt{x}}}\RktVal{3/5}\mbox{\hphantom{\Scribtexttt{x}}}\RktVal{3/10}\RktPn{)}\RktPn{)}\end{SingleColumn}\end{RktBlk}\end{SCodeFlow}
-\end{mdframed}
+\rackett{Arithmetik mit Flie\ss kommazahlen}{\textbf{Achtung:} Scheme rundet bei Arithmetik mit Flie\ss kommazahlen (interne Darstellung ist binär}{Grundlagen}{4}{17}
 Ein Wert kann an einen \underline{Namen} (auch \underline{Identifier}) gebunden werden, durch \\
 \lstinline!(define <id> <e>)! \hspace*{1.5cm} \auf id\zu Identifier \ \auf e\zu Ausdruck\\
 Erlaubte konsistente Wiederverwendung, dient der Selbstdokumentation von Programmen\\

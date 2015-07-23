@@ -40,17 +40,16 @@ Eine Antwort des Geocoders ist \underline{entweder}\\
 \i ein Geocode (geocode) \underline{oder}
 \i eine Fehlermeldung (geocode-error)
 \end{enumerate}
-Beispiel (eingebaute Funktion string-\zu number)
-{\centering
+Beispiel (eingebaute Funktion \lstinline|string->number|)
 \begin{lstlisting}
 (: string->number (string -> (mixed number (one-of #f))))
 (string->number "42") @\eval@ 42
 (string-> number "foo") @\eval@ #f
-\end{lstlisting}}
+\end{lstlisting}
 \lstinputlisting[literate={ü}{{\"u}}1 {ä}{{\"a}}1,frame=single,caption={[Geocoding] Die Google Geocode API}]{geocoding.rkt}
 Erinnerung:\\
 Das Prädikat \argt{}? einer Signatur \argt{} unterscheidet Werte der Signatur \argt{} von allen anderen Werten:\\
-\lstinline!(: @\argt{}@? (any -> boolean))!\\
+\lstinline[mathescape]!(: $\text{\argt{}}$? (any -> boolean))!\\
 Auch: Prädikat für eingebaute Signaturen
 \begin{lstlisting}
 number?
