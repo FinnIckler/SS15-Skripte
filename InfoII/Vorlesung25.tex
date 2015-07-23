@@ -1,0 +1,59 @@
+Die Anwendung einer Funktion ($\lambda$- Abstraktion) auf ein Argument wird im $\lambda$-Kalkül durch \b-Reduktion (\beval) beschrieben. Die Applikation \lstinline[mathescape]|(($\lambda$ v$e_1$)$e_2$)| wird durchgeführt indem
+\begin{enumerate}[(1)]
+\item Eine Kopie vom Rumpf $e_1$ hergestellt wird und
+\item alle \emph{freien} Vorkommen von v in $e_1$ durch $e_2$ ersetzt werden
+\end{enumerate}
+Beispiele:\\
+\begin{enumerate}[a)]
+\item\lstinline[mathescape]|(($\la$ x $\underbrace{\text{(* ((}\la\ \overbracket{x\ (+\ x}^{\text{gebunden}}\text {a))b)x))}}_{\text{Rumpf}}$c)|
+\begin{enumerate}[\beval]
+\i \lstinline[mathescape]|(* (($\la$ x (+ x a))b)c)|
+\i \lstinline[mathescape]|(* (+ b a) c)|
+\end{enumerate}
+\item\lstinline[mathescape]|(($\la$ x foo)bar)|\\
+\beval \lstinline|foo|\\
+\item\lstinline[mathescape]|(($\la$ x ((($\la$ y (* x y))a))b))|
+\begin{enumerate}[\beval]
+\i \lstinline[mathescape]|($\la$ y (* b y)a)|
+\i \lstinline|(* b a)|
+\end{enumerate}
+\item \lstinline[mathescape]|(($\la$ f (f c))($\la$ x (+ x a)))|
+\begin{enumerate}[\beval]
+\i \lstinline[mathescape]|(($\la$ x (+ x a))c)|
+\i \lstinline|(+ c a)|
+\end{enumerate}
+\item \lstinline[mathescape]|(($\underbrace{\text{(\l x (\l y x))}}_{\substack{\text{K, ignoriert}\\\text{zweites Argument}}}\underbrace{\text{(\l z y)}}_{\substack{\text{ignoriere Argument,}\\\text{liefere y}}}\lightning$)a)|
+\begin{enumerate}[\beval]
+\item \lstinline[mathescape]|((($\la\overbracket{\text{y (\l x y}}$))$\lightning$)a)|?
+\item \lstinline[mathescape]|(($\la$ x $\lightning$)a)|\quad \parbox{.5\textwidth}{Problem : freies y ''wandert'' unter das $\lambda$ y und wird damit gebunden :-(}
+\item \lstinline[mathescape]|$\lightning$|
+\end{enumerate}
+\end{enumerate}
+\emph{Definition \b-Reduktion} \lstinline[mathescape]|(($\la$ x e)a)|\beval e\breds \hfil \parbox{5cm}{\glqq Ersetze freie Vorkommen von x in e durch a\grqq}
+\begin{enumerate}[($\rightarrowtail 1$)]
+\item x\breds = a
+\item v\breds = v
+\item \lstinline[mathescape]|($e_1\ e_2$)|\breds = \lstinline[mathescape]|($e_1\text{\breds}\  e_2\text{\breds}$)|
+\item \lstinline[mathescape]|($\la$ x e)|\breds = \lstinline[mathescape]|($\la$ x e)|
+\item \raisebox{-0.5cm}{\lstinline[mathescape]|($\la$ v e)|\breds =$\begin{cases}
+\text{\lstinline[mathescape]|($\la$ v e$\breds$)|}&\text{wenn v nicht frei in a ist}\\
+\text{\lstinline[mathescape]|($\la$ z e$\bred{v}{z}$)$\breds$|}&\text{sonst, z neuer Name}
+\end{cases}$}
+\item
+\end{enumerate}
+\emph{Beispiel \b-Reduktion}
+\lstinline[mathescape]|($\underbrace{\text{((\l x (\l y x)) (\l z y)} }_{\text{Redex}}\lightning$)a)|
+\begin{enumerate}[\beval]
+\i \lstinline[mathescape]|((($\la$ y x)$\text{\bred{x}{(\l z y)}})\lightning
+$)a)|
+\i[$\underset{\rightarrowtail 6}{\rightarrow}$] \lstinline[mathescape]|((($\text{\l y' x \bred{y}{y'})\bred{x}{(\l z y)}}\lightning)$a)|
+\i[$\underset{\rightarrowtail 2}{\rightarrow}$] \lstinline[mathescape]|((($\text{\l y' x )\bred{x}{(\l z y)}}\lightning)$a)|
+\i[$\underset{\rightarrowtail 5}{\rightarrow}$] \lstinline[mathescape]|((($\text{\l y' x \bred{x}{(\l z y)}})\lightning)$a)|
+\i[$\underset{\rightarrowtail 1}{\rightarrow}$] \lstinline[mathescape]|($\underbrace{\text{((\l y'(\l z y))}\lightning)}_{\text{Redex}}$a)|
+\item \lstinline[mathescape]|(($\la$ z y)$\text{\bred{y'}{\light}}$a)|
+\i[$\underset{\rightarrowtail 5}{\rightarrow}$] \lstinline[mathescape]|(($\la$ z y)$\text{\bred{y'}{\light}}$a)|
+\i[$\underset{\rightarrowtail 2}{\rightarrow}$] \lstinline[mathescape]|$\underbrace{\text{((\l z y)a)}}_{}$|
+\item \lstinline[mathescape]|$y\bred{z}{a}$|
+\i[$\underset{\rightarrowtail 2}{\rightarrow}$] \lstinline|y|
+\end{enumerate}
+\rackett{\b-Reduktion}{Beta Reduktion}{lambdacalc}{272}{341}
