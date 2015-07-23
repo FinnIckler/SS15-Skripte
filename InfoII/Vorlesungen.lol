@@ -58,3 +58,4 @@
 \contentsline {lstlisting}{\numberline {51}Ausdruck Arithmetischer Ausdrucke mittels Quote}{95}{lstlisting.51}
 \contentsline {lstlisting}{\numberline {52}Implementation des lambda Kalküls}{98}{lstlisting.52}
 \contentsline {lstlisting}{\numberline {53}Freie und gebundene Variablen im lambda Kalkül}{101}{lstlisting.53}
+\contentsline {lstlisting}{\numberline {54}$\beta $-Reduktion}{104}{lstlisting.54}
