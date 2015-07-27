@@ -1,9 +1,17 @@
 \input{header}
+\title{Mathematik II SS 2015}
+\date{13.4.2015 - 14.7.2015}
+\author{Finn Ickler nach Peter Hauck}
 \hypersetup{%
 pdfborder = {0 0 0}
 }
 \begin{document}
 \resetHeadWidth
+\maketitle
+\vfill
+\thanks{Danke an alle, die mich in diese schweren Zeit unterstützt haben, besonders an den gro\ss artigen Hermann Zapf, der die Font entwickelt hat. Möge er in Frieden ruhen. Ein Matheskript ist die höchste Form um die Kunst den \TeX-en zu lernen. Vielen Dank besonders an die Leute, die mir ihren Aufschrieb zur verfügen gestellt haben, als ich wieder mal zu langsam war live mitzuschreiben (Lea Buchweitz, Jonathan Leistner, Flavia Nährlich, Manuela Weigold, u.v.a).
+Erstellt wurde das Skript mit luatex. Es liegt keine Garantie vor, Fehler können per Github gemeldet werden \\(\verb|www.github.com/FinnIckler/SS15-Skripte|)}. Dieses Skript ist frei verfügbar.
+\newpage
 \tableofcontents
 \listoffigures
 \clearpage
@@ -400,7 +408,7 @@ $\forall \varepsilon > 0 \exists n(\varepsilon) \in \N \forall n \geq n(\varepsi
 c = \lim_{n \Rightarrow \infty} a_n $ (oder einfach $c = \lim a_n$)\\
 c hei\ss t \uline{Grenzwert} (oder Limes) der Folge ($a_n$)\\
 (Grenzwert h\"angt nicht von endlich vielen Anfangsgliedern ab (der Folge))\\
-Eine Folge die gegen 0 konvertiert, hei\ss t \uline{Nullfolge}\\
+Eine Folge die gegen 0 konvergiert, hei\ss t \uline{Nullfolge}\\
 \subsection{Beispiele}\label{sec:2.5}
 \begin{enumerate}
 \item[a)]$r \in \R : a_n = r$ f\"ur alle $n \geq 1$\\
@@ -2094,7 +2102,7 @@ h'(x) = 2 \cd (x^2 + x + 1) \cd (2x + 1)$
 \end{enumerate}
 \subsection[Satz]{Satz}\label{sec:6.7}
 \begin{enumerate}[a)]
-\i $\lim\limits_{x \to 0} \frac{\sin(x)}{1}$
+\i $\lim\limits_{x \to 0} \frac{\sin(x)}{x} = 1$
 \i $\lim\limits_{x \to 0} \frac{1-\cos(x)}{x} = 0$
 \end{enumerate}
 \begin{proof}\ \\
